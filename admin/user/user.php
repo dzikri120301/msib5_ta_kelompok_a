@@ -153,7 +153,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="../komentar/komentar.php">
                             <i class="bi bi-circle"></i><span>Review</span>
                         </a>
                     </li>
