@@ -188,10 +188,12 @@
                     <tbody>
                         <?php
                         if (mysqli_num_rows($query) > 0) {
+                            $no = 1;
                             while ($data = mysqli_fetch_array($query)) {
+
                         ?>
                                 <tr>
-                                    <td> <?php echo $data["id_nama_genre"] ?></td>
+                                    <td> <?php echo $no ?></td>
                                     <td> <?php echo $data["nama_genre"] ?></td>
                                     <td> <a class="btn btn-warning" href="edit.php?id_nama_genre=<?php echo $data["id_nama_genre"] ?>">
                                             <i class="fa-regular fa-pen-to-square"></i></a>
@@ -199,7 +201,7 @@
                                             <i class="fa-solid fa-trash-can"></i> </a>
                                     </td>
                                 </tr>
-                            <?php
+                            <?php $no++;
                             } ?>
                         <?php } ?>
                     </tbody>
