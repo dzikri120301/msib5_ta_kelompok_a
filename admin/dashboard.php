@@ -134,7 +134,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="pemain/pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>
