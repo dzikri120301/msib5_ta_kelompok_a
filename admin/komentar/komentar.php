@@ -132,12 +132,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="film.php">
+                        <a href="../film/film.php">
                             <i class="bi bi-circle"></i><span>Film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="../genre/genre.php">
                             <i class="bi bi-circle"></i><span>Genre Film</span>
                         </a>
                     </li>
@@ -196,7 +196,7 @@
                                     <td> <?php echo $data["nama_film"] ?></td>
                                     <td> <?php echo $data["review"] ?></td>
                                     <td> <?php echo $data["rating"] ?></td>
-                                    <td> <a data-id="<?php echo $data["id"] ?>" class="btn-delete">
+                                    <td> <a data-id="<?php echo $data["id_nama_review"] ?>" class="btn-delete">
                                             <button type="button" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></button>
                                         </a>
                                     </td>
