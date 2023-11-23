@@ -174,7 +174,7 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="genre.php">Data Genre</a></li>
+                        <li class="breadcrumb-item active"><a href="genre.php">Data Admin</a></li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->
