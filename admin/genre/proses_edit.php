@@ -1,5 +1,5 @@
 <?php
-include '../koneksi.php';
+include '../../config/koneksi.php';
 
 $nama_genre = $_POST["nama_genre"];
 

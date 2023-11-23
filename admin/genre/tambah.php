@@ -11,7 +11,7 @@
 
 <body>
     <?php
-    include '../koneksi.php';
+    include '../../config/koneksi.php';
     ?>
 
     <div class="container" style="max-width: 700px; margin-top:150px">

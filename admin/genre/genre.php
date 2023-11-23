@@ -19,7 +19,7 @@
     <!-- Page Content -->
     <div class="container-fluid mt-5 ">
         <?php
-        include "../koneksi.php";
+        include "../../config/koneksi.php";
         $query = mysqli_query($conn, "SELECT * FROM genre ORDER BY id_nama_genre ASC");
         ?>
 
@@ -69,6 +69,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
 
 </body>
 

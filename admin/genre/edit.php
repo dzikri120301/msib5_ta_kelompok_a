@@ -11,7 +11,7 @@
 
 <body>
     <?php
-    include '../koneksi.php';
+    include '../../config/koneksi.php';
 
     $genre = mysqli_query($conn, "SELECT * FROM genre where id_nama_genre='$_GET[id_nama_genre]'");
 
