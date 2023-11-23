@@ -144,7 +144,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="admincineverse/admin.php">
                             <i class="bi bi-circle"></i><span>Admin Cineverse</span>
                         </a>
                     </li>
