@@ -42,27 +42,28 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-    <?php
-    include '../../config/koneksi.php';
+<?php
+include '../../config/koneksi.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Proses tambah pemain di sini
-        $nama_pemain = $_POST["nama_pemain"];
-        $asal = $_POST["asal"];
-        $tgl_lahir = $_POST["tgl_lahir"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Proses tambah pemain di sini
+    $nama_pemain = $_POST["nama_pemain"];
+    $asal = $_POST["asal"];
+    $tgl_lahir = $_POST["tgl_lahir"];
 
-        // Pada bagian ini, Anda perlu menyesuaikan sesuai dengan struktur tabel di config Anda
-        $query_tambah = "INSERT INTO pemain (nama_pemain, asal, tgl_lahir) VALUES ('$nama_pemain', '$asal', '$tgl_lahir')";
+    // Pada bagian ini, Anda perlu menyesuaikan sesuai dengan struktur tabel di config Anda
+    $query_tambah = "INSERT INTO pemain (nama_pemain, asal, tgl_lahir) VALUES ('$nama_pemain', '$asal', '$tgl_lahir')";
 
-        if (mysqli_query($conn, $query_tambah)) {
-            echo "Data pemain berhasil ditambahkan.";
-        } else {
-            echo "Error: " . $query_tambah . "<br>" . mysqli_error($conn);
-        }
+    if (mysqli_query($conn, $query_tambah)) {
+        echo "Data pemain berhasil ditambahkan.";
+    } else {
+        echo "Error: " . $query_tambah . "<br>" . mysqli_error($conn);
     }
-    ?>
+}
+?>
+
 <body>
-    
+
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -146,17 +147,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="film.php">
+                        <a href="../film/film.php">
                             <i class="bi bi-circle"></i><span>film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="./genre/genre.php">
                             <i class="bi bi-circle"></i><span>Genre Film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>
@@ -192,24 +193,24 @@
 
         <section class="section dashboard">
             <div class="container-fluid">
-            <center>
-                        <div class="card text-bg-light mb-3" style="max-width: 50rem;">
-                            <div class="card-header">
-                                <h3>Tambah Pemain</h3>
-                            </div>
-                            <div class="card-body">
-                            <form action="proses_tambah_pemain.php" method="post" enctype="multipart/form-data">
-                                    <input type="text" class="form-control mb-3" placeholder="input nama pemain" name="nama_pemain" id="nama_pemain" required>
-                                    <input type="file" class="form-control mb-3" name="foto">
-                                    <input type="text" class="form-control mb-3" placeholder="asal/tempat tinggal" name="asal" required>
-                                    <input type="date" class="form-control mb-3" placeholder="tanggal lahir" name="tgl_lahir" required>
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <input type="submit" id="submitBtn" value="Submit" class="btn btn-success">
-                                    </div>
-                                </form>
-                            </div>
+                <center>
+                    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+                        <div class="card-header">
+                            <h3>Tambah Pemain</h3>
                         </div>
-                    </center>
+                        <div class="card-body">
+                            <form action="proses_tambah_pemain.php" method="post" enctype="multipart/form-data">
+                                <input type="text" class="form-control mb-3" placeholder="input nama pemain" name="nama_pemain" id="nama_pemain" required>
+                                <input type="file" class="form-control mb-3" name="foto">
+                                <input type="text" class="form-control mb-3" placeholder="asal/tempat tinggal" name="asal" required>
+                                <input type="date" class="form-control mb-3" placeholder="tanggal lahir" name="tgl_lahir" required>
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </center>
             </div>
         </section>
 

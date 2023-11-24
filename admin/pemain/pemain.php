@@ -132,7 +132,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../genre/genre.php">
+                        <a href="../user/user.php">
+                            <i class="bi bi-circle"></i><span>User Cineverse</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="film.php">
+                            <i class="bi bi-circle"></i><span>Film</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
                             <i class="bi bi-circle"></i><span>Genre Film</span>
                         </a>
                     </li>

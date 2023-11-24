@@ -143,6 +143,11 @@
                             <i class="bi bi-circle"></i><span>Review</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="#">
+                            <i class="bi bi-circle"></i><span>Admin Cineverse</span>
+                        </a>
+                    </li>
                 </ul>
             </li><!-- End Forms Nav -->
             <li class="nav-item">
