@@ -45,8 +45,8 @@
 
 <body>
     <?php
-        include '../../config/koneksi.php';
-        $query = mysqli_query($conn, "SELECT * FROM  pemain");
+    include '../../config/koneksi.php';
+    $query = mysqli_query($conn, "SELECT * FROM  pemain");
     ?>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -131,22 +131,22 @@
                         </a>
                     </li>
                     <li>
-                        <a href="film.php">
+                        <a href="../film/film.php">
                             <i class="bi bi-circle"></i><span>Film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="../genre/genre.php">
                             <i class="bi bi-circle"></i><span>Genre Film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="pemain/pemain.php">
+                        <a href="pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="../komentar/komentar.php">
                             <i class="bi bi-circle"></i><span>Review</span>
                         </a>
                     </li>
@@ -178,49 +178,49 @@
                 <a href="tambah_pemain.php" class="btn btn-light" style="margin-bottom:5px"><i class="fa-solid fa-user-plus"></i></a>
                 <table id="data-tabel" class="table table-striped table-bordered">
                     <thead>
-                    <tr>
-                        <th>
-                        No
-                        </th>
-                        <th>
-                        Nama Pemain
-                        </th>
-                        <th>
-                        Gambar
-                        </th>
-                        <th>
-                        Asal
-                        </th>
-                        <th>
-                        Tanggal Lahir
-                        </th>
-                        <th>
-                        Aksi 
-                        </th>
-                    </tr>
+                        <tr>
+                            <th>
+                                No
+                            </th>
+                            <th>
+                                Nama Pemain
+                            </th>
+                            <th>
+                                Gambar
+                            </th>
+                            <th>
+                                Asal
+                            </th>
+                            <th>
+                                Tanggal Lahir
+                            </th>
+                            <th>
+                                Aksi
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <?php
-                    include('../../config/koneksi.php');
+                        <?php
+                        include('../../config/koneksi.php');
 
-                    if (mysqli_num_rows($query) > 0) {
-                      $no = 1;
-                     while ($data = mysqli_fetch_array($query)) {
-                    ?>
-                <tr>
-                    <td><?php echo $no ?></td>
-                    <td><?php echo $data['nama_pemain'] ?></td>
-                    <td><?php echo "<img src='../images/{$data['foto']}' height='200' />"; ?></td>
-                    <td><?php echo $data['asal'] ?></td>
-                    <td><?php echo $data["tgl_lahir"] ?></td>
-                    <td>
-                      <a href="edit_pemain.php?id_aktor=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-warning">Edit</a>
-                      <a href="delete_pemain.php?id_aktor=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-danger">Delete</a>
-                    </td>
-                  </tr>
-                <?php $no++;
-                } ?>
-                 <?php } ?>
+                        if (mysqli_num_rows($query) > 0) {
+                            $no = 1;
+                            while ($data = mysqli_fetch_array($query)) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $no ?></td>
+                                    <td><?php echo $data['nama_pemain'] ?></td>
+                                    <td><?php echo "<img src='../images/{$data['foto']}' height='200' />"; ?></td>
+                                    <td><?php echo $data['asal'] ?></td>
+                                    <td><?php echo $data["tgl_lahir"] ?></td>
+                                    <td>
+                                        <a href="edit_pemain.php?id_aktor=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-warning">Edit</a>
+                                        <a href="delete_pemain.php?id_aktor=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            <?php $no++;
+                            } ?>
+                        <?php } ?>
                     </tbody>
 
                 </table>

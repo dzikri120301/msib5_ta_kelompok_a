@@ -11,7 +11,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="./fontawesome/css/all.css">
-
 </head>
 
 <body>
@@ -41,25 +40,22 @@
                         if (mysqli_num_rows($query) > 0) {
                             while ($data = mysqli_fetch_array($query)) {
                         ?> <tr>
-                        <td> <?php echo $data["id_nama_genre"] ?></td>
-                        <td> <?php echo $data["nama_genre"] ?></td>
-                        <td> <a class="btn btn-warning"
-                                href="edit.php?id_nama_genre=<?php echo $data["id_nama_genre"] ?>">
-                                <i class="fa-solid fa-pen-to-square"></i></a>
-                            <a class="btn btn-danger"
-                                href="proses_delete.php?id_nama_genre=<?php echo $data["id_nama_genre"] ?>"
-                                onclick="return confirm('Yakin Data Akan Dihapus?')">
-                                <i class="fa-solid fa-trash-can"></i> </a>
-                        </td>
-                    </tr>
-                    <?php
+                                <td> <?php echo $data["id_nama_genre"] ?></td>
+                                <td> <?php echo $data["nama_genre"] ?></td>
+                                <td> <a class="btn btn-warning" href="edit.php?id_nama_genre=<?php echo $data["id_nama_genre"] ?>">
+                                        <i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a class="btn btn-danger" href="proses_delete.php?id_nama_genre=<?php echo $data["id_nama_genre"] ?>" onclick="return confirm('Yakin Data Akan Dihapus?')">
+                                        <i class="fa-solid fa-trash-can"></i> </a>
+                                </td>
+                            </tr>
+                        <?php
                             } ?>
                     <?php } ?>
                     <!-- Datatables -->
                     <script>
-                    $(document).ready(function() {
-                        $('#film').DataTable();
-                    });
+                        $(document).ready(function() {
+                            $('#film').DataTable();
+                        });
                     </script>
                 </tbody>
             </table>

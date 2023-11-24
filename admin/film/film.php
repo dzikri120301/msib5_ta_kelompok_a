@@ -67,12 +67,19 @@
 
     // Query untuk menampilkan data film
     $queryFilm = "
-    SELECT f.*, g.nama_genre, p.nama_pemain
+    SELECT f.*, g.nama_genre, p.nama_pemain, IFNULL(avg_rating.avg_rating, 'Belum ada rating') AS avg_rating
     FROM tb_film AS f
     JOIN genre AS g ON f.id_genre = g.id_nama_genre
-    JOIN pemain AS p ON f.id_pemain = p.id_nama_pemain";
+    JOIN pemain AS p ON f.id_pemain = p.id_nama_pemain
+    LEFT JOIN (
+        SELECT id_film, AVG(rating) AS avg_rating
+        FROM komentar
+        GROUP BY id_film
+    ) AS avg_rating ON f.id = avg_rating.id_film";
 
     $resultFilm = mysqli_query($conn, $queryFilm);
+
+
     ?>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -162,12 +169,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="../genre/genre.php">
                             <i class="bi bi-circle"></i><span>Genre Film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="../pemain/pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>
