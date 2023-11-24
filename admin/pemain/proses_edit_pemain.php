@@ -30,6 +30,6 @@
             echo "Error updating player record: " . mysqli_error($conn);
         }
     } else {
-        echo "Invalid request.";
+        echo "gagal request.";
     }
 ?>

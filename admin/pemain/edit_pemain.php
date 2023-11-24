@@ -162,7 +162,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="review.php">
                             <i class="bi bi-circle"></i><span>Review</span>
                         </a>
                     </li>
