@@ -128,22 +128,12 @@
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="../film/film.php">
+                        <a href="film.php">
                             <i class="bi bi-circle"></i><span>Data film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../user/user.php">
-                            <i class="bi bi-circle"></i><span>User Cineverse</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="film.php">
-                            <i class="bi bi-circle"></i><span>Film</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
+                        <a href="../genre/genre.php">
                             <i class="bi bi-circle"></i><span>Genre Film</span>
                         </a>
                     </li>
@@ -172,7 +162,7 @@
                 </ul>
             </li><!-- End Forms Nav -->
             <li class="nav-item">
-                <a class="nav-link" href="admincineverse/admin.php">
+                <a class="nav-link" href="#">
                     <i class="bi bi-grid"></i>
                     <span>Admin Cineverse</span>
                 </a>

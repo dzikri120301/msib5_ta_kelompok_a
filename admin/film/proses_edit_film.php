@@ -19,7 +19,7 @@ if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) { // 
     $result = mysqli_query($conn, "UPDATE `tb_film` set
 `kode_film` = '$kode', 
 `nama_film` = '$film', 
-`gamba` = '$target_file',', 
+`gambar` = '$target_file',', 
 `id_genre` = '$nama_genre', 
 `tahun` = '$tahun', 
 `sinopsis` = '$sinop',

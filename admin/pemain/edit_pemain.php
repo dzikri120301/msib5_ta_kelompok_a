@@ -50,19 +50,20 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-    <?php
-    include '../../config/koneksi.php';
+<?php
+include '../../config/koneksi.php';
 
-    // Fetch player data based on the provided ID
-    $query = mysqli_query($conn, "SELECT * FROM pemain WHERE id_nama_pemain='$_GET[id_nama_pemain]'");
-    while ($data = mysqli_fetch_array($query)) {
-        $id_nama_pemain = $data["id_nama_pemain"];
-        $nama_pemain = $data["nama_pemain"];
-        $file_gambar = $data['foto'];
-        $asal = $data["asal"];
-        $tgl_lahir = $data["tgl_lahir"];
-    }
-    ?>
+// Fetch player data based on the provided ID
+$query = mysqli_query($conn, "SELECT * FROM pemain WHERE id_nama_pemain='$_GET[id_nama_pemain]'");
+while ($data = mysqli_fetch_array($query)) {
+    $id_nama_pemain = $data["id_nama_pemain"];
+    $nama_pemain = $data["nama_pemain"];
+    $file_gambar = $data['foto'];
+    $asal = $data["asal"];
+    $tgl_lahir = $data["tgl_lahir"];
+}
+?>
+
 <body>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -132,23 +133,19 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
+                <a class="nav-link " href="../dashboard.php">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
-                    <i class="bi bi-menu-button-wide"></i><span>Menu</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-menu-button-wide"></i><span>Film</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="../dashboard.php">
-                            <i class="bi bi-circle"></i><span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../user/user.php">
-                            <i class="bi bi-circle"></i><span>User Cineverse</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../film/film.php">
-                            <i class="bi bi-circle"></i><span>film</span>
+                        <a href="film.php">
+                            <i class="bi bi-circle"></i><span>Data film</span>
                         </a>
                     </li>
                     <li>
@@ -157,24 +154,36 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pemain.php">
+                        <a href="../pemain/pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="dashboard.php">
+                    <i class="bi bi-menu-button-wide"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="review.php">
-                            <i class="bi bi-circle"></i><span>Review</span>
+                        <a href="../user/user.php">
+                            <i class="bi bi-circle"></i><span>User Cineverse</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="bi bi-circle"></i><span>Admin Cineverse</span>
+                        <a href="../komentar/komentar.php">
+                            <i class="bi bi-circle"></i><span>Review</span>
                         </a>
                     </li>
                 </ul>
             </li><!-- End Forms Nav -->
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-grid"></i>
+                    <span>Admin Cineverse</span>
+                </a>
+            </li>
         </ul>
-
     </aside><!-- End Sidebar-->
 
     <main id="main" class="main">
@@ -201,17 +210,18 @@
                         <div class="card-body">
                             <h5 class="card-title">Data Pemain</h5>
                             <form action="proses_edit_pemain.php" method="post" enctype="multipart/form-data">
-                            <!-- Add hidden input for player ID -->
-                            <input type="hidden" name="id_nama_pemain" value="<?php echo $id_nama_pemain; ?>">
-                            <input type="text" class="form-control mb-3" placeholder="Input nama pemain" name="nama_pemain" id="nama_pemain" value="<?php echo $nama_pemain; ?>" required>
-                            <input type="file" class="form-control mb-3" name="foto">
-                            <input type="text" class="form-control mb-3" placeholder="Asal/tempat tinggal" name="asal" value="<?php echo $asal; ?>" required>
-                            <input type="date" class="form-control mb-3" placeholder="Tanggal lahir" name="tgl_lahir" value="<?php echo $tgl_lahir; ?>" required>
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <input type="submit" id="submitBtn" value="Update" class="btn btn-success">
-                            </div>
-                        </form>
-                    </div>
+                                <!-- Add hidden input for player ID -->
+                                <input type="hidden" name="id_nama_pemain" value="<?php echo $id_nama_pemain; ?>">
+                                <img class="mb-3" src="<?php echo 'images/' . $file_gambar ?>" width="100">
+                                <input type="text" class="form-control mb-3" placeholder="Input nama pemain" name="nama_pemain" id="nama_pemain" value="<?php echo $nama_pemain; ?>" required>
+                                <input type="file" class="form-control mb-3" name="foto">
+                                <input type="text" class="form-control mb-3" placeholder="Asal/tempat tinggal" name="asal" value="<?php echo $asal; ?>" required>
+                                <input type="date" class="form-control mb-3" placeholder="Tanggal lahir" name="tgl_lahir" value="<?php echo $tgl_lahir; ?>" required>
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <input type="submit" id="submitBtn" value="Update" class="btn btn-success">
+                                </div>
+                            </form>
+                        </div>
                 </center>
                 </table>
             </div>
