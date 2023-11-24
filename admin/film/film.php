@@ -47,32 +47,12 @@
 
     <?php
     include '../../config/koneksi.php';
-    $query = mysqli_query($conn, "SELECT * FROM tb_film as f join genre as g ON f.id_genre = g.id_nama_genre join pemain as p ON f.id_pemain = p.id_nama_pemain join komentar as k ON k.id_film = f.id GROUP BY f.id");
-    // Query untuk menghitung rata-rata rating berdasarkan film
-    $queryRating = "
-    SELECT f.id, AVG(k.rating) AS avg_rating
-    FROM tb_film AS f
-    LEFT JOIN komentar AS k ON f.id = k.id_film
-    GROUP BY f.id";
-
-    $resultRating = mysqli_query($conn, $queryRating);
-
-    // Simpan nilai rata-rata rating ke dalam array asosiatif
-    $averageRatings = [];
-    while ($row = mysqli_fetch_assoc($resultRating)) {
-        $filmId = $row['id'];
-        $avgRating = $row['avg_rating'];
-        $averageRatings[$filmId] = $avgRating;
-    }
-
-    // Query untuk menampilkan data film
-    $queryFilm = "
-    SELECT f.*, g.nama_genre, p.nama_pemain
-    FROM tb_film AS f
-    JOIN genre AS g ON f.id_genre = g.id_nama_genre
-    JOIN pemain AS p ON f.id_pemain = p.id_nama_pemain";
-
-    $resultFilm = mysqli_query($conn, $queryFilm);
+    $query = mysqli_query($conn, "SELECT f.*, g.nama_genre, p.nama_pemain, AVG(k.rating) AS average_rating
+    FROM tb_film as f
+    JOIN genre as g ON f.id_genre = g.id_nama_genre
+    JOIN pemain as p ON f.id_pemain = p.id_nama_pemain
+    LEFT JOIN komentar as k ON f.id = k.id_film
+    GROUP BY f.id");
     ?>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -142,23 +122,19 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
+                <a class="nav-link " href="../dashboard.php">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
-                    <i class="bi bi-menu-button-wide"></i><span>Menu</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-menu-button-wide"></i><span>Film</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="../dashboard.php">
-                            <i class="bi bi-circle"></i><span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../user/user.php">
-                            <i class="bi bi-circle"></i><span>User Cineverse</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="film.php">
-                            <i class="bi bi-circle"></i><span>Film</span>
+                            <i class="bi bi-circle"></i><span>Data film</span>
                         </a>
                     </li>
                     <li>
@@ -167,8 +143,20 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="../pemain/pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="dashboard.php">
+                    <i class="bi bi-menu-button-wide"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="../user/user.php">
+                            <i class="bi bi-circle"></i><span>User Cineverse</span>
                         </a>
                     </li>
                     <li>
@@ -176,15 +164,15 @@
                             <i class="bi bi-circle"></i><span>Review</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="bi bi-circle"></i><span>Admin Cineverse</span>
-                        </a>
-                    </li>
                 </ul>
             </li><!-- End Forms Nav -->
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-grid"></i>
+                    <span>Admin Cineverse</span>
+                </a>
+            </li>
         </ul>
-
     </aside><!-- End Sidebar-->
 
     <main id="main" class="main">
@@ -241,8 +229,6 @@
                         if (mysqli_num_rows($query) > 0) {
                             $no = 1;
                             while ($data = mysqli_fetch_array($query)) {
-                                $filmId = $data["id"];
-                                $rating = isset($averageRatings[$filmId]) ? round($averageRatings[$filmId], 1) : 'Belum ada rating'; // Mengambil nilai rata-rata rating atau menampilkan pesan jika tidak ada rating
                         ?>
                                 <tr>
                                     <td><?php echo $data["kode_film"] ?></td>
@@ -253,10 +239,10 @@
                                     <td><?php echo $data["sinopsis"] ?></td>
                                     <td><?php echo $data["nama_pemain"] ?></td>
                                     <td><?php echo $data["durasi"] ?></td>
-                                    <td><?php echo $rating ?></td>
+                                    <td><?php echo $data["average_rating"] !== null ? number_format($data["average_rating"], 1) : "Belum Ada Rating"; ?></td>
                                     <td><a href="edit_film.php?id=<?php echo $data["id"] ?>"><button type="button" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></button></a>
                                         <br>
-                                        <a data-id="<?php echo $data["id"] ?>" class="btn-delete">
+                                        <a data-id="<?php echo $data["id"] ?>" href="proses_hapus_film.php?id=<?php echo $data["id"] ?>" class="btn-delete">
                                             <button type="button" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></button>
                                         </a>
                                     </td>
@@ -273,7 +259,7 @@
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer fixed-bottom">
+    <footer id="footer" class="footer">
         <div class="copyright">
             &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
         </div>
@@ -314,11 +300,11 @@
                 e.preventDefault(); // Mencegah tindakan asli tautan
 
                 var id = $(this).data('id');
-                var confirmation = confirm("Apakah Anda yakin ingin menghapus produk ini?");
+                var confirmation = confirm("Apakah Anda yakin ingin menghapus film ini?");
 
                 if (confirmation) {
                     // Jika pengguna mengonfirmasi, arahkan ke halaman proses penghapusan
-                    window.location.href = "proses_hapus.php?id=" + id;
+                    window.location.href = "proses_hapus_film.php?id=" + id;
                 } else {
                     // Jika pengguna membatalkan, tidak terjadi apa-apa
                 }

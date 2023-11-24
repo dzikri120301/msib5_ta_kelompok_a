@@ -102,7 +102,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                <a class="dropdown-item d-flex align-items-center" href="login.php">
                                     <i class="bi bi-box-arrow-right"></i>
                                     <span>Sign Out</span>
                                 </a>
@@ -117,60 +117,68 @@
         </header><!-- End Header -->
 
         <!-- ======= Sidebar ======= -->
-        <aside id="sidebar" class="sidebar">
-            <ul class="sidebar-nav" id="sidebar-nav">
-                <li class="nav-item">
-                    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse"
-                        href="dashboard.php">
-                        <i class="bi bi-menu-button-wide"></i><span>Menu</span><i
-                            class="bi bi-chevron-down ms-auto"></i>
-                    </a>
-                    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                        <li>
-                            <a href="../dashboard.php">
-                                <i class="bi bi-circle"></i><span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../user/user.php">
-                                <i class="bi bi-circle"></i><span>User Cineverse</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../film/film.php">
-                                <i class="bi bi-circle"></i><span>Film</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="genre.php">
-                                <i class="bi bi-circle"></i><span>Genre Film</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="bi bi-circle"></i><span>Daftar Pemain</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../komentar/komentar.php">
-                                <i class="bi bi-circle"></i><span>Review</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="bi bi-circle"></i><span>Admin Cineverse</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li><!-- End Forms Nav -->
-            </ul>
-
-        </aside><!-- End Sidebar-->
+    <aside id="sidebar" class="sidebar">
+        <ul class="sidebar-nav" id="sidebar-nav">
+            <li class="nav-item">
+                <a class="nav-link " href="dashboard.php">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse"
+                    href="dashboard.php">
+                    <i class="bi bi-menu-button-wide"></i><span>Film</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="film/film.php">
+                            <i class="bi bi-circle"></i><span>Data film</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="genre/genre.php">
+                            <i class="bi bi-circle"></i><span>Genre Film</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pemain/pemain.php">
+                            <i class="bi bi-circle"></i><span>Daftar Pemain</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse"
+                    href="dashboard.php">
+                    <i class="bi bi-menu-button-wide"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="user/user.php">
+                            <i class="bi bi-circle"></i><span>User Cineverse</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="komentar/komentar.php">
+                            <i class="bi bi-circle"></i><span>Review</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Forms Nav -->
+            <li class="nav-item">
+                <a class="nav-link" href="admincineverse/admin.php">
+                    <i class="bi bi-grid"></i>
+                    <span>Admin Cineverse</span>
+                </a>
+            </li>
+        </ul>
+    </aside><!-- End Sidebar-->
 
         <main id="main" class="main">
 
             <div class="pagetitle">
-                <h1>Data Genre</h1>
+                <h1>Data Admin</h1>
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
@@ -183,8 +191,7 @@
             <!-- Table -->
             <div class="table-responsive mt-4">
                 <table class="table table-striped table-bordered" id="film" class="display" style="width:100%">
-                    <a class="btn btn-info" style="margin-bottom:10px; margin-top:10px" href="tambah.php?"> Tambah Admin
-                    </a>
+                    <a href="tambah.php?" class="btn btn-light" style="margin-bottom:5px"><i class="fa-solid fa-user-plus"></i></a>
                     <thead>
                         <tr>
                             <th>No</th>

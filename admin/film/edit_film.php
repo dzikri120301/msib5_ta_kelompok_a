@@ -190,37 +190,13 @@
                             <h5 class="card-title">Data Film</h5>
                             <?php
                             include '../../config/koneksi.php';
-                            $query = mysqli_query($conn, "SELECT * FROM tb_film as f join genre as g ON f.id_genre = g.id_nama_genre join pemain as p ON f.id_pemain = p.id_nama_pemain join komentar as k ON k.id_film = f.id WHERE f.id = '$_GET[id]'");
-
-                            // Query untuk menghitung rata-rata rating berdasarkan film
-                            $queryRating = "
-                            SELECT f.id, AVG(k.rating) AS avg_rating
-                            FROM tb_film AS f
-                            LEFT JOIN komentar AS k ON f.id = k.id_film
-                            GROUP BY f.id";
-
-                            $resultRating = mysqli_query($conn, $queryRating);
-
-                            // Simpan nilai rata-rata rating ke dalam array asosiatif
-                            $averageRatings = [];
-                            while ($row = mysqli_fetch_assoc($resultRating)) {
-                                $filmId = $row['id'];
-                                $avgRating = $row['avg_rating'];
-                                $averageRatings[$filmId] = $avgRating;
-                            }
-
-                            // Query untuk menampilkan data film
-                            $queryFilm = "
-                            SELECT f.*, g.nama_genre, p.nama_pemain
-                            FROM tb_film AS f
-                            JOIN genre AS g ON f.id_genre = g.id_nama_genre
-                            JOIN pemain AS p ON f.id_pemain = p.id_nama_pemain";
-
-                            $resultFilm = mysqli_query($conn, $queryFilm);
-
+                            $query = mysqli_query($conn, "SELECT f.*, g.nama_genre, p.nama_pemain, AVG(k.rating) AS average_rating
+                            FROM tb_film as f
+                            JOIN genre as g ON f.id_genre = g.id_nama_genre
+                            JOIN pemain as p ON f.id_pemain = p.id_nama_pemain
+                            LEFT JOIN komentar as k ON f.id = k.id_film
+                            WHERE id = '$_GET[id]' GROUP BY f.id");
                             while ($data = mysqli_fetch_array($query)) {
-                                $filmId = $data["id"];
-                                $rating = isset($averageRatings[$filmId]) ? round($averageRatings[$filmId], 1) : 'Belum ada rating'; // Mengambil nilai rata-rata rating atau menampilkan pesan jika tidak ada rating
                                 $id = $data["id"];
                                 $kode = $data["kode_film"];
                                 $film = $data["nama_film"];
@@ -270,7 +246,6 @@
                                     </select>
                                 </div>
                                 <input class="form-control mb-3" type="number" value="<?php echo $durasi ?>" name="durasi" id="durasi">
-                                <input class="form-control mb-3" type="number" readonly value="<?php echo $rating ?>" name="rating" id="rating">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <input type="submit" id="submitBtn" value="Submit" class="btn btn-success">
                                 </div>

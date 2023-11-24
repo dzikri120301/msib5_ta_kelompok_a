@@ -98,7 +98,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="login.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -116,13 +116,19 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
+                <a class="nav-link " href="../dashboard.php">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
-                    <i class="bi bi-menu-button-wide"></i><span>Menu</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-menu-button-wide"></i><span>Film</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="../dashboard.php">
-                            <i class="bi bi-circle"></i><span>Dashboard</span>
+                        <a href="../film/film.php">
+                            <i class="bi bi-circle"></i><span>Data film</span>
                         </a>
                     </li>
                     <li>
@@ -131,12 +137,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../film/film.php">
+                        <a href="film.php">
                             <i class="bi bi-circle"></i><span>Film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../genre/genre.php">
+                        <a href="#">
                             <i class="bi bi-circle"></i><span>Genre Film</span>
                         </a>
                     </li>
@@ -145,20 +151,32 @@
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="dashboard.php">
+                    <i class="bi bi-menu-button-wide"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="#">
-                            <i class="bi bi-circle"></i><span>Review</span>
+                        <a href="../user/user.php">
+                            <i class="bi bi-circle"></i><span>User Cineverse</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="bi bi-circle"></i><span>Admin Cineverse</span>
+                        <a href="../komentar/komentar.php">
+                            <i class="bi bi-circle"></i><span>Review</span>
                         </a>
                     </li>
                 </ul>
             </li><!-- End Forms Nav -->
+            <li class="nav-item">
+                <a class="nav-link" href="admincineverse/admin.php">
+                    <i class="bi bi-grid"></i>
+                    <span>Admin Cineverse</span>
+                </a>
+            </li>
         </ul>
-
     </aside><!-- End Sidebar-->
 
     <main id="main" class="main">
@@ -202,24 +220,25 @@
                     <tbody>
                         <?php
                         include('../../config/koneksi.php');
-                    if (mysqli_num_rows($query) > 0) {
-                      $no = 1;
-                     while ($data = mysqli_fetch_array($query)) {
-                    ?>
-                <tr>
-                    <td><?php echo $no ?></td>
-                    <td><?php echo $data['nama_pemain'] ?></td>
-                    <td><img src="<?php echo "images/".$data['foto']; ?>" height='100' /></td>
-                    <td><?php echo $data['asal'] ?></td>
-                    <td><?php echo $data["tgl_lahir"] ?></td>
-                    <td>
-                      <a href="edit_pemain.php?id_nama_pemain=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-warning">Edit</a>
-                      <a href="delete_pemain.php?id_nama_pemain=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-danger">Delete</a>
-                    </td>
-                  </tr>
-                <?php
-                } ?>
-                 <?php } ?>
+
+                        if (mysqli_num_rows($query) > 0) {
+                            $no = 1;
+                            while ($data = mysqli_fetch_array($query)) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $no ?></td>
+                                    <td><?php echo $data['nama_pemain'] ?></td>
+                                    <td><?php echo "<img src='images/{$data['foto']}' height='200' />"; ?></td>
+                                    <td><?php echo $data['asal'] ?></td>
+                                    <td><?php echo $data["tgl_lahir"] ?></td>
+                                    <td>
+                                        <a href="edit_pemain.php?id_aktor=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-warning">Edit</a>
+                                        <a href="delete_pemain.php?id_aktor=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            <?php $no++;
+                            } ?>
+                        <?php } ?>
                     </tbody>
 
                 </table>
