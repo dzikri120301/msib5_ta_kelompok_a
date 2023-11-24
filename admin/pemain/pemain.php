@@ -228,7 +228,7 @@
                                 <tr>
                                     <td><?php echo $no ?></td>
                                     <td><?php echo $data['nama_pemain'] ?></td>
-                                    <td><?php echo "<img src='../images/{$data['foto']}' height='200' />"; ?></td>
+                                    <td><?php echo "<img src='images/{$data['foto']}' height='200' />"; ?></td>
                                     <td><?php echo $data['asal'] ?></td>
                                     <td><?php echo $data["tgl_lahir"] ?></td>
                                     <td>
