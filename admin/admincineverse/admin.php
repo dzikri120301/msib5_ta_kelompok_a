@@ -183,8 +183,7 @@
             <!-- Table -->
             <div class="table-responsive mt-4">
                 <table class="table table-striped table-bordered" id="film" class="display" style="width:100%">
-                    <a class="btn btn-info" style="margin-bottom:10px; margin-top:10px" href="tambah.php?"> Tambah Admin
-                    </a>
+                    <a href="tambah.php?" class="btn btn-light" style="margin-bottom:5px"><i class="fa-solid fa-user-plus"></i></a>
                     <thead>
                         <tr>
                             <th>No</th>
