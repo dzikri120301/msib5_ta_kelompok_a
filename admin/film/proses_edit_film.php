@@ -16,28 +16,26 @@ $target_dir = "images/"; // path directory image akan di simpan
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); // full path dari image yg akan di simpan
 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) { // fungsi ini utk memindahkan file dr tempat asal ke target_file
     echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.<br>";
-    $result = mysqli_query($conn, "UPDATE `tb_film` set 
-`id` = '', 
+    $result = mysqli_query($conn, "UPDATE `tb_film` set
 `kode_film` = '$kode', 
 `nama_film` = '$film', 
-`gambar` = '$target_file',', 
+`gamba` = '$target_file',', 
 `id_genre` = '$nama_genre', 
 `tahun` = '$tahun', 
 `sinopsis` = '$sinop',
 `id_pemain` = '$nama_pemain',
-`durasi` = '$durasi'");
+`durasi` = '$durasi' WHERE id = '$_GET[id]'");
 } else {
     echo "Sorry, there was an error uploading your file.<br>";
 }
 
 $result = mysqli_query($conn, "UPDATE `tb_film` set 
-`id` = '', 
 `kode_film` = '$kode', 
 `nama_film` = '$film',  
 `id_genre` = '$nama_genre', 
 `tahun` = '$tahun', 
 `sinopsis` = '$sinop',
 `id_pemain` = '$nama_pemain',
-`durasi` = '$durasi'");
+`durasi` = '$durasi' WHERE id = '$_GET[id]'");
 
 header("Location:film.php");

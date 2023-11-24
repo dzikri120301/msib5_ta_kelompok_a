@@ -45,26 +45,6 @@
             <a class="nav-link scrollto" href="film.php">Film</a>
           </li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li class="dropdown">
-            <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown">
-                <a href="#"><span>Deep Drop Down</span>
-                  <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li>
             <a class="getstarted scrollto" href="#about">Get Started</a>
@@ -89,9 +69,9 @@
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+        <!-- <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           <img src="assets/img/hero-img.png" class="img-fluid animated" alt="" />
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -134,6 +114,7 @@
     <section id="why-us" class="why-us section-bg">
       <div class="container-fluid" data-aos="fade-up">
         <div class="row">
+          <!-- Kolom konten teks -->
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch order-2 order-lg-1">
             <div class="content">
               <h3>CINE<strong>VERSE</strong></h3>
@@ -181,8 +162,29 @@
             </div>
           </div>
 
-          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style="background-image: url('assets/img/why-us.png')" data-aos="zoom-in" data-aos-delay="150">
-            &nbsp;
+          <!-- Kolom carousel gambar -->
+          <div class="col-lg-5 justify-content-center align-items-stretch order-1 order-lg-2">
+            <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+              <div class="carousel-inner">
+                <!-- Isi dari carousel item -->
+                <div class="carousel-item active member">
+                  <img src="assets/img/poster1.jpeg" class="d-block" style="width: 400px;" alt="...">
+                </div>
+                <div class="carousel-item active member">
+                  <img src="assets/img/poster2.png" class="d-block" alt="...">
+                </div>
+                <!-- Tambahkan gambar lainnya sebagai carousel item -->
+              </div>
+              <!-- Tombol kontrol carousel -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -194,16 +196,8 @@
       <div class="container" data-aos="zoom-in">
         <div class="row">
           <div class="col-lg-9 text-center text-lg-start">
-            <h3>Call To Action</h3>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum.
-            </p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
           </div>
         </div>
       </div>
