@@ -45,8 +45,8 @@
 
 <body>
     <?php
-        include '../../config/koneksi.php';
-        $query = mysqli_query($conn, "SELECT * FROM  pemain");
+    include '../../config/koneksi.php';
+    $query = mysqli_query($conn, "SELECT * FROM  pemain");
     ?>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -178,31 +178,32 @@
                 <a href="tambah_pemain.php" class="btn btn-light" style="margin-bottom:5px"><i class="fa-solid fa-user-plus"></i></a>
                 <table id="data-tabel" class="table table-striped table-bordered">
                     <thead>
-                    <tr>
-                        <th>
-                        No
-                        </th>
-                        <th>
-                        Nama Pemain
-                        </th>
-                        <th>
-                        Gambar
-                        </th>
-                        <th>
-                        Asal
-                        </th>
-                        <th>
-                        Tanggal Lahir
-                        </th>
-                        <th>
-                        Aksi 
-                        </th>
-                    </tr>
+                        <tr>
+                            <th>
+                                No
+                            </th>
+                            <th>
+                                Nama Pemain
+                            </th>
+                            <th>
+                                Gambar
+                            </th>
+                            <th>
+                                Asal
+                            </th>
+                            <th>
+                                Tanggal Lahir
+                            </th>
+                            <th>
+                                Aksi
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <?php
-                    include('../../config/koneksi.php');
+                        <?php
+                        include('../../config/koneksi.php');
 
+<<<<<<< HEAD
                     if (mysqli_num_rows($query) > 0) {
                       $no = 1;
                      while ($data = mysqli_fetch_array($query)) {
@@ -221,6 +222,26 @@
                 <?php
                 } ?>
                  <?php } ?>
+=======
+                        if (mysqli_num_rows($query) > 0) {
+                            $no = 1;
+                            while ($data = mysqli_fetch_array($query)) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $no ?></td>
+                                    <td><?php echo $data['nama_pemain'] ?></td>
+                                    <td><img src="<?php echo $data["foto"] ?>" width="100"></td>
+                                    <td><?php echo $data['asal'] ?></td>
+                                    <td><?php echo $data["tgl_lahir"] ?></td>
+                                    <td>
+                                        <a href="edit_pemain.php?id_aktor=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-warning">Edit</a>
+                                        <a href="delete_pemain.php?id_nama_pemain=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            <?php $no++;
+                            } ?>
+                        <?php } ?>
+>>>>>>> 3b5f4880b47c0f919fcf13bcc64178929ba7347e
                     </tbody>
 
                 </table>
