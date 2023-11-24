@@ -51,13 +51,6 @@
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
 
-        <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="POST" action="#">
-                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-            </form>
-        </div><!-- End Search Bar -->
-
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
 
@@ -106,23 +99,18 @@
 
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
-
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
+                <a class="nav-link " href="dashboard.php">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
-                    <i class="bi bi-menu-button-wide"></i><span>Menu</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-menu-button-wide"></i><span>Film</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="dashboard.php">
-                            <i class="bi bi-circle"></i><span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="user/user.php">
-                            <i class="bi bi-circle"></i><span>User Cineverse</span>
-                        </a>
-                    </li>
                     <li>
                         <a href="film/film.php">
                             <i class="bi bi-circle"></i><span>Data film</span>
@@ -138,20 +126,37 @@
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="dashboard.php">
+                    <i class="bi bi-menu-button-wide"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="user/user.php">
+                            <i class="bi bi-circle"></i><span>User Cineverse</span>
+                        </a>
+                    </li>
                     <li>
                         <a href="komentar/komentar.php">
                             <i class="bi bi-circle"></i><span>Review</span>
                         </a>
                     </li>
                     <li>
-                        <a href="admincineverse/admin.php">
+                        <a href="#">
                             <i class="bi bi-circle"></i><span>Admin Cineverse</span>
                         </a>
                     </li>
                 </ul>
             </li><!-- End Forms Nav -->
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-grid"></i>
+                    <span>Admin Cineverse</span>
+                </a>
+            </li>
         </ul>
-
     </aside><!-- End Sidebar-->
 
     <main id="main" class="main">

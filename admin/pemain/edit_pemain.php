@@ -51,25 +51,16 @@
   ======================================================== -->
 </head>
     <?php
-    include '../config/koneksi.php';
+    include '../../config/koneksi.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Proses edit pemain di sini
-        $nama_pemain = $_POST["nama_pemain"];
-        $asal = $_POST["asal"];
-        $tgl_lahir = $_POST["tgl_lahir"];
-
-        // Pada bagian ini, Anda perlu menyesuaikan sesuai dengan struktur tabel di config Anda
-        $id_pemain = $_POST["id_nama_pemain"]; // Assuming you have an id field in your form
-
-        // Update query should use SET and WHERE clause
-        $query_update = "UPDATE pemain SET nama_pemain='$nama_pemain', asal='$asal', tgl_lahir='$tgl_lahir' WHERE id_nama_pemain=$id_pemain";
-
-        if (mysqli_query($conn, $query_update)) {
-            echo "Data pemain berhasil diupdate.";
-        } else {
-            echo "Error: " . $query_update . "<br>" . mysqli_error($conn);
-        }
+    // Fetch player data based on the provided ID
+    $query = mysqli_query($conn, "SELECT * FROM pemain WHERE id_nama_pemain='$_GET[id_nama_pemain]'");
+    while ($data = mysqli_fetch_array($query)) {
+        $id_nama_pemain = $data["id_nama_pemain"];
+        $nama_pemain = $data["nama_pemain"];
+        $file_gambar = $data['foto'];
+        $asal = $data["asal"];
+        $tgl_lahir = $data["tgl_lahir"];
     }
     ?>
 <body>
@@ -156,17 +147,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="film.php">
+                        <a href="../film/film.php">
                             <i class="bi bi-circle"></i><span>film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="../genre/genre.php">
                             <i class="bi bi-circle"></i><span>Genre Film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>
@@ -193,8 +184,8 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="film.php">Data Film</a></li>
-                    <li class="breadcrumb-item active"><a href="edit_film.php">Edit Film</a></li>
+                    <li class="breadcrumb-item"><a href="pemain.php">Data pemain</a></li>
+                    <li class="breadcrumb-item active"><a href="edit_pemain.php">Edit pemain</a></li>
                 </ol>
             </nav>
         </div>
@@ -209,16 +200,17 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Data Pemain</h5>
-                           <form action="proses_tambah_pemain.php" method="post" enctype="multipart/form-data">
-                                    <input type="text" class="form-control mb-3" placeholder="input nama pemain" name="nama_pemain" id="nama_pemain" required>
-                                    <input type="file" class="form-control mb-3" name="foto">
-                                    <input type="text" class="form-control mb-3" placeholder="asal/tempat tinggal" name="asal" required>
-                                    <input type="date" class="form-control mb-3" placeholder="tanggal lahir" name="tgl_lahir" required>
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <input type="submit" id="submitBtn" value="Submit" class="btn btn-success">
-                                    </div>
-                                </form>
-                        </div>
+                            <form action="proses_edit_pemain.php" method="post" enctype="multipart/form-data">
+                            <!-- Add hidden input for player ID -->
+                            <input type="hidden" name="id_nama_pemain" value="<?php echo $id_nama_pemain; ?>">
+                            <input type="text" class="form-control mb-3" placeholder="Input nama pemain" name="nama_pemain" id="nama_pemain" value="<?php echo $nama_pemain; ?>" required>
+                            <input type="file" class="form-control mb-3" name="foto">
+                            <input type="text" class="form-control mb-3" placeholder="Asal/tempat tinggal" name="asal" value="<?php echo $asal; ?>" required>
+                            <input type="date" class="form-control mb-3" placeholder="Tanggal lahir" name="tgl_lahir" value="<?php echo $tgl_lahir; ?>" required>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <input type="submit" id="submitBtn" value="Update" class="btn btn-success">
+                            </div>
+                        </form>
                     </div>
                 </center>
                 </table>
