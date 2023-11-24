@@ -210,15 +210,15 @@
                 <tr>
                     <td><?php echo $no ?></td>
                     <td><?php echo $data['nama_pemain'] ?></td>
-                    <td><?php echo "<img src='../images/{$data['foto']}' height='200' />"; ?></td>
+                    <td><img src="<?php echo "images/".$data['foto']; ?>" height='100' /></td>
                     <td><?php echo $data['asal'] ?></td>
                     <td><?php echo $data["tgl_lahir"] ?></td>
                     <td>
-                      <a href="edit_pemain.php?id_aktor=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-warning">Edit</a>
-                      <a href="delete_pemain.php?id_aktor=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-danger">Delete</a>
+                      <a href="edit_pemain.php?id_nama_pemain=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-warning">Edit</a>
+                      <a href="delete_pemain.php?id_nama_pemain=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-danger">Delete</a>
                     </td>
                   </tr>
-                <?php $no++;
+                <?php
                 } ?>
                  <?php } ?>
                     </tbody>
