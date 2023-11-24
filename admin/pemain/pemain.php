@@ -131,17 +131,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="film.php">
+                        <a href="../film/film.php">
                             <i class="bi bi-circle"></i><span>Film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="../genre/genre.php">
                             <i class="bi bi-circle"></i><span>Genre Film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="pemain/pemain.php">
+                        <a href="pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>

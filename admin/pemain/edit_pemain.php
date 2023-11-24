@@ -147,17 +147,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="film.php">
+                        <a href="../film/film.php">
                             <i class="bi bi-circle"></i><span>film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="../genre/genre.php">
                             <i class="bi bi-circle"></i><span>Genre Film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>
@@ -184,8 +184,8 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="film.php">Data Film</a></li>
-                    <li class="breadcrumb-item active"><a href="edit_film.php">Edit Film</a></li>
+                    <li class="breadcrumb-item"><a href="pemain.php">Data pemain</a></li>
+                    <li class="breadcrumb-item active"><a href="edit_pemain.php">Edit pemain</a></li>
                 </ol>
             </nav>
         </div>
