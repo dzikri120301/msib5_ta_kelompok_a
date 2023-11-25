@@ -183,7 +183,7 @@ while ($data = mysqli_fetch_array($query)) {
                 </ul>
             </li><!-- End Forms Nav -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="../admincineverse/admin.php">
                     <i class="bi bi-grid"></i>
                     <span>Admin Cineverse</span>
                 </a>
