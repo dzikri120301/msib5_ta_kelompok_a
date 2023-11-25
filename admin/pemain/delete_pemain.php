@@ -1,20 +1,17 @@
 <?php
 include '../../config/koneksi.php';
 
-// Check if id_nama_pemain is set in the URL
 if (isset($_GET['id_nama_pemain'])) {
-    $id_nama_pemain = $_GET['id_nama_pemain'];
+    $id_nama_user = $_GET['id_nama_pemain'];
 
-    // Use mysqli_query for the query and connection
-    $query = "DELETE FROM pemain WHERE id_nama_pemain='$id_nama_pemain'";
-    $hasil = mysqli_query($conn, $query);
+    $result = mysqli_query($conn, "DELETE FROM `pemain` WHERE `id_nama_pemain` = '$id_nama_user'");
 
-    if ($hasil) {
-        header("location:pemain.php");
+    if ($result) {
+        header("Location: pemain.php"); // Redirect after successful deletion
+        exit();
     } else {
-        echo "Hapus data gagal: " . mysqli_error($conn);
+        echo "Error deleting record: " . mysqli_error($conn);
     }
 } else {
-    echo "ID pemain tidak valid.";
+    echo "ID not specified";
 }
-?>
