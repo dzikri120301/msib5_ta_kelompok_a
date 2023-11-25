@@ -77,7 +77,7 @@ if (!isset($_SESSION["username"])) {
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a class="dropdown-item d-flex align-items-center" href="login.php">
+                                <a class="dropdown-item d-flex align-items-center" href="../index.php">
                                     <i class="bi bi-box-arrow-right"></i>
                                     <span>Sign Out</span>
                                 </a>
@@ -106,17 +106,17 @@ if (!isset($_SESSION["username"])) {
                     </a>
                     <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                         <li>
-                            <a href="../../film/film.php">
+                            <a href="../film/film.php">
                                 <i class="bi bi-circle"></i><span>Data film</span>
                             </a>
                         </li>
                         <li>
-                            <a href="../../genre/genre.php">
+                            <a href="../genre/genre.php">
                                 <i class="bi bi-circle"></i><span>Genre Film</span>
                             </a>
                         </li>
                         <li>
-                            <a href="../../pemain/pemain.php">
+                            <a href="../pemain/pemain.php">
                                 <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                             </a>
                         </li>
@@ -133,12 +133,12 @@ if (!isset($_SESSION["username"])) {
                     </a>
                     <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                         <li>
-                            <a href="../../user/user.php">
+                            <a href="../user/user.php">
                                 <i class="bi bi-circle"></i><span>User Cineverse</span>
                             </a>
                         </li>
                         <li>
-                            <a href="../../komentar/komentar.php">
+                            <a href="../komentar/komentar.php">
                                 <i class="bi bi-circle"></i><span>Review</span>
                             </a>
                         </li>
