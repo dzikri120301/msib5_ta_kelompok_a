@@ -1,13 +1,3 @@
-<?php
-session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION["username"])) {
-    // Redirect to the login page or perform other actions
-    header("Location: login.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +5,7 @@ if (!isset($_SESSION["username"])) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Cineverse | Data Film</title>
+    <title>Dashboard Cineverse</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -43,6 +33,14 @@ if (!isset($_SESSION["username"])) {
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
 
+    <!-- tiny -->
+    <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+        });
+    </script> -->
+
 
     <!-- =======================================================
   * Template Name: NiceAdmin
@@ -54,16 +52,6 @@ if (!isset($_SESSION["username"])) {
 </head>
 
 <body>
-
-    <?php
-    include '../../config/koneksi.php';
-    $query = mysqli_query($conn, "SELECT f.*, g.nama_genre, p.nama_pemain, AVG(k.rating) AS average_rating
-    FROM tb_film as f
-    JOIN genre as g ON f.id_genre = g.id_nama_genre
-    JOIN pemain as p ON f.id_pemain = p.id_nama_pemain
-    LEFT JOIN komentar as k ON f.id = k.id_film
-    GROUP BY f.id");
-    ?>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -75,28 +63,54 @@ if (!isset($_SESSION["username"])) {
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
 
+        <div class="search-bar">
+            <form class="search-form d-flex align-items-center" method="POST" action="#">
+                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+            </form>
+        </div><!-- End Search Bar -->
+
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
+
+                <li class="nav-item d-block d-lg-none">
+                    <a class="nav-link nav-icon search-bar-toggle " href="#">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </li><!-- End Search Icon-->
+
                 <li class="nav-item dropdown pe-3">
+
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username"] ?></span>
+                        <img src="../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6><?php echo $_SESSION["username"] ?></h6>
+                            <h6>Kevin Anderson</h6>
+                            <span>Web Designer</span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
+
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="../index.php">
+                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                                <i class="bi bi-person"></i>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
                         </li>
+
                     </ul><!-- End Profile Dropdown Items -->
                 </li><!-- End Profile Nav -->
+
             </ul>
         </nav><!-- End Icons Navigation -->
 
@@ -132,7 +146,7 @@ if (!isset($_SESSION["username"])) {
                         </a>
                     </li>
                     <li>
-                        <a href="../pemeran/peran.php">
+                        <a href="peran.php">
                             <i class="bi bi-circle"></i><span>Daftar Peran</span>
                         </a>
                     </li>
@@ -167,80 +181,82 @@ if (!isset($_SESSION["username"])) {
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Data Film</h1>
+            <h1>Cineverse Edit</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Data Film</li>
+                    <li class="breadcrumb-item"><a href="genre.php">Data Genre</a></li>
+                    <li class="breadcrumb-item active"><a href="edit.php">Edit Genre</a></li>
                 </ol>
             </nav>
-        </div><!-- End Page Title -->
+        </div>
+        <!-- End Page Title -->
 
         <section class="section dashboard">
             <div class="container-fluid">
-                <a href="tambah_film.php" class="btn btn-light" style="margin-bottom:5px"><i class="fa-solid fa-user-plus"></i></a>
-                <table id="data-tabel" class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>
-                                Kode Film
-                            <th>
-                                Nama Film
-                            </th>
-                            <th>
-                                Gambar
-                            </th>
-                            <th>
-                                Genre Film
-                            </th>
-                            <th>
-                                Tahun Rilis
-                            </th>
-                            <th>
-                                Sinopsis
-                            </th>
-                            <th>
-                                Pemeran Film
-                            </th>
-                            <th>
-                                Durasi Film
-                            </th>
-                            <th>
-                                Rating
-                            </th>
-                            <th>
-                                Aksi
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        if (mysqli_num_rows($query) > 0) {
-                            $no = 1;
-                            while ($data = mysqli_fetch_array($query)) {
-                        ?>
-                                <tr>
-                                    <td><?php echo $data["kode_film"] ?></td>
-                                    <td><?php echo $data["nama_film"] ?></td>
-                                    <td><img src="<?php echo $data["gambar"] ?>" width="100"></td>
-                                    <td><?php echo $data["nama_genre"] ?></td>
-                                    <td><?php echo $data["tahun"] ?></td>
-                                    <td><?php echo $data["sinopsis"] ?></td>
-                                    <td><?php echo $data["nama_pemain"] ?></td>
-                                    <td><?php echo $data["durasi"] ?></td>
-                                    <td><?php echo $data["average_rating"] !== null ? number_format($data["average_rating"], 1) : "Belum Ada Rating"; ?></td>
-                                    <td><a href="edit_film.php?id=<?php echo $data["id"] ?>"><button type="button" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></button></a>
-                                        <br>
-                                        <a data-id="<?php echo $data["id"] ?>" href="proses_hapus_film.php?id=<?php echo $data["id"] ?>" class="btn-delete">
-                                            <button type="button" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></button>
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php $no++;
-                            } ?>
-                        <?php } ?>
-                    </tbody>
+                <center>
+                    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+                        <div class="card-header">
+                            <h3>EDIT PAGE</h3>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Data Pemeran</h5>
+                            <?php
+                            include '../../config/koneksi.php';
 
+                            $pemeran = mysqli_query($conn, "SELECT * FROM pemeran as p Join pemain as pn on p.id_pemain = pn.id_nama_pemain Join tb_film as tf on p.id_film = tf.id  where id_pemeran ='$_GET[id_pemeran]'");
+
+                            while ($g = mysqli_fetch_array($pemeran)) {
+                                $id_pemeran = $g["id_pemeran"];
+                                $nama_aktor = $g["nama_pemain"];
+                                $film = $g["nama_film"];
+                                $peran = $g["peran"];
+                            }
+                            ?>
+                            <form action="proses_edit.php?id_pemeran=<?php echo $id_pemeran ?>" method="post" enctype="multipart/form-data" id="tambah_peran">
+                            <div class="input-group mb-3">
+                                    <select class="form-select" name="nama_pemain" id="nama_pemain">
+                                        <option selected>Nama Aktor</option>
+                                        <?php
+                                        // Fetch data from the "items" table
+                                        $query = mysqli_query($conn, "SELECT * FROM pemain");
+                                        if (mysqli_num_rows($query) > 0) {
+                                            while ($data = mysqli_fetch_array($query)) {
+
+                                                echo "<option value='" . $data["id_nama_pemain"] . "'>" . $data["nama_pemain"] . "</option>";
+                                            }
+                                        } else {
+                                            echo "<option value=''>No items available</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <select class="form-select" name="nama_film" id="nama_film">
+                                        <option selected>Film</option>
+                                        <?php
+                                        // Fetch data from the "items" table
+                                        $query = mysqli_query($conn, "SELECT * FROM tb_film");
+                                        if (mysqli_num_rows($query) > 0) {
+                                            while ($data = mysqli_fetch_array($query)) {
+
+                                                echo "<option value='" . $data["id"] . "'>" . $data["nama_film"] . "</option>";
+                                            }
+                                        } else {
+                                            echo "<option value=''>No items available</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <input class="form-control mb-3" type="text" placeholder="Peran" name="peran" id="peran">
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success" onclick="return confirm('Simpan Perubahan?')">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </center>
                 </table>
             </div>
         </section>
@@ -250,14 +266,14 @@ if (!isset($_SESSION["username"])) {
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>Admin Cineverse</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-            Designed by <strong><span>Cineverse</span></strong>
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
     </footer><!-- End Footer -->
 
@@ -276,30 +292,6 @@ if (!isset($_SESSION["username"])) {
     <script src="../assets/js/main.js"></script>
 
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-        new DataTable('#data-tabel');
-    </script>
-    <script>
-        $(document).ready(function() {
-            // Menangani klik tombol "Hapus"
-            $('.btn-delete').on('click', function(e) {
-                e.preventDefault(); // Mencegah tindakan asli tautan
-
-                var id = $(this).data('id');
-                var confirmation = confirm("Apakah Anda yakin ingin menghapus film ini?");
-
-                if (confirmation) {
-                    // Jika pengguna mengonfirmasi, arahkan ke halaman proses penghapusan
-                    window.location.href = "proses_hapus_film.php?id=" + id;
-                } else {
-                    // Jika pengguna membatalkan, tidak terjadi apa-apa
-                }
-            });
-        });
-    </script>
 
 </body>
 

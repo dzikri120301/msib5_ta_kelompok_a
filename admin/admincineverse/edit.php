@@ -181,8 +181,8 @@
                                 <input type="text" name="username" data-name=" Judul" class="required form-control" value="<?php echo $username ?>"><br>
                                 <input type="password" name="password" data-name=" Judul" class="required form-control" value="<?php echo $password ?>"><br>
                                 <button type="submit" name="Submit" value="Simpan" onclick="return confirm('Simpan Perubahan?')" class="btn btn-success">Submit</button>
+                            </form>
                         </div>
-                        </form>
                     </div>
                 </center>
             </div>

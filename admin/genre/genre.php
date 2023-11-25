@@ -75,7 +75,7 @@ if (!isset($_SESSION["username"])) {
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="../index.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -113,6 +113,11 @@ if (!isset($_SESSION["username"])) {
                     <li>
                         <a href="../pemain/pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pemeran/peran.php">
+                            <i class="bi bi-circle"></i><span>Daftar Pemeran</span>
                         </a>
                     </li>
                 </ul>

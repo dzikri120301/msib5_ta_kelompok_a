@@ -98,7 +98,7 @@ if (!isset($_SESSION["username"])) {
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="../film/film.php">
+                        <a href="film.php">
                             <i class="bi bi-circle"></i><span>Data film</span>
                         </a>
                     </li>
@@ -132,7 +132,7 @@ if (!isset($_SESSION["username"])) {
                 </ul>
             </li><!-- End Forms Nav -->
             <li class="nav-item">
-                <a class="nav-link" href="admin.php">
+                <a class="nav-link" href="#">
                     <i class="bi bi-grid"></i>
                     <span>Admin Cineverse</span>
                 </a>
@@ -166,8 +166,8 @@ if (!isset($_SESSION["username"])) {
                                 <input class="form-control form-control-sm" type="text" onkeyup="checkform()" name="username" placeholder="Username" aria-label=".form-control-sm example"><br>
                                 <input class="form-control form-control-sm" type="password" onkeyup="checkform()" name="password" placeholder="Password" aria-label=".form-control-sm example"><br>
                                 <button type="submit" name="Submit" value="Simpan" class="btn btn-success">Submit</button>
+                            </form>
                         </div>
-                        </form>
                     </div>
                 </center>
             </div>

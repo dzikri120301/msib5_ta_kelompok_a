@@ -158,6 +158,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="../pemeran/peran.php">
+                            <i class="bi bi-circle"></i><span>Daftar Peran</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -178,7 +183,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </ul>
             </li><!-- End Forms Nav -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="../admincineverse/admin.php">
                     <i class="bi bi-grid"></i>
                     <span>Admin Cineverse</span>
                 </a>
