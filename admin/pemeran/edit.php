@@ -33,6 +33,14 @@
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
 
+    <!-- tiny -->
+    <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+        });
+    </script> -->
+
 
     <!-- =======================================================
   * Template Name: NiceAdmin
@@ -44,10 +52,6 @@
 </head>
 
 <body>
-    <?php
-    include '../../config/koneksi.php';
-    $query = mysqli_query($conn, "SELECT * FROM  pemain");
-    ?>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -98,7 +102,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="login.php">
+                            <a class="dropdown-item d-flex align-items-center" href="#">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -127,7 +131,7 @@
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="../film/film.php">
+                        <a href="film.php">
                             <i class="bi bi-circle"></i><span>Data film</span>
                         </a>
                     </li>
@@ -137,13 +141,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pemain.php">
+                        <a href="../pemain/pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../pemeran/peran.php">
-                            <i class="bi bi-circle"></i><span>Pemeran</span>
                         </a>
                     </li>
                 </ul>
@@ -166,7 +165,7 @@
                 </ul>
             </li><!-- End Forms Nav -->
             <li class="nav-item">
-                <a class="nav-link" href="admincineverse/admin.php">
+                <a class="nav-link" href="#">
                     <i class="bi bi-grid"></i>
                     <span>Admin Cineverse</span>
                 </a>
@@ -177,65 +176,82 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Data Pemain</h1>
+            <h1>Cineverse Edit</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
-                    <li class="breadcrumb-item active"><a href="pemain.php">Data Pemain</a></li>
+                    <li class="breadcrumb-item"><a href="genre.php">Data Genre</a></li>
+                    <li class="breadcrumb-item active"><a href="edit.php">Edit Genre</a></li>
                 </ol>
             </nav>
-        </div><!-- End Page Title -->
+        </div>
+        <!-- End Page Title -->
 
         <section class="section dashboard">
             <div class="container-fluid">
-                <a href="tambah_pemain.php" class="btn btn-light" style="margin-bottom:5px"><i class="fa-solid fa-user-plus"></i></a>
-                <table id="data-tabel" class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>
-                                No
-                            </th>
-                            <th>
-                                Nama Pemain
-                            </th>
-                            <th>
-                                Gambar
-                            </th>
-                            <th>
-                                Asal
-                            </th>
-                            <th>
-                                Tanggal Lahir
-                            </th>
-                            <th>
-                                Aksi
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        include('../../config/koneksi.php');
+                <center>
+                    <div class="card text-bg-light mb-3" style="max-width: 50rem;">
+                        <div class="card-header">
+                            <h3>EDIT PAGE</h3>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Data Pemeran</h5>
+                            <?php
+                            include '../../config/koneksi.php';
 
-                        if (mysqli_num_rows($query) > 0) {
-                            $no = 1;
-                            while ($data = mysqli_fetch_array($query)) {
-                        ?>
-                                <tr>
-                                    <td><?php echo $no ?></td>
-                                    <td><?php echo $data['nama_pemain'] ?></td>
-                                    <td><?php echo "<img src='images/{$data['foto']}' height='200' />"; ?></td>
-                                    <td><?php echo $data['asal'] ?></td>
-                                    <td><?php echo $data["tgl_lahir"] ?></td>
-                                    <td>
-                                        <a href="edit_pemain.php?id_nama_pemain=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-warning">Edit</a>
-                                        <a href="delete_pemain.php?id_nama_pemain=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-danger">Delete</a>
-                                    </td>
-                                </tr>
-                            <?php $no++;
-                            } ?>
-                        <?php } ?>
-                    </tbody>
+                            $pemeran = mysqli_query($conn, "SELECT * FROM pemeran as p Join pemain as pn on p.id_pemain = pn.id_nama_pemain Join tb_film as tf on p.id_film = tf.id  where id_pemeran ='$_GET[id_pemeran]'");
 
+                            while ($g = mysqli_fetch_array($pemeran)) {
+                                $id_pemeran = $g["id_pemeran"];
+                                $nama_aktor = $g["nama_pemain"];
+                                $film = $g["nama_film"];
+                                $peran = $g["peran"];
+                            }
+                            ?>
+                            <form action="proses_edit.php?id_pemeran=<?php echo $id_pemeran ?>" method="post" enctype="multipart/form-data" id="tambah_peran">
+                            <div class="input-group mb-3">
+                                    <select class="form-select" name="nama_pemain" id="nama_pemain">
+                                        <option selected>Nama Aktor</option>
+                                        <?php
+                                        // Fetch data from the "items" table
+                                        $query = mysqli_query($conn, "SELECT * FROM pemain");
+                                        if (mysqli_num_rows($query) > 0) {
+                                            while ($data = mysqli_fetch_array($query)) {
+
+                                                echo "<option value='" . $data["id_nama_pemain"] . "'>" . $data["nama_pemain"] . "</option>";
+                                            }
+                                        } else {
+                                            echo "<option value=''>No items available</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <select class="form-select" name="nama_film" id="nama_film">
+                                        <option selected>Film</option>
+                                        <?php
+                                        // Fetch data from the "items" table
+                                        $query = mysqli_query($conn, "SELECT * FROM tb_film");
+                                        if (mysqli_num_rows($query) > 0) {
+                                            while ($data = mysqli_fetch_array($query)) {
+
+                                                echo "<option value='" . $data["id"] . "'>" . $data["nama_film"] . "</option>";
+                                            }
+                                        } else {
+                                            echo "<option value=''>No items available</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <input class="form-control mb-3" type="text" placeholder="Peran" name="peran" id="peran">
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success" onclick="return confirm('Simpan Perubahan?')">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </center>
                 </table>
             </div>
         </section>
@@ -243,7 +259,7 @@
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer fixed-bottom">
+    <footer id="footer" class="footer">
         <div class="copyright">
             &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
         </div>
@@ -271,30 +287,6 @@
     <script src="../assets/js/main.js"></script>
 
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-        new DataTable('#data-tabel');
-    </script>
-    <script>
-        $(document).ready(function() {
-            // Menangani klik tombol "Hapus"
-            $('.btn-delete').on('click', function(e) {
-                e.preventDefault(); // Mencegah tindakan asli tautan
-
-                var id = $(this).data('id');
-                var confirmation = confirm("Apakah Anda yakin ingin menghapus produk ini?");
-
-                if (confirmation) {
-                    // Jika pengguna mengonfirmasi, arahkan ke halaman proses penghapusan
-                    window.location.href = "proses_hapus.php?id=" + id;
-                } else {
-                    // Jika pengguna membatalkan, tidak terjadi apa-apa
-                }
-            });
-        });
-    </script>
 
 </body>
 
