@@ -14,9 +14,7 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -80,8 +78,7 @@
 
                     <li class="nav-item dropdown pe-3">
 
-                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
-                            data-bs-toggle="dropdown">
+                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                             <img src="../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
                             <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
                         </a><!-- End Profile Iamge Icon -->
@@ -102,7 +99,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item d-flex align-items-center" href="login.php">
+                                <a class="dropdown-item d-flex align-items-center" href="../index.php">
                                     <i class="bi bi-box-arrow-right"></i>
                                     <span>Sign Out</span>
                                 </a>
@@ -117,68 +114,66 @@
         </header><!-- End Header -->
 
         <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
-        <ul class="sidebar-nav" id="sidebar-nav">
-            <li class="nav-item">
-                <a class="nav-link " href="../dashboard.php">
-                    <i class="bi bi-grid"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse"
-                    href="dashboard.php">
-                    <i class="bi bi-menu-button-wide"></i><span>Film</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="../film/film.php">
-                            <i class="bi bi-circle"></i><span>Data film</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../genre/genre.php">
-                            <i class="bi bi-circle"></i><span>Genre Film</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../pemain/pemain.php">
-                            <i class="bi bi-circle"></i><span>Daftar Pemain</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="peran.php">
-                            <i class="bi bi-circle"></i><span>Daftar Peran</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse"
-                    href="dashboard.php">
-                    <i class="bi bi-menu-button-wide"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="user/user.php">
-                            <i class="bi bi-circle"></i><span>User Cineverse</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="komentar/komentar.php">
-                            <i class="bi bi-circle"></i><span>Review</span>
-                        </a>
-                    </li>
-                </ul>
-            </li><!-- End Forms Nav -->
-            <li class="nav-item">
-                <a class="nav-link" href="admincineverse/admin.php">
-                    <i class="bi bi-grid"></i>
-                    <span>Admin Cineverse</span>
-                </a>
-            </li>
-        </ul>
-    </aside><!-- End Sidebar-->
+        <aside id="sidebar" class="sidebar">
+            <ul class="sidebar-nav" id="sidebar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " href="../dashboard.php">
+                        <i class="bi bi-grid"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
+                        <i class="bi bi-menu-button-wide"></i><span>Film</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="../film/film.php">
+                                <i class="bi bi-circle"></i><span>Data film</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../genre/genre.php">
+                                <i class="bi bi-circle"></i><span>Genre Film</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pemain/pemain.php">
+                                <i class="bi bi-circle"></i><span>Daftar Pemain</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="peran.php">
+                                <i class="bi bi-circle"></i><span>Daftar Peran</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="dashboard.php">
+                        <i class="bi bi-menu-button-wide"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="user/user.php">
+                                <i class="bi bi-circle"></i><span>User Cineverse</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="komentar/komentar.php">
+                                <i class="bi bi-circle"></i><span>Review</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!-- End Forms Nav -->
+                <li class="nav-item">
+                    <a class="nav-link" href="admincineverse/admin.php">
+                        <i class="bi bi-grid"></i>
+                        <span>Admin Cineverse</span>
+                    </a>
+                </li>
+            </ul>
+        </aside><!-- End Sidebar-->
 
         <main id="main" class="main">
 
@@ -208,29 +203,28 @@
                     </thead>
 
                     <tbody> <?php
-                        if (mysqli_num_rows($query) > 0) {
-                            $no = 1;
-                            while ($data = mysqli_fetch_array($query)) {
-                        ?> <tr>
-                            <td> <?php echo $no ?></td>
-                            <td> <?php echo $data["nama_pemain"] ?></td>
-                            <td> <?php echo $data["nama_film"] ?></td>
-                            <td> <?php echo $data["peran"] ?></td>
-                            <td> <a class="btn btn-warning" href="edit.php?id_pemeran=<?php echo $data["id_pemeran"] ?>">
-                                    <i class="fa-solid fa-pen-to-square"></i></a>
-                                <a class="btn btn-danger" href="proses_hapus.php?id_pemeran=<?php echo $data["id_pemeran"] ?>"
-                                    onclick="return confirm('Yakin Data Akan Dihapus?')">
-                                    <i class="fa-solid fa-trash-can"></i> </a>
-                            </td>
-                        </tr>
-                        <?php $no++;
-                            } ?>
+                            if (mysqli_num_rows($query) > 0) {
+                                $no = 1;
+                                while ($data = mysqli_fetch_array($query)) {
+                            ?> <tr>
+                                    <td> <?php echo $no ?></td>
+                                    <td> <?php echo $data["nama_pemain"] ?></td>
+                                    <td> <?php echo $data["nama_film"] ?></td>
+                                    <td> <?php echo $data["peran"] ?></td>
+                                    <td> <a class="btn btn-warning" href="edit.php?id_pemeran=<?php echo $data["id_pemeran"] ?>">
+                                            <i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a class="btn btn-danger" href="proses_hapus.php?id_pemeran=<?php echo $data["id_pemeran"] ?>" onclick="return confirm('Yakin Data Akan Dihapus?')">
+                                            <i class="fa-solid fa-trash-can"></i> </a>
+                                    </td>
+                                </tr>
+                            <?php $no++;
+                                } ?>
                         <?php } ?>
                         <!-- Datatables -->
                         <script>
-                        $(document).ready(function() {
-                            $('#film').DataTable();
-                        });
+                            $(document).ready(function() {
+                                $('#film').DataTable();
+                            });
                         </script>
                     </tbody>
                 </table>
@@ -254,8 +248,7 @@
         </div>
     </footer><!-- End Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
     <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -274,25 +267,25 @@
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
     <script>
-    new DataTable('#data-tabel');
+        new DataTable('#data-tabel');
     </script>
     <script>
-    $(document).ready(function() {
-        // Menangani klik tombol "Hapus"
-        $('.btn-delete').on('click', function(e) {
-            e.preventDefault(); // Mencegah tindakan asli tautan
+        $(document).ready(function() {
+            // Menangani klik tombol "Hapus"
+            $('.btn-delete').on('click', function(e) {
+                e.preventDefault(); // Mencegah tindakan asli tautan
 
-            var id = $(this).data('id');
-            var confirmation = confirm("Apakah Anda yakin ingin menghapus produk ini?");
+                var id = $(this).data('id');
+                var confirmation = confirm("Apakah Anda yakin ingin menghapus produk ini?");
 
-            if (confirmation) {
-                // Jika pengguna mengonfirmasi, arahkan ke halaman proses penghapusan
-                window.location.href = "proses_hapus.php?id=" + id;
-            } else {
-                // Jika pengguna membatalkan, tidak terjadi apa-apa
-            }
+                if (confirmation) {
+                    // Jika pengguna mengonfirmasi, arahkan ke halaman proses penghapusan
+                    window.location.href = "proses_hapus.php?id=" + id;
+                } else {
+                    // Jika pengguna membatalkan, tidak terjadi apa-apa
+                }
+            });
         });
-    });
     </script>
 
 </body>
