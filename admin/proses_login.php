@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "<script>
                 alert('Login gagal. Periksa kembali username dan password.');
-                window.location.href = 'login.php';
+                window.location.href = 'index.php';
               </script>";
         exit();
     }
