@@ -132,18 +132,23 @@
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="film/film.php">
+                        <a href="../film/film.php">
                             <i class="bi bi-circle"></i><span>Data film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="genre/genre.php">
+                        <a href="../genre/genre.php">
                             <i class="bi bi-circle"></i><span>Genre Film</span>
                         </a>
                     </li>
                     <li>
-                        <a href="pemain/pemain.php">
+                        <a href="../pemain/pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pemeran/peran.php">
+                            <i class="bi bi-circle"></i><span>Daftar Peran</span>
                         </a>
                     </li>
                 </ul>

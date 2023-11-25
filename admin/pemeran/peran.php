@@ -148,7 +148,7 @@
                     </li>
                     <li>
                         <a href="peran.php">
-                            <i class="bi bi-circle"></i><span>Pemeran</span>
+                            <i class="bi bi-circle"></i><span>Daftar Peran</span>
                         </a>
                     </li>
                 </ul>

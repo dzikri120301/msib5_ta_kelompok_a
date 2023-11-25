@@ -145,6 +145,11 @@
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="../pemeran/peran.php">
+                            <i class="bi bi-circle"></i><span>Daftar Peran</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item">
