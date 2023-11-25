@@ -114,7 +114,7 @@
         </header><!-- End Header -->
 
         <!-- ======= Sidebar ======= -->
-<<<<<<< HEAD
+<!-- HEAD-->
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
@@ -177,7 +177,7 @@
             </li>
         </ul>
     </aside><!-- End Sidebar-->
-=======
+    
         <aside id="sidebar" class="sidebar">
             <ul class="sidebar-nav" id="sidebar-nav">
                 <li class="nav-item">
@@ -219,12 +219,12 @@
                     </a>
                     <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                         <li>
-                            <a href="user/user.php">
+                            <a href="../user/user.php">
                                 <i class="bi bi-circle"></i><span>User Cineverse</span>
                             </a>
                         </li>
                         <li>
-                            <a href="komentar/komentar.php">
+                            <a href="../komentar/komentar.php">
                                 <i class="bi bi-circle"></i><span>Review</span>
                             </a>
                         </li>
@@ -238,7 +238,6 @@
                 </li>
             </ul>
         </aside><!-- End Sidebar-->
->>>>>>> 05b994b52c13cfaa54da1702b6927c9c7bd401c2
 
         <main id="main" class="main">
 

@@ -160,12 +160,12 @@
                 </a>
                 <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="user/user.php">
+                        <a href="../user/user.php">
                             <i class="bi bi-circle"></i><span>User Cineverse</span>
                         </a>
                     </li>
                     <li>
-                        <a href="komentar/komentar.php">
+                        <a href="../komentar/komentar.php">
                             <i class="bi bi-circle"></i><span>Review</span>
                         </a>
                     </li>
