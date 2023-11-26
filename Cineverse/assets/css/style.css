@@ -374,6 +374,184 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# upcoming
+--------------------------------------------------------------*/
+.upcoming{
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding-bottom: 25px;
+  background-color: #fffefe;
+}
+
+.upcoming .movies_box{
+  width: 95%;
+  margin: 0 auto;
+}
+
+.upcoming .movies_box h1{
+  font-size: 20px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+.upcoming .movies_box .box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.upcoming .movies_box .box .card{
+  width: 250px;
+  height: 370px;
+  margin: 10px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.upcoming .movies_box .box .card .details{
+  width: 250px;
+  height: 370px;
+  overflow: hidden;
+  position: absolute;
+  border-radius: 8px;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.upcoming .movies_box .box .card:hover .details{
+  opacity: 1;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.7));
+}
+
+.upcoming .movies_box .box .card .details .left{
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  transform: translateX(-100px);
+  transition: 0.4s;
+  opacity: 0;
+}
+
+.upcoming .movies_box .box .card:hover .details .left{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.upcoming .movies_box .box .card .details .left p.name{
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.upcoming .movies_box .box .card .details .left .date_quality{
+  display: flex;
+  align-items: center;
+}
+
+.upcoming .movies_box .box .card .details .left .date_quality p.quality{
+  width: 30px;
+  font-size: 13px;
+  background: #ffe100;
+  color: #282931;
+  margin-left: 10px;
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.upcoming .movies_box .box .card .details .left .date_quality p.date{
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: 8px;
+}
+
+.upcoming .movies_box .box .card .details .left p.category{
+  margin-left: 10px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.upcoming .movies_box .box .card .details .left .info{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.upcoming .movies_box .box .card .details .left .info .time{
+  display: flex;
+  align-items: center;
+}
+
+.upcoming .movies_box .box .card .details .left .info .time i{
+  font-size: 12px;
+  color: #ffd500;
+  margin-left: 5px;
+}
+
+.upcoming .movies_box .box .card .details .left .info .time p{
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.upcoming .movies_box .box .card .details .right{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  transform: translateX(100px);
+  transition: 0.4s;
+  opacity: 0;
+}
+
+.upcoming .movies_box .box .card:hover .details .right{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.upcoming .movies_box .box .card .details .right i{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  text-align: center;
+  background-color: #ffe100;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #282931;
+  margin: 0 10px 8px 0;
+}
+
+.upcoming .movies_box .box .card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+ /*--------------------------------------------------------------
+# button view more
+--------------------------------------------------------------*/
+.btn-view {
+  font-family: var(--font-primary);
+font-weight: 500;
+font-size: 16px;
+letter-spacing: 1px;
+display: inline-block;
+padding: 12px 48px;
+border-radius: 50px;
+transition: 0.5s;
+margin: 10px;
+margin-left: 650px;
+border: 2px solid #fff;
+color: #45928e;
+background: #0c3c53;
+}
+/*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
@@ -880,7 +1058,7 @@ section {
 --------------------------------------------------------------*/
 .cta {
   background: linear-gradient(rgba(40, 58, 90, 0.9), rgba(40, 58, 90, 0.9)),
-    url("../img/cta-bg.jpg") fixed center center;
+    url("../img/background_2.jpg") fixed center center;
   background-size: cover;
   padding: 120px 0;
 }

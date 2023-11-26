@@ -65,17 +65,36 @@
     </header>
     <!-- End Header -->
 
-
     <main id="main">
+        <!-- ======= About Us Section ======= -->
+        <section id="about" class="about mt-5">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>About Us</h2>
+                </div>
+
+                <div class="row-content">
+                    <div class="" style="text-align: justify;">
+                        <p>
+                            Selamat datang di <b>Cineverse</b>, rumah bagi para pecinta film sejati! Menyatukan kegembiraan dan kecintaan kita pada dunia perfilman, situs ini membawa pengalaman serba film dalam genggaman Anda. <b>Cineverse</b> dirancang untuk menjadi pusat informasi komprehensif yang tidak hanya memenuhi dahaga pengetahuan Anda tentang film terbaru tetapi juga memberikan ruang untuk berbagi pengalaman dan mendalami keragaman industri perfilman. <b>Cineverse</b> bukan sekadar situs web, tetapi rumah bagi para penggemar film sejati yang menghargai seni dan keindahan di balik layar perak. Pilih <b>Cineverse</b> untuk sebuah perjalanan film yang mendalam, penuh warna, dan selalu terkini!"</p>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End About Us Section -->
         <!-- ======= Why Us Section ======= -->
         <section id="why-us" class="why-us section-bg">
             <div class="container-fluid" data-aos="fade-up">
+
                 <div class="row">
-                    <!-- Kolom konten teks -->
-                    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch order-2 order-lg-1">
+
+                    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+
                         <div class="content">
                             <h3>CINE<strong>VERSE</strong></h3>
-                            <p></p>
+                            <p> Berikut adalah alasan mengapa kamu harus memilih Cineverse :
+                            </p>
                         </div>
 
                         <div class="accordion-list">
@@ -117,37 +136,14 @@
                                 </li>
                             </ul>
                         </div>
+
                     </div>
 
-                    <!-- Kolom carousel gambar -->
-                    <div class="col-lg-5 justify-content-center align-items-stretch order-1 order-lg-2">
-                        <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
-                            <div class="carousel-inner">
-                                <!-- Isi dari carousel item -->
-                                <div class="carousel-item active member">
-                                    <img src="assets/img/poster1.jpeg" class="d-block" style="width: 400px;" alt="...">
-                                </div>
-                                <div class="carousel-item active member">
-                                    <img src="assets/img/poster2.png" class="d-block" alt="...">
-                                </div>
-                                <!-- Tambahkan gambar lainnya sebagai carousel item -->
-                            </div>
-                            <!-- Tombol kontrol carousel -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
+                    <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/img/cn.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
                 </div>
-            </div>
-        </section>
-        <!-- End Why Us Section -->
 
+            </div>
+        </section><!-- End Why Us Section -->
         <!-- ======= Cta Section ======= -->
         <section id="cta" class="cta">
             <div class="container" data-aos="zoom-in">
@@ -336,21 +332,6 @@
                             </div>
                         </li>
 
-                        <li data-aos="fade-up" data-aos-delay="500">
-                            <i class="bx bx-help-circle icon-help"></i>
-                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel
-                                turpis nunc eget lorem dolor?
-                                <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                    Laoreet sit amet cursus sit amet dictum sit amet justo.
-                                    Mauris vitae ultricies leo integer malesuada nunc vel.
-                                    Tincidunt eget nullam non nisi est sit amet. Turpis nunc
-                                    eget lorem dolor sed. Ut venenatis tellus in metus vulputate
-                                    eu scelerisque.
-                                </p>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -371,31 +352,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-5 d-flex align-items-stretch">
-                        <div class="info">
-                            <div class="address">
-                                <i class="bi bi-geo-alt"></i>
-                                <h4>Location:</h4>
-                                <p>A108 Adam Street, New York, NY 535022</p>
-                            </div>
 
-                            <div class="email">
-                                <i class="bi bi-envelope"></i>
-                                <h4>Email:</h4>
-                                <p>info@example.com</p>
-                            </div>
-
-                            <div class="phone">
-                                <i class="bi bi-phone"></i>
-                                <h4>Call:</h4>
-                                <p>+1 5589 55488 55s</p>
-                            </div>
-
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border: 0; width: 100%; height: 290px" allowfullscreen></iframe>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                    <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-center">
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="row">
                                 <div class="form-group col-md-6">
@@ -436,22 +394,6 @@
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
-        <div class="footer-newsletter">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <h4>Join Our Newsletter</h4>
-                        <p>
-                            Tamen quem nulla quae legam multos aute sint culpa legam noster
-                            magna
-                        </p>
-                        <form action="" method="post">
-                            <input type="email" name="email" /><input type="submit" value="Subscribe" />
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="footer-top">
             <div class="container">
@@ -468,24 +410,25 @@
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
+                        <h4>Colaborations</h4>
                         <ul>
                             <li>
-                                <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
+                                <i class="bx bx-chevron-right"></i>Cinema XXI
                             </li>
                             <li>
-                                <i class="bx bx-chevron-right"></i> <a href="#">About us</a>
+                                <i class="bx bx-chevron-right"></i>Cgv
                             </li>
                             <li>
-                                <i class="bx bx-chevron-right"></i> <a href="#">Services</a>
+                                <i class="bx bx-chevron-right"></i>Cinepolis
                             </li>
                             <li>
-                                <i class="bx bx-chevron-right"></i>
-                                <a href="#">Terms of service</a>
+                                <i class="bx bx-chevron-right"></i>Kota Cinema Mall
                             </li>
                             <li>
-                                <i class="bx bx-chevron-right"></i>
-                                <a href="#">Privacy policy</a>
+                                <i class="bx bx-chevron-right"></i>Movimax
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>Platinum Cineplex
                             </li>
                         </ul>
                     </div>
@@ -541,7 +484,7 @@
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by Cineverse</a>
             </div>
         </div>
     </footer>

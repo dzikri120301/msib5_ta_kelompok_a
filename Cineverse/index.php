@@ -135,8 +135,203 @@
     </section>
     <!-- End Cliens Section -->
 
+    <!-- ======= Upcoming Section ======= -->
+    <div class="upcoming mt-5">
 
+      <div class="movies_box">
 
+        <h1>Upcoming Movies</h1>
+
+        <div class="box">
+
+          <div class="card">
+
+            <div class="details">
+
+              <div class="left">
+
+                <p class="name">Plane</p>
+                <div class="date_quality">
+                  <p class="quality">HD</p>
+                  <p class="date">2023</p>
+                </div>
+                <p class="category">Action/Thriller</p>
+
+                <div class="info">
+
+                  <div class="time">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>120min</p>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="right">
+
+                <i class="fa-solid fa-play"></i>
+
+              </div>
+
+            </div>
+
+            <img src="assets/img/wednesday.jpg">
+
+          </div>
+
+          <div class="card">
+
+            <div class="details">
+
+              <div class="left">
+
+                <p class="name">John Wick: Chapter 4</p>
+                <div class="date_quality">
+                  <p class="quality">HD</p>
+                  <p class="date">2023</p>
+                </div>
+                <p class="category">Action/Neo-noir</p>
+
+                <div class="info">
+
+                  <div class="time">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>120min</p>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="right">
+
+                <i class="fa-solid fa-play"></i>
+
+              </div>
+
+            </div>
+
+            <img src="assets/img/meg.jpg">
+
+          </div>
+
+          <div class="card">
+
+            <div class="details">
+
+              <div class="left">
+
+                <p class="name">Meg 2: The Trench</p>
+                <div class="date_quality">
+                  <p class="quality">HD</p>
+                  <p class="date">2023</p>
+                </div>
+                <p class="category">Adventure</p>
+
+                <div class="info">
+
+                  <div class="time">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>120min</p>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="right">
+
+                <i class="fa-solid fa-play"></i>
+
+              </div>
+
+            </div>
+
+            <img src="assets/img/thor.jpg">
+
+          </div>
+
+          <div class="card">
+
+            <div class="details">
+
+              <div class="left">
+
+                <p class="name">Aquaman and the Lost Kingdom</p>
+                <div class="date_quality">
+                  <p class="quality">HD</p>
+                  <p class="date">2023</p>
+                </div>
+                <p class="category">Action/Fantasy</p>
+
+                <div class="info">
+
+                  <div class="time">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>120min</p>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="right">
+
+                <i class="fa-solid fa-play"></i>
+
+              </div>
+
+            </div>
+
+            <img src="assets/img/plane.jpg">
+
+          </div>
+
+          <div class="card">
+
+            <div class="details">
+
+              <div class="left">
+
+                <p class="name">Ant-Man and the Wasp: Quantumania</p>
+                <div class="date_quality">
+                  <p class="quality">HD</p>
+                  <p class="date">2023</p>
+                </div>
+                <p class="category">Action/Adventure</p>
+
+                <div class="info">
+
+                  <div class="time">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>120min</p>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="right">
+
+                <i class="fa-solid fa-play"></i>
+
+              </div>
+
+            </div>
+
+            <img src="assets/img/interceptor.jpg">
+
+          </div>
+
+        </div>
+
+      </div>
+      <div id="view">
+        <button type="button" class="btn-view btn-dark">View More</button>
+      </div>
+    </div>
+    <!-- End Upcoming Section -->
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
