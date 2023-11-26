@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION["username"])) {
+    // Redirect to the login page or perform other actions
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +15,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard Cineverse</title>
+    <title>Cineverse | Edit Pemeran</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/logo.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -32,23 +42,6 @@
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
-
-    <!-- tiny -->
-    <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-        });
-    </script> -->
-
-
-    <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Nov 17 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -56,53 +49,30 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a class="logo d-flex align-items-center">
                 <img src="../assets/img/logo.png" alt="">
                 <span class="d-none d-lg-block">Cineverse</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
-
-        <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="POST" action="#">
-                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-            </form>
-        </div><!-- End Search Bar -->
-
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
-
-                <li class="nav-item d-block d-lg-none">
-                    <a class="nav-link nav-icon search-bar-toggle " href="#">
-                        <i class="bi bi-search"></i>
-                    </a>
-                </li><!-- End Search Icon-->
 
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username"] ?></span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Web Designer</span>
+                            <h6><?php echo $_SESSION["username"] ?></h6>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                <i class="bi bi-person"></i>
-                                <span>My Profile</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="../index.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -185,8 +155,8 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="genre.php">Data Genre</a></li>
-                    <li class="breadcrumb-item active"><a href="edit.php">Edit Genre</a></li>
+                    <li class="breadcrumb-item"><a href="peran.php">Data Pemeran</a></li>
+                    <li class="breadcrumb-item active">Edit Data Pemeran</li>
                 </ol>
             </nav>
         </div>
@@ -208,22 +178,22 @@
 
                             while ($g = mysqli_fetch_array($pemeran)) {
                                 $id_pemeran = $g["id_pemeran"];
-                                $nama_aktor = $g["nama_pemain"];
-                                $film = $g["nama_film"];
+                                $nama_aktor = $g["id_pemain"];
+                                $film = $g["id_film"];
                                 $peran = $g["peran"];
                             }
                             ?>
                             <form action="proses_edit.php?id_pemeran=<?php echo $id_pemeran ?>" method="post" enctype="multipart/form-data" id="tambah_peran">
-                            <div class="input-group mb-3">
-                                    <select class="form-select" name="nama_pemain" id="nama_pemain">
-                                        <option selected>Nama Aktor</option>
+                                <div class="input-group mb-3">
+                                    <select class="form-select" name="id_pemain" id="id_pemain">
+                                        <option value='' <?php if ($nama_aktor == '') echo 'selected'; ?>>Aktor yang dipilih tidak ada!</option>
                                         <?php
                                         // Fetch data from the "items" table
                                         $query = mysqli_query($conn, "SELECT * FROM pemain");
                                         if (mysqli_num_rows($query) > 0) {
                                             while ($data = mysqli_fetch_array($query)) {
-
-                                                echo "<option value='" . $data["id_nama_pemain"] . "'>" . $data["nama_pemain"] . "</option>";
+                                                $selected = ($data['id_nama_pemain'] == $nama_aktor) ? 'selected' : '';
+                                                echo "<option value='" . $data["id_nama_pemain"] . "'$selected>" . $data["nama_pemain"] . "</option>";
                                             }
                                         } else {
                                             echo "<option value=''>No items available</option>";
@@ -233,22 +203,21 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <select class="form-select" name="nama_film" id="nama_film">
-                                        <option selected>Film</option>
+                                        <option value='' <?php if ($film === '') echo 'selected'; ?>>Film yang dipilih tidak ada!</option>
                                         <?php
-                                        // Fetch data from the "items" table
                                         $query = mysqli_query($conn, "SELECT * FROM tb_film");
-                                        if (mysqli_num_rows($query) > 0) {
+                                        if ($query && mysqli_num_rows($query) > 0) {
                                             while ($data = mysqli_fetch_array($query)) {
-
-                                                echo "<option value='" . $data["id"] . "'>" . $data["nama_film"] . "</option>";
+                                                $selected = ($data['id'] == $film) ? 'selected' : '';
+                                                echo "<option value='" . $data["id"] . "' $selected>" . $data["nama_film"] . "</option>";
                                             }
                                         } else {
-                                            echo "<option value=''>No items available</option>";
+                                            echo "<option value=''>No films available</option>";
                                         }
                                         ?>
                                     </select>
                                 </div>
-                                <input class="form-control mb-3" type="text" placeholder="Peran" name="peran" id="peran">
+                                <input class="form-control mb-3" type="text" value="<?php echo $peran ?>" name="peran" id="peran">
 
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <input type="submit" id="submitBtn" value="Submit" class="btn btn-success" onclick="return confirm('Simpan Perubahan?')">
@@ -257,23 +226,22 @@
                         </div>
                     </div>
                 </center>
-                </table>
             </div>
         </section>
 
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
+    <footer id="footer" class="footer fixed-bottom">
         <div class="copyright">
-            &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Cineverse Admin</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            Designed by <strong><span>Cineverse</span></strong>
         </div>
     </footer><!-- End Footer -->
 

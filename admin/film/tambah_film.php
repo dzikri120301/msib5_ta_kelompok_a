@@ -20,7 +20,7 @@ if (!isset($_SESSION["username"])) {
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/logo.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -58,7 +58,7 @@ if (!isset($_SESSION["username"])) {
 
     <!-- <?php
             include '../../config/koneksi.php';
-            $query = mysqli_query($conn, "SELECT * FROM tb_film as f join genre as g ON f.id_genre = g.id_nama_genre join pemain as p ON f.id_pemain = p.id_nama_pemain join komentar as k ON k.id_film = f.id")
+            $query = mysqli_query($conn, "SELECT * FROM tb_film as f join genre as g ON f.id_genre = g.id_nama_genre join komentar as k ON k.id_film = f.id")
             ?> -->
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -182,8 +182,16 @@ if (!isset($_SESSION["username"])) {
                             <h5 class="card-title">Data Film</h5>
                             <form action="proses_tambah_film.php" method="post" enctype="multipart/form-data" id="tambah_film">
                                 <input class="form-control mb-3" type="text" placeholder="Kode Film" name="kode_film" id="kode_film">
+                                <input class="form-control mb-3" type="text" placeholder="Trailer" name="trailer" id="trailer">
                                 <input class="form-control mb-3" type="text" placeholder="Nama Film" name="nama_film" id="nama_film">
-                                <input class="form-control mb-3" type="file" name="fileToUpload" id="fileToUpload">
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="inputGroupFile01">Upload Poster</label>
+                                    <input type="file" class="form-control" name="fileToUpload" id="gambar">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="inputGroupFile02">Upload Banner</label>
+                                    <input type="file" class="form-control" name="banner" id="banner">
+                                </div>
                                 <div class="input-group mb-3">
                                     <select class="form-select" name="nama_genre" id="nama_genre">
                                         <option selected>Genre</option>
@@ -203,26 +211,9 @@ if (!isset($_SESSION["username"])) {
                                 </div>
                                 <input class="form-control mb-3" type="number" placeholder="Tahun" name="tahun" id="tahun">
                                 <input class="form-control mb-3" type="text" placeholder="Sinopsis" name="sinopsis" id="sinopsis">
-                                <div class="input-group mb-3">
-                                    <select class="form-select" name="nama_pemain" id="nama_pemain">
-                                        <option selected>Pemeran Film</option>
-                                        <?php
-                                        // Fetch data from the "items" table
-                                        $query = mysqli_query($conn, "SELECT * FROM pemain");
-                                        if (mysqli_num_rows($query) > 0) {
-                                            while ($data = mysqli_fetch_array($query)) {
-
-                                                echo "<option value='" . $data["id_nama_pemain"] . "'>" . $data["nama_pemain"] . "</option>";
-                                            }
-                                        } else {
-                                            echo "<option value=''>No items available</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
                                 <input class="form-control mb-3" type="text" placeholder="Durasi" name="durasi" id="durasi">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success">
+                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success" disabled>
                                 </div>
                             </form>
                         </div>
@@ -264,55 +255,65 @@ if (!isset($_SESSION["username"])) {
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- <script>
-        $(document).ready(function() {
-            $("#kode_kamar").on("blur", function() {
-                var kode_kamar = $(this).val();
 
+    <script>
+        $(document).ready(function() {
+            $('#kode_film').on('input', function() {
+                var kode_film = $(this).val();
+
+                // Kirim AJAX untuk memeriksa kode film
                 $.ajax({
-                    url: "check_kode_kamar.php",
-                    type: "POST",
+                    type: 'POST',
+                    url: 'check_kode_film.php',
                     data: {
-                        kode_kamar: kode_kamar
+                        kode_film: kode_film
                     },
                     success: function(response) {
-                        if (response == "exists") {
-                            alert("Kode Kamar yang anda masukkan sudah ada");
-                            $("#kode_kamar").val(""); // Clear the input field
+                        if (response === "Kode Film sudah ada dalam database") {
+                            $('#submitBtn').prop('disabled', true); // Menonaktifkan tombol submit jika kode film sudah ada
+                            $('#kode_film').addClass('is-invalid'); // Tambahkan kelas 'is-invalid' pada input kode film
+                            $('#kode_film + .invalid-feedback').remove(); // Hapus pesan validasi sebelumnya
+                            $('#kode_film').after('<div class="invalid-feedback">' + response + '</div>'); // Tampilkan pesan validasi baru
+                        } else {
+                            $('#submitBtn').prop('disabled', false); // Aktifkan tombol submit jika kode film belum ada
+                            $('#kode_film').removeClass('is-invalid'); // Hapus kelas 'is-invalid' pada input kode film
+                            $('#kode_film + .invalid-feedback').remove(); // Hapus pesan validasi jika kode film sudah valid
                         }
                     }
                 });
             });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Menonaktifkan tombol submit saat halaman dimuat
+            $('#submitBtn').prop('disabled', true);
 
+            // Fungsi untuk memeriksa apakah semua input telah terisi
             function checkInputs() {
-                var allInputsFilled = true;
+                var kode_film = $('#kode_film').val();
+                var nama_film = $('#nama_film').val();
+                var fileToUpload = $('#fileToUpload').val();
+                var nama_genre = $('#nama_genre').val();
+                var tahun = $('#tahun').val();
+                var sinopsis = $('#sinopsis').val();
+                var durasi = $('#durasi').val();
 
-                // Loop through each input field
-                $('form#tambah_kamar input').each(function() {
-                    // Check if the input field is empty
-                    if ($(this).val() === '') {
-                        allInputsFilled = false;
-                    }
-                });
-
-                // Enable or disable the submit button based on the result
-                $('#submitBtn').prop('disabled', !allInputsFilled);
+                // Aktifkan tombol submit jika semua input telah diisi
+                if (kode_film !== '' && nama_film !== '' && fileToUpload !== '' && nama_genre !== '' && tahun !== '' && sinopsis !== '' && durasi !== '') {
+                    $('#submitBtn').prop('disabled', false);
+                } else {
+                    // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
+                    $('#submitBtn').prop('disabled', true);
+                }
             }
 
-            // Add event listener for input fields
-            $('form#tambah_kamar input').on('input', function() {
-                checkInputs();
-            });
-
-            // Add event listener for the select fields
-            $('form#tambah_kamar select').on('change', function() {
+            // Memanggil fungsi checkInputs() saat input berubah
+            $('#kode_film, #nama_film, #fileToUpload, #nama_genre, #tahun, #sinopsis, #durasi').on('input', function() {
                 checkInputs();
             });
         });
-    </script> -->
+    </script>
 </body>
 
 </html>

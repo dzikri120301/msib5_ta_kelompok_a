@@ -20,7 +20,7 @@ if (!isset($_SESSION["username"])) {
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/logo.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -57,10 +57,9 @@ if (!isset($_SESSION["username"])) {
 
     <?php
     include '../../config/koneksi.php';
-    $query = mysqli_query($conn, "SELECT f.*, g.nama_genre, p.nama_pemain, AVG(k.rating) AS average_rating
+    $query = mysqli_query($conn, "SELECT f.*, g.nama_genre, AVG(k.rating) AS average_rating
     FROM tb_film as f
     JOIN genre as g ON f.id_genre = g.id_nama_genre
-    JOIN pemain as p ON f.id_pemain = p.id_nama_pemain
     LEFT JOIN komentar as k ON f.id = k.id_film
     GROUP BY f.id");
     ?>
@@ -184,11 +183,18 @@ if (!isset($_SESSION["username"])) {
                         <tr>
                             <th>
                                 Kode Film
+                            </th>
+                            <th>
+                                Trailer (YT)
+                            </th>
                             <th>
                                 Nama Film
                             </th>
                             <th>
                                 Gambar
+                            </th>
+                            <th>
+                                Banner
                             </th>
                             <th>
                                 Genre Film
@@ -200,13 +206,16 @@ if (!isset($_SESSION["username"])) {
                                 Sinopsis
                             </th>
                             <th>
-                                Pemeran Film
-                            </th>
-                            <th>
                                 Durasi Film
                             </th>
                             <th>
                                 Rating
+                            </th>
+                            <th>
+                                Created At
+                            </th>
+                            <th>
+                                Updated At
                             </th>
                             <th>
                                 Aksi
@@ -221,14 +230,17 @@ if (!isset($_SESSION["username"])) {
                         ?>
                                 <tr>
                                     <td><?php echo $data["kode_film"] ?></td>
+                                    <td><?php echo $data["trailer"] ?></td>
                                     <td><?php echo $data["nama_film"] ?></td>
                                     <td><img src="<?php echo $data["gambar"] ?>" width="100"></td>
+                                    <td><img src="<?php echo $data["banner"] ?>" width="100"></td>
                                     <td><?php echo $data["nama_genre"] ?></td>
                                     <td><?php echo $data["tahun"] ?></td>
                                     <td><?php echo $data["sinopsis"] ?></td>
-                                    <td><?php echo $data["nama_pemain"] ?></td>
                                     <td><?php echo $data["durasi"] ?></td>
                                     <td><?php echo $data["average_rating"] !== null ? number_format($data["average_rating"], 1) : "Belum Ada Rating"; ?></td>
+                                    <td><?php echo $data["created_at"] ?></td>
+                                    <td><?php echo $data["updated_at"] ?></td>
                                     <td><a href="edit_film.php?id=<?php echo $data["id"] ?>"><button type="button" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></button></a>
                                         <br>
                                         <a data-id="<?php echo $data["id"] ?>" href="proses_hapus_film.php?id=<?php echo $data["id"] ?>" class="btn-delete">

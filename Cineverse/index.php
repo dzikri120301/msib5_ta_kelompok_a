@@ -27,7 +27,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet" />
-
 </head>
 
 <body>
@@ -59,20 +58,46 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Jelajahi Cineverse Mengungkap Keajaiban Sinematik</h1>
-          <h2></h2>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-          </div>
+    <div class="d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+      <h1>Jelajahi Cineverse Mengungkap Keajaiban Sinematik</h1>
+      <h2></h2>
+      <!-- Carousel -->
+      <div id="filmCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <?php
+          // Ambil data dari database
+          include '../config/koneksi.php';
+          $films = mysqli_query($conn, "SELECT * FROM tb_film ORDER BY updated_at DESC LIMIT 5");
+
+          $active = 'active'; // Tandai item pertama sebagai aktif
+
+          foreach ($films as $film) {
+          ?>
+            <div class="carousel-item <?= $active ?>">
+              <img src="../admin/film/<?php echo $film['banner'] ?>" alt="<?php echo $film['nama_film'] ?>">
+              <div class="carousel-caption d-none d-md-block">
+                <div class="tulisan">
+                  <h1 class="tulisan-judul md-3"><?php echo $film['nama_film'] ?></h1>
+                  <a href="<?php echo $film['trailer'] ?>" class="glightbox"><button class="btn btn-primary"><i class="fa-solid fa-play"></i></button></a>
+                </div>
+              </div>
+            </div>
+          <?php
+            $active = ''; // Hanya item pertama yang aktif
+          }
+          ?>
         </div>
-        <!-- <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="" />
-        </div> -->
+        <!-- Tombol Navigasi -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#filmCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#filmCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
+      <!-- End Carousel -->
     </div>
   </section>
   <!-- End Hero -->
@@ -243,6 +268,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

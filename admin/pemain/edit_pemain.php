@@ -85,7 +85,7 @@ while ($data = mysqli_fetch_array($query)) {
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="../index.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -193,7 +193,7 @@ while ($data = mysqli_fetch_array($query)) {
                                 <input type="text" class="form-control mb-3" placeholder="Asal/tempat tinggal" name="asal" value="<?php echo $asal; ?>" required>
                                 <input type="date" class="form-control mb-3" placeholder="Tanggal lahir" name="tgl_lahir" value="<?php echo $tgl_lahir; ?>" required>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <input type="submit" id="submitBtn" value="Update" class="btn btn-success">
+                                    <input type="submit" id="submitBtn" value="Update" class="btn btn-success" onclick="return confirm('Simpan Perubahan?')">
                                 </div>
                             </form>
                         </div>
@@ -205,7 +205,7 @@ while ($data = mysqli_fetch_array($query)) {
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer fixed-bottom">
+    <footer id=" footer" class="footer fixed-bottom">
         <div class="copyright">
             &copy; Copyright <strong><span>Cineverse Admin</span></strong>. All Rights Reserved
         </div>

@@ -1,11 +1,3 @@
-/**
-* Template Name: Arsha
-* Updated: Sep 18 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -385,9 +377,8 @@ h6 {
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
-  width: 100%;
   height: 100vh;
-  background-image: url("../img/bg4.png") !important;
+  /* background-image: url("../img/banner_danur.jpg") !important; */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -516,7 +507,6 @@ h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
   overflow: hidden;
 }
 
@@ -1831,4 +1821,55 @@ section {
   #footer .credits {
     padding-top: 4px;
   }
+}
+
+/*--------------------------------------------------------------
+# Carousel
+--------------------------------------------------------------*/
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5); /* Warna latar belakang caption */
+  padding: 20px; /* Spasi dalam caption */
+  border-radius: 5px; /* Sudut bulat pada caption */
+  color: #fff; /* Warna teks caption */
+  position: absolute; /* Posisi absolut */
+  bottom: 20px; /* Jarak dari bawah */
+  left: 50%; /* Posisi tengah */
+  transform: translateX(-50%); /* Geser ke kiri 50% dari lebar */
+  width: 80%; /* Lebar */
+  max-width: 600px; /* Lebar maksimum */
+}
+/* Gaya untuk membuat tombol play bulat */
+.btn-primary {
+  border-radius: 50%; /* Mengatur border-radius agar tombol menjadi bulat */
+  width: 60px; /* Lebar dan tinggi untuk membuat ukuran tombol */
+  height: 60px;
+  background-color: #ff0000; /* Ubah warna latar belakang sesuai kebutuhan */
+  border: none; /* Hilangkan border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease; /* Efek transisi saat mengubah warna latar belakang */
+  margin-left: 250px;
+}
+
+.btn-primary:hover {
+  background-color: #ff5555; /* Ubah warna latar belakang saat tombol dihover */
+  cursor: pointer; /* Ubah kursor menjadi pointer saat dihover */
+}
+
+/* Gaya untuk ikon di dalam tombol */
+.btn-primary i {
+  color: #fff; /* Ubah warna ikon sesuai kebutuhan */
+  font-size: 24px; /* Sesuaikan ukuran ikon */
+}
+/* Sesuaikan gaya carousel agar mengisi seluruh lebar layar */
+.carousel {
+  width: 210vh;
+  height: 140vh;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 113vh;
+  filter: brightness(70%);
 }

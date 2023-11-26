@@ -20,7 +20,7 @@ if (!isset($_SESSION["username"])) {
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/logo.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -186,29 +186,36 @@ if (!isset($_SESSION["username"])) {
                             <h5 class="card-title">Data Film</h5>
                             <?php
                             include '../../config/koneksi.php';
-                            $query = mysqli_query($conn, "SELECT f.*, g.nama_genre, p.nama_pemain, AVG(k.rating) AS average_rating
+                            $query = mysqli_query($conn, "SELECT f.*, g.nama_genre, AVG(k.rating) AS average_rating
                             FROM tb_film as f
                             JOIN genre as g ON f.id_genre = g.id_nama_genre
-                            JOIN pemain as p ON f.id_pemain = p.id_nama_pemain
                             LEFT JOIN komentar as k ON f.id = k.id_film
                             WHERE id = '$_GET[id]' GROUP BY f.id");
                             while ($data = mysqli_fetch_array($query)) {
                                 $id = $data["id"];
                                 $kode = $data["kode_film"];
+                                $trailer = $data["trailer"];
                                 $film = $data["nama_film"];
                                 $gambar = $data["gambar"];
                                 $nama_genre = $data["id_genre"];
                                 $tahun = $data["tahun"];
                                 $sinopsis = $data["sinopsis"];
-                                $nama_pemain = $data["id_pemain"];
                                 $durasi = $data["durasi"];
                             }
                             ?>
                             <form action="proses_edit_film.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data" id="tambah_film">
                                 <img class="mb-3" src="<?php echo $gambar ?>" width="100">
                                 <input class="form-control mb-3" type="text" value="<?php echo $kode ?>" name="kode_film" readonly id="kode_film">
+                                <input class="form-control mb-3" type="text" value="<?php echo $trailer ?>" name="trailer" id="trailer">
                                 <input class="form-control mb-3" type="text" value="<?php echo $film ?>" name="nama_film" id="nama_film">
-                                <input class="form-control mb-3" type="file" name="fileToUpload" id="fileToUpload">
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="inputGroupFile01">Upload Poster</label>
+                                    <input type="file" class="form-control" name="fileToUpload" id="gambar">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="inputGroupFile02">Upload Banner</label>
+                                    <input type="file" class="form-control" name="banner" id="banner">
+                                </div>
                                 <div class="input-group mb-3">
                                     <select class="form-select" name="nama_genre" id="nama_genre">
                                         <option value='' <?php if ($nama_genre == '') echo 'selected'; ?>>Genre yang dipilih tidak ada!</option>
@@ -226,24 +233,9 @@ if (!isset($_SESSION["username"])) {
                                 </div>
                                 <input class="form-control mb-3" type="tahun" value="<?php echo $tahun ?>" name="tahun" id="tahun">
                                 <input class="form-control mb-3" name="sinop" value="<?php echo $sinopsis ?>" id="sinop">
-                                <div class="input-group mb-3">
-                                    <select class="form-select" name="nama_pemain" id="nama_pemain">
-                                        <option value='' <?php if ($nama_pemain == '') echo 'selected'; ?>>Nama Pemain yang dipilih tidak ada!</option>
-                                        <?php
-                                        // Fetch data from the "items" table
-                                        $query = mysqli_query($conn, "SELECT * FROM pemain");
-                                        if (mysqli_num_rows($query) > 0) {
-                                            while ($data = mysqli_fetch_array($query)) {
-                                                $selected = ($data['id_nama_pemain'] == $nama_pemain) ? 'selected' : '';
-                                                echo "<option value='" . $data["id_nama_pemain"] . "'$selected>" . $data["nama_pemain"] . "</option>";
-                                            }
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
                                 <input class="form-control mb-3" type="number" value="<?php echo $durasi ?>" name="durasi" id="durasi">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success">
+                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success" onclick="return confirm('Simpan Perubahan?')">
                                 </div>
                             </form>
                         </div>
@@ -256,7 +248,7 @@ if (!isset($_SESSION["username"])) {
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
+    <footer id=" footer" class="footer">
         <div class="copyright">
             &copy; Copyright <strong><span>Cineverse Admin</span></strong>. All Rights Reserved
         </div>
