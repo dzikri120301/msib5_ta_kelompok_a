@@ -163,9 +163,9 @@ if (!isset($_SESSION["username"])) {
                         <div class="card-body">
                             <h5 class="card-title">Data ADMIN</h5>
                             <form action=" proses_tambah.php" method="post" enctype="multipart/form-data" name="formtambah">
-                                <input class="form-control form-control-sm" type="text" onkeyup="checkform()" name="username" placeholder="Username" aria-label=".form-control-sm example"><br>
-                                <input class="form-control form-control-sm" type="password" onkeyup="checkform()" name="password" placeholder="Password" aria-label=".form-control-sm example"><br>
-                                <button type="submit" name="Submit" value="Simpan" class="btn btn-success">Submit</button>
+                                <input class="form-control form-control-sm" type="text" id="username" name="username" placeholder="Username" aria-label=".form-control-sm example"><br>
+                                <input class="form-control form-control-sm" type="password" id="password" name="password" placeholder="Password" aria-label=".form-control-sm example"><br>
+                                <button type="submit" name="Submit" id="submitBtn" value="Simpan" class="btn btn-success" disabled>Submit</button>
                             </form>
                         </div>
                     </div>
@@ -209,52 +209,31 @@ if (!isset($_SESSION["username"])) {
     <!-- Add this script block at the end of your <body> section -->
     <!-- Add this script block at the end of your <body> section -->
     <!-- Add this script block at the end of your <body> section -->
-    <!-- <script>
-    $(document).ready(function() {
-        $("#kode_kamar").on("blur", function() {
-            var kode_kamar = $(this).val();
+    <script>
+        $(document).ready(function() {
+            // Menonaktifkan tombol submit saat halaman dimuat
+            $('#submitBtn').prop('disabled', true);
 
-            $.ajax({
-                url: "check_kode_kamar.php",
-                type: "POST",
-                data: {
-                    kode_kamar: kode_kamar
-                },
-                success: function(response) {
-                    if (response == "exists") {
-                        alert("Kode Kamar yang anda masukkan sudah ada");
-                        $("#kode_kamar").val(""); // Clear the input field
-                    }
+            // Fungsi untuk memeriksa apakah semua input telah terisi
+            function checkInputs() {
+                var username = $('#username').val();
+                var password = $('#password').val();
+
+                // Aktifkan tombol submit jika semua input telah diisi
+                if (username !== '' && password !== '') {
+                    $('#submitBtn').prop('disabled', false);
+                } else {
+                    // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
+                    $('#submitBtn').prop('disabled', true);
                 }
+            }
+
+            // Memanggil fungsi checkInputs() saat input berubah
+            $('#username, #password').on('input', function() {
+                checkInputs();
             });
         });
-
-        function checkInputs() {
-            var allInputsFilled = true;
-
-            // Loop through each input field
-            $('form#tambah_kamar input').each(function() {
-                // Check if the input field is empty
-                if ($(this).val() === '') {
-                    allInputsFilled = false;
-                }
-            });
-
-            // Enable or disable the submit button based on the result
-            $('#submitBtn').prop('disabled', !allInputsFilled);
-        }
-
-        // Add event listener for input fields
-        $('form#tambah_kamar input').on('input', function() {
-            checkInputs();
-        });
-
-        // Add event listener for the select fields
-        $('form#tambah_kamar select').on('change', function() {
-            checkInputs();
-        });
-    });
-</script> -->
+    </script>
 </body>
 
 </html>
