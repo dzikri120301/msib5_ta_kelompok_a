@@ -77,9 +77,16 @@
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
-                    </div>
+                      <div class="input-group has-validation">
+                   <input type="password" name="password" class="form-control" id="yourPassword" required>
+                    <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                <i class="fas fa-eye-slash"></i>
+               </button>
+               </div>
+               <div class="invalid-feedback">Please enter your password!</div>
+               </div>
+               </div>
 
                     <div class="col-12">
                     </div>
@@ -119,6 +126,23 @@
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const passwordInput = document.getElementById('yourPassword');
+      const togglePasswordButton = document.getElementById('togglePassword');
+
+      togglePasswordButton.addEventListener('click', function () {
+        const type = passwordInput.type === 'password' ? 'text' : 'password';
+        passwordInput.type = type;
+
+        // Toggle eye icon
+        this.innerHTML = type === 'password' ? '<i class="fas fa-eye-slash"></i>' : '<i class="fas fa-eye"></i>';
+      });
+    });
+  </script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
