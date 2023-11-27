@@ -113,7 +113,6 @@
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                     </div>
                 </div>
-
                 <div class="col-lg-4 col-md-6 portfolio-item filter-card">
                     <div class="portfolio-img">
                         <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="" />

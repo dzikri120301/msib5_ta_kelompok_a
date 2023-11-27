@@ -1,3 +1,13 @@
+<?php
+include "../config/koneksi.php";
+$query = mysqli_query($conn, "SELECT f.*, g.nama_genre, AVG(k.rating) AS average_rating
+    FROM tb_film as f
+    JOIN genre as g ON f.id_genre = g.id_nama_genre
+    LEFT JOIN komentar as k ON k.id_film = f.id
+    WHERE f.id = '$_GET[id]'");
+$film = mysqli_fetch_array($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +15,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Inner Page - Arsha Bootstrap Template</title>
+  <title><?php echo $film['nama_film'] ?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -27,101 +37,164 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Arsha
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top header-inner-pages">
+  <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-
-      <h1 class="logo me-auto"><a href="index.html">Arsha</a></h1>
+      <h1 class="logo me-auto"><a href="index.html">Cineverse</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link   scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li>
+            <a class="nav-link scrollto" href="film.php">Film</a>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          <li>
+            <a class="nav-link scrollto" href="About.php">About</a>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
+      </nav>
+      <!-- .navbar -->
     </div>
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->
+
 
   <main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li>Inner Page</li>
-        </ol>
-        <h2>Inner Page</h2>
-
-      </div>
-    </section><!-- End Breadcrumbs -->
-
-    <section class="inner-page">
-      <div class="container">
-        <p>
-          Example inner page template
-        </p>
-      </div>
-    </section>
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
+    <!-- ======= Hero Section ======= -->
+    <section id="detail-film" class="align-items-center">
+      <img class="banner-single" src="../admin/film/<?php echo $film['banner'] ?>">
+      <div class="container position-absolute top-0 start-50 translate-middle-x background-gradient">
+        <div class="row">
+          <div class="col-md-2">
+            <img class="poster-single" src="../admin/film/<?php echo $film['gambar'] ?>">
+          </div>
+          <div class="col-md-10 position-relative">
+            <div class="d-flex">
+              <h1><?php echo $film['nama_film'] ?></h1>
+              <h1>&nbsp;<?php echo $film['tahun'] ?></h1>
+            </div>
+            <?php for ($i = 0; $i < $film['average_rating']; $i++) { ?>
+              <i class="fa-solid fa-star" style="color: yellow;"></i>
+            <?php } ?>
+            <div class="d-flex">
+              <p><?php echo $film['nama_genre'] ?></p>
+              <p class="ml-3">&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-clock"></i>&nbsp;<?php echo $film['durasi'] ?> menit</p>
+            </div>
+            <a href="<?php echo $film['trailer'] ?>" class="glightbox"><button class="tonton"><i class="fa-solid fa-play"></i> Tonton Sekarang</button></a>
+            <div class="kotak">
+              <p><?php echo $film['sinopsis'] ?></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+    <!-- ======= End Hero Section ======= -->
 
+    <!-- Pemain Film nya -->
+    <?php
+    include '../config/koneksi.php';
+    // Kueri untuk mendapatkan informasi tentang film yang baru saja dibuka
+    $query = mysqli_query($conn, "SELECT * from pemeran as p 
+    join tb_film as f on p.id_film = f.id 
+    join pemain as pm on p.id_pemain = pm.id_nama_pemain
+    WHERE f.id = '$_GET[id]'");
+    ?>
+    <h1 class="pemain-judul">Para Pemain Film</h1>
+    <div class="container">
+      <div class="row">
+        <?php
+        while ($row = mysqli_fetch_array($query)) {
+        ?>
+          <div class="col-md-2 justify-content-center">
+            <img src="../admin/pemain/images/<?php echo $row['foto'] ?>" class="rounded-image pemain-gambar">
+            <p class="pemain-nama"><?php echo $row['nama_pemain'] ?></p>
+          </div>
+        <?php } ?>
+      </div>
+    </div>
+    <!-- End Pemain Film nya -->
+
+    <!-- Recommended Movie -->
+    <?php
+    include '../config/koneksi.php';
+    // Kueri untuk mendapatkan informasi tentang film yang baru saja dibuka
+    $query = mysqli_query($conn, "SELECT f.*, g.nama_genre, AVG(k.rating) AS average_rating
+    FROM tb_film as f
+    JOIN genre as g ON f.id_genre = g.id_nama_genre
+    LEFT JOIN komentar as k ON f.id = k.id_film
+    WHERE f.id = '$_GET[id]'");
+    $film = mysqli_fetch_array($query);
+
+    // Mengambil genre film yang sedang ditampilkan
+    $current_genre = $film['nama_genre'];
+
+    // Kueri untuk menampilkan rekomendasi film berdasarkan genre film yang sedang ditampilkan
+    $recommendation_query = mysqli_query($conn, "SELECT * FROM tb_film as f 
+                      JOIN komentar as k ON k.id_film = f.id 
+                      JOIN genre as g ON f.id_genre = g.id_nama_genre 
+                      WHERE g.nama_genre = '$current_genre' AND f.id != '$_GET[id]' 
+                      ORDER BY k.rating DESC LIMIT 5");
+    if (!$recommendation_query) {
+      printf("Error: %s\n", mysqli_error($conn));
+      exit();
+    }
+    ?>
+    <div class="upcoming mt-5">
+      <div class="movies_box">
+        <h1>Rekomendasi Film Untukmu</h1>
+        <div class="box">
+          <?php
+          while ($row = mysqli_fetch_array($recommendation_query)) {
+          ?>
+            <div class="card">
+
+              <div class="details">
+                <a href="inner-page.php?id=<?php echo $row['id'] ?>">
+                  <div class="rating">
+                    <P class="nama_rating"><?php echo $row['rating'] ?></P>
+                    <img src="assets/img/bintang-ajah.png" class="bintang-img">
+                  </div>
+                  <div class="left">
+                    <p class="name"><?php echo $row['nama_film'] ?></p>
+                    <div class="date_quality">
+                      <p class="date"><?php echo $row['tahun'] ?></p>
+                    </div>
+                    <p class="category"><?php echo $row['nama_genre'] ?></p>
+                    <div class="info">
+                      <div class="time">
+                        <i class="fa-regular fa-clock"></i>
+                        <p><?php echo $row['durasi'] ?> min</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="right">
+                    <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
+                  </div>
+                </a>
+              </div>
+              <img src="../admin/film/<?php echo $row['gambar'] ?>">
+            </div>
+          <?php } ?>
+        </div>
+      </div>
+      <div id="view">
+        <button type="button" class="btn-view btn-dark">View More</button>
+      </div>
+    </div>
+    <!-- End Recommendation Section -->
+  </main>
+  <!-- End #main -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row">
@@ -203,6 +276,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
 
 </body>
 

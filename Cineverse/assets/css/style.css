@@ -376,7 +376,7 @@ h6 {
 /*--------------------------------------------------------------
 # upcoming
 --------------------------------------------------------------*/
-.upcoming{
+.upcoming {
   width: 100%;
   height: auto;
   margin: 0 auto;
@@ -384,23 +384,23 @@ h6 {
   background-color: #fffefe;
 }
 
-.upcoming .movies_box{
+.upcoming .movies_box {
   width: 95%;
   margin: 0 auto;
 }
 
-.upcoming .movies_box h1{
+.upcoming .movies_box h1 {
   font-size: 20px;
   color: #000000;
   margin-bottom: 20px;
 }
-.upcoming .movies_box .box{
+.upcoming .movies_box .box {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.upcoming .movies_box .box .card{
+.upcoming .movies_box .box .card {
   width: 250px;
   height: 370px;
   margin: 10px;
@@ -408,7 +408,7 @@ h6 {
   border-radius: 8px;
 }
 
-.upcoming .movies_box .box .card .details{
+.upcoming .movies_box .box .card .details {
   width: 250px;
   height: 370px;
   overflow: hidden;
@@ -418,12 +418,33 @@ h6 {
   opacity: 0;
 }
 
-.upcoming .movies_box .box .card:hover .details{
+.upcoming .movies_box .box .card .rating {
+  width: 50px;
+  height: 30px;
+  margin-left: 200px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+}
+.nama_rating {
+  margin-left: 29px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+}
+.bintang-img {
+  margin-top: -83px;
+  margin-left: 7px;
+  max-width: 40%; /* Lebar maksimum gambar */
+  max-height: 40%; /* Tinggi maksimum gambar */
+}
+.upcoming .movies_box .box .card:hover .details {
   opacity: 1;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.7));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
 }
 
-.upcoming .movies_box .box .card .details .left{
+.upcoming .movies_box .box .card .details .left {
   position: absolute;
   bottom: 0;
   color: #fff;
@@ -432,25 +453,27 @@ h6 {
   opacity: 0;
 }
 
-.upcoming .movies_box .box .card:hover .details .left{
+.upcoming .movies_box .box .card:hover .details .left {
   opacity: 1;
   transform: translateX(0);
 }
 
-.upcoming .movies_box .box .card .details .left p.name{
+.upcoming .movies_box .box .card .details .left p.name {
   width: 100%;
   font-size: 20px;
   font-weight: bold;
   margin-left: 10px;
   margin-bottom: 10px;
+  text-align: left;
+  top: -100px;
 }
 
-.upcoming .movies_box .box .card .details .left .date_quality{
+.upcoming .movies_box .box .card .details .left .date_quality {
   display: flex;
   align-items: center;
 }
 
-.upcoming .movies_box .box .card .details .left .date_quality p.quality{
+.upcoming .movies_box .box .card .details .left .date_quality p.quality {
   width: 30px;
   font-size: 13px;
   background: #ffe100;
@@ -461,7 +484,7 @@ h6 {
   font-weight: bold;
 }
 
-.upcoming .movies_box .box .card .details .left .date_quality p.date{
+.upcoming .movies_box .box .card .details .left .date_quality p.date {
   color: #fff;
   font-size: 15px;
   font-weight: bold;
@@ -470,35 +493,36 @@ h6 {
   margin-bottom: 8px;
 }
 
-.upcoming .movies_box .box .card .details .left p.category{
+.upcoming .movies_box .box .card .details .left p.category {
   margin-left: 10px;
   font-size: 13px;
   margin-bottom: 8px;
 }
 
-.upcoming .movies_box .box .card .details .left .info{
+.upcoming .movies_box .box .card .details .left .info {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.upcoming .movies_box .box .card .details .left .info .time{
+.upcoming .movies_box .box .card .details .left .info .time {
   display: flex;
   align-items: center;
 }
 
-.upcoming .movies_box .box .card .details .left .info .time i{
+.upcoming .movies_box .box .card .details .left .info .time i {
   font-size: 12px;
   color: #ffd500;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
-.upcoming .movies_box .box .card .details .left .info .time p{
+.upcoming .movies_box .box .card .details .left .info .time p {
   font-size: 12px;
   margin-left: 5px;
+  margin-bottom: -0px;
 }
 
-.upcoming .movies_box .box .card .details .right{
+.upcoming .movies_box .box .card .details .right {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -508,12 +532,12 @@ h6 {
   opacity: 0;
 }
 
-.upcoming .movies_box .box .card:hover .details .right{
+.upcoming .movies_box .box .card:hover .details .right {
   opacity: 1;
   transform: translateX(0);
 }
 
-.upcoming .movies_box .box .card .details .right i{
+.upcoming .movies_box .box .card .details .right i {
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -526,30 +550,30 @@ h6 {
   margin: 0 10px 8px 0;
 }
 
-.upcoming .movies_box .box .card img{
+.upcoming .movies_box .box .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
- /*--------------------------------------------------------------
+/*--------------------------------------------------------------
 # button view more
 --------------------------------------------------------------*/
 .btn-view {
   font-family: var(--font-primary);
-font-weight: 500;
-font-size: 16px;
-letter-spacing: 1px;
-display: inline-block;
-padding: 12px 48px;
-border-radius: 50px;
-transition: 0.5s;
-margin: 10px;
-margin-left: 650px;
-border: 2px solid #fff;
-color: #45928e;
-background: #0c3c53;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 48px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px;
+  margin-left: 650px;
+  border: 2px solid #fff;
+  color: #45928e;
+  background: #0c3c53;
 }
 /*--------------------------------------------------------------
 # Hero Section
@@ -2050,4 +2074,90 @@ section {
   width: 100%;
   height: 113vh;
   filter: brightness(70%);
+}
+.banner-single {
+  position: relative;
+  height: 100vh;
+  width: 208vh;
+  margin-left: -10px;
+  filter: brightness(40%);
+}
+/* Style untuk menumpuk gambar poster di atas banner */
+/* CSS untuk tata letak elemen */
+#detail-film {
+  position: relative;
+}
+#detail-film .container {
+  margin-top: 400px;
+  max-width: 210vh;
+  height: 52vh;
+}
+.background-gradient {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #000000);
+  padding: 20px; /* Sesuaikan padding dengan kebutuhan Anda */
+  z-index: 1; /* Pastikan container ada di depan banner */
+}
+
+.poster-single {
+  position: absolute;
+  top: -140px; /* Sesuaikan posisi vertikal poster */
+  left: 400px; /* Sesuaikan posisi horizontal poster */
+  z-index: 2; /* Pastikan poster ada di belakang container */
+  width: 15%;
+  height: 90%;
+}
+
+.col-md-10 {
+  position: absolute;
+  top: -150px; /* Sesuaikan posisi vertikal tulisan */
+  left: 400px; /* Sesuaikan posisi horizontal tulisan */
+  color: #fff;
+  z-index: 3; /* Pastikan tulisan ada di depan container */
+  /*Tambahkan properti lain yang diperlukan*/
+}
+
+.tonton {
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.tonton:hover {
+  background-color: #ff5555;
+  cursor: pointer;
+}
+
+.kotak {
+  width: 800px; /* Sesuaikan lebar kotak sesuai kebutuhan */
+  word-wrap: break-word; /* Memastikan teks terlalu panjang akan pindah ke baris baru */
+  white-space: pre-line;
+}
+.back {
+  background-color: black !important;
+}
+.background-black {
+  background-color: black;
+}
+.rounded-image {
+  width: 150px; /* Ubah ukuran gambar sesuai kebutuhan */
+  height: 150px; /* Ubah ukuran gambar sesuai kebutuhan */
+  border-radius: 50%; /* Mengubah gambar menjadi bulat */
+  object-fit: cover; /* Memastikan gambar terisi sepenuhnya pada lingkaran */
+}
+.pemain-judul {
+  font-size: 20px;
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.pemain-gambar {
+  margin-left: -140px;
+}
+.pemain-nama {
+  margin-left: -130px;
 }
