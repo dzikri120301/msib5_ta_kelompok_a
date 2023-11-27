@@ -186,7 +186,7 @@ if (!isset($_SESSION["username"])) {
                             <h5 class="card-title">Data Pemeran</h5>
                             <form action="proses_tambah.php" method="post" enctype="multipart/form-data" id="tambah_peran">
                                 <div class="input-group mb-3">
-                                    <select class="form-select" name="nama_pemain" id="nama_pemain">
+                                    <select class="form-select" name="nama_pemain" id="nama_pemain" >
                                         <option selected>Nama Aktor</option>
                                         <?php
                                         // Fetch data from the "items" table
@@ -203,7 +203,7 @@ if (!isset($_SESSION["username"])) {
                                     </select>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <select class="form-select" name="nama_film" id="nama_film">
+                                    <select class="form-select" name="nama_film" id="nama_film" >
                                         <option selected>Film</option>
                                         <?php
                                         // Fetch data from the "items" table
@@ -221,7 +221,7 @@ if (!isset($_SESSION["username"])) {
                                 </div>
                                 <input class="form-control mb-3" type="text" placeholder="Peran" name="peran" id="peran">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success">
+                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success" disabled>
                                 </div>
                             </form>
                         </div>
@@ -264,6 +264,33 @@ if (!isset($_SESSION["username"])) {
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Menonaktifkan tombol submit saat halaman dimuat
+            $('#submitBtn').prop('disabled', true);
+
+            // Fungsi untuk memeriksa apakah semua input telah terisi
+            function checkInputs() {
+                var nama_pemain = $('#nama_pemain').val();
+                var nama_film = $('#nama_film').val();
+                var peran = $('#peran').val();
+
+                // Aktifkan tombol submit jika semua input telah diisi
+                if (nama_pemain !== "" && nama_film !== "" && peran !== "" ) {
+                    $('#submitBtn').prop('disabled', false);
+                } else {
+                    // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
+                    $('#submitBtn').prop('disabled', true);
+                }
+            }
+
+            // Memanggil fungsi checkInputs() saat input berubah
+            $('#nama_pemain,#nama_film,#peran').on('input', function(){
+                checkInputs();
+            });
+        });
+    </script>
     <!-- Add this script block at the end of your <body> section -->
     <!-- Add this script block at the end of your <body> section -->
     <!-- Add this script block at the end of your <body> section -->
