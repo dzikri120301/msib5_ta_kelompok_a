@@ -10,7 +10,7 @@
   <meta content="" name="keywords" />
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon" />
+  <link href="assets/img/logo.png" rel="icon" />
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
   <!-- Google Fonts -->
@@ -133,6 +133,17 @@
     </section>
     <!-- End Cliens Section -->
 
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-start">
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ======= Upcoming Section ======= -->
     <div class="upcoming mt-5">
       <div class="movies_box">
@@ -180,394 +191,16 @@
       </div>
     </div>
     <!-- End Upcoming Section -->
-
-    <!-- ======= Horror Section ======= -->
-    <div class="upcoming mt-5">
-      <div class="movies_box">
-        <h1>Trending on Horror</h1>
-        <div class="box">
-          <?php
-          include '../config/koneksi.php';
-          $detailfilm = mysqli_query($conn, "SELECT * FROM tb_film as f JOIN komentar as k ON k.id_film = f.id JOIN genre as g ON f.id_genre = g.id_nama_genre WHERE g.nama_genre = 'Horor' ORDER BY k.rating DESC LIMIT 5");
-          if (!$detailfilm) {
-            printf("Error: %s\n", mysqli_error($conn));
-            exit();
-          }
-          while ($row = mysqli_fetch_array($detailfilm)) {
-          ?>
-            <div class="card">
-
-              <div class="details">
-                <a href="inner-page.php?id=<?php echo $row['id'] ?>">
-                  <div class="rating">
-                    <P class="nama_rating"><?php echo $row['rating'] ?></P>
-                    <img src="assets/img/bintang-ajah.png" class="bintang-img">
-                  </div>
-                  <div class="left">
-                    <p class="name"><?php echo $row['nama_film'] ?></p>
-                    <div class="date_quality">
-                      <p class="date"><?php echo $row['tahun'] ?></p>
-                    </div>
-                    <p class="category"><?php echo $row['nama_genre'] ?></p>
-                    <div class="info">
-                      <div class="time">
-                        <i class="fa-regular fa-clock"></i>
-                        <p><?php echo $row['durasi'] ?> min</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="right">
-                    <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
-                  </div>
-                </a>
-              </div>
-              <img src="../admin/film/<?php echo $row['gambar'] ?>">
-            </div>
-          <?php } ?>
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-start">
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+          </div>
         </div>
       </div>
-    </div>
-    <!-- End horror Section -->
-
-    <!-- ======= Comedy Section ======= -->
-    <div class="upcoming mt-5">
-      <div class="movies_box">
-        <h1>Tranding on Comedy</h1>
-        <div class="box">
-          <?php
-          include '../config/koneksi.php';
-          $detailfilm = mysqli_query($conn, "SELECT * FROM tb_film as f JOIN komentar as k ON k.id_film = f.id JOIN genre as g ON f.id_genre = g.id_nama_genre WHERE g.nama_genre = 'komedi' ORDER BY k.rating DESC LIMIT 5");
-          if (!$detailfilm) {
-            printf("Error: %s\n", mysqli_error($conn));
-            exit();
-          }
-          while ($row = mysqli_fetch_array($detailfilm)) {
-          ?>
-            <div class="card">
-
-              <div class="details">
-                <a href="inner-page.php?id=<?php echo $row['id'] ?>">
-                  <div class="rating">
-                    <P class="nama_rating"><?php echo $row['rating'] ?></P>
-                    <img src="assets/img/bintang-ajah.png" class="bintang-img">
-                  </div>
-                  <div class="left">
-                    <p class="name"><?php echo $row['nama_film'] ?></p>
-                    <div class="date_quality">
-                      <p class="date"><?php echo $row['tahun'] ?></p>
-                    </div>
-                    <p class="category"><?php echo $row['nama_genre'] ?></p>
-                    <div class="info">
-                      <div class="time">
-                        <i class="fa-regular fa-clock"></i>
-                        <p><?php echo $row['durasi'] ?> min</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="right">
-                    <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
-                  </div>
-                </a>
-              </div>
-              <img src="../admin/film/<?php echo $row['gambar'] ?>">
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-    </div>
-    <!-- End Comedy Section -->
-
-    <!-- ======= Action Section ======= -->
-    <div class="upcoming mt-5">
-      <div class="movies_box">
-        <h1>Tranding on Action</h1>
-        <div class="box">
-          <?php
-          include '../config/koneksi.php';
-          $detailfilm = mysqli_query($conn, "SELECT * FROM tb_film as f JOIN komentar as k ON k.id_film = f.id JOIN genre as g ON f.id_genre = g.id_nama_genre WHERE g.nama_genre = 'action' ORDER BY k.rating DESC LIMIT 5");
-          if (!$detailfilm) {
-            printf("Error: %s\n", mysqli_error($conn));
-            exit();
-          }
-          while ($row = mysqli_fetch_array($detailfilm)) {
-          ?>
-            <div class="card">
-
-              <div class="details">
-                <a href="inner-page.php?id=<?php echo $row['id'] ?>">
-                  <div class="rating">
-                    <P class="nama_rating"><?php echo $row['rating'] ?></P>
-                    <img src="assets/img/bintang-ajah.png" class="bintang-img">
-                  </div>
-                  <div class="left">
-                    <p class="name"><?php echo $row['nama_film'] ?></p>
-                    <div class="date_quality">
-                      <p class="date"><?php echo $row['tahun'] ?></p>
-                    </div>
-                    <p class="category"><?php echo $row['nama_genre'] ?></p>
-                    <div class="info">
-                      <div class="time">
-                        <i class="fa-regular fa-clock"></i>
-                        <p><?php echo $row['durasi'] ?> min</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="right">
-                    <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
-                  </div>
-                </a>
-              </div>
-              <img src="../admin/film/<?php echo $row['gambar'] ?>">
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-    </div>
-    <!-- End Action Section -->
-
-    <!-- ======= Drama Section ======= -->
-    <div class="upcoming mt-5">
-      <div class="movies_box">
-        <h1>Trending on Drama</h1>
-        <div class="box">
-          <?php
-          include '../config/koneksi.php';
-          $detailfilm = mysqli_query($conn, "SELECT * FROM tb_film as f JOIN komentar as k ON k.id_film = f.id JOIN genre as g ON f.id_genre = g.id_nama_genre WHERE g.nama_genre = 'drama' ORDER BY k.rating DESC LIMIT 5");
-          if (!$detailfilm) {
-            printf("Error: %s\n", mysqli_error($conn));
-            exit();
-          }
-          while ($row = mysqli_fetch_array($detailfilm)) {
-          ?>
-            <div class="card">
-
-              <div class="details">
-                <a href="inner-page.php?id=<?php echo $row['id'] ?>">
-                  <div class="rating">
-                    <P class="nama_rating"><?php echo $row['rating'] ?></P>
-                    <img src="assets/img/bintang-ajah.png" class="bintang-img">
-                  </div>
-                  <div class="left">
-                    <p class="name"><?php echo $row['nama_film'] ?></p>
-                    <div class="date_quality">
-                      <p class="date"><?php echo $row['tahun'] ?></p>
-                    </div>
-                    <p class="category"><?php echo $row['nama_genre'] ?></p>
-                    <div class="info">
-                      <div class="time">
-                        <i class="fa-regular fa-clock"></i>
-                        <p><?php echo $row['durasi'] ?> min</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="right">
-                    <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
-                  </div>
-                </a>
-              </div>
-              <img src="../admin/film/<?php echo $row['gambar'] ?>">
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-    </div>
-    <!-- End Drama Section -->
-
-    <!-- ======= Drama Section ======= -->
-    <div class="upcoming mt-5">
-      <div class="movies_box">
-        <h1>Trending on Romansa</h1>
-        <div class="box">
-          <?php
-          include '../config/koneksi.php';
-          $detailfilm = mysqli_query($conn, "SELECT * FROM tb_film as f JOIN komentar as k ON k.id_film = f.id JOIN genre as g ON f.id_genre = g.id_nama_genre WHERE g.nama_genre = 'romansa' ORDER BY k.rating DESC LIMIT 5");
-          if (!$detailfilm) {
-            printf("Error: %s\n", mysqli_error($conn));
-            exit();
-          }
-          while ($row = mysqli_fetch_array($detailfilm)) {
-          ?>
-            <div class="card">
-
-              <div class="details">
-                <a href="inner-page.php?id=<?php echo $row['id'] ?>">
-                  <div class="rating">
-                    <P class="nama_rating"><?php echo $row['rating'] ?></P>
-                    <img src="assets/img/bintang-ajah.png" class="bintang-img">
-                  </div>
-                  <div class="left">
-                    <p class="name"><?php echo $row['nama_film'] ?></p>
-                    <div class="date_quality">
-                      <p class="date"><?php echo $row['tahun'] ?></p>
-                    </div>
-                    <p class="category"><?php echo $row['nama_genre'] ?></p>
-                    <div class="info">
-                      <div class="time">
-                        <i class="fa-regular fa-clock"></i>
-                        <p><?php echo $row['durasi'] ?> min</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="right">
-                    <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
-                  </div>
-                </a>
-              </div>
-              <img src="../admin/film/<?php echo $row['gambar'] ?>">
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-    </div>
-    <!-- End Drama Section -->
-
-    <!-- ======= Drama Section ======= -->
-    <div class="upcoming mt-5">
-      <div class="movies_box">
-        <h1>Trending on Fantasi</h1>
-        <div class="box">
-          <?php
-          include '../config/koneksi.php';
-          $detailfilm = mysqli_query($conn, "SELECT * FROM tb_film as f JOIN komentar as k ON k.id_film = f.id JOIN genre as g ON f.id_genre = g.id_nama_genre WHERE g.nama_genre = 'fantasi' ORDER BY k.rating DESC LIMIT 5");
-          if (!$detailfilm) {
-            printf("Error: %s\n", mysqli_error($conn));
-            exit();
-          }
-          while ($row = mysqli_fetch_array($detailfilm)) {
-          ?>
-            <div class="card">
-
-              <div class="details">
-                <a href="inner-page.php?id=<?php echo $row['id'] ?>">
-                  <div class="rating">
-                    <P class="nama_rating"><?php echo $row['rating'] ?></P>
-                    <img src="assets/img/bintang-ajah.png" class="bintang-img">
-                  </div>
-                  <div class="left">
-                    <p class="name"><?php echo $row['nama_film'] ?></p>
-                    <div class="date_quality">
-                      <p class="date"><?php echo $row['tahun'] ?></p>
-                    </div>
-                    <p class="category"><?php echo $row['nama_genre'] ?></p>
-                    <div class="info">
-                      <div class="time">
-                        <i class="fa-regular fa-clock"></i>
-                        <p><?php echo $row['durasi'] ?> min</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="right">
-                    <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
-                  </div>
-                </a>
-              </div>
-              <img src="../admin/film/<?php echo $row['gambar'] ?>">
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-    </div>
-    <!-- End Drama Section -->
-
-    <!-- ======= Drama Section ======= -->
-    <div class="upcoming mt-5">
-      <div class="movies_box">
-        <h1>Trending on Mister</h1>
-        <div class="box">
-          <?php
-          include '../config/koneksi.php';
-          $detailfilm = mysqli_query($conn, "SELECT * FROM tb_film as f JOIN komentar as k ON k.id_film = f.id JOIN genre as g ON f.id_genre = g.id_nama_genre WHERE g.nama_genre = 'misteri' ORDER BY k.rating DESC LIMIT 5");
-          if (!$detailfilm) {
-            printf("Error: %s\n", mysqli_error($conn));
-            exit();
-          }
-          while ($row = mysqli_fetch_array($detailfilm)) {
-          ?>
-            <div class="card">
-
-              <div class="details">
-                <a href="inner-page.php?id=<?php echo $row['id'] ?>">
-                  <div class="rating">
-                    <P class="nama_rating"><?php echo $row['rating'] ?></P>
-                    <img src="assets/img/bintang-ajah.png" class="bintang-img">
-                  </div>
-                  <div class="left">
-                    <p class="name"><?php echo $row['nama_film'] ?></p>
-                    <div class="date_quality">
-                      <p class="date"><?php echo $row['tahun'] ?></p>
-                    </div>
-                    <p class="category"><?php echo $row['nama_genre'] ?></p>
-                    <div class="info">
-                      <div class="time">
-                        <i class="fa-regular fa-clock"></i>
-                        <p><?php echo $row['durasi'] ?> min</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="right">
-                    <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
-                  </div>
-                </a>
-              </div>
-              <img src="../admin/film/<?php echo $row['gambar'] ?>">
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-    </div>
-    <!-- End Drama Section -->
-
-    <!-- ======= Drama Section ======= -->
-    <div class="upcoming mt-5">
-      <div class="movies_box">
-        <h1>Trending on Adventure</h1>
-        <div class="box">
-          <?php
-          include '../config/koneksi.php';
-          $detailfilm = mysqli_query($conn, "SELECT * FROM tb_film as f JOIN komentar as k ON k.id_film = f.id JOIN genre as g ON f.id_genre = g.id_nama_genre WHERE g.nama_genre = 'Adventure' ORDER BY k.rating DESC LIMIT 5");
-          if (!$detailfilm) {
-            printf("Error: %s\n", mysqli_error($conn));
-            exit();
-          }
-          while ($row = mysqli_fetch_array($detailfilm)) {
-          ?>
-            <div class="card">
-
-              <div class="details">
-                <a href="inner-page.php?id=<?php echo $row['id'] ?>">
-                  <div class="rating">
-                    <P class="nama_rating"><?php echo $row['rating'] ?></P>
-                    <img src="assets/img/bintang-ajah.png" class="bintang-img">
-                  </div>
-                  <div class="left">
-                    <p class="name"><?php echo $row['nama_film'] ?></p>
-                    <div class="date_quality">
-                      <p class="date"><?php echo $row['tahun'] ?></p>
-                    </div>
-                    <p class="category"><?php echo $row['nama_genre'] ?></p>
-                    <div class="info">
-                      <div class="time">
-                        <i class="fa-regular fa-clock"></i>
-                        <p><?php echo $row['durasi'] ?> min</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="right">
-                    <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
-                  </div>
-                </a>
-              </div>
-              <img src="../admin/film/<?php echo $row['gambar'] ?>">
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-      <div id="view">
-        <button type="button" class="btn-view btn-dark">View More</button>
-      </div>
-    </div>
-    <!-- End Drama Section -->
-
+    </section>
   </main>
   <!-- End #main -->
 
@@ -578,76 +211,36 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Cineverse</h3>
-            <p>
-              A108 Adam Street <br />
-              New York, NY 535022<br />
-              United States <br /><br />
-              <strong>Phone:</strong> +1 5589 55488 55<br />
-              <strong>Email:</strong> info@example.com<br />
-            </p>
+            <img width="200px" src="assets/img/logo.png" alt="">
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Colaborations</h4>
             <ul>
               <li>
-                <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
+                <i class="bx bx-chevron-right"></i>Cinema XXI
               </li>
               <li>
-                <i class="bx bx-chevron-right"></i> <a href="#">About us</a>
+                <i class="bx bx-chevron-right"></i>Cgv
               </li>
               <li>
-                <i class="bx bx-chevron-right"></i> <a href="#">Services</a>
-              </li>
-              <li>
-                <i class="bx bx-chevron-right"></i>
-                <a href="#">Terms of service</a>
-              </li>
-              <li>
-                <i class="bx bx-chevron-right"></i>
-                <a href="#">Privacy policy</a>
+                <i class="bx bx-chevron-right"></i>Cinepolis
               </li>
             </ul>
           </div>
-
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
             <ul>
+              <br>
               <li>
-                <i class="bx bx-chevron-right"></i> <a href="#">Web Design</a>
+                <i class="bx bx-chevron-right"></i>Kota Cinema Mall
               </li>
               <li>
-                <i class="bx bx-chevron-right"></i>
-                <a href="#">Web Development</a>
+                <i class="bx bx-chevron-right"></i>Movimax
               </li>
               <li>
-                <i class="bx bx-chevron-right"></i>
-                <a href="#">Product Management</a>
-              </li>
-              <li>
-                <i class="bx bx-chevron-right"></i> <a href="#">Marketing</a>
-              </li>
-              <li>
-                <i class="bx bx-chevron-right"></i>
-                <a href="#">Graphic Design</a>
+                <i class="bx bx-chevron-right"></i>Platinum Cineplex
               </li>
             </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>
-              Cras fermentum odio eu feugiat lide par naso tierra videa magna
-              derita valies
-            </p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
           </div>
         </div>
       </div>

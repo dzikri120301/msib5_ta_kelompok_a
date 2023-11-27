@@ -55,8 +55,6 @@
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                     <li>
-                        <a class="getstarted scrollto" href="#about">Get Started</a>
-                    </li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -70,7 +68,7 @@
         <section id="about" class="about mt-5">
             <div class="container" data-aos="fade-up">
 
-                <div class="section-title">
+                <div class="section-title mt-5">
                     <h2>About Us</h2>
                 </div>
 
@@ -164,7 +162,7 @@
         <!-- ======= Team Section ======= -->
         <section id="team" class="team section-bg">
             <div class="container" data-aos="fade-up">
-                <div class="section-title">
+                <div class="section-title mt-5">
                     <h2>Team</h2>
                     <p></p>
                 </div>
@@ -263,7 +261,7 @@
         <!-- ======= Frequently Asked Questions Section ======= -->
         <section id="faq" class="faq section-bg">
             <div class="container" data-aos="fade-up">
-                <div class="section-title">
+                <div class="section-title mt-5">
                     <h2>Frequently Asked Questions</h2>
                     <p></p>
                 </div>
@@ -299,7 +297,7 @@
                             <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                                 <p>
                                     Tonton di mana pun, kapan pun. Masuk ke akun cineverse-mu
-                                    untuk menonton langsung di netflix.com dari komputer pribadi
+                                    untuk menonton langsung di website Cineverse dari komputer pribadi
                                     atau di perangkat yang terhubung ke Internet dan mendukung
                                     website Cineverse
                                 </p>
@@ -341,14 +339,8 @@
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
             <div class="container" data-aos="fade-up">
-                <div class="section-title">
-                    <h2>Contact</h2>
-                    <p>
-                        Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-                        ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
-                        quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
-                        Quia fugiat sit in iste officiis commodi quidem hic quas.
-                    </p>
+                <div class="section-title mt-5">
+                    <h2>Kritik & Saran</h2>
                 </div>
 
                 <div class="row">
@@ -356,13 +348,9 @@
                     <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-center">
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label for="name">Your Name</label>
+                                <div class="form-group">
+                                    <label for="name">Username</label>
                                     <input type="text" name="name" class="form-control" id="name" required />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="name">Your Email</label>
-                                    <input type="email" class="form-control" name="email" id="email" required />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -398,15 +386,8 @@
         <div class="footer-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 footer-contact">
-                        <h3>Cineverse</h3>
-                        <p>
-                            A108 Adam Street <br />
-                            New York, NY 535022<br />
-                            United States <br /><br />
-                            <strong>Phone:</strong> +1 5589 55488 55<br />
-                            <strong>Email:</strong> info@example.com<br />
-                        </p>
+                    <div class="col-md-5 footer-contact">
+                        <img width="200px" src="assets/img/logo.png" alt="">
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
@@ -421,6 +402,12 @@
                             <li>
                                 <i class="bx bx-chevron-right"></i>Cinepolis
                             </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-7 footer-links">
+                        <ul>
+                            <br>
                             <li>
                                 <i class="bx bx-chevron-right"></i>Kota Cinema Mall
                             </li>
@@ -431,45 +418,6 @@
                                 <i class="bx bx-chevron-right"></i>Platinum Cineplex
                             </li>
                         </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Our Services</h4>
-                        <ul>
-                            <li>
-                                <i class="bx bx-chevron-right"></i> <a href="#">Web Design</a>
-                            </li>
-                            <li>
-                                <i class="bx bx-chevron-right"></i>
-                                <a href="#">Web Development</a>
-                            </li>
-                            <li>
-                                <i class="bx bx-chevron-right"></i>
-                                <a href="#">Product Management</a>
-                            </li>
-                            <li>
-                                <i class="bx bx-chevron-right"></i> <a href="#">Marketing</a>
-                            </li>
-                            <li>
-                                <i class="bx bx-chevron-right"></i>
-                                <a href="#">Graphic Design</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Our Social Networks</h4>
-                        <p>
-                            Cras fermentum odio eu feugiat lide par naso tierra videa magna
-                            derita valies
-                        </p>
-                        <div class="social-links mt-3">
-                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                        </div>
                     </div>
                 </div>
             </div>
