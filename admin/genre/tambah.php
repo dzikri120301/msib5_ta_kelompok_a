@@ -179,7 +179,7 @@ if (!isset($_SESSION["username"])) {
                             <form action="proses_tambah.php" method="post" enctype="multipart/form-data" id="tambah_film">
                                 <input class="form-control mb-3" type="text" placeholder="Nama Genre" name="nama_genre" id="nama_genre">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success">
+                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success" disabled>
                                 </div>
                             </form>
                         </div>
@@ -225,6 +225,31 @@ if (!isset($_SESSION["username"])) {
     <!-- Add this script block at the end of your <body> section -->
     <!-- Add this script block at the end of your <body> section -->
     <!-- Add this script block at the end of your <body> section -->
+
+    <script>
+        $(document).ready(function() {
+            // Menonaktifkan tombol submit saat halaman dimuat
+            $('#submitBtn').prop('disabled', true);
+
+            // Fungsi untuk memeriksa apakah semua input telah terisi
+            function checkInputs() {
+                var nama_genre = $('#nama_genre').val();
+
+                // Aktifkan tombol submit jika semua input telah diisi
+                if (nama_genre !== '') {
+                    $('#submitBtn').prop('disabled', false);
+                } else {
+                    // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
+                    $('#submitBtn').prop('disabled', true);
+                }
+            }
+
+            // Memanggil fungsi checkInputs() saat input berubah
+            $('#nama_genre').on('input', function() {
+                checkInputs();
+            });
+        });
+    </script>
 
 </body>
 

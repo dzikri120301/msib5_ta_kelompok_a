@@ -40,10 +40,12 @@
                     <li class="dropdown">
                         <a href="#"><span>Genre Film</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#">Drop Down 1</a></li>
-                            <li><a href="#">Drop Down 2</a></li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
+                            <li><a href="#" class="genre-link" data-filter="*">All</a></li>
+                            <li><a href="#" class="genre-link" data-filter=".filter-app">Action</a></li>
+                            <li><a href="#" class="genre-link" data-filter=".filter-card">Adventure</a></li>
+                            <li><a href="#" class="genre-link" data-filter=".filter-web">Comedy</a></li>
+                            <li><a href="#" class="genre-link" data-filter=".filter-horror">Horror</a></li>
+                            <li><a href="#" class="genre-link" data-filter=".filter-romance">Romance</a></li>
                         </ul>
                     </li>
                     <li>
@@ -72,15 +74,17 @@
 
             <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
                 <li data-filter="*" class="filter-active">All</li>
-                <li data-filter=".filter-app">App</li>
-                <li data-filter=".filter-card">Card</li>
-                <li data-filter=".filter-web">Web</li>
+                <li data-filter=".filter-app">Action</li>
+                <li data-filter=".filter-card">Adventure</li>
+                <li data-filter=".filter-web">Comedy</li>
+                <li data-filter=".filter-horror">Horror</li>
+                <li data-filter=".filter-romance">Romance</li>
             </ul>
 
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                     <div class="portfolio-img">
-                        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="" />
+                        <img src="assets/img/plane.jpg" class="img-fluid" alt="" />
                     </div>
                     <div class="portfolio-info">
                         <h4>App 1</h4>
@@ -92,7 +96,7 @@
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                     <div class="portfolio-img">
-                        <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="" />
+                        <img src="assets/img/meg.jpg" class="img-fluid" alt="" />
                     </div>
                     <div class="portfolio-info">
                         <h4>Web 3</h4>
@@ -104,7 +108,7 @@
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                     <div class="portfolio-img">
-                        <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="" />
+                        <img src="assets/img/wednesday.jpg" class="img-fluid" alt="" />
                     </div>
                     <div class="portfolio-info">
                         <h4>App 2</h4>
@@ -115,7 +119,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 portfolio-item filter-card">
                     <div class="portfolio-img">
-                        <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="" />
+                        <img src="assets/img/thor.jpg" class="img-fluid" alt="" />
                     </div>
                     <div class="portfolio-info">
                         <h4>Card 2</h4>
@@ -127,19 +131,19 @@
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                     <div class="portfolio-img">
-                        <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="" />
+                        <img src="assets/img/poster1.jpeg" class="img-fluid" alt="" />
                     </div>
                     <div class="portfolio-info">
                         <h4>Web 2</h4>
                         <p>Web</p>
-                        <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+                        <a href="assets/img/aquaman.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                     <div class="portfolio-img">
-                        <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="" />
+                        <img src="assets/img/arrow.jpg" class="img-fluid" alt="" />
                     </div>
                     <div class="portfolio-info">
                         <h4>App 3</h4>
@@ -151,7 +155,7 @@
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-card">
                     <div class="portfolio-img">
-                        <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="" />
+                        <img src="assets/img/1899.jpg" class="img-fluid" alt="" />
                     </div>
                     <div class="portfolio-info">
                         <h4>Card 1</h4>
@@ -163,7 +167,7 @@
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-card">
                     <div class="portfolio-img">
-                        <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="" />
+                        <img src="assets/img/gajaman.jpg" class="img-fluid" alt="" />
                     </div>
                     <div class="portfolio-info">
                         <h4>Card 3</h4>
@@ -175,7 +179,7 @@
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                     <div class="portfolio-img">
-                        <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="" />
+                        <img src="assets/img/ant_man.jpg" class="img-fluid" alt="" />
                     </div>
                     <div class="portfolio-info">
                         <h4>Web 3</h4>
@@ -199,6 +203,27 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.genre-link').on('click', function(e) {
+                e.preventDefault(); // Mencegah pengalihan ke halaman baru
+
+                var filter = $(this).data('filter'); // Mendapatkan nilai filter dari data-filter
+
+                // Memperbarui kelas filter pada portfolio-flters
+                $('#portfolio-flters li').removeClass('filter-active');
+                $('#portfolio-flters li[data-filter="' + filter + '"]').addClass('filter-active');
+                // Mengganti gambar dan judul portfolio sesuai dengan genre yang dipilih
+                $('.portfolio-item').fadeOut(100, function() {
+                    $(this).hide().filter(filter).fadeIn(100);
+
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
