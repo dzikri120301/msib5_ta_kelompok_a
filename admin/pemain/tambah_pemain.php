@@ -262,55 +262,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- <script>
+    <script>
         $(document).ready(function() {
-            $("#kode_kamar").on("blur", function() {
-                var kode_kamar = $(this).val();
+            // Menonaktifkan tombol submit saat halaman dimuat
+            $('#submitBtn').prop('disabled', true);
 
-                $.ajax({
-                    url: "check_kode_kamar.php",
-                    type: "POST",
-                    data: {
-                        kode_kamar: kode_kamar
-                    },
-                    success: function(response) {
-                        if (response == "exists") {
-                            alert("Kode Kamar yang anda masukkan sudah ada");
-                            $("#kode_kamar").val(""); // Clear the input field
-                        }
-                    }
-                });
-            });
-
+            // Fungsi untuk memeriksa apakah semua input telah terisi
             function checkInputs() {
-                var allInputsFilled = true;
+                var nama_film = $('#nama_film').val();
+                var foto = $('#foto').val();
+                var asal = $('#asal').val();
+                var tgl_lahir = $('#tgl_lahir').val();
 
-                // Loop through each input field
-                $('form#tambah_kamar input').each(function() {
-                    // Check if the input field is empty
-                    if ($(this).val() === '') {
-                        allInputsFilled = false;
-                    }
-                });
-
-                // Enable or disable the submit button based on the result
-                $('#submitBtn').prop('disabled', !allInputsFilled);
+                // Aktifkan tombol submit jika semua input telah diisi
+                if (nama_film !== '' && foto !== '' && asal !== '' && tgl_lahir !== '') {
+                    $('#submitBtn').prop('disabled', false);
+                } else {
+                    // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
+                    $('#submitBtn').prop('disabled', true);
+                }
             }
 
-            // Add event listener for input fields
-            $('form#tambah_kamar input').on('input', function() {
-                checkInputs();
-            });
-
-            // Add event listener for the select fields
-            $('form#tambah_kamar select').on('change', function() {
+            // Memanggil fungsi checkInputs() saat input berubah
+            $('#kode_film, #nama_film, #fileToUpload, #nama_genre, #tahun, #sinopsis, #durasi').on('input', function() {
                 checkInputs();
             });
         });
-    </script> -->
+    </script>
 </body>
 
 </html>
