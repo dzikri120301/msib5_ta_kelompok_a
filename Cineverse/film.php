@@ -24,6 +24,14 @@
 </head>
 
 <body>
+    <?php
+    include '../config/koneksi.php';
+    $query = mysqli_query($conn, "SELECT f.*, g.nama_genre, AVG(k.rating) AS average_rating
+    FROM tb_film as f
+    JOIN genre as g ON f.id_genre = g.id_nama_genre
+    LEFT JOIN komentar as k ON f.id = k.id_film
+    GROUP BY f.id");
+    ?>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
@@ -81,113 +89,38 @@
                 <li data-filter=".filter-romance">Romance</li>
             </ul>
 
-            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-img">
-                        <img src="assets/img/plane.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>App 1</h4>
-                        <p>App</p>
-                        <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            <div class="upcoming ">
+                <div class="movies_box">
+                    <div class="box">
+                        <?php
+                        while ($data = mysqli_fetch_array($query)) {
+                        ?>
+                            <div class="card">
+                                <div class=" details">
+                                    <div class="left">
+                                        <p><?php echo $data["nama_film"] ?></p>
+                                        <div class="date_quality">
+                                            <p class="date"><?php echo $data["tahun"] ?></p>
+                                        </div>
+                                        <p class="category"><?php echo $data["nama_genre"] ?></p>
+                                        <div class="info">
+                                            <div class="time">
+                                                <i class="fa-regular fa-clock"></i>
+                                                <p><?php echo $data["durasi"] ?> Menit</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <i class="fa-solid fa-play"></i>
+                                    </div>
+                                </div>
+                                <img src="../admin/film/<?php echo $data['gambar'] ?>">
+                            </div>
+                        <?php } ?>
+
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-img">
-                        <img src="assets/img/meg.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Web 3</h4>
-                        <p>Web</p>
-                        <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-img">
-                        <img src="assets/img/wednesday.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>App 2</h4>
-                        <p>App</p>
-                        <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <div class="portfolio-img">
-                        <img src="assets/img/thor.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Card 2</h4>
-                        <p>Card</p>
-                        <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-img">
-                        <img src="assets/img/poster1.jpeg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Web 2</h4>
-                        <p>Web</p>
-                        <a href="assets/img/aquaman.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-img">
-                        <img src="assets/img/arrow.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>App 3</h4>
-                        <p>App</p>
-                        <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <div class="portfolio-img">
-                        <img src="assets/img/1899.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Card 1</h4>
-                        <p>Card</p>
-                        <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <div class="portfolio-img">
-                        <img src="assets/img/gajaman.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Card 3</h4>
-                        <p>Card</p>
-                        <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-img">
-                        <img src="assets/img/ant_man.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Web 3</h4>
-                        <p>Web</p>
-                        <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
