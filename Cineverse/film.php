@@ -21,17 +21,13 @@
             background-color: rgba(40, 58, 90, 0.9);
         }
     </style>
+    <!-- Template CSS Slick -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
 </head>
 
 <body>
-    <?php
-    include '../config/koneksi.php';
-    $query = mysqli_query($conn, "SELECT f.*, g.nama_genre, AVG(k.rating) AS average_rating
-    FROM tb_film as f
-    JOIN genre as g ON f.id_genre = g.id_nama_genre
-    LEFT JOIN komentar as k ON f.id = k.id_film
-    GROUP BY f.id");
-    ?>
+
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
@@ -48,17 +44,18 @@
                     <li class="dropdown">
                         <a href="#"><span>Genre Film</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#" class="genre-link" data-filter="*">All</a></li>
-                            <li><a href="#" class="genre-link" data-filter=".filter-app">Action</a></li>
-                            <li><a href="#" class="genre-link" data-filter=".filter-card">Adventure</a></li>
-                            <li><a href="#" class="genre-link" data-filter=".filter-web">Comedy</a></li>
-                            <li><a href="#" class="genre-link" data-filter=".filter-horror">Horror</a></li>
-                            <li><a href="#" class="genre-link" data-filter=".filter-romance">Romance</a></li>
+                            <li><a href="#" class="genre-link" data-filter=".filter-app"></a></li>
+                            <?php
+                            include "../config/koneksi.php";
+                            $query = mysqli_query($conn, "SELECT * FROM genre ");
+                            while ($data = mysqli_fetch_array($query)) {
+                                echo '<li><a href="#" class="genre-link" data-filter=".' . $data['nama_genre'] . '">' . $data['nama_genre'] . '</a></li>';
+                            }
+                            ?>
                         </ul>
                     </li>
                     <li>
                         <a class="nav-link scrollto" href="About.php">About</a>
-                    </li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -79,8 +76,14 @@
 
             <div class="upcoming ">
                 <div class="movies_box">
-                    <div class="box">
+                    <div class="box logo-slider slick-two">
                         <?php
+                        include '../config/koneksi.php';
+                        $query = mysqli_query($conn, "SELECT f.*, g.nama_genre, AVG(k.rating) AS average_rating
+                        FROM tb_film as f
+                        JOIN genre as g ON f.id_genre = g.id_nama_genre
+                        LEFT JOIN komentar as k ON f.id = k.id_film
+                        GROUP BY f.id");
                         while ($data = mysqli_fetch_array($query)) {
                         ?>
                             <div class="card">
@@ -110,8 +113,66 @@
                 </div>
 
             </div>
+
         </div>
     </section>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <img width="200px" src="assets/img/logo.png" alt="">
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Colaborations</h4>
+                        <ul>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>Cinema XXI
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>Cgv
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>Cinepolis
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <ul>
+                            <br>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>Kota Cinema Mall
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>Movimax
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>Platinum Cineplex
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom clearfix">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Cineverse</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+                Designed by <a href="https://bootstrapmade.com/">Cineverse</a>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>
@@ -127,6 +188,10 @@
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
+    <!-- Template JS Slick -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/slick.min.js"></script>
     <script>
         $(document).ready(function() {
             $('.genre-link').on('click', function(e) {
@@ -145,6 +210,38 @@
             });
         });
     </script>
+    <script>
+        $('.slick-two').slick({
+            infinite: false,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    </script>
+
 </body>
 
 </html>

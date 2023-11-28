@@ -157,13 +157,13 @@ if (!isset($_SESSION["username"])) {
 
         <div class="pagetitle">
             <h1>Cineverse Add</h1>
-            <nav>
+            <!-- <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="genre.php">Data Genre</a></li>
                     <li class="breadcrumb-item active">Add Genre</li>
                 </ol>
-            </nav>
+            </nav> -->
         </div>
         <!-- End Page Title -->
 

@@ -88,10 +88,10 @@ if (!isset($_SESSION["username"])) {
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link " href="../dashboard.php">
+                <!-- <a class="nav-link " href="../dashboard.php">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
-                </a>
+                </a> -->
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
@@ -152,7 +152,7 @@ if (!isset($_SESSION["username"])) {
             <h1>Cineverse Edit</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
                     <li class="breadcrumb-item"><a href="genre.php">Data Genre</a></li>
                     <li class="breadcrumb-item active">Edit Genre Film</li>
                 </ol>
