@@ -49,7 +49,7 @@ if (!isset($_SESSION["username"])) {
     <div class="container-fluid mt-5 ">
         <?php
         include "../../config/koneksi.php";
-        $query = mysqli_query($conn, "SELECT * FROM pemeran as p Join pemain as pn on p.id_pemain = pn.id_nama_pemain Join tb_film as tf on p.id_film = tf.id");
+        $query = mysqli_query($conn, "SELECT * FROM saran ORDER BY id_saran ASC");
         ?>
         <!-- ======= Header ======= -->
         <header id="header" class="header fixed-top d-flex align-items-center">
@@ -145,7 +145,7 @@ if (!isset($_SESSION["username"])) {
                             </a>
                         </li>
                         <li>
-                            <a href="../kotaksaran/pesan.php">
+                            <a href="pesan.php">
                                 <i class="bi bi-circle"></i><span>Pesan</span>
                             </a>
                         </li>
@@ -210,6 +210,11 @@ if (!isset($_SESSION["username"])) {
                                 <i class="bi bi-circle"></i><span>Review</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="pesan.php">
+                                <i class="bi bi-circle"></i><span>Pesan</span>
+                            </a>
+                        </li>
                     </ul>
                 </li><!-- End Forms Nav -->
                 <li class="nav-item">
@@ -237,14 +242,12 @@ if (!isset($_SESSION["username"])) {
             <!-- Table -->
             <div class="table-responsive mt-4">
                 <table class="table table-striped table-bordered" id="data-tabel" class="display" style="width:100%">
-                    <a href="tambah.php?" class="btn btn-light" style="margin-bottom:5px"><i class="fa-solid fa-user-plus"></i></a>
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Aktor</th>
-                            <th>Film</th>
-                            <th>Peran</th>
-                            <th>Aksi</th>
+                            <th>Nama</th>
+                            <th>Subject</th>
+                            <th>Pesan</th>
                         </tr>
                     </thead>
 
@@ -254,12 +257,10 @@ if (!isset($_SESSION["username"])) {
                                 while ($data = mysqli_fetch_array($query)) {
                             ?> <tr>
                                     <td> <?php echo $no ?></td>
-                                    <td> <?php echo $data["nama_pemain"] ?></td>
-                                    <td> <?php echo $data["nama_film"] ?></td>
-                                    <td> <?php echo $data["peran"] ?></td>
-                                    <td> <a class="btn btn-warning" href="edit.php?id_pemeran=<?php echo $data["id_pemeran"] ?>">
-                                            <i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a class="btn btn-danger" href="proses_hapus.php?id_pemeran=<?php echo $data["id_pemeran"] ?>" onclick="return confirm('Yakin Data Akan Dihapus?')">
+                                    <td> <?php echo $data["username"] ?></td>
+                                    <td> <?php echo $data["subject"] ?></td>
+                                    <td> <?php echo $data["pesan"] ?></td>
+                                    <td> <a class="btn btn-danger" href="proses_hapus.php?id_pemeran=<?php echo $data["id_saran"] ?>"class="btn-delete" onclick="return confirm('Yakin Data Akan Dihapus?')">
                                             <i class="fa-solid fa-trash-can"></i> </a>
                                     </td>
                                 </tr>
@@ -315,8 +316,8 @@ if (!isset($_SESSION["username"])) {
             $('.btn-delete').on('click', function(e) {
                 e.preventDefault(); // Mencegah tindakan asli tautan
 
-                var id = $(this).data('id');
-                var confirmation = confirm("Apakah Anda yakin ingin menghapus produk ini?");
+                var id = $(this).data('id_saran');
+                var confirmation = confirm("Apakah Anda yakin ingin menghapus Review ini?");
 
                 if (confirmation) {
                     // Jika pengguna mengonfirmasi, arahkan ke halaman proses penghapusan
@@ -327,6 +328,7 @@ if (!isset($_SESSION["username"])) {
             });
         });
     </script>
+
 
 </body>
 
