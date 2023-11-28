@@ -145,52 +145,110 @@
     </section>
 
     <!-- ======= Upcoming Section ======= -->
-    <div class="upcoming mt-5">
-      <div class="movies_box">
-        <h1>On Trending</h1>
-        <div class="box">
-          <?php
-          include '../config/koneksi.php';
-          $detailfilm = mysqli_query($conn, "SELECT * FROM tb_film as f JOIN komentar as k ON k.id_film = f.id JOIN genre as g ON f.id_genre = g.id_nama_genre ORDER BY k.rating DESC LIMIT 5");
-          if (!$detailfilm) {
-            printf("Error: %s\n", mysqli_error($conn));
-            exit();
-          }
-          while ($row = mysqli_fetch_array($detailfilm)) {
-          ?>
-            <div class="card">
+    <?php
+    include '../config/koneksi.php';
+    $detailfilm = mysqli_query($conn, "SELECT f.*, AVG(k.rating) AS average_rating, k.rating FROM tb_film as f 
+    JOIN komentar as k ON k.id_film = f.id 
+    JOIN genre as g ON f.id_genre = g.id_nama_genre GROUP BY f.id");
+    ?>
 
-              <div class="details">
-                <a href="inner-page.php?id=<?php echo $row['id'] ?>">
-                  <div class="rating">
-                    <P class="nama_rating"><?php echo $row['rating'] ?></P>
-                    <img src="assets/img/bintang-ajah.png" class="bintang-img">
-                  </div>
-                  <div class="left">
-                    <p class="name"><?php echo $row['nama_film'] ?></p>
-                    <div class="date_quality">
-                      <p class="date"><?php echo $row['tahun'] ?></p>
+    <div class="container">
+      <div class="row kolom1">
+        <div class="col-md-2">
+          <div class="upcoming mt-5">
+            <div class="movies_box">
+              <h1>On Trending</h1>
+              <div class="box">
+                <?php
+                // Menampilkan 5 film pertama
+                $count = 0;
+                while ($row = mysqli_fetch_array($detailfilm)) {
+                  if ($count < 5) {
+                ?>
+                    <div class="card" style="max-width: 16rem;">
+                      <div class="details">
+                        <a href="inner-page.php?id=<?php echo $row['id'] ?>">
+                          <div class="rating">
+                            <P class="nama_rating"><?php echo $row['rating'] ?></P>
+                            <img src="assets/img/bintang-ajah.png" class="bintang-img">
+                          </div>
+                          <div class="left">
+                            <p class="name"><?php echo $row['nama_film'] ?></p>
+                            <div class="date_quality">
+                              <p class="date"><?php echo $row['tahun'] ?></p>
+                            </div>
+                            <p class="category"><?php echo $row['nama_genre'] ?></p>
+                            <div class="info">
+                              <div class="time">
+                                <i class="fa-regular fa-clock"></i>
+                                <p><?php echo $row['durasi'] ?> min</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="right">
+                            <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
+                          </div>
+                        </a>
+                      </div>
+                      <img src="../admin/film/<?php echo $row['gambar'] ?>">
                     </div>
-                    <p class="category"><?php echo $row['nama_genre'] ?></p>
-                    <div class="info">
-                      <div class="time">
-                        <i class="fa-regular fa-clock"></i>
-                        <p><?php echo $row['durasi'] ?> min</p>
+                <?php
+                    $count++;
+                  }
+                }
+                ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <?php
+        // Mengatur ulang kursor hasil query
+        mysqli_data_seek($detailfilm, 0);
+        $count = 0;
+        while ($row = mysqli_fetch_array($detailfilm)) {
+          if ($count >= 5 && $count < 10) {
+        ?>
+            <div class="col-md-3">
+              <div class="card" style="max-width: 16rem;">
+                <div class="details">
+                  <a href="inner-page.php?id=<?php echo $row['id'] ?>">
+                    <div class="rating">
+                      <P class="nama_rating"><?php echo $row['rating'] ?></P>
+                      <img src="assets/img/bintang-ajah.png" class="bintang-img">
+                    </div>
+                    <div class="left">
+                      <p class="name"><?php echo $row['nama_film'] ?></p>
+                      <div class="date_quality">
+                        <p class="date"><?php echo $row['tahun'] ?></p>
+                      </div>
+                      <p class="category"><?php echo $row['nama_genre'] ?></p>
+                      <div class="info">
+                        <div class="time">
+                          <i class="fa-regular fa-clock"></i>
+                          <p><?php echo $row['durasi'] ?> min</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="right">
-                    <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
-                  </div>
-                </a>
+                    <div class="right">
+                      <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
+                    </div>
+                  </a>
+                </div>
+                <img src="../admin/film/<?php echo $row['gambar'] ?>">
               </div>
-              <img src="../admin/film/<?php echo $row['gambar'] ?>">
             </div>
-          <?php } ?>
-        </div>
+        <?php
+            $count++;
+          }
+        }
+        ?>
       </div>
     </div>
     <!-- End Upcoming Section -->
+
     <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
         <div class="row">

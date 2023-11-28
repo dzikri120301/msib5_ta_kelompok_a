@@ -87,10 +87,10 @@ if (!isset($_SESSION["username"])) {
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link " href="../dashboard.php">
+                <!-- <a class="nav-link " href="../dashboard.php">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
-                </a>
+                </a> -->
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
@@ -110,6 +110,11 @@ if (!isset($_SESSION["username"])) {
                     <li>
                         <a href="../pemain/pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pemeram/peran.php">
+                            <i class="bi bi-circle"></i><span>Daftar Peran</span>
                         </a>
                     </li>
                 </ul>
@@ -145,7 +150,7 @@ if (!isset($_SESSION["username"])) {
             <h1>Cineverse Add</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
                     <li class="breadcrumb-item"><a href="admin.php">Admin Cineverse</a></li>
                     <li class="breadcrumb-item active">Add Admin</li>
                 </ol>

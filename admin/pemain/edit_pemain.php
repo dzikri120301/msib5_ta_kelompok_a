@@ -103,10 +103,10 @@ while ($data = mysqli_fetch_array($query)) {
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link " href="../dashboard.php">
+                <!-- <a class="nav-link " href="../dashboard.php">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
-                </a>
+                </a> -->
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
@@ -114,7 +114,7 @@ while ($data = mysqli_fetch_array($query)) {
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="film.php">
+                        <a href="../film/film.php">
                             <i class="bi bi-circle"></i><span>Data film</span>
                         </a>
                     </li>
@@ -124,7 +124,7 @@ while ($data = mysqli_fetch_array($query)) {
                         </a>
                     </li>
                     <li>
-                        <a href="../pemain/pemain.php">
+                        <a href="pemain.php">
                             <i class="bi bi-circle"></i><span>Daftar Pemain</span>
                         </a>
                     </li>
@@ -167,7 +167,7 @@ while ($data = mysqli_fetch_array($query)) {
             <h1>Cineverse Edit</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
                     <li class="breadcrumb-item"><a href="pemain.php">Data pemain</a></li>
                     <li class="breadcrumb-item active">Edit Pemain</li>
                 </ol>

@@ -103,10 +103,10 @@ if (!isset($_SESSION["username"])) {
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link " href="../dashboard.php">
+                <!-- <a class="nav-link " href="../dashboard.php">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
-                </a>
+                </a> -->
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
@@ -114,7 +114,7 @@ if (!isset($_SESSION["username"])) {
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="film.php">
+                        <a href="../film/film.php">
                             <i class="bi bi-circle"></i><span>Data film</span>
                         </a>
                     </li>
@@ -167,7 +167,7 @@ if (!isset($_SESSION["username"])) {
             <h1>Cineverse Add</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
                     <li class="breadcrumb-item"><a href="peran.php">Data Pemeran</a></li>
                     <li class="breadcrumb-item active">Add Pemeran</li>
                 </ol>
@@ -186,7 +186,7 @@ if (!isset($_SESSION["username"])) {
                             <h5 class="card-title">Data Pemeran</h5>
                             <form action="proses_tambah.php" method="post" enctype="multipart/form-data" id="tambah_peran">
                                 <div class="input-group mb-3">
-                                    <select class="form-select" name="nama_pemain" id="nama_pemain" >
+                                    <select class="form-select" name="nama_pemain" id="nama_pemain">
                                         <option selected>Nama Aktor</option>
                                         <?php
                                         // Fetch data from the "items" table
@@ -203,7 +203,7 @@ if (!isset($_SESSION["username"])) {
                                     </select>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <select class="form-select" name="nama_film" id="nama_film" >
+                                    <select class="form-select" name="nama_film" id="nama_film">
                                         <option selected>Film</option>
                                         <?php
                                         // Fetch data from the "items" table
@@ -277,7 +277,7 @@ if (!isset($_SESSION["username"])) {
                 var peran = $('#peran').val();
 
                 // Aktifkan tombol submit jika semua input telah diisi
-                if (nama_pemain !== "" && nama_film !== "" && peran !== "" ) {
+                if (nama_pemain !== "" && nama_film !== "" && peran !== "") {
                     $('#submitBtn').prop('disabled', false);
                 } else {
                     // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
@@ -286,7 +286,7 @@ if (!isset($_SESSION["username"])) {
             }
 
             // Memanggil fungsi checkInputs() saat input berubah
-            $('#nama_pemain,#nama_film,#peran').on('input', function(){
+            $('#nama_pemain,#nama_film,#peran').on('input', function() {
                 checkInputs();
             });
         });

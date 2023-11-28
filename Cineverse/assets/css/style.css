@@ -385,7 +385,7 @@ h6 {
 }
 
 .upcoming .movies_box {
-  width: 150%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -396,12 +396,14 @@ h6 {
 }
 .upcoming .movies_box .box {
   display: flex;
+  width: 1500px;
   align-items: center;
   justify-content: space-between;
 }
-
+.kolom1 {
+  margin-left: -120px;
+}
 .upcoming .movies_box .box .card {
-  width: 250px;
   height: 370px;
   margin: 10px;
   overflow: hidden;

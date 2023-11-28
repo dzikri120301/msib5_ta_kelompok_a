@@ -151,11 +151,11 @@ if (!isset($_SESSION["username"])) {
     <main id="main" class="main">
         <div class="pagetitle">
             <h1>Dashboard</h1>
-            <nav>
+            <!-- <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
-            </nav>
+            </nav> -->
         </div><!-- End Page Title -->
 
         <section class="section dashboard">
