@@ -268,32 +268,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
     <script>
-        $(document).ready(function() {
-            // Menonaktifkan tombol submit saat halaman dimuat
-            $('#submitBtn').prop('disabled', true);
+    $(document).ready(function() {
+        // Menonaktifkan tombol submit saat halaman dimuat
+        $('#submitBtn').prop('disabled', true);
 
-            // Fungsi untuk memeriksa apakah semua input telah terisi
-            function checkInputs() {
-                var nama_film = $('#nama_film').val();
-                var foto = $('#foto').val();
-                var asal = $('#asal').val();
-                var tgl_lahir = $('#tgl_lahir').val();
+        // Fungsi untuk memeriksa apakah semua input telah terisi
+        function checkInputs() {
+            var nama_pemain = $('#nama_pemain').val();
+            var foto = $('#foto').val();
+            var asal = $('#asal').val();
+            var tgl_lahir = $('#tgl_lahir').val();
 
-                // Aktifkan tombol submit jika semua input telah diisi
-                if (nama_film !== '' && foto !== '' && asal !== '' && tgl_lahir !== '') {
-                    $('#submitBtn').prop('disabled', false);
-                } else {
-                    // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
-                    $('#submitBtn').prop('disabled', true);
-                }
+            // Aktifkan tombol submit jika semua input telah diisi
+            if (nama_pemain !== '' && foto !== '' && asal !== '' && tgl_lahir !== '') {
+                $('#submitBtn').prop('disabled', false);
+            } else {
+                // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
+                $('#submitBtn').prop('disabled', true);
             }
+        }
 
-            // Memanggil fungsi checkInputs() saat input berubah
-            $('#kode_film, #nama_film, #fileToUpload, #nama_genre, #tahun, #sinopsis, #durasi').on('input', function() {
-                checkInputs();
-            });
+        // Memanggil fungsi checkInputs() saat input berubah
+        $('#nama_pemain, #foto, #asal, #tgl_lahir').on('input', function() {
+            checkInputs();
         });
-    </script>
+
+        // Menambahkan validasi saat formulir disubmit
+        $('form').submit(function(event) {
+            var nama_pemain = $('#nama_pemain').val();
+            var foto = $('#foto').val();
+            var asal = $('#asal').val();
+            var tgl_lahir = $('#tgl_lahir').val();
+
+            // Memeriksa apakah semua input telah diisi
+            if (nama_pemain === '' || foto === '' || asal === '' || tgl_lahir === '') {
+                // Mencegah formulir disubmit jika ada input yang kosong
+                event.preventDefault();
+                alert('Semua kolom input harus diisi.');
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
