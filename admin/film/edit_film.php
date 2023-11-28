@@ -150,6 +150,11 @@ if (!isset($_SESSION["username"])) {
                             <i class="bi bi-circle"></i><span>Review</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="../kotaksaran/pesan.php">
+                            <i class="bi bi-circle"></i><span>Pesan</span>
+                        </a>
+                    </li>
                 </ul>
             </li><!-- End Forms Nav -->
             <li class="nav-item">

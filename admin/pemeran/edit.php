@@ -137,6 +137,11 @@ if (!isset($_SESSION["username"])) {
                             <i class="bi bi-circle"></i><span>Review</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="../kotaksaran/pesan.php">
+                            <i class="bi bi-circle"></i><span>Pesan</span>
+                        </a>
+                    </li>
                 </ul>
             </li><!-- End Forms Nav -->
             <li class="nav-item">
@@ -260,6 +265,33 @@ if (!isset($_SESSION["username"])) {
     <script src="../assets/js/main.js"></script>
 
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Menonaktifkan tombol submit saat halaman dimuat
+            $('#submitBtn').prop('disabled', true);
+
+            // Fungsi untuk memeriksa apakah semua input telah terisi
+            function checkInputs() {
+                var nama_pemain = $('#nama_pemain').val();
+                var nama_film = $('#nama_film').val();
+                var peran = $('#peran').val();
+
+                // Aktifkan tombol submit jika semua input telah diisi
+                if (nama_pemain !== "" && nama_film !== "" && peran !== "" ) {
+                    $('#submitBtn').prop('disabled', true);
+                } else {
+                    // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
+                    $('#submitBtn').prop('disabled', false);
+                }
+            }
+
+            // Memanggil fungsi checkInputs() saat input berubah
+            $('#nama_pemain').on('input', function(){
+                checkInputs();
+            });
+        });
+    </script>//
 
 </body>
 

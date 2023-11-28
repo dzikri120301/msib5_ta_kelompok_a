@@ -14,12 +14,12 @@ if (!isset($_SESSION["username"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Cineverse | Admin</title>
+    <title>Cineverse | Pemeran</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/logo.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -49,22 +49,23 @@ if (!isset($_SESSION["username"])) {
     <div class="container-fluid mt-5 ">
         <?php
         include "../../config/koneksi.php";
-        $query = mysqli_query($conn, "SELECT * FROM admin ORDER BY id ASC");
+        $query = mysqli_query($conn, "SELECT * FROM saran ORDER BY id_saran ASC");
         ?>
         <!-- ======= Header ======= -->
         <header id="header" class="header fixed-top d-flex align-items-center">
 
             <div class="d-flex align-items-center justify-content-between">
-                <a href="index.html" class="logo d-flex align-items-center">
+                <a class="logo d-flex align-items-center">
                     <img src="../assets/img/logo.png" alt="">
                     <span class="d-none d-lg-block">Cineverse</span>
                 </a>
                 <i class="bi bi-list toggle-sidebar-btn"></i>
             </div><!-- End Logo -->
-
             <nav class="header-nav ms-auto">
                 <ul class="d-flex align-items-center">
+
                     <li class="nav-item dropdown pe-3">
+
                         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                             <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username"] ?></span>
                         </a><!-- End Profile Iamge Icon -->
@@ -92,13 +93,14 @@ if (!isset($_SESSION["username"])) {
         </header><!-- End Header -->
 
         <!-- ======= Sidebar ======= -->
+        <!-- HEAD-->
         <aside id="sidebar" class="sidebar">
             <ul class="sidebar-nav" id="sidebar-nav">
                 <li class="nav-item">
-                    <!-- <a class="nav-link " href="../dashboard.php">
+                    <a class="nav-link " href="../dashboard.php">
                         <i class="bi bi-grid"></i>
                         <span>Dashboard</span>
-                    </a> -->
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
@@ -121,7 +123,7 @@ if (!isset($_SESSION["username"])) {
                             </a>
                         </li>
                         <li>
-                            <a href="../pemeran/peran.php">
+                            <a href="peran.php">
                                 <i class="bi bi-circle"></i><span>Daftar Peran</span>
                             </a>
                         </li>
@@ -143,14 +145,80 @@ if (!isset($_SESSION["username"])) {
                             </a>
                         </li>
                         <li>
-                            <a href="../kotaksaran/pesan.php">
+                            <a href="pesan.php">
                                 <i class="bi bi-circle"></i><span>Pesan</span>
                             </a>
                         </li>
                     </ul>
                 </li><!-- End Forms Nav -->
                 <li class="nav-item">
-                    <a class="nav-link" href="admin.php">
+                    <a class="nav-link" href="../admincineverse/admin.php">
+                        <i class="bi bi-grid"></i>
+                        <span>Admin Cineverse</span>
+                    </a>
+                </li>
+            </ul>
+        </aside><!-- End Sidebar-->
+
+        <aside id="sidebar" class="sidebar">
+            <ul class="sidebar-nav" id="sidebar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " href="../dashboard.php">
+                        <i class="bi bi-grid"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
+                        <i class="bi bi-menu-button-wide"></i><span>Film</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="../film/film.php">
+                                <i class="bi bi-circle"></i><span>Data film</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../genre/genre.php">
+                                <i class="bi bi-circle"></i><span>Genre Film</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pemain/pemain.php">
+                                <i class="bi bi-circle"></i><span>Daftar Pemain</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="peran.php">
+                                <i class="bi bi-circle"></i><span>Daftar Peran</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="dashboard.php">
+                        <i class="bi bi-menu-button-wide"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="../user/user.php">
+                                <i class="bi bi-circle"></i><span>User Cineverse</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../komentar/komentar.php">
+                                <i class="bi bi-circle"></i><span>Review</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pesan.php">
+                                <i class="bi bi-circle"></i><span>Pesan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li><!-- End Forms Nav -->
+                <li class="nav-item">
+                    <a class="nav-link" href="admincineverse/admin.php">
                         <i class="bi bi-grid"></i>
                         <span>Admin Cineverse</span>
                     </a>
@@ -161,11 +229,11 @@ if (!isset($_SESSION["username"])) {
         <main id="main" class="main">
 
             <div class="pagetitle">
-                <h1>Data Admin</h1>
+                <h1>Data pemeran</h1>
                 <nav>
                     <ol class="breadcrumb">
-                        <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
-                        <li class="breadcrumb-item active">Admin Cineverse</li>
+                        <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Data Pemeran</li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->
@@ -174,13 +242,12 @@ if (!isset($_SESSION["username"])) {
             <!-- Table -->
             <div class="table-responsive mt-4">
                 <table class="table table-striped table-bordered" id="data-tabel" class="display" style="width:100%">
-                    <a href="tambah.php?" class="btn btn-light" style="margin-bottom:5px"><i class="fa-solid fa-user-plus"></i></a>
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Aksi</th>
+                            <th>Nama</th>
+                            <th>Subject</th>
+                            <th>Pesan</th>
                         </tr>
                     </thead>
 
@@ -191,20 +258,9 @@ if (!isset($_SESSION["username"])) {
                             ?> <tr>
                                     <td> <?php echo $no ?></td>
                                     <td> <?php echo $data["username"] ?></td>
-                                    <td> <?php
-                                            $password = $data['password'];
-                                            $length = strlen($password);
-
-                                            // Ganti setiap karakter dengan "*"
-                                            $maskedPassword = str_repeat('*', $length);
-
-                                            // Tampilkan password yang telah dimask
-                                            echo $maskedPassword;
-                                            ?>
-                                    </td>
-                                    <td> <a class="btn btn-warning" href="edit.php?id=<?php echo $data["id"] ?>">
-                                            <i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a class="btn btn-danger" href="proses_hapus.php?id=<?php echo $data["id"] ?>" onclick="return confirm('Yakin Data Akan Dihapus?')">
+                                    <td> <?php echo $data["subject"] ?></td>
+                                    <td> <?php echo $data["pesan"] ?></td>
+                                    <td> <a class="btn btn-danger" href="proses_hapus.php?id_pemeran=<?php echo $data["id_saran"] ?>"class="btn-delete" onclick="return confirm('Yakin Data Akan Dihapus?')">
                                             <i class="fa-solid fa-trash-can"></i> </a>
                                     </td>
                                 </tr>
@@ -220,7 +276,7 @@ if (!isset($_SESSION["username"])) {
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer fixed-bottom">
+    <footer id="footer" class="footer">
         <div class="copyright">
             &copy; Copyright <strong><span>Cineverse Admin</span></strong>. All Rights Reserved
         </div>
@@ -260,8 +316,8 @@ if (!isset($_SESSION["username"])) {
             $('.btn-delete').on('click', function(e) {
                 e.preventDefault(); // Mencegah tindakan asli tautan
 
-                var id = $(this).data('id');
-                var confirmation = confirm("Apakah Anda yakin ingin menghapus produk ini?");
+                var id = $(this).data('id_saran');
+                var confirmation = confirm("Apakah Anda yakin ingin menghapus Review ini?");
 
                 if (confirmation) {
                     // Jika pengguna mengonfirmasi, arahkan ke halaman proses penghapusan
@@ -272,6 +328,7 @@ if (!isset($_SESSION["username"])) {
             });
         });
     </script>
+
 
 </body>
 
