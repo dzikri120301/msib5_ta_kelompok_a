@@ -120,7 +120,6 @@ $film = mysqli_fetch_array($query);
       </div>
     </div>
     <!-- End Pemain Film nya -->
-
     <!-- Recommended Movie -->
     <?php
     include '../config/koneksi.php';
@@ -146,9 +145,9 @@ $film = mysqli_fetch_array($query);
       exit();
     }
     ?>
-    <div class="upcoming mt-5 ms-5">
+    <div class="upcoming mt-5 ms-5 rekomendasi">
       <div class="movies_box">
-        <h1>Rekomendasi Film</h1>
+        <h1 class="">Rekomendasi Film</h1>
         <div class="box">
           <?php
           while ($row = mysqli_fetch_array($recommendation_query)) {
@@ -186,6 +185,52 @@ $film = mysqli_fetch_array($query);
       </div>
     </div>
     <!-- End Recommendation Section -->
+
+    <!-- Komentar -->
+    <section id="komentar-yuk">
+      <div class="comments-section">
+        <?php
+        $koment = mysqli_query($conn, "SELECT k.review, k.created_at, f.id, u.username FROM komentar as k 
+            join tb_film as f on k.id_film = f.id left join `user` as u on k.id_user = u.id_nama_user 
+            WHERE f.id = '$_GET[id]' ORDER BY k.created_at DESC");
+        if (mysqli_num_rows($koment) > 0) {
+          while ($row = mysqli_fetch_array($koment)) {
+        ?><div class="full-comment">
+              <div class="comment d-flex">
+                <h6 class="nama_komen">
+                  <?php
+                  if (isset($_SESSION['username'])) {
+                    echo $_SESSION['username'];
+                  } else {
+                    echo "Anonymous";
+                    echo $row['username'];
+                  }
+                  ?>
+                </h6>&nbsp;&nbsp;
+                <p class="tanggal"><?php echo date('F j, Y, g:i a', strtotime($row['created_at'])); ?></p>
+              </div>
+              <div class="review">
+                <p><?php echo $row['review'] ?></p>
+              </div>
+            </div>
+        <?php
+          }
+        } else {
+          echo "<p class='lead'>Belum ada komentar</p>";
+        }
+        ?>
+      </div>
+      <div class="komen">
+        <form action="f_komen.php" method="post">
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Komentar</label>
+            <input type="hidden" name="id" value="<?php echo $film['id'] ?>">
+            <textarea class="form-control" id="komen" name="komen" rows="3"></textarea>
+          </div>
+          <input type="submit" class="btn btn-primary kirim" value="Kirim">
+        </form>
+      </div>
+    </section>
   </main>
   <!-- End #main -->
 

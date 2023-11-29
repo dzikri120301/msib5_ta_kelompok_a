@@ -1,3 +1,7 @@
+<?php
+include '../config/koneksi.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,10 +50,9 @@
                         <ul>
                             <li><a href="#" class="genre-link" data-filter=".filter-app"></a></li>
                             <?php
-                            include "../config/koneksi.php";
                             $query = mysqli_query($conn, "SELECT * FROM genre ");
                             while ($data = mysqli_fetch_array($query)) {
-                                echo '<li><a href="#" class="genre-link" data-filter=".' . $data['nama_genre'] . '">' . $data['nama_genre'] . '</a></li>';
+                                echo '<li data-filter=".' . $data['nama_genre'] . '">' . $data['nama_genre'] . '</li>';
                             }
                             ?>
                         </ul>
@@ -66,60 +69,69 @@
     <section id="portfolio" class="portfolio mt-5">
         <div class="container mt-5" data-aos="fade-up">
             <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-                <li data-filter="*" class="filter-active">All</li>
-                <li data-filter=".filter-app">Action</li>
-                <li data-filter=".filter-card">Adventure</li>
-                <li data-filter=".filter-web">Comedy</li>
-                <li data-filter=".filter-horror">Horror</li>
-                <li data-filter=".filter-romance">Romance</li>
+                <li data-filter="*" class="filter-active genre-link">Semua</li>
+                <?php
+                $genre = mysqli_query($conn, "SELECT * FROM genre");
+                while ($data = mysqli_fetch_array($genre)) {
+                    echo '<li data-filter=".' . $data['nama_genre'] . 'class="genre-link"">' . $data['nama_genre'] . '</li>';
+                }
+                ?>
             </ul>
-
-            <div class="upcoming ">
+            <?php
+            include '../config/koneksi.php';
+            $detailfilm = mysqli_query($conn, "SELECT * FROM tb_film as f 
+            JOIN komentar as k ON k.id_film = f.id 
+            JOIN genre as g ON f.id_genre = g.id_nama_genre group by f.id");
+            ?>
+            <div class="upcoming mt-5">
                 <div class="movies_box">
-                    <div class="box logo-slider slick-two">
-                        <?php
-                        include '../config/koneksi.php';
-                        $query = mysqli_query($conn, "SELECT f.*, g.nama_genre, AVG(k.rating) AS average_rating
-                        FROM tb_film as f
-                        JOIN genre as g ON f.id_genre = g.id_nama_genre
-                        LEFT JOIN komentar as k ON f.id = k.id_film
-                        GROUP BY f.id");
-                        while ($data = mysqli_fetch_array($query)) {
-                        ?>
-                            <div class="card">
-                                <div class=" details">
-                                    <div class="left">
-                                        <p><?php echo $data["nama_film"] ?></p>
-                                        <div class="date_quality">
-                                            <p class="date"><?php echo $data["tahun"] ?></p>
+                    <div class="box">
+                        <div class="row">
+                            <?php
+                            // Menampilkan 5 film pertama
+                            while ($row = mysqli_fetch_array($detailfilm)) {
+                            ?>
+                                <div class="col-md-3">
+                                    <div class="card <?php echo $row['nama_genre'] ?>" style="max-width: 86rem;">
+                                        <div class="details">
+                                            <a href="inner-page.php?id=<?php echo $row['id'] ?>">
+                                                <div class="rating">
+                                                    <P class="nama_rating"><?php echo $row['rating'] ?></P>
+                                                    <img src="assets/img/bintang-ajah.png" class="bintang-img">
+                                                </div>
+                                                <div class="left">
+                                                    <p class="name"><?php echo $row['nama_film'] ?></p>
+                                                    <div class="date_quality">
+                                                        <p class="date"><?php echo $row['tahun'] ?></p>
+                                                    </div>
+                                                    <p class="category"><?php echo $row['nama_genre'] ?></p>
+                                                    <div class="info">
+                                                        <div class="time">
+                                                            <i class="fa-regular fa-clock"></i>
+                                                            <p><?php echo $row['durasi'] ?> min</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right">
+                                                    <a href="<?php echo $row['trailer'] ?>" class="glightbox"><i class="fa-solid fa-play"></i></a>
+                                                </div>
+                                            </a>
                                         </div>
-                                        <p class="category"><?php echo $data["nama_genre"] ?></p>
-                                        <div class="info">
-                                            <div class="time">
-                                                <i class="fa-regular fa-clock"></i>
-                                                <p><?php echo $data["durasi"] ?> Menit</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="right">
-                                        <i class="fa-solid fa-play"></i>
+                                        <img src="../admin/film/<?php echo $row['gambar'] ?>">
                                     </div>
                                 </div>
-                                <img src="../admin/film/<?php echo $data['gambar'] ?>">
-                            </div>
-                        <?php } ?>
-
+                            <?php
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section>
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
-
         <div class="footer-top">
             <div class="container">
                 <div class="row">
@@ -184,14 +196,12 @@
     <script src="assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
     <!-- Template JS Slick -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/slick.js"></script>
-    <script src="assets/js/slick.min.js"></script>
     <script>
         $(document).ready(function() {
             $('.genre-link').on('click', function(e) {
@@ -241,7 +251,32 @@
             ]
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            $('.genre-link').on('click', function(e) {
+                e.preventDefault();
 
+                var filter = $(this).data('filter');
+
+                // Memperbarui kelas aktif untuk link genre
+                $('.genre-link').removeClass('active');
+                $(this).addClass('active');
+
+                // Menampilkan atau menyembunyikan film-film berdasarkan kelas yang dipilih
+                $('.card').fadeOut(300); // Menyembunyikan semua film terlebih dahulu
+
+                if (filter === '*') {
+                    // Jika filter adalah semua, tampilkan semua film
+                    $('.card').fadeIn(300);
+                } else {
+                    // Tampilkan film-film yang memiliki kelas yang sesuai dengan filter yang dipilih
+                    $('.' + filter).fadeIn(300);
+                }
+            });
+        });
+    </script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

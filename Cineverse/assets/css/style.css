@@ -377,6 +377,7 @@ h6 {
 # upcoming
 --------------------------------------------------------------*/
 .upcoming {
+  margin-left: 80px;
   width: 100%;
   height: auto;
   margin: 0 auto;
@@ -404,10 +405,19 @@ h6 {
   margin-left: -120px;
 }
 .upcoming .movies_box .box .card {
+  width: 250px;
   height: 370px;
   margin: 10px;
   overflow: hidden;
   border-radius: 8px;
+}
+
+.rekomendasi {
+  width: 500px;
+}
+
+.trending {
+  width: 1650px !important;
 }
 
 .upcoming .movies_box .box .card .details {
@@ -2166,4 +2176,123 @@ section {
 .slick-two {
   width: 90%;
   margin: auto;
+}
+
+/* Styling untuk kolom komentar */
+.comments {
+  width: 80%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.comment-list {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  visibility: hidden;
+}
+
+#commentInput {
+  width: calc(100% - 80px);
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.kirim {
+  height: 40px;
+  width: 90px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  margin-left: -5px;
+}
+
+.kirim:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Efek animasi saat tombol diklik */
+.kirim:active {
+  transform: scale(0.95);
+}
+.komen {
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.comments-section {
+  display: flex;
+  flex-direction: column; /* Untuk menampilkan komentar terbaru di bagian atas */
+  overflow-y: auto;
+  max-height: 500px;
+  margin-right: 50px;
+}
+
+.full-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  margin-left: 40px;
+  max-width: 70%; /* Sesuaikan lebar maksimum gelembung komentar */
+  position: relative;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.comment .nama_komen {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.comment .tanggal {
+  color: #999;
+  font-size: 12px;
+}
+
+.review {
+  background-color: #cde6fb; /* Warna latar belakang untuk gelembung komentar */
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 2500px;
+  margin-left: 10px; /* Jarak antara nama dan komentar */
+}
+
+.review p {
+  margin: 0;
+}
+
+/* Mengatur arah gelembung komentar */
+.full-comment::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+/* Mengatur arah gelembung komentar pengguna */
+.full-comment.user::before {
+  right: -10px;
+  border-left: 15px solid #dcf8c6; /* Sesuaikan warna dengan latar belakang gelembung komentar */
+}
+
+/* Mengatur arah gelembung komentar bukan pengguna */
+.full-comment::before {
+  left: -10px;
+  border-right: 15px solid #dcf8c6; /* Sesuaikan warna dengan latar belakang gelembung komentar */
 }
