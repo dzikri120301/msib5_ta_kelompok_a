@@ -826,9 +826,14 @@ h6 {
 }
 
 .dashboard .revenue-card .card-icon {
-  color: #2eca6a;
-  background: #e0f8e9;
+  color: #7B5A84;
+  background:#E9D4EF;
 }
+
+.dashboard .review-card .card-icon {
+  color: #409261;
+  background:#D0DFCE;
+} 
 
 .dashboard .customers-card .card-icon {
   color: #ff771d;
