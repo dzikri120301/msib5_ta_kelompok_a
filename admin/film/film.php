@@ -153,7 +153,7 @@ if (!isset($_SESSION["username"])) {
                         </a>
                     </li>
                     <li>
-                        <a href="../kotaksaran.php">
+                        <a href="../kotaksaran/pesan.php">
                             <i class="bi bi-circle"></i><span>Pesan</span>
                         </a>
                     </li>

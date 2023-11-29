@@ -351,7 +351,7 @@
 
 
                     <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-center">
-                        <form action="proses_tambah_saran.php" method="post" role="form" class="php-email-form" id="contact">
+                        <form action="../admin/kotaksaran/proses_tambah_saran.php" method="post" role="form" class="php-email-form" id="contact">
                             <div class="row">
                                 <div class="form-group">
                                     <label for="name">Username</label>
