@@ -189,7 +189,7 @@ if (!isset($_SESSION["username"])) {
                             </a>
                         </li>
                         <li>
-                            <a href="peran.php">
+                            <a href="../pemeran/peran.php">
                                 <i class="bi bi-circle"></i><span>Daftar Peran</span>
                             </a>
                         </li>
@@ -218,7 +218,7 @@ if (!isset($_SESSION["username"])) {
                     </ul>
                 </li><!-- End Forms Nav -->
                 <li class="nav-item">
-                    <a class="nav-link" href="admincineverse/admin.php">
+                    <a class="nav-link" href="../admincineverse/admin.php">
                         <i class="bi bi-grid"></i>
                         <span>Admin Cineverse</span>
                     </a>
