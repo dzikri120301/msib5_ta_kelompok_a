@@ -189,7 +189,7 @@ if (!isset($_SESSION["username"])) {
                             </a>
                         </li>
                         <li>
-                            <a href="peran.php">
+                            <a href="../pemeran/peran.php">
                                 <i class="bi bi-circle"></i><span>Daftar Peran</span>
                             </a>
                         </li>
@@ -218,7 +218,7 @@ if (!isset($_SESSION["username"])) {
                     </ul>
                 </li><!-- End Forms Nav -->
                 <li class="nav-item">
-                    <a class="nav-link" href="admincineverse/admin.php">
+                    <a class="nav-link" href="../admincineverse/admin.php">
                         <i class="bi bi-grid"></i>
                         <span>Admin Cineverse</span>
                     </a>
@@ -229,11 +229,11 @@ if (!isset($_SESSION["username"])) {
         <main id="main" class="main">
 
             <div class="pagetitle">
-                <h1>Data pemeran</h1>
+                <h1>Data Kritik dan Saran</h1>
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Data Pemeran</li>
+                        <li class="breadcrumb-item active">Data Saran</li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->
@@ -248,6 +248,7 @@ if (!isset($_SESSION["username"])) {
                             <th>Nama</th>
                             <th>Subject</th>
                             <th>Pesan</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
 
@@ -260,7 +261,7 @@ if (!isset($_SESSION["username"])) {
                                     <td> <?php echo $data["username"] ?></td>
                                     <td> <?php echo $data["subject"] ?></td>
                                     <td> <?php echo $data["pesan"] ?></td>
-                                    <td> <a class="btn btn-danger" href="proses_hapus.php?id_pemeran=<?php echo $data["id_saran"] ?>"class="btn-delete" onclick="return confirm('Yakin Data Akan Dihapus?')">
+                                    <td> <a class="btn btn-danger" href="proses_hapus.php?id_saran=<?php echo $data["id_saran"] ?>"class="btn-delete" onclick="return confirm('Yakin Data Akan Dihapus?')">
                                             <i class="fa-solid fa-trash-can"></i> </a>
                                     </td>
                                 </tr>

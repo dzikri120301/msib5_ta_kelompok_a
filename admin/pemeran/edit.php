@@ -267,32 +267,32 @@ if (!isset($_SESSION["username"])) {
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
 
     <script>
-        $(document).ready(function() {
-            // Menonaktifkan tombol submit saat halaman dimuat
-            $('#submitBtn').prop('disabled', true);
+        // Fungsi untuk mengaktifkan pengeditan
+        function enableEdit() {
+            document.getElementById('id_pemain').readOnly = false;
+            document.getElementById('nama_film').readOnly = false;
+            document.getElementById('peran').readOnly = false;
+            document.getElementById('submitBtn').style.display = 'disabled';
+        }
 
-            // Fungsi untuk memeriksa apakah semua input telah terisi
-            function checkInputs() {
-                var nama_pemain = $('#nama_pemain').val();
-                var nama_film = $('#nama_film').val();
-                var peran = $('#peran').val();
-
-                // Aktifkan tombol submit jika semua input telah diisi
-                if (nama_pemain !== "" && nama_film !== "" && peran !== "" ) {
-                    $('#submitBtn').prop('disabled', true);
-                } else {
-                    // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
-                    $('#submitBtn').prop('disabled', false);
-                }
+        // Fungsi untuk menyimpan perubahan dan menonaktifkan pengeditan
+        function saveChanges() {
+            var nama_pemain = document.getElementById('id_pemain').value;
+            var nama_film = document.getElementById('nama_film').value;
+            var nama_film = document.getElementById('peran').value;
+            
+            // Lakukan validasi sesuai kebutuhan
+            if (newName.trim() === '') {
+                alert('Nama tidak boleh kosong');
+                return;
             }
 
-            // Memanggil fungsi checkInputs() saat input berubah
-            $('#nama_pemain').on('input', function(){
-                checkInputs();
-            });
-        });
-    </script>//
-
+            // Simpan perubahan
+            document.getElementById('name').readOnly = true;
+            document.getElementById('editButton').style.display = 'block';
+            document.getElementById('saveButton').style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
