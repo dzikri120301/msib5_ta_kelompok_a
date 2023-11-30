@@ -41,7 +41,7 @@ include '../config/koneksi.php';
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="index.php #hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="home.php #hero">Home</a></li>
                     <li>
                         <a class="nav-link scrollto active" href="film.php">Film</a>
                     </li>

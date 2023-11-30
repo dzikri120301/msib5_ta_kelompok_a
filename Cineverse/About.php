@@ -34,12 +34,13 @@
     </style>
 
 </head>
+
 <body>
     <?php
-        include '../config/koneksi.php';
-        $query = mysqli_query($conn, "SELECT * FROM saran ORDER BY id_saran Asc");
+    include '../config/koneksi.php';
+    $query = mysqli_query($conn, "SELECT * FROM saran ORDER BY id_saran Asc");
     ?>
-    
+
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
@@ -49,7 +50,7 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="index.php #hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="home.php">Home</a></li>
                     <li>
                         <a class="nav-link scrollto" href="film.php">Film</a>
                     </li>
