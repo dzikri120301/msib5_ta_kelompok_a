@@ -241,7 +241,7 @@ $film = mysqli_fetch_array($query);
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-3 col-md-6 footer-contact">
+          <div class="col-md-5 footer-contact">
             <img width="200px" src="assets/img/logo.png" alt="">
           </div>
 
@@ -260,7 +260,7 @@ $film = mysqli_fetch_array($query);
             </ul>
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
+          <div class="col-lg-3 col-md-7 footer-links">
             <ul>
               <br>
               <li>
