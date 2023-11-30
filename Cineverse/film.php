@@ -1,5 +1,6 @@
 <?php
 include '../config/koneksi.php';
+$nama_genre = $_GET['nama_genre'];
 ?>
 
 <!DOCTYPE html>
@@ -48,13 +49,18 @@ include '../config/koneksi.php';
                     <li class="dropdown">
                         <a href="#"><span>Genre Film</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#" class="genre-link" data-filter=".filter-app"></a></li>
-                            <?php
-                            $query = mysqli_query($conn, "SELECT * FROM genre ");
-                            while ($data = mysqli_fetch_array($query)) {
-                                echo '<li data-filter=".' . $data['nama_genre'] . '">' . $data['nama_genre'] . '</li>';
-                            }
-                            ?>
+                            <li><a href="#" class="genre-link" data-filter=".filter-app">
+                                    <?php
+                                    include "../config/koneksi.php";
+                                    $no = 1;
+                                    $query = mysqli_query($conn, "SELECT * FROM genre ");
+                                    while ($data = mysqli_fetch_array($query)) {
+                                    ?>
+                            <li><a href="film.php?nama_genre=<?= $data['nama_genre'] ?>"><?= $data['nama_genre'] ?></a></li>
+                        <?php
+                                    }
+                        ?>
+                        </a>
                         </ul>
                     </li>
                     <li>
@@ -81,7 +87,8 @@ include '../config/koneksi.php';
             include '../config/koneksi.php';
             $detailfilm = mysqli_query($conn, "SELECT * FROM tb_film as f 
             JOIN komentar as k ON k.id_film = f.id 
-            JOIN genre as g ON f.id_genre = g.id_nama_genre group by f.id");
+            JOIN genre as g ON f.id_genre = g.id_nama_genre 
+            WHERE g.nama_genre = '$nama_genre' group by f.id");
             ?>
             <div class="upcoming mt-5">
                 <div class="movies_box">
