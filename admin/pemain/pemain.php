@@ -213,7 +213,8 @@ if (!isset($_SESSION["username"])) {
                                     <td><?php echo $data['asal'] ?></td>
                                     <td><?php echo $data["tgl_lahir"] ?></td>
                                     <td>
-                                        <a href="edit_pemain.php?id_nama_pemain=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-warning">Edit</a>
+                                        <a href="edit_pemain.php?id_nama_pemain=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-warning">
+                                        <i class="fa-solid fa-pen-to-square"></i></a>
                                         <a data-id="<?php echo $data["id_nama_pemain"] ?>" class="btn-delete">
                                             <button type="button" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></button>
                                         </a>
