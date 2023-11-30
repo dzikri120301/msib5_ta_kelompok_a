@@ -220,7 +220,7 @@ if (!isset($_SESSION["username"])) {
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer fixed-bottom">
+    <footer id="footer" class="footer">
         <div class="copyright">
             &copy; Copyright <strong><span>Cineverse Admin</span></strong>. All Rights Reserved
         </div>

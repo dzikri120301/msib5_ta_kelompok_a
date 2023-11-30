@@ -217,7 +217,7 @@ if (!isset($_SESSION["username"])) {
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer fixed-bottom">
+    <footer id="footer" class="footer">
         <div class="copyright">
             &copy; Copyright <strong><span>Cineverse Admin</span></strong>. All Rights Reserved
         </div>
@@ -257,12 +257,12 @@ if (!isset($_SESSION["username"])) {
             $('.btn-delete').on('click', function(e) {
                 e.preventDefault(); // Mencegah tindakan asli tautan
 
-                var id = $(this).data('id');
+                var id = $(this).data('id_nama_review');
                 var confirmation = confirm("Apakah Anda yakin ingin menghapus Review ini?");
 
                 if (confirmation) {
                     // Jika pengguna mengonfirmasi, arahkan ke halaman proses penghapusan
-                    window.location.href = "proses_hapus.php?id=" + id;
+                    window.location.href = "proses_delete.php?id=" + id;
                 } else {
                     // Jika pengguna membatalkan, tidak terjadi apa-apa
                 }

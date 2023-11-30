@@ -105,10 +105,10 @@ if (!isset($_SESSION["username"])) {
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <!-- <a class="nav-link " href="../dashboard.php">
+                <a class="nav-link " href="../dashboard.php">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
-                </a> -->
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
@@ -222,7 +222,7 @@ if (!isset($_SESSION["username"])) {
                                 </div>
                                 <input class="form-control mb-3" type="number" placeholder="Tahun" name="tahun" id="tahun">
                                 <input class="form-control mb-3" type="text" placeholder="Sinopsis" name="sinopsis" id="sinopsis">
-                                <input class="form-control mb-3" type="text" placeholder="Durasi" name="durasi" id="durasi">
+                                <input class="form-control mb-3" type="number" placeholder="Durasi" name="durasi" id="durasi">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <input type="submit" id="submitBtn" value="Submit" class="btn btn-success" disabled>
                                 </div>
