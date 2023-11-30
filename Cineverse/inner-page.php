@@ -50,7 +50,7 @@ $film = mysqli_fetch_array($query);
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="index.php">Home</a></li>
+          <li><a class="nav-link scrollto" href="home.php">Home</a></li>
           <li>
             <a class="nav-link scrollto" href="film.php">Film</a>
           </li>

@@ -103,10 +103,10 @@ if (!isset($_SESSION["username"])) {
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <!-- <a class="nav-link " href="../dashboard.php">
+                <a class="nav-link " href="../dashboard.php">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
-                </a> -->
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
@@ -201,8 +201,8 @@ if (!isset($_SESSION["username"])) {
                                     <td> <?php echo $data["nama_film"] ?></td>
                                     <td> <?php echo $data["review"] ?></td>
                                     <td> <?php echo $data["rating"] ?></td>
-                                    <td> <a href="proses_delete.php?id=<?php echo $data["id_nama_review"] ?>" class="btn-delete">
-                                            <button type="button" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></button>
+                                    <td> <a class="btn btn-danger" href="proses_delete.php?id_nama_review=<?php echo $data["id_nama_review"] ?>" onclick="return confirm('Yakin Data Akan Dihapus?')">
+                                            <i class="fa-solid fa-trash-can"></i> </a>
                                         </a>
                                     </td>
                                 </tr>
