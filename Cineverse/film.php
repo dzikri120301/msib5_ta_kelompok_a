@@ -45,23 +45,6 @@ include '../config/koneksi.php';
                     <li>
                         <a class="nav-link scrollto active" href="film.php">Film</a>
                     </li>
-                    <li class="dropdown">
-                        <a href="#"><span>Genre Film</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul id="portfolio-flters" class="justify-content-center" data-aos="fade-up" data-aos-delay="100">
-                            <?php
-                            $genre = mysqli_query($conn, "SELECT * FROM genre");
-                            while ($data1 = mysqli_fetch_array($genre)) {
-                            ?>
-                                <a>
-                                    <li data-filter=".filter-<?php echo $data1['nama_genre'] ?>" class="genre-link">
-                                        <?php echo $data1['nama_genre'] ?>
-                                    </li>
-                                </a>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </li>
                     <li>
                         <a class=" nav-link scrollto" href="About.php">About</a>
                 </ul>
