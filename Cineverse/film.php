@@ -1,6 +1,5 @@
 <?php
 include '../config/koneksi.php';
-$nama_genre = $_GET['nama_genre'];
 ?>
 
 <!DOCTYPE html>
@@ -48,23 +47,23 @@ $nama_genre = $_GET['nama_genre'];
                     </li>
                     <li class="dropdown">
                         <a href="#"><span>Genre Film</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#" class="genre-link" data-filter=".filter-app">
-                                    <?php
-                                    include "../config/koneksi.php";
-                                    $no = 1;
-                                    $query = mysqli_query($conn, "SELECT * FROM genre ");
-                                    while ($data = mysqli_fetch_array($query)) {
-                                    ?>
-                            <li><a href="film.php?nama_genre=<?= $data['nama_genre'] ?>"><?= $data['nama_genre'] ?></a></li>
-                        <?php
-                                    }
-                        ?>
-                        </a>
+                        <ul id="portfolio-flters" class="justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                            <?php
+                            $genre = mysqli_query($conn, "SELECT * FROM genre");
+                            while ($data1 = mysqli_fetch_array($genre)) {
+                            ?>
+                                <a>
+                                    <li data-filter=".filter-<?php echo $data1['nama_genre'] ?>" class="genre-link">
+                                        <?php echo $data1['nama_genre'] ?>
+                                    </li>
+                                </a>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </li>
                     <li>
-                        <a class="nav-link scrollto" href="About.php">About</a>
+                        <a class=" nav-link scrollto" href="About.php">About</a>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -83,7 +82,6 @@ $nama_genre = $_GET['nama_genre'];
                 }
                 ?>
             </ul>
-
             <?php
             include '../config/koneksi.php';
             $detailfilm = mysqli_query($conn, "SELECT f.*, 
@@ -213,21 +211,22 @@ $nama_genre = $_GET['nama_genre'];
     <script>
         $(document).ready(function() {
             $('.genre-link').on('click', function(e) {
-                e.preventDefault(); // Mencegah pengalihan ke halaman baru
+                e.preventDefault();
 
-                var filter = $(this).data('filter'); // Mendapatkan nilai filter dari data-filter
+                var filter = $(this).data('filter');
 
-                // Memperbarui kelas filter pada portfolio-flters
-                $('#portfolio-flters li').removeClass('filter-active');
-                $('#portfolio-flters li[data-filter="' + filter + '"]').addClass('filter-active');
-                // Mengganti gambar dan judul portfolio sesuai dengan genre yang dipilih
+                // Remove active class from all genre links
+                $('.genre-link').removeClass('active');
+                // Add active class to the clicked genre link
+                $(this).addClass('active');
+
                 $('.portfolio-item').fadeOut(100, function() {
-                    $(this).hide().filter(filter).fadeIn(100);
-
+                    $(this).hide().filter(filter).fadeIn(300);
                 });
             });
         });
     </script>
+
     <script>
         $(document).ready(function() {
             var $grid = $('.movies_box .box').isotope({
