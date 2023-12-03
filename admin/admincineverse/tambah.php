@@ -87,10 +87,10 @@ if (!isset($_SESSION["username"])) {
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <!-- <a class="nav-link " href="../dashboard.php">
+                <a class="nav-link " href="../dashboard.php">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
-                </a> -->
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
@@ -172,9 +172,16 @@ if (!isset($_SESSION["username"])) {
 
                         <div class="card-body">
                             <h5 class="card-title">Data ADMIN</h5>
-                            <form action=" proses_tambah.php" method="post" enctype="multipart/form-data" name="formtambah">
+                            <form action="proses_tambah.php" method="post" enctype="multipart/form-data" name="formtambah">
                                 <input class="form-control form-control-sm" type="text" id="username" name="username" placeholder="Username" aria-label=".form-control-sm example"><br>
-                                <input class="form-control form-control-sm" type="password" id="password" name="password" placeholder="Password" aria-label=".form-control-sm example"><br>
+                                <div class="input-group">
+                                    <input class="form-control form-control-sm" type="password" id="password" name="password" placeholder="Password" aria-label=".form-control-sm example">
+                                    <span class="input-group-btn">
+                                        <button type="button" id="togglePassword" class="btn btn-outline-secondary">
+                                            <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                                        </button>
+                                    </span>
+                                </div><br>
                                 <button type="submit" name="Submit" id="submitBtn" value="Simpan" class="btn btn-success" disabled>Submit</button>
                             </form>
                         </div>
@@ -242,6 +249,18 @@ if (!isset($_SESSION["username"])) {
             $('#username, #password').on('input', function() {
                 checkInputs();
             });
+        });
+    </script>
+    <script>
+        document.getElementById("togglePassword").addEventListener("click", function() {
+            var passwordInput = document.getElementById("password");
+            var type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+            passwordInput.setAttribute("type", type);
+
+            // Ganti ikon mata sesuai dengan mode tampilan
+            var eyeIcon = document.querySelector("#togglePassword i");
+            eyeIcon.classList.toggle("fa-eye");
+            eyeIcon.classList.toggle("fa-eye-slash");
         });
     </script>
 </body>

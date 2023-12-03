@@ -88,10 +88,10 @@ if (!isset($_SESSION["username"])) {
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <!-- <a class="nav-link " href="../dashboard.php">
+                <a class="nav-link " href="../dashboard.php">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
-                </a> -->
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
@@ -133,6 +133,11 @@ if (!isset($_SESSION["username"])) {
                     <li>
                         <a href="../komentar/komentar.php">
                             <i class="bi bi-circle"></i><span>Review</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../kotaksaran/pesan.php">
+                            <i class="bi bi-circle"></i><span>Pesan</span>
                         </a>
                     </li>
                 </ul>
@@ -181,10 +186,9 @@ if (!isset($_SESSION["username"])) {
                             }
                             ?>
                             <form action="proses_edit.php?id_nama_genre=<?php echo $id_nama_genre ?>" method="post" enctype="multipart/form-data" id="tambah_genre">
-                                <input class="form-control mb-3" type="text" value="<?php echo $nama_genre ?>" name="nama_genre" id="nama_genre">
-
+                                <input class="form-control mb-3" type="text" value="<?php echo $nama_genre ?>" name="nama_genre" id="nama_genre" oninput="checkInputChange()">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success" onclick="return confirm('Simpan Perubahan?')">
+                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success" disabled onclick="return confirm('Simpan Perubahan?')">
                                 </div>
                             </form>
                         </div>
@@ -225,6 +229,21 @@ if (!isset($_SESSION["username"])) {
     <script src="../assets/js/main.js"></script>
 
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
+    <script>
+        function checkInputChange() {
+            var namaGenreInput = document.getElementById('nama_genre');
+            var submitBtn = document.getElementById('submitBtn');
+
+            // Cek apakah nilai input berubah
+            if (namaGenreInput.value !== '<?php echo $nama_genre ?>') {
+                // Jika iya, aktifkan tombol
+                submitBtn.disabled = false;
+            } else {
+                // Jika tidak, nonaktifkan tombol
+                submitBtn.disabled = true;
+            }
+        }
+    </script>
 
 </body>
 

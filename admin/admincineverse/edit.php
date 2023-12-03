@@ -102,10 +102,10 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <!-- <a class="nav-link " href="../dashboard.php">
+                <a class="nav-link " href="../dashboard.php">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
-                </a> -->
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
@@ -188,9 +188,16 @@
                         <div class="card-body">
                             <h6 class="card-title">Edit Admin</h6>
                             <form action="proses_edit.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data" name="formtambah">
-                                <input type="text" name="username" data-name=" Judul" class="required form-control" value="<?php echo $username ?>"><br>
-                                <input type="password" name="password" data-name=" Judul" class="required form-control" value="<?php echo $password ?>"><br>
-                                <button type="submit" name="Submit" value="Simpan" onclick="return confirm('Simpan Perubahan?')" class="btn btn-success">Submit</button>
+                                <input type="text" name="username" data-name="Judul" class="required form-control" value="<?php echo $username ?>" oninput="enableSubmitButton()"><br>
+                                <div class="input-group">
+                                    <input type="password" name="password" data-name="Judul" class="required form-control" value="<?php echo $password ?>" oninput="enableSubmitButton()">
+                                    <span class="input-group-btn">
+                                        <button type="button" id="togglePassword" class="btn btn-outline-secondary">
+                                            <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                                        </button>
+                                    </span>
+                                </div><br>
+                                <button type="submit" name="Submit" value="Simpan" onclick="return confirm('Simpan Perubahan?')" class="btn btn-success" disabled>Submit</button>
                             </form>
                         </div>
                     </div>
@@ -234,52 +241,27 @@
     <!-- Add this script block at the end of your <body> section -->
     <!-- Add this script block at the end of your <body> section -->
     <!-- Add this script block at the end of your <body> section -->
-    <!-- <script>
-    $(document).ready(function() {
-        $("#kode_kamar").on("blur", function() {
-            var kode_kamar = $(this).val();
+    <script>
+        document.getElementById("togglePassword").addEventListener("click", function() {
+            var passwordInput = document.getElementsByName("password")[0];
+            var type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+            passwordInput.setAttribute("type", type);
 
-            $.ajax({
-                url: "check_kode_kamar.php",
-                type: "POST",
-                data: {
-                    kode_kamar: kode_kamar
-                },
-                success: function(response) {
-                    if (response == "exists") {
-                        alert("Kode Kamar yang anda masukkan sudah ada");
-                        $("#kode_kamar").val(""); // Clear the input field
-                    }
-                }
-            });
+            // Ganti ikon mata sesuai dengan mode tampilan
+            var eyeIcon = document.querySelector("#togglePassword i");
+            eyeIcon.classList.toggle("fa-eye");
+            eyeIcon.classList.toggle("fa-eye-slash");
         });
-
-        function checkInputs() {
-            var allInputsFilled = true;
-
-            // Loop through each input field
-            $('form#tambah_kamar input').each(function() {
-                // Check if the input field is empty
-                if ($(this).val() === '') {
-                    allInputsFilled = false;
-                }
-            });
-
-            // Enable or disable the submit button based on the result
-            $('#submitBtn').prop('disabled', !allInputsFilled);
+    </script>
+    <script>
+        // Fungsi untuk mengaktifkan tombol submit jika ada perubahan pada input
+        function enableSubmitButton() {
+            var submitBtn = document.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.disabled = false;
+            }
         }
-
-        // Add event listener for input fields
-        $('form#tambah_kamar input').on('input', function() {
-            checkInputs();
-        });
-
-        // Add event listener for the select fields
-        $('form#tambah_kamar select').on('change', function() {
-            checkInputs();
-        });
-    });
-</script> -->
+    </script>
 </body>
 
 </html>
