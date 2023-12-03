@@ -1,8 +1,15 @@
 <?php
+session_start();
 include "../config/koneksi.php";
 $review = $_POST['komen'];
 $id = $_POST['id'];
+$user = $_SESSION['username'];
+$rating = $_POST['rating']; // Ubah nama_dropdown sesuai dengan atribut name pada elemen dropdown
 
-$result = mysqli_query($conn, "insert into komentar (id_film, review) values ('$id', '$review')");
+$result_user = mysqli_query($conn, "SELECT id_nama_user FROM `user` WHERE username = '$user'");
+$row_user = mysqli_fetch_assoc($result_user);
+$id_user = $row_user['id_nama_user'];
 
-header("location:inner-page.php?id=$id#komentar-yuk");
+$result = mysqli_query($conn, "INSERT INTO komentar (id_film, id_user, review, rating) VALUES ('$id', '$id_user', '$review', '$rating')");
+
+header("location:detail_film.php?id=$id");

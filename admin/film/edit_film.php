@@ -44,12 +44,12 @@ if (!isset($_SESSION["username"])) {
     <link href="../assets/css/style.css" rel="stylesheet">
 
     <!-- tiny -->
-    <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
             selector: 'textarea',
         });
-    </script> -->
+    </script>
 
 
     <!-- =======================================================
@@ -208,7 +208,7 @@ if (!isset($_SESSION["username"])) {
                                 $durasi = $data["durasi"];
                             }
                             ?>
-                            <form action="proses_edit_film.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data" id="tambah_film">
+                            <form action="proses_edit_film.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data" id="myform">
                                 <img class="mb-3" src="<?php echo $gambar ?>" width="100">
                                 <input class="form-control mb-3" type="text" value="<?php echo $kode ?>" name="kode_film" readonly id="kode_film">
                                 <input class="form-control mb-3" type="text" value="<?php echo $trailer ?>" name="trailer" id="trailer">
@@ -237,8 +237,8 @@ if (!isset($_SESSION["username"])) {
                                     </select>
                                 </div>
                                 <input class="form-control mb-3" type="tahun" value="<?php echo $tahun ?>" name="tahun" id="tahun">
-                                <input class="form-control mb-3" name="sinop" value="<?php echo $sinopsis ?>" id="sinop">
-                                <input class="form-control mb-3" type="number" value="<?php echo $durasi ?>" name="durasi" id="durasi">
+                                <textarea class="form-control mb-3" name="sinop" id="content"><?php echo $sinopsis ?></textarea>
+                                <input class="form-control mb-3 mt-3" type="number" value="<?php echo $durasi ?>" name="durasi" id="durasi">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <input type="submit" id="submitBtn" value="Submit" class="btn btn-success" onclick="return confirm('Simpan Perubahan?')">
                                 </div>
@@ -275,56 +275,12 @@ if (!isset($_SESSION["username"])) {
     <script src="../assets/vendor/echarts/echarts.min.js"></script>
     <script src="../assets/vendor/quill/quill.min.js"></script>
     <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
     <script src="../assets/vendor/php-email-form/validate.js"></script>
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
 
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
-    <!-- <script>
-        // Function to enable or disable the submit button based on changes
-        function checkChanges() {
-            // Get the original values from the database
-            var originalKode = "<?php echo $kode; ?>";
-            var originalNamaHotel = "<?php echo $nama_hotel; ?>";
-            var originalJenisKamar = "<?php echo $jenis_kamar; ?>";
-            var originalDeskripsi = "<?php echo $deskripsi; ?>";
-            var originalHarga = "<?php echo $harga; ?>";
-            var originalKetersediaan = "<?php echo $ketersediaan; ?>";
-
-            // Get the current values from the form
-            var currentKode = document.getElementById("kode_kamar").value;
-            var currentNamaHotel = document.getElementById("nama_hotel").value;
-            var currentJenisKamar = document.getElementById("jenis_kamar").value;
-            var currentDeskripsi = document.getElementById("deskripsi").value;
-            var currentHarga = document.getElementById("harga").value;
-            var currentKetersediaan = document.getElementById("keterdiaan").value;
-
-            // Get the submit button
-            var submitBtn = document.getElementById("submitBtn");
-
-            // Check if any values have changed
-            var isChanged = (
-                currentKode !== originalKode ||
-                currentNamaHotel !== originalNamaHotel ||
-                currentJenisKamar !== originalJenisKamar ||
-                currentDeskripsi !== originalDeskripsi ||
-                currentHarga !== originalHarga ||
-                currentKetersediaan !== originalKetersediaan
-            );
-
-            // Enable or disable the submit button based on changes
-            submitBtn.disabled = !isChanged;
-        }
-
-        // Add event listeners to each input field
-        document.getElementById("kode_kamar").addEventListener("input", checkChanges);
-        document.getElementById("nama_hotel").addEventListener("change", checkChanges);
-        document.getElementById("jenis_kamar").addEventListener("change", checkChanges);
-        document.getElementById("deskripsi").addEventListener("input", checkChanges);
-        document.getElementById("harga").addEventListener("input", checkChanges);
-        document.getElementById("keterdiaan").addEventListener("input", checkChanges);
-    </script> -->
+    </script>
 </body>
 
 </html>

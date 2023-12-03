@@ -431,9 +431,9 @@ h6 {
 }
 
 .upcoming .movies_box .box .card .rating {
-  width: 50px;
+  width: 500px;
   height: 30px;
-  margin-left: 200px;
+  margin-left: 190px;
   border-radius: 8px;
   font-size: 15px;
   color: #fff;
@@ -447,9 +447,9 @@ h6 {
 }
 .bintang-img {
   margin-top: -83px;
-  margin-left: 7px;
-  max-width: 40%; /* Lebar maksimum gambar */
-  max-height: 40%; /* Tinggi maksimum gambar */
+  margin-left: 0px;
+  max-width: 30px; /* Lebar maksimum gambar */
+  max-height: 30px; /* Tinggi maksimum gambar */
 }
 .upcoming .movies_box .box .card:hover .details {
   opacity: 1;
@@ -2047,14 +2047,18 @@ section {
   color: #fff; /* Warna teks caption */
   position: absolute; /* Posisi absolut */
   bottom: 20px; /* Jarak dari bawah */
-  left: 50%; /* Posisi tengah */
+  left: 50% !important; /* Posisi tengah */
   transform: translateX(-50%); /* Geser ke kiri 50% dari lebar */
   width: 80%; /* Lebar */
   max-width: 600px; /* Lebar maksimum */
 }
+.plo {
+  margin-left: -10px !important;
+  border-radius: 50%;
+}
 /* Gaya untuk membuat tombol play bulat */
 .btn-primary {
-  border-radius: 50%; /* Mengatur border-radius agar tombol menjadi bulat */
+  border-radius: 50% !important; /* Mengatur border-radius agar tombol menjadi bulat */
   width: 60px; /* Lebar dan tinggi untuk membuat ukuran tombol */
   height: 60px;
   background-color: #ff0000; /* Ubah warna latar belakang sesuai kebutuhan */

@@ -39,13 +39,15 @@ if (!isset($_SESSION["username"])) {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
-            selector: '#mytextarea'
+            selector: 'textarea'
         });
     </script>
 
@@ -191,7 +193,7 @@ if (!isset($_SESSION["username"])) {
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Data Film</h5>
-                            <form action="proses_tambah_film.php" method="post" enctype="multipart/form-data" id="tambah_film">
+                            <form action="proses_tambah_film.php" method="post" enctype="multipart/form-data" id="myform">
                                 <input class="form-control mb-3" type="text" placeholder="Kode Film" name="kode_film" id="kode_film">
                                 <input class="form-control mb-3" type="text" placeholder="Trailer" name="trailer" id="trailer">
                                 <input class="form-control mb-3" type="text" placeholder="Nama Film" name="nama_film" id="nama_film">
@@ -221,10 +223,10 @@ if (!isset($_SESSION["username"])) {
                                     </select>
                                 </div>
                                 <input class="form-control mb-3" type="number" placeholder="Tahun" name="tahun" id="tahun">
-                                <input class="form-control mb-3" type="text" placeholder="Sinopsis" name="sinopsis" id="sinopsis">
-                                <input class="form-control mb-3" type="text" placeholder="Durasi" name="durasi" id="durasi">
+                                <textarea class="form-control mb-3" type="text" placeholder="Sinopsis" name="sinopsis" id="mytextarea"></textarea>
+                                <input class="form-control mb-3 mt-3" type="text" placeholder="Durasi" name="durasi" id="durasi">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success" disabled>
+                                    <input type="submit" id="submitBtn" value="Submit" class="btn btn-success">
                                 </div>
                             </form>
                         </div>
@@ -250,23 +252,19 @@ if (!isset($_SESSION["username"])) {
     </footer><!-- End Footer -->
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Vendor JS Files -->
+    Vendor JS Files
     <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/chart.js/chart.umd.js"></script>
     <script src="../assets/vendor/echarts/echarts.min.js"></script>
     <script src="../assets/vendor/quill/quill.min.js"></script>
     <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
+
     <script src="../assets/vendor/php-email-form/validate.js"></script>
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
 
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-
     <script>
         $(document).ready(function() {
             $('#kode_film').on('input', function() {
@@ -324,6 +322,52 @@ if (!isset($_SESSION["username"])) {
                 checkInputs();
             });
         });
+    </script>
+    <script>
+        tinyMCE.init({
+            mode: "textareas",
+            theme: "simple",
+            // update validation status on change
+            onchange_callback: function(editor) {
+                tinyMCE.triggerSave();
+                $("#" + editor.id).valid();
+            }
+        });
+        $(function() {
+            var validator = $("#myform").submit(function() {
+                // update underlying textarea before submit validation
+                tinyMCE.triggerSave();
+            }).validate({
+                ignore: "",
+                rules: {
+                    title: "required",
+                    content: "required"
+                },
+                errorPlacement: function(label, element) {
+                    // position error label after generated textarea
+                    if (element.is("textarea")) {
+                        label.insertAfter(element.next());
+                    } else {
+                        label.insertAfter(element)
+                    }
+                }
+            });
+            validator.focusInvalid = function() {
+                // put focus on tinymce on submit validation
+                if (this.settings.focusInvalid) {
+                    try {
+                        var toFocus = $(this.findLastActive() || this.errorList.length && this.errorList[0].element || []);
+                        if (toFocus.is("textarea")) {
+                            tinyMCE.get(toFocus.attr("id")).focus();
+                        } else {
+                            toFocus.filter(":visible").focus();
+                        }
+                    } catch (e) {
+                        // ignore IE throwing errors when focusing hidden elements
+                    }
+                }
+            }
+        })
     </script>
 </body>
 
