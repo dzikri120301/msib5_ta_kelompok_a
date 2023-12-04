@@ -72,28 +72,7 @@ if (!isUserLoggedIn()) {
                     </li>
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li class="nav-item dropdown">
-                        <?php
-                        if (isset($_SESSION['username'])) {
-                        ?>
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo $_SESSION['username'] ?>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="signout.php">Log Out</a></li>
-                            </ul>
-                        <?php
-                        } else {
-                        ?>
-                            <a class="nav-link scrollto" href="signin.php">Login</a>
-                        <?php
-                        }
-                        ?>
-
-                    </li>
+                    <li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
