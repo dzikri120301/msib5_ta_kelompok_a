@@ -265,34 +265,6 @@ if (!isset($_SESSION["username"])) {
     <script src="../assets/js/main.js"></script>
 
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
-
-    <script>
-        // Fungsi untuk mengaktifkan pengeditan
-        function enableEdit() {
-            document.getElementById('id_pemain').readOnly = false;
-            document.getElementById('nama_film').readOnly = false;
-            document.getElementById('peran').readOnly = false;
-            document.getElementById('submitBtn').style.display = 'disabled';
-        }
-
-        // Fungsi untuk menyimpan perubahan dan menonaktifkan pengeditan
-        function saveChanges() {
-            var nama_pemain = document.getElementById('id_pemain').value;
-            var nama_film = document.getElementById('nama_film').value;
-            var nama_film = document.getElementById('peran').value;
-            
-            // Lakukan validasi sesuai kebutuhan
-            if (newName.trim() === '') {
-                alert('Nama tidak boleh kosong');
-                return;
-            }
-
-            // Simpan perubahan
-            document.getElementById('name').readOnly = true;
-            document.getElementById('editButton').style.display = 'block';
-            document.getElementById('saveButton').style.display = 'none';
-        }
-    </script>
 </body>
 
 </html>

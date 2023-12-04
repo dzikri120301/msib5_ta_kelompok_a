@@ -58,7 +58,7 @@
                         <a class="nav-link scrollto active" href="About.php">About</a>
                     </li>
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Kotak Saran</a></li>
                     <li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
