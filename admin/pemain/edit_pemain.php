@@ -238,50 +238,35 @@ while ($data = mysqli_fetch_array($query)) {
     <script src="../assets/js/main.js"></script>
 
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
-    <!-- <script>
-        // Function to enable or disable the submit button based on changes
-        function checkChanges() {
-            // Get the original values from the database
-            var originalKode = "<?php echo $kode; ?>";
-            var originalNamaHotel = "<?php echo $nama_hotel; ?>";
-            var originalJenisKamar = "<?php echo $jenis_kamar; ?>";
-            var originalDeskripsi = "<?php echo $deskripsi; ?>";
-            var originalHarga = "<?php echo $harga; ?>";
-            var originalKetersediaan = "<?php echo $ketersediaan; ?>";
-
-            // Get the current values from the form
-            var currentKode = document.getElementById("kode_kamar").value;
-            var currentNamaHotel = document.getElementById("nama_hotel").value;
-            var currentJenisKamar = document.getElementById("jenis_kamar").value;
-            var currentDeskripsi = document.getElementById("deskripsi").value;
-            var currentHarga = document.getElementById("harga").value;
-            var currentKetersediaan = document.getElementById("keterdiaan").value;
-
-            // Get the submit button
-            var submitBtn = document.getElementById("submitBtn");
-
-            // Check if any values have changed
-            var isChanged = (
-                currentKode !== originalKode ||
-                currentNamaHotel !== originalNamaHotel ||
-                currentJenisKamar !== originalJenisKamar ||
-                currentDeskripsi !== originalDeskripsi ||
-                currentHarga !== originalHarga ||
-                currentKetersediaan !== originalKetersediaan
-            );
-
-            // Enable or disable the submit button based on changes
-            submitBtn.disabled = !isChanged;
+    <script>
+        // Fungsi untuk mengaktifkan pengeditan
+        function enableEdit() {
+            document.getElementById('nama_pemain').readOnly = false;
+            document.getElementById('foto').readOnly = false;
+            document.getElementById('asal').readOnly = false;
+            document.getElementById('tgl_lahir').readOnly = false;
+            document.getElementById('submitBtn').style.display = 'disabled';
         }
 
-        // Add event listeners to each input field
-        document.getElementById("kode_kamar").addEventListener("input", checkChanges);
-        document.getElementById("nama_hotel").addEventListener("change", checkChanges);
-        document.getElementById("jenis_kamar").addEventListener("change", checkChanges);
-        document.getElementById("deskripsi").addEventListener("input", checkChanges);
-        document.getElementById("harga").addEventListener("input", checkChanges);
-        document.getElementById("keterdiaan").addEventListener("input", checkChanges);
-    </script> -->
+        // Fungsi untuk menyimpan perubahan dan menonaktifkan pengeditan
+        function saveChanges() {
+            var name = document.getElementById('nama_pemain').value;
+            var file_gambar = document.getElementById('foto').value;
+            var name = document.getElementById('asal').value;
+            var name = document.getElementById('tgl_lahir').value;
+            
+            // Lakukan validasi sesuai kebutuhan
+            if (newName.trim() === '') {
+                alert('Nama tidak boleh kosong');
+                return;
+            }
+
+            // Simpan perubahan
+            document.getElementById('name').readOnly = true;
+            document.getElementById('editButton').style.display = 'block';
+            document.getElementById('saveButton').style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
