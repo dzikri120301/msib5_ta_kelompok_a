@@ -1,11 +1,13 @@
 <?php
 session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION["username"])) {
-    // Redirect to the login page or perform other actions
-    header("Location: login.php");
-    exit();
+?>
+<?php
+// Include file utils.php untuk fungsi-fungsi yang dibutuhkan (isUserLoggedIn(), redirectToLoginPage(), dsb)
+include '../utils.php';
+// Jika user belum login
+if (!isAdminLoggedIn()) {
+    // Redirect ke halaman login
+    redirectToLoginAdminPage();
 }
 ?>
 <!DOCTYPE html>
@@ -14,7 +16,7 @@ if (!isset($_SESSION["username"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Cineverse | Pemeran</title>
+    <title>Cineverse | Pesan</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -67,18 +69,18 @@ if (!isset($_SESSION["username"])) {
                     <li class="nav-item dropdown pe-3">
 
                         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username"] ?></span>
+                            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username_admin"] ?></span>
                         </a><!-- End Profile Iamge Icon -->
 
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                             <li class="dropdown-header">
-                                <h6><?php echo $_SESSION["username"] ?></h6>
+                                <h6><?php echo $_SESSION["username_admin"] ?></h6>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a class="dropdown-item d-flex align-items-center" href="../index.php">
+                                <a class="dropdown-item d-flex align-items-center" href="../signout.php">
                                     <i class="bi bi-box-arrow-right"></i>
                                     <span>Sign Out</span>
                                 </a>
@@ -261,7 +263,7 @@ if (!isset($_SESSION["username"])) {
                                     <td> <?php echo $data["username"] ?></td>
                                     <td> <?php echo $data["subject"] ?></td>
                                     <td> <?php echo $data["pesan"] ?></td>
-                                    <td> <a class="btn btn-danger" href="proses_hapus.php?id_saran=<?php echo $data["id_saran"] ?>"class="btn-delete" onclick="return confirm('Yakin Data Akan Dihapus?')">
+                                    <td> <a class="btn btn-danger" href="proses_hapus.php?id_saran=<?php echo $data["id_saran"] ?>" class="btn-delete" onclick="return confirm('Yakin Data Akan Dihapus?')">
                                             <i class="fa-solid fa-trash-can"></i> </a>
                                     </td>
                                 </tr>

@@ -2164,17 +2164,23 @@ section {
   border-radius: 50%; /* Mengubah gambar menjadi bulat */
   object-fit: cover; /* Memastikan gambar terisi sepenuhnya pada lingkaran */
 }
+.pemain-peran {
+  margin-top: -15px;
+}
 .pemain-judul {
   font-size: 20px;
   margin-left: 40px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.pemain {
+  padding: 20px;
+}
 .pemain-gambar {
-  margin-left: -140px;
+  justify-content: center;
 }
 .pemain-nama {
-  margin-left: -130px;
+  text-align: center;
 }
 /* slick */
 .slick-two {
@@ -2227,6 +2233,7 @@ section {
   transform: scale(0.95);
 }
 .komen {
+  height: 300px;
   margin-top: 10px;
   margin-left: 50px;
   margin-right: 50px;

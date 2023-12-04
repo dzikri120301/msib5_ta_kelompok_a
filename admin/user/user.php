@@ -1,11 +1,13 @@
 <?php
 session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION["username"])) {
-    // Redirect to the login page or perform other actions
-    header("Location: login.php");
-    exit();
+?>
+<?php
+// Include file utils.php untuk fungsi-fungsi yang dibutuhkan (isUserLoggedIn(), redirectToLoginPage(), dsb)
+include '../utils.php';
+// Jika user belum login
+if (!isAdminLoggedIn()) {
+    // Redirect ke halaman login
+    redirectToLoginAdminPage();
 }
 ?>
 <!DOCTYPE html>
@@ -49,11 +51,6 @@ if (!isset($_SESSION["username"])) {
     <!-- <?php
             include '../../config/koneksi.php';
             $query = mysqli_query($conn, "SELECT * FROM `user`")
-            //   $admin = mysqli_query($conn, "SELECT * FROM `admin` WHERE 'id' = '$_GET[id]'");
-
-            //   while ($p = mysqli_fetch_array($admin)) {
-            //     $username = $p["username"];
-            // }
             ?> -->
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -70,18 +67,18 @@ if (!isset($_SESSION["username"])) {
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username"] ?></span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username_admin"] ?></span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6><?php echo $_SESSION["username"] ?></h6>
+                            <h6><?php echo $_SESSION["username_admin"] ?></h6>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="../index.php">
+                            <a class="dropdown-item d-flex align-items-center" href="../signout.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>

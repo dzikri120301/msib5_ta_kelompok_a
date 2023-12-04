@@ -1,11 +1,13 @@
 <?php
 session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION["username"])) {
-    // Redirect to the login page or perform other actions
-    header("Location: login.php");
-    exit();
+?>
+<?php
+// Include file utils.php untuk fungsi-fungsi yang dibutuhkan (isUserLoggedIn(), redirectToLoginPage(), dsb)
+include '../utils.php';
+// Jika user belum login
+if (!isAdminLoggedIn()) {
+    // Redirect ke halaman login
+    redirectToLoginAdminPage();
 }
 ?>
 <!DOCTYPE html>
@@ -42,15 +44,6 @@ if (!isset($_SESSION["username"])) {
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
-
-
-    <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Nov 17 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 <?php
 include '../../config/koneksi.php';
@@ -104,18 +97,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username"] ?></span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username_admin"] ?></span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6><?php echo $_SESSION["username"] ?></h6>
+                            <h6><?php echo $_SESSION["username_admin"] ?></h6>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="../index.php">
+                            <a class="dropdown-item d-flex align-items-center" href="../signout.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -268,47 +261,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
     <script>
-    $(document).ready(function() {
-        // Menonaktifkan tombol submit saat halaman dimuat
-        $('#submitBtn').prop('disabled', true);
+        $(document).ready(function() {
+            // Menonaktifkan tombol submit saat halaman dimuat
+            $('#submitBtn').prop('disabled', true);
 
-        // Fungsi untuk memeriksa apakah semua input telah terisi
-        function checkInputs() {
-            var nama_pemain = $('#nama_pemain').val();
-            var foto = $('#foto').val();
-            var asal = $('#asal').val();
-            var tgl_lahir = $('#tgl_lahir').val();
+            // Fungsi untuk memeriksa apakah semua input telah terisi
+            function checkInputs() {
+                var nama_pemain = $('#nama_pemain').val();
+                var foto = $('#foto').val();
+                var asal = $('#asal').val();
+                var tgl_lahir = $('#tgl_lahir').val();
 
-            // Aktifkan tombol submit jika semua input telah diisi
-            if (nama_pemain !== '' && foto !== '' && asal !== '' && tgl_lahir !== '') {
-                $('#submitBtn').prop('disabled', false);
-            } else {
-                // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
-                $('#submitBtn').prop('disabled', true);
+                // Aktifkan tombol submit jika semua input telah diisi
+                if (nama_pemain !== '' && foto !== '' && asal !== '' && tgl_lahir !== '') {
+                    $('#submitBtn').prop('disabled', false);
+                } else {
+                    // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
+                    $('#submitBtn').prop('disabled', true);
+                }
             }
-        }
 
-        // Memanggil fungsi checkInputs() saat input berubah
-        $('#nama_pemain, #foto, #asal, #tgl_lahir').on('input', function() {
-            checkInputs();
+            // Memanggil fungsi checkInputs() saat input berubah
+            $('#nama_pemain, #foto, #asal, #tgl_lahir').on('input', function() {
+                checkInputs();
+            });
+
+            // Menambahkan validasi saat formulir disubmit
+            $('form').submit(function(event) {
+                var nama_pemain = $('#nama_pemain').val();
+                var foto = $('#foto').val();
+                var asal = $('#asal').val();
+                var tgl_lahir = $('#tgl_lahir').val();
+
+                // Memeriksa apakah semua input telah diisi
+                if (nama_pemain === '' || foto === '' || asal === '' || tgl_lahir === '') {
+                    // Mencegah formulir disubmit jika ada input yang kosong
+                    event.preventDefault();
+                    alert('Semua kolom input harus diisi.');
+                }
+            });
         });
-
-        // Menambahkan validasi saat formulir disubmit
-        $('form').submit(function(event) {
-            var nama_pemain = $('#nama_pemain').val();
-            var foto = $('#foto').val();
-            var asal = $('#asal').val();
-            var tgl_lahir = $('#tgl_lahir').val();
-
-            // Memeriksa apakah semua input telah diisi
-            if (nama_pemain === '' || foto === '' || asal === '' || tgl_lahir === '') {
-                // Mencegah formulir disubmit jika ada input yang kosong
-                event.preventDefault();
-                alert('Semua kolom input harus diisi.');
-            }
-        });
-    });
-</script>
+    </script>
 </body>
 
 </html>

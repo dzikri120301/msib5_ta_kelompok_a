@@ -9,6 +9,16 @@ $query = mysqli_query($conn, "SELECT f.*, g.id_nama_genre, g.nama_genre, AVG(k.r
 $film = mysqli_fetch_array($query);
 ?>
 
+<?php
+// Include file utils.php untuk fungsi-fungsi yang dibutuhkan (isUserLoggedIn(), redirectToLoginPage(), dsb)
+include 'utils.php';
+// Jika user belum login
+if (!isUserLoggedIn()) {
+  // Redirect ke halaman login
+  redirectToLoginPage();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,32 +69,28 @@ $film = mysqli_fetch_array($query);
             <a class="nav-link scrollto" href="About.php">About</a>
           </li>
           <li>
-          <li class="nav-item dropdown pe-3">
-            <nav class="header-nav ms-auto">
-              <?php
-              if (isset($_SESSION['username'])) { ?>
-                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                  <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username"] ?></span>
-                </a><!-- End Profile Image Icon -->
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                  <li class="dropdown-header">
-                    <h6><?php echo $_SESSION["username"] ?></h6>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center" href="signin.php">
-                      <i class="bi bi-box-arrow-right"></i><span>Sign Out</span>
-                    </a>
-                  <?php } else { ?>
-                    <a class="getstarted scrollto" href="signin.php">
-                      <span>sign in</span>
-                    </a>
-                  </li>
-                <?php } ?>
-                </ul><!-- End Profile Dropdown Items -->
-          </li><!-- End Profile Nav -->
+          <li class="nav-item dropdown">
+            <?php
+            if (isset($_SESSION['username'])) {
+            ?>
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <?php echo $_SESSION['username'] ?>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="signout.php">Log Out</a></li>
+              </ul>
+            <?php
+            } else {
+            ?>
+              <a class="nav-link scrollto" href="signin.php">Login</a>
+            <?php
+            }
+            ?>
+
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -108,9 +114,22 @@ $film = mysqli_fetch_array($query);
               <h1><?php echo $film['nama_film'] ?></h1>
               <h1>&nbsp;<?php echo $film['tahun'] ?></h1>
             </div>
-            <?php for ($i = 0; $i < $film['average_rating']; $i++) { ?>
-              <i class="fa-solid fa-star" style="color: yellow;"></i>
-            <?php } ?>
+            <?php
+            $rating = $film['average_rating']; // Simpan nilai rating ke dalam variabel
+
+            for ($i = 0; $i < 5; $i++) {
+              if ($rating - $i >= 1) {
+                // Jika nilai rating lebih besar dari i + 1, tampilkan bintang penuh
+                echo '<i class="fa-solid fa-star" style="color: yellow;"></i>';
+              } elseif ($rating - $i >= 0.5) {
+                // Jika nilai rating lebih besar dari i + 0.5, tampilkan bintang setengah
+                echo '<i class="fa-solid fa-star-half" style="color: yellow;"></i>';
+              } else {
+                // Selain itu, tampilkan bintang kosong
+                echo '<i class="fa-regular fa-star" style="color: yellow;"></i>';
+              }
+            }
+            ?>
             <div class="d-flex">
               <p><?php echo $film['nama_genre'] ?></p>
               <p class="ml-3">&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-clock"></i>&nbsp;<?php echo $film['durasi'] ?> menit</p>
@@ -135,18 +154,20 @@ $film = mysqli_fetch_array($query);
     WHERE f.id = '$_GET[id]'");
     ?>
     <h1 class="pemain-judul ms-5">Movie Cast</h1>
-    <div class="container">
-      <div class="row">
+    <div class="pemain">
+      <div class="row justify-content-center">
         <?php
         while ($row = mysqli_fetch_array($query)) {
         ?>
-          <div class="col-md-2 justify-content-center">
+          <div class="col text-center mb-4">
             <img src="../admin/pemain/images/<?php echo $row['foto'] ?>" class="rounded-image pemain-gambar">
-            <p class="pemain-nama"><?php echo $row['nama_pemain'] ?></p>
+            <p class="pemain-nama mt-2"><?php echo $row['nama_pemain'] ?></p>
+            <p class="pemain-peran">(<?php echo $row['peran'] ?>)</p>
           </div>
         <?php } ?>
       </div>
     </div>
+
     <!-- End Pemain Film nya -->
 
     <!-- Recommended Movie -->
@@ -262,7 +283,7 @@ $film = mysqli_fetch_array($query);
             <div class="row">
               <div class="col-md-6">
                 <label for="exampleFormControlTextarea1" class="form-label">Komentar &nbsp;</label>
-                <div class="btn-group" role="group">
+                <div class="btn-group dropup-center dropup" role="group">
                   <button type="button" name="rating" class="btn btn-success dropdown-toggle" id="selectedRating" data-bs-toggle="dropdown" aria-expanded="false">
                     Rating
                   </button>

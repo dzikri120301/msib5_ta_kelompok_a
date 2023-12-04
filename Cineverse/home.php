@@ -3,6 +3,16 @@
 session_start();
 ?>
 
+<?php
+// Include file utils.php untuk fungsi-fungsi yang dibutuhkan (isUserLoggedIn(), redirectToLoginPage(), dsb)
+include 'utils.php';
+// Jika user belum login
+if (!isUserLoggedIn()) {
+  // Redirect ke halaman login
+  redirectToLoginPage();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,7 +83,7 @@ session_start();
             }
             ?>
 
-          </li><!-- End Profile Nav -->
+          </li>
         </ul>
       </nav>
       <!-- .navbar -->

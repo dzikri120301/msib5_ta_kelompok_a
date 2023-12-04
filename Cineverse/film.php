@@ -1,5 +1,19 @@
 <?php
+// Mulai session
+session_start();
+?>
+<?php
 include '../config/koneksi.php';
+?>
+
+<?php
+// Include file utils.php untuk fungsi-fungsi yang dibutuhkan (isUserLoggedIn(), redirectToLoginPage(), dsb)
+include 'utils.php';
+// Jika user belum login
+if (!isUserLoggedIn()) {
+    // Redirect ke halaman login
+    redirectToLoginPage();
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +61,29 @@ include '../config/koneksi.php';
                     </li>
                     <li>
                         <a class=" nav-link scrollto" href="About.php">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                        ?>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php echo $_SESSION['username'] ?>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="signout.php">Log Out</a></li>
+                            </ul>
+                        <?php
+                        } else {
+                        ?>
+                            <a class="nav-link scrollto" href="signin.php">Login</a>
+                        <?php
+                        }
+                        ?>
+
+                    </li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>

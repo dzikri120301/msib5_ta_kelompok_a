@@ -1,3 +1,16 @@
+<?php
+// Mulai session
+session_start();
+?>
+<?php
+// Include file utils.php untuk fungsi-fungsi yang dibutuhkan (isUserLoggedIn(), redirectToLoginPage(), dsb)
+include 'utils.php';
+// Jika user belum login
+if (!isUserLoggedIn()) {
+    // Redirect ke halaman login
+    redirectToLoginPage();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +72,28 @@
                     </li>
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li>
+                    <li class="nav-item dropdown">
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                        ?>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php echo $_SESSION['username'] ?>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="signout.php">Log Out</a></li>
+                            </ul>
+                        <?php
+                        } else {
+                        ?>
+                            <a class="nav-link scrollto" href="signin.php">Login</a>
+                        <?php
+                        }
+                        ?>
+
+                    </li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -178,12 +212,10 @@
                             <div class="pic">
                                 <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="" />
                             </div>
-                            <div class="member-info">
+                            <div class="member-info mt-5">
                                 <h4>Muhammad Dzikri Mufarrij</h4>
-                                <span>Chief Executive Officer</span>
-                                <p>
-                                    Explicabo voluptatem mollitia et repellat qui dolorum quasi
-                                </p>
+                                <hr>
+                                <p>Mahasiswa</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
                                     <a href=""><i class="ri-facebook-fill"></i></a>
@@ -199,18 +231,13 @@
                             <div class="pic">
                                 <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="" />
                             </div>
-                            <div class="member-info">
+                            <div class="member-info mt-5">
                                 <h4>Siti Nur Fadhilah</h4>
-                                <span>Product Manager</span>
-                                <p>
-                                    Aut maiores voluptates amet et quis praesentium qui senda
-                                    para
-                                </p>
+                                <hr>
+                                <p>Mahasiswa</p>
                                 <div class="social">
-                                    <a href=""><i class="ri-twitter-fill"></i></a>
-                                    <a href=""><i class="ri-facebook-fill"></i></a>
-                                    <a href=""><i class="ri-instagram-fill"></i></a>
-                                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                                    <a href="https://instagram.com/_dhils12?igshid=NzZlODBkYWE4Ng=="><i class="ri-instagram-fill"></i></a>
+                                    <a href="https://www.linkedin.com/in/siti-nur-fadhilah-757974249/"> <i class="ri-linkedin-box-fill"></i> </a>
                                 </div>
                             </div>
                         </div>
@@ -221,12 +248,10 @@
                             <div class="pic">
                                 <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="" />
                             </div>
-                            <div class="member-info">
+                            <div class="member-info mt-5">
                                 <h4>Arya Dewantara</h4>
-                                <span>CTO</span>
-                                <p>
-                                    Quisquam facilis cum velit laborum corrupti fuga rerum quia
-                                </p>
+                                <hr>
+                                <p>Mahasiswa</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
                                     <a href=""><i class="ri-facebook-fill"></i></a>
@@ -242,13 +267,10 @@
                             <div class="pic">
                                 <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="" />
                             </div>
-                            <div class="member-info">
+                            <div class="member-info mt-5">
                                 <h4>Raisa Nurlita</h4>
-                                <span>Accountant</span>
-                                <p>
-                                    Dolorum tempora officiis odit laborum officiis et et
-                                    accusamus
-                                </p>
+                                <hr>
+                                <p>Mahasiswa</p>
                                 <div class="social">
                                     <a href=""><i class="ri-twitter-fill"></i></a>
                                     <a href=""><i class="ri-facebook-fill"></i></a>

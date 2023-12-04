@@ -1,11 +1,13 @@
 <?php
 session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION["username"])) {
-    // Redirect to the login page or perform other actions
-    header("Location: login.php");
-    exit();
+?>
+<?php
+// Include file utils.php untuk fungsi-fungsi yang dibutuhkan (isUserLoggedIn(), redirectToLoginPage(), dsb)
+include '../utils.php';
+// Jika user belum login
+if (!isAdminLoggedIn()) {
+    // Redirect ke halaman login
+    redirectToLoginAdminPage();
 }
 ?>
 <!DOCTYPE html>
@@ -42,15 +44,6 @@ if (!isset($_SESSION["username"])) {
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
-
-
-    <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Nov 17 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -72,17 +65,17 @@ if (!isset($_SESSION["username"])) {
             <ul class="d-flex align-items-center">
                 <li class="nav-item dropdown pe-3">
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username"] ?></span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username_admin"] ?></span>
                     </a><!-- End Profile Iamge Icon -->
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6><?php echo $_SESSION["username"] ?></h6>
+                            <h6><?php echo $_SESSION["username_admin"] ?></h6>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="../index.php">
+                            <a class="dropdown-item d-flex align-items-center" href="../signout.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -146,7 +139,7 @@ if (!isset($_SESSION["username"])) {
                     </li>
                     <li>
                         <a href="../kotaksaran/pesan.php">
-                            <i class="bi bi-circle"></i><span>Review</span>
+                            <i class="bi bi-circle"></i><span>Pesan</span>
                         </a>
                     </li>
                 </ul>
@@ -214,8 +207,8 @@ if (!isset($_SESSION["username"])) {
                                     <td><?php echo $data["tgl_lahir"] ?></td>
                                     <td>
                                         <a href="edit_pemain.php?id_nama_pemain=<?php echo $data['id_nama_pemain']; ?>" class="btn btn-warning">
-                                        <i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a data-id="<?php echo $data["id_nama_pemain"] ?>"href="delete_pemain.php?id_nama_pemain=<?php echo $data["id_nama_pemain"] ?>"onclick="return confirm('Yakin Data Akan Dihapus?')" class="btn-delete">
+                                            <i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a data-id="<?php echo $data["id_nama_pemain"] ?>" href="delete_pemain.php?id_nama_pemain=<?php echo $data["id_nama_pemain"] ?>" onclick="return confirm('Yakin Data Akan Dihapus?')" class="btn-delete">
                                             <button type="button" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></button>
                                         </a>
                                     </td>
