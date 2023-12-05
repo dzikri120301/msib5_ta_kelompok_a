@@ -108,7 +108,7 @@ if (!isAdminLoggedIn()) {
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="film.php">
+                        <a href="../film/film.php">
                             <i class="bi bi-circle"></i><span>Data film</span>
                         </a>
                     </li>
