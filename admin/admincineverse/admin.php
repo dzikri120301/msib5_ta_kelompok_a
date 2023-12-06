@@ -22,7 +22,7 @@ if (!isAdminLoggedIn()) {
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/logo.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -33,8 +33,6 @@ if (!isAdminLoggedIn()) {
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
     <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
@@ -167,7 +165,7 @@ if (!isAdminLoggedIn()) {
                 <h1>Data Admin</h1>
                 <nav>
                     <ol class="breadcrumb">
-                        <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
+                        <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
                         <li class="breadcrumb-item active">Admin Cineverse</li>
                     </ol>
                 </nav>
@@ -182,7 +180,6 @@ if (!isAdminLoggedIn()) {
                         <tr>
                             <th>No</th>
                             <th>Username</th>
-                            <th>Password</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -194,17 +191,6 @@ if (!isAdminLoggedIn()) {
                             ?> <tr>
                                     <td> <?php echo $no ?></td>
                                     <td> <?php echo $data["username_admin"] ?></td>
-                                    <td> <?php
-                                            $password = $data['password'];
-                                            $length = strlen($password);
-
-                                            // Ganti setiap karakter dengan "*"
-                                            $maskedPassword = str_repeat('*', $length);
-
-                                            // Tampilkan password yang telah dimask
-                                            echo $maskedPassword;
-                                            ?>
-                                    </td>
                                     <td> <a class="btn btn-warning" href="edit.php?id=<?php echo $data["id"] ?>">
                                             <i class="fa-solid fa-pen-to-square"></i></a>
                                         <a class="btn btn-danger" href="proses_hapus.php?id=<?php echo $data["id"] ?>" onclick="return confirm('Yakin Data Akan Dihapus?')">
@@ -241,12 +227,7 @@ if (!isAdminLoggedIn()) {
     <!-- Vendor JS Files -->
     <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="../assets/vendor/echarts/echarts.min.js"></script>
-    <script src="../assets/vendor/quill/quill.min.js"></script>
     <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="../assets/vendor/php-email-form/validate.js"></script>
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
 

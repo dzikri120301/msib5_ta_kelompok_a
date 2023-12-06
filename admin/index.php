@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -29,13 +29,24 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Nov 17 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    .password-input {
+      position: relative;
+    }
+
+    .password-input .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .password-input .toggle-password:hover {
+      color: blue;
+      /* Ganti warna sesuai keinginan Anda */
+    }
+  </style>
 </head>
 
 <body>
@@ -67,26 +78,20 @@
                   <form action="proses_login.php" method="post" class="row g-3 needs-validation" novalidate>
 
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <input type="text" name="username" placeholder="Username" class="form-control" id="yourUsername" required>
                         <div class="invalid-feedback">Please enter your username.</div>
                       </div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <div class="input-group has-validation">
-                   <input type="password" name="password" class="form-control" id="yourPassword" required>
-                    <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                <i class="fas fa-eye-slash"></i>
-               </button>
-               </div>
-               <div class="invalid-feedback">Please enter your password!</div>
-               </div>
-               </div>
+                      <div class="password-input">
+                        <input type="password" name="password" placeholder="Password" class="form-control" id="yourPassword" required>
+                        <span class="toggle-password fa fa-eye-slash" onclick="togglePassword()"></span>
+                      </div>
+                      <div class="invalid-feedback">Please enter your password!</div>
+                    </div>
 
                     <div class="col-12">
                     </div>
@@ -130,18 +135,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const passwordInput = document.getElementById('yourPassword');
-      const togglePasswordButton = document.getElementById('togglePassword');
+    function togglePassword() {
+      const passwordField = document.getElementById('yourPassword');
+      const toggleIcon = document.querySelector('.toggle-password');
 
-      togglePasswordButton.addEventListener('click', function () {
-        const type = passwordInput.type === 'password' ? 'text' : 'password';
-        passwordInput.type = type;
-
-        // Toggle eye icon
-        this.innerHTML = type === 'password' ? '<i class="fas fa-eye-slash"></i>' : '<i class="fas fa-eye"></i>';
-      });
-    });
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+      } else {
+        passwordField.type = 'password';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+      }
+    }
   </script>
 
   <!-- Template Main JS File -->

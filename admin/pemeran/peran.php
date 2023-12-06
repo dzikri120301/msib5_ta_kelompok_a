@@ -166,7 +166,7 @@ if (!isAdminLoggedIn()) {
                 <h1>Data pemeran</h1>
                 <nav>
                     <ol class="breadcrumb">
-                        <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
+                        <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
                         <li class="breadcrumb-item active">Data Pemeran</li>
                     </ol>
                 </nav>

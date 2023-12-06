@@ -18,12 +18,12 @@ if (!isUserLoggedIn()) {
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Cineverse</title>
+    <title>About | Cineverse</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/logo.png" rel="icon" />
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
@@ -72,7 +72,28 @@ if (!isUserLoggedIn()) {
                     </li>
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li>
+                    <li class="nav-item dropdown">
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                        ?>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php echo $_SESSION['username'] ?>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="signout.php">Log Out</a></li>
+                            </ul>
+                        <?php
+                        } else {
+                        ?>
+                            <a class="nav-link scrollto" href="signin.php">Login</a>
+                        <?php
+                        }
+                        ?>
+
+                    </li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>

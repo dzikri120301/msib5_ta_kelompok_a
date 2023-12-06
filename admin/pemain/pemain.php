@@ -22,7 +22,7 @@ if (!isAdminLoggedIn()) {
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/logo.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -159,7 +159,7 @@ if (!isAdminLoggedIn()) {
             <h1>Data Pemain</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
+                    <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
                     <li class="breadcrumb-item active">Data Pemain</li>
                 </ol>
             </nav>

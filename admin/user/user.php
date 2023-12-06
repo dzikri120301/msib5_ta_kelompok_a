@@ -22,7 +22,7 @@ if (!isAdminLoggedIn()) {
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/logo.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -165,7 +165,7 @@ if (!isAdminLoggedIn()) {
             <h1>User Cineverse</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
+                    <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
                     <li class="breadcrumb-item active">User Cineverse</li>
                 </ol>
             </nav>
@@ -177,10 +177,10 @@ if (!isAdminLoggedIn()) {
                     <thead>
                         <tr>
                             <th>
-                                Username
+                                No
                             </th>
                             <th>
-                                Password
+                                Username
                             </th>
                             <th>
                                 Nama Lengkap
@@ -203,17 +203,8 @@ if (!isAdminLoggedIn()) {
                             while ($data = mysqli_fetch_array($query)) {
                         ?>
                                 <tr>
+                                    <td><?php echo $no ?></td>
                                     <td><?php echo $data["username"] ?></td>
-                                    <td><?php
-                                        $password = $data['password'];
-                                        $length = strlen($password);
-
-                                        // Ganti setiap karakter dengan "*"
-                                        $maskedPassword = str_repeat('*', $length);
-
-                                        // Tampilkan password yang telah dimask
-                                        echo $maskedPassword;
-                                        ?></td>
                                     <td><?php echo $data["nama"] ?></td>
                                     <td><?php echo $data["alamat"] ?></td>
                                     <td><?php echo $data["phone_number"] ?></td>
@@ -235,15 +226,11 @@ if (!isAdminLoggedIn()) {
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer fixed-bottom">
+    <footer id="footer" class="footer">
         <div class="copyright">
             &copy; Copyright <strong><span>Cineverse Admin</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
             Designed by <strong><span>Cineverse</span></strong>
         </div>
     </footer><!-- End Footer -->
@@ -253,12 +240,8 @@ if (!isAdminLoggedIn()) {
     <!-- Vendor JS Files -->
     <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="../assets/vendor/echarts/echarts.min.js"></script>
     <script src="../assets/vendor/quill/quill.min.js"></script>
     <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="../assets/vendor/php-email-form/validate.js"></script>
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
 

@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Pages / Register - NiceAdmin Bootstrap Template</title>
+    <title>SignUp | Cineverse</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/logo.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -36,15 +36,24 @@
         .credits {
             color: white;
         }
-    </style>
 
-    <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Nov 17 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+        .password-input {
+            position: relative;
+        }
+
+        .password-input .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .password-input .toggle-password:hover {
+            color: blue;
+            /* Ganti warna sesuai keinginan Anda */
+        }
+    </style>
 </head>
 
 <body>
@@ -90,9 +99,13 @@
                                         </div>
 
                                         <div class="col-12">
-                                            <input type="password" name="password" placeholder="Password" class="form-control" id="yourPassword" required>
+                                            <div class="password-input">
+                                                <input type="password" name="password" placeholder="Password" class="form-control" id="yourPassword" required>
+                                                <span class="toggle-password fa fa-eye-slash" onclick="togglePassword()"></span>
+                                            </div>
                                             <div class="invalid-feedback">Please enter your password!</div>
                                         </div>
+
 
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit">Sign Up</button>
@@ -106,10 +119,6 @@
                             </div>
 
                             <div class="credits">
-                                <!-- All the links in the footer should remain intact. -->
-                                <!-- You can delete the links only if you purchased the pro version. -->
-                                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
                                 Designed by <strong><span>CINEVERSE</span></strong>
                             </div>
 
@@ -128,14 +137,27 @@
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="assets/vendor/echarts/echarts.min.js"></script>
-    <script src="assets/vendor/quill/quill.min.js"></script>
-    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
 
     <!-- Template Main JS File -->
     <script src="../admin/assets/js/main.js"></script>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('yourPassword');
+            const toggleIcon = document.querySelector('.toggle-password');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
 
 </body>
 

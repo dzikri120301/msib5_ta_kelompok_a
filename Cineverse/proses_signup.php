@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $alamat = $_POST["alamat"];
     $phone_number = $_POST["phone_number"];
     $username = $_POST["username"];
-    $password = $_POST["password"];
+    $password = md5($_POST["password"]);
 
     // Cek apakah username sudah digunakan
     $checkUsernameQuery = "SELECT * FROM `user` WHERE username = '$username'";
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $username; // Simpan username dalam session
 
         // Arahkan ke halaman dashboard atau halaman lainnya
-        header("Location: home.php");
+        header("Location: signin.php");
         exit();
     } else {
         echo "Error: " . $signupQuery . "<br>" . $conn->error;

@@ -3,7 +3,7 @@ include '../config/koneksi.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
-    $password = $_POST["password"];
+    $password = md5($_POST["password"]);
 
     $sql = "SELECT * FROM `admin` WHERE username_admin = '$username' AND password = '$password'";
     $result = $conn->query($sql);

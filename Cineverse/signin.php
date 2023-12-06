@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Login - CINEVERSE</title>
+    <title>SignIn | CINEVERSE</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/logo.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -21,10 +21,7 @@
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="../admin/assets/css/style.css" rel="stylesheet">
@@ -33,15 +30,24 @@
             background-image: url(assets/img/banner.png);
 
         }
-    </style>
 
-    <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Nov 17 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+        .password-input {
+            position: relative;
+        }
+
+        .password-input .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .password-input .toggle-password:hover {
+            color: blue;
+            /* Ganti warna sesuai keinginan Anda */
+        }
+    </style>
 </head>
 
 <body>
@@ -76,15 +82,11 @@
                                         </div>
 
                                         <div class="col-12">
-                                            <div class="input-group has-validation">
+                                            <div class="password-input">
                                                 <input type="password" name="password" placeholder="Password" class="form-control" id="yourPassword" required>
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                                        <i class="fas fa-eye-slash"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="invalid-feedback">Please enter your password!</div>
+                                                <span class="toggle-password fa fa-eye-slash" onclick="togglePassword()"></span>
                                             </div>
+                                            <div class="invalid-feedback">Please enter your password!</div>
                                         </div>
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit">Sign In</button> <br>
@@ -121,26 +123,24 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/chart.js/chart.umd.js"></script>
     <script src="assets/vendor/echarts/echarts.min.js"></script>
-    <script src="assets/vendor/quill/quill.min.js"></script>
-    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const passwordInput = document.getElementById('yourPassword');
-            const togglePasswordButton = document.getElementById('togglePassword');
+        function togglePassword() {
+            const passwordField = document.getElementById('yourPassword');
+            const toggleIcon = document.querySelector('.toggle-password');
 
-            togglePasswordButton.addEventListener('click', function() {
-                const type = passwordInput.type === 'password' ? 'text' : 'password';
-                passwordInput.type = type;
-
-                // Toggle eye icon
-                this.innerHTML = type === 'password' ? '<i class="fas fa-eye-slash"></i>' : '<i class="fas fa-eye"></i>';
-            });
-        });
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
     </script>
 
     <!-- Template Main JS File -->

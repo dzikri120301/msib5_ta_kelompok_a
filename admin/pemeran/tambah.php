@@ -22,7 +22,7 @@ if (!isAdminLoggedIn()) {
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/logo.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -165,7 +165,7 @@ if (!isAdminLoggedIn()) {
             <h1>Cineverse Add</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
+                    <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="peran.php">Data Pemeran</a></li>
                     <li class="breadcrumb-item active">Add Pemeran</li>
                 </ol>
@@ -289,55 +289,6 @@ if (!isAdminLoggedIn()) {
             });
         });
     </script>
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- <script>
-        $(document).ready(function() {
-            $("#kode_kamar").on("blur", function() {
-                var kode_kamar = $(this).val();
-
-                $.ajax({
-                    url: "check_kode_kamar.php",
-                    type: "POST",
-                    data: {
-                        kode_kamar: kode_kamar
-                    },
-                    success: function(response) {
-                        if (response == "exists") {
-                            alert("Kode Kamar yang anda masukkan sudah ada");
-                            $("#kode_kamar").val(""); // Clear the input field
-                        }
-                    }
-                });
-            });
-
-            function checkInputs() {
-                var allInputsFilled = true;
-
-                // Loop through each input field
-                $('form#tambah_kamar input').each(function() {
-                    // Check if the input field is empty
-                    if ($(this).val() === '') {
-                        allInputsFilled = false;
-                    }
-                });
-
-                // Enable or disable the submit button based on the result
-                $('#submitBtn').prop('disabled', !allInputsFilled);
-            }
-
-            // Add event listener for input fields
-            $('form#tambah_kamar input').on('input', function() {
-                checkInputs();
-            });
-
-            // Add event listener for the select fields
-            $('form#tambah_kamar select').on('change', function() {
-                checkInputs();
-            });
-        });
-    </script> -->
 </body>
 
 </html>

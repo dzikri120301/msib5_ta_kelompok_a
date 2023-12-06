@@ -19,7 +19,7 @@ if (!isAdminLoggedIn()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cineverse | Add Admin</title>
 
-    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/logo.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -30,17 +30,32 @@ if (!isAdminLoggedIn()) {
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
     <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
+    <style>
+        .password-input {
+            position: relative;
+            width: 1000px;
+        }
+
+        .password-input .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .password-input .toggle-password:hover {
+            color: blue;
+            /* Ganti warna sesuai keinginan Anda */
+        }
+    </style>
 </head>
 
 <body>
@@ -101,7 +116,7 @@ if (!isAdminLoggedIn()) {
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="film.php">
+                        <a href="../film/film.php">
                             <i class="bi bi-circle"></i><span>Data film</span>
                         </a>
                     </li>
@@ -116,7 +131,7 @@ if (!isAdminLoggedIn()) {
                         </a>
                     </li>
                     <li>
-                        <a href="../pemeram/peran.php">
+                        <a href="../pemeran/peran.php">
                             <i class="bi bi-circle"></i><span>Daftar Peran</span>
                         </a>
                     </li>
@@ -145,7 +160,7 @@ if (!isAdminLoggedIn()) {
                 </ul>
             </li><!-- End Forms Nav -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="admin.php">
                     <i class="bi bi-grid"></i>
                     <span>Admin Cineverse</span>
                 </a>
@@ -158,7 +173,7 @@ if (!isAdminLoggedIn()) {
             <h1>Cineverse Add</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
+                    <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="admin.php">Admin Cineverse</a></li>
                     <li class="breadcrumb-item active">Add Admin</li>
                 </ol>
@@ -176,15 +191,20 @@ if (!isAdminLoggedIn()) {
                         <div class="card-body">
                             <h5 class="card-title">Data ADMIN</h5>
                             <form action="proses_tambah.php" method="post" enctype="multipart/form-data" name="formtambah">
-                                <input class="form-control form-control-sm" type="text" id="username" name="username" placeholder="Username" aria-label=".form-control-sm example"><br>
+                                <input class="form-control" type="text" id="username" name="username" placeholder="Username" aria-label=".form-control-sm example"><br>
                                 <div class="input-group">
-                                    <input class="form-control form-control-sm" type="password" id="password" name="password" placeholder="Password" aria-label=".form-control-sm example">
-                                    <span class="input-group-btn">
-                                        <button type="button" id="togglePassword" class="btn btn-outline-secondary">
-                                            <i class="fa fa-eye-slash" aria-hidden="true"></i>
-                                        </button>
-                                    </span>
+                                    <div class="password-input">
+                                        <input type="password" name="password" data-name="Judul" placeholder="Password" id="yourPassword" class="required form-control" oninput="enableSubmitButton()">
+                                        <span class=" toggle-password fa fa-eye-slash" onclick="togglePassword()"></span>
+                                    </div>
                                 </div><br>
+                                <?php
+                                if (isset($_SESSION['username_exists']) && $_SESSION['username_exists']) {
+                                    echo '<p style="color: red;">Username telah ada</p>';
+                                    echo '<script>document.getElementById("username").style.borderColor = "red";</script>';
+                                    unset($_SESSION['username_exists']);
+                                }
+                                ?>
                                 <button type="submit" name="Submit" id="submitBtn" value="Simpan" class="btn btn-success" disabled>Submit</button>
                             </form>
                         </div>
@@ -213,58 +233,45 @@ if (!isAdminLoggedIn()) {
     <!-- Vendor JS Files -->
     <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="../assets/vendor/echarts/echarts.min.js"></script>
-    <script src="../assets/vendor/quill/quill.min.js"></script>
-    <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="../assets/vendor/php-email-form/validate.js"></script>
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
 
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- Add this script block at the end of your <body> section -->
     <script>
-        $(document).ready(function() {
-            // Menonaktifkan tombol submit saat halaman dimuat
-            $('#submitBtn').prop('disabled', true);
+        function enableSubmitButton() {
+            const usernameField = document.getElementById('username');
+            const passwordField = document.getElementById('yourPassword');
+            const submitButton = document.getElementById('submitBtn');
 
-            // Fungsi untuk memeriksa apakah semua input telah terisi
-            function checkInputs() {
-                var username = $('#username').val();
-                var password = $('#password').val();
-
-                // Aktifkan tombol submit jika semua input telah diisi
-                if (username !== '' && password !== '') {
-                    $('#submitBtn').prop('disabled', false);
-                } else {
-                    // Jika ada input yang belum terisi, tombol submit tetap dinonaktifkan
-                    $('#submitBtn').prop('disabled', true);
-                }
+            // Cek jika kedua field terisi
+            if (usernameField.value.trim() !== '' && passwordField.value.trim() !== '') {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
             }
+        }
 
-            // Memanggil fungsi checkInputs() saat input berubah
-            $('#username, #password').on('input', function() {
-                checkInputs();
-            });
-        });
+        function togglePassword() {
+            // ... (kode yang telah Anda tuliskan sebelumnya untuk toggle password)
+            enableSubmitButton(); // Panggil fungsi enableSubmitButton setiap kali password diubah
+        }
     </script>
-    <script>
-        document.getElementById("togglePassword").addEventListener("click", function() {
-            var passwordInput = document.getElementById("password");
-            var type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-            passwordInput.setAttribute("type", type);
 
-            // Ganti ikon mata sesuai dengan mode tampilan
-            var eyeIcon = document.querySelector("#togglePassword i");
-            eyeIcon.classList.toggle("fa-eye");
-            eyeIcon.classList.toggle("fa-eye-slash");
-        });
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('yourPassword');
+            const toggleIcon = document.querySelector('.toggle-password');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
     </script>
 </body>
 

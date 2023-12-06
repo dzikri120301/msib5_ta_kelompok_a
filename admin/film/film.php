@@ -44,15 +44,6 @@ if (!isAdminLoggedIn()) {
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
-
-
-    <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Nov 17 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -113,7 +104,7 @@ if (!isAdminLoggedIn()) {
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="dashboard.php">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="../dashboard.php">
                     <i class="bi bi-menu-button-wide"></i><span>Film</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -140,7 +131,7 @@ if (!isAdminLoggedIn()) {
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="dashboard.php">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="./dashboard.php">
                     <i class="bi bi-menu-button-wide"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -210,9 +201,6 @@ if (!isAdminLoggedIn()) {
                                 Tahun Rilis
                             </th>
                             <th>
-                                Sinopsis
-                            </th>
-                            <th>
                                 Durasi Film
                             </th>
                             <th>
@@ -237,13 +225,12 @@ if (!isAdminLoggedIn()) {
                         ?>
                                 <tr>
                                     <td><?php echo $data["kode_film"] ?></td>
-                                    <td><?php echo $data["trailer"] ?></td>
+                                    <td><a href="<?php echo $data["trailer"] ?>"><?php echo $data["trailer"] ?></a></td>
                                     <td><?php echo $data["nama_film"] ?></td>
                                     <td><img src="<?php echo $data["gambar"] ?>" width="100"></td>
                                     <td><img src="<?php echo $data["banner"] ?>" width="100"></td>
                                     <td><?php echo $data["nama_genre"] ?></td>
                                     <td><?php echo $data["tahun"] ?></td>
-                                    <td><?php echo $data["sinopsis"] ?></td>
                                     <td><?php echo $data["durasi"] ?></td>
                                     <td><?php echo $data["average_rating"] !== null ? number_format($data["average_rating"], 1) : "Belum Ada Rating"; ?></td>
                                     <td><?php echo $data["created_at"] ?></td>

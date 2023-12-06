@@ -19,7 +19,7 @@ if (!isAdminLoggedIn()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cineverse | Edit Admin</title>
 
-    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/logo.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -30,17 +30,32 @@ if (!isAdminLoggedIn()) {
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
     <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
+    <style>
+        .password-input {
+            position: relative;
+            width: 1000px;
+        }
+
+        .password-input .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .password-input .toggle-password:hover {
+            color: blue;
+            /* Ganti warna sesuai keinginan Anda */
+        }
+    </style>
 </head>
 
 <body>
@@ -124,7 +139,7 @@ if (!isAdminLoggedIn()) {
                         </a>
                     </li>
                     <li>
-                        <a href="../pemeram/peran.php">
+                        <a href="../pemeran/peran.php">
                             <i class="bi bi-circle"></i><span>Daftar Peran</span>
                         </a>
                     </li>
@@ -153,7 +168,7 @@ if (!isAdminLoggedIn()) {
                 </ul>
             </li><!-- End Forms Nav -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="admin.php">
                     <i class="bi bi-grid"></i>
                     <span>Admin Cineverse</span>
                 </a>
@@ -166,7 +181,7 @@ if (!isAdminLoggedIn()) {
             <h1>Cineverse Add</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
+                    <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="admin.php">Admin Cineverse</a></li>
                     <li class="breadcrumb-item active">Edit Admin Cineverse</li>
                 </ol>
@@ -186,12 +201,10 @@ if (!isAdminLoggedIn()) {
                             <form action="proses_edit.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data" name="formtambah">
                                 <input type="text" name="username" data-name="Judul" class="required form-control" value="<?php echo $username ?>" oninput="enableSubmitButton()"><br>
                                 <div class="input-group">
-                                    <input type="password" name="password" data-name="Judul" class="required form-control" value="<?php echo $password ?>" oninput="enableSubmitButton()">
-                                    <span class="input-group-btn">
-                                        <button type="button" id="togglePassword" class="btn btn-outline-secondary">
-                                            <i class="fa fa-eye-slash" aria-hidden="true"></i>
-                                        </button>
-                                    </span>
+                                    <div class="password-input">
+                                        <input type="password" name="password" data-name="Judul" placeholder="Password" id="yourPassword" class="required form-control" oninput="enableSubmitButton()">
+                                        <span class=" toggle-password fa fa-eye-slash" onclick="togglePassword()"></span>
+                                    </div>
                                 </div><br>
                                 <button type="submit" name="Submit" value="Simpan" onclick="return confirm('Simpan Perubahan?')" class="btn btn-success" disabled>Submit</button>
                             </form>
@@ -208,10 +221,6 @@ if (!isAdminLoggedIn()) {
             &copy; Copyright <strong><span>Cineverse Admin</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
             Designed by <strong><span>Cineverse</span></strong>
         </div>
     </footer><!-- End Footer -->
@@ -221,33 +230,25 @@ if (!isAdminLoggedIn()) {
     <!-- Vendor JS Files -->
     <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="../assets/vendor/echarts/echarts.min.js"></script>
-    <script src="../assets/vendor/quill/quill.min.js"></script>
-    <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="../assets/vendor/php-email-form/validate.js"></script>
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
 
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- Add this script block at the end of your <body> section -->
-    <!-- Add this script block at the end of your <body> section -->
     <script>
-        document.getElementById("togglePassword").addEventListener("click", function() {
-            var passwordInput = document.getElementsByName("password")[0];
-            var type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-            passwordInput.setAttribute("type", type);
+        function togglePassword() {
+            const passwordField = document.getElementById('yourPassword');
+            const toggleIcon = document.querySelector('.toggle-password');
 
-            // Ganti ikon mata sesuai dengan mode tampilan
-            var eyeIcon = document.querySelector("#togglePassword i");
-            eyeIcon.classList.toggle("fa-eye");
-            eyeIcon.classList.toggle("fa-eye-slash");
-        });
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
     </script>
     <script>
         // Fungsi untuk mengaktifkan tombol submit jika ada perubahan pada input

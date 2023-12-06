@@ -20,7 +20,7 @@ if (!isset($_SESSION["username"])) {
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/logo.png" rel="icon">
     <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -172,7 +172,7 @@ while ($data = mysqli_fetch_array($query)) {
             <h1>Cineverse Edit</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <!-- <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li> -->
+                    <li class="breadcrumb-item"><a href="../dashboard.php">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="pemain.php">Data pemain</a></li>
                     <li class="breadcrumb-item active">Edit Pemain</li>
                 </ol>
@@ -238,7 +238,7 @@ while ($data = mysqli_fetch_array($query)) {
     <script src="../assets/js/main.js"></script>
 
     <script src="https://kit.fontawesome.com/6beb2a82fc.js" crossorigin="anonymous"></script>
-    
+
 </body>
 
 </html>
