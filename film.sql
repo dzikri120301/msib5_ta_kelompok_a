@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Des 2023 pada 14.08
+-- Waktu pembuatan: 09 Des 2023 pada 16.53
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.1.17
 
@@ -466,7 +466,34 @@ INSERT INTO `pemain` (`id_nama_pemain`, `nama_pemain`, `foto`, `asal`, `tgl_lahi
 (329, 'Michelle William', 'michelle Williams.jpeg', 'montana', '1980-09-09'),
 (330, 'Emely Mortimer', 'emile Mortimer.jpeg', 'London', '1971-10-06'),
 (331, 'Max Von Sydow', 'max von sydow.jpeg', 'Lund', '1929-04-10'),
-(332, 'Patricia Clarkson', 'patricia Clarkson.jpeg', 'Lousiania', '1959-12-29');
+(332, 'Patricia Clarkson', 'patricia Clarkson.jpeg', 'Lousiania', '1959-12-29'),
+(333, 'Strom reid', 'Strom reid.jpeg', 'georgia', '2003-07-01'),
+(334, 'Nia Long', 'nia long.jpeg', 'Brooklyn', '1970-10-30'),
+(335, 'Megan Suri', 'megan syri.jpeg', 'California', '1999-03-28'),
+(336, 'Daniel Henney', 'daniel Henney.jpeg', 'Michigan', '1979-11-28'),
+(337, 'Joaquim de Almeida', 'joaquim de almeida.jpeg', 'Lisboa', '1957-03-15'),
+(338, 'Ken Leung', 'ken leung.jpeg', 'New York', '1970-01-21'),
+(339, 'Thomas Barbusca', 'thomas barbusa.jpeg', 'New Jersey', '2003-03-03'),
+(340, 'Zach Gilford', 'Zach gilford.jpeg', 'Illinois', '1982-01-14'),
+(341, 'Alisha Wainwright', 'alisha wainwright.jpeg', 'Florida', '1989-07-14'),
+(342, 'Amanda Crew', 'amanda crew.jpeg', 'Kanada', '1986-06-05'),
+(343, 'Carlos Santos', 'carlos santos.jpeg', 'Puerto Rico', '1981-04-09'),
+(344, 'Briela Guiza', 'briella guiza.jpeg', 'New York', '2011-03-18'),
+(345, 'Ramona Tyler', 'ramona tyler.jpg', 'New York', '1977-07-01'),
+(346, 'David Mattle', 'david mattle.jpg', 'New York', '2010-05-04'),
+(347, 'Mr. Night Shyamalan', 'M.Night Shyamalan.jpeg', 'Mahe', '1970-08-06'),
+(348, 'Dave Bautista', 'Dave Bautista.jpeg', 'Washington, DC', '1969-01-18'),
+(349, 'Ben Aldridge', 'Ben Aldridge.jpeg', 'Exeter', '1985-11-12'),
+(350, 'Jonathan Groff', 'Jonathan Groff.jpeg', 'Pennsylvania', '1985-03-12'),
+(351, 'Abby Quinn', 'Abby Quinn.jpeg', 'Michigan', '1996-04-14'),
+(352, 'Kristen Cui', 'Kristen Cui.jpeg', 'California', '2013-09-26'),
+(353, 'Jenna Orgeta', 'Jenna Ortega.jpeg', 'California', '2002-09-27'),
+(354, 'Mellisa Barrera', 'Mellisa Barrera.jpeg', 'Monterrey', '1990-07-04'),
+(355, 'Hayden Panettiere', 'Hayden Panettiere.jpeg', 'New York', '1989-08-21'),
+(356, 'Samara Weaving', 'Samara Weaving.jpeg', 'Adelaide', '1992-02-23'),
+(357, 'Jack Champion', 'jack-champion-header.jpg', 'Virginia', '2004-11-16'),
+(358, 'Cortenney Cox Arquette', 'Courteney Cox Arquette.jpeg', 'Alabama', '1964-06-15'),
+(359, 'Skeet Ulrich', 'Skeet Ulrich.jpeg', 'Virginia', '1970-01-20');
 
 -- --------------------------------------------------------
 
@@ -835,7 +862,35 @@ INSERT INTO `pemeran` (`id_pemeran`, `id_pemain`, `id_film`, `peran`) VALUES
 (354, 329, 86, 'Doroles Chanal'),
 (355, 330, 86, 'Rachel Solando'),
 (356, 331, 86, 'Dr. Jeremiah'),
-(357, 332, 86, 'Rachel Solando Old');
+(357, 332, 86, 'Rachel Solando Old'),
+(358, 333, 87, 'June Allen'),
+(359, 334, 87, 'Grace Allen'),
+(360, 335, 87, 'Veena'),
+(361, 336, 87, 'Agent Park'),
+(362, 337, 87, 'Javier'),
+(363, 338, 87, 'Kevin'),
+(365, 339, 87, 'Cody'),
+(366, 340, 88, 'Ben'),
+(367, 341, 88, 'Margaret'),
+(368, 342, 88, 'Elli'),
+(369, 343, 88, 'Thomas'),
+(370, 344, 88, 'Lucy'),
+(371, 346, 88, 'Spencer'),
+(372, 345, 88, 'Park Ranger'),
+(373, 347, 89, 'Infomercial Host'),
+(374, 348, 89, 'leonard Brocht'),
+(375, 119, 89, 'Redmond'),
+(376, 349, 89, 'Andrew'),
+(377, 350, 89, 'Eric'),
+(378, 351, 89, 'Sabrina'),
+(379, 352, 89, 'Wen'),
+(380, 353, 90, 'Tara Carpenter'),
+(381, 354, 90, 'Sam Carpenter'),
+(382, 355, 90, 'Kirby Reed'),
+(383, 356, 90, 'Laura Crene'),
+(384, 357, 90, 'Ethan Laudry'),
+(385, 358, 90, 'Gale Weather'),
+(386, 359, 90, 'Billy Loomis');
 
 -- --------------------------------------------------------
 
@@ -950,7 +1005,20 @@ INSERT INTO `tb_film` (`id`, `kode_film`, `trailer`, `nama_film`, `gambar`, `ban
 (94, 'AD-008', 'https://youtu.be/avz06PDqDbM?si=2kDzl5GV4TSEcSoX', 'Mission Impossible ', 'images/mission Imposible.jpg', 'banner/Mission-Impossible.jpg', 14, 183, '2023', 0, 0, '<p>Ethan Hunt dan tim IMF beraksi dalam misi paling berbahaya dari yang pernah ada: Melacak sebuah senjata jenis baru yang dapat mengancam kelangsungan umat manusia, sebelum jatuh ke tangan yang salah. Dengan kendali terhadap masa depan dan nasib dunia sebagai taruhannya, serta pihak-pihak jahat dari masa lalu Ethan yang turut mengintai, perlombaan maut lintas negara dimulai. Dihadang oleh musuh yang misterius dan berkuasa, Ethan dipaksa untuk menjadikan misi ini sebagai prioritas terpentingbahkan lebih penting dari nyawa orang-orang terdekatnya sekalipun.</p>', '2023-12-07 12:14:24', '2023-12-07 12:14:24'),
 (95, 'AD-009', 'https://youtu.be/4wxyy8Rcz4k?si=z9KmTC2mivzZVjIe', 'Blue beetle', 'images/blue beetle.jpg', 'banner/Blue-Beetle.jpg', 14, 127, '2023', 0, 0, '<p>Sebuah relik peninggalan alien memilih Jaime Reyes (Xolo Mariduena) untuk menjadi pewaris kekuatan luar biasa. Kekuatan baru ini mengubah takdir hidup Reyes menjadi pahlawan super kumbang biru.</p>', '2023-12-07 12:18:23', '2023-12-07 12:18:23'),
 (96, 'AD-010', 'https://youtu.be/32RAq6JzY-w?si=eQKIddzzDCroBn6w', 'Fast X', 'images/fast X.jpg', 'banner/b -fastX.webp', 14, 141, '2023', 0, 0, '<p>Selama banyak misi dan melawan rintangan yang mustahil, Dom Toretto dan keluarganya telah mengakali dan mengalahkan setiap musuh di jalan mereka. Sekarang, mereka menghadapi lawan paling mematikan yang pernah mereka hadapi: Ancaman mengerikan yang muncul dari bayang-bayang masa lalu yang dipicu oleh dendam berdarah, dan yang bertekad untuk menghancurkan keluarga ini dan menghancurkan segalanyadan semua orangyang dicintai Dom, selamanya. Dalam Fast Five 2011, Dom dan krunya mengalahkan gembong narkoba Brasil Hernan Reyes yang jahat dan memenggal kerajaannya di sebuah jembatan di Rio De Janeiro. Apa yang tidak mereka ketahui adalah bahwa putra Reyes, Dante, menyaksikan semuanya dan telah menghabiskan 12 tahun terakhir mendalangi rencana untuk membuat Dom membayar harga tertinggi. Plot Dante akan menyebarkan keluarga Dom dari Los Angeles ke katakombe Roma, dari Brasil ke London dan dari Portugal ke Antartika. Sekutu baru akan ditempa dan musuh lama akan muncul kembali. Tapi semuanya berubah ketika Dom menemukan bahwa putranya sendiri yang berusia 8 tahun adalah target utama balas dendam Dante.</p>', '2023-12-07 12:24:17', '2023-12-07 12:24:17'),
-(97, 'AD-011', 'https://youtu.be/zt-hyQE-sIA?si=8JKbO3o2O1EsqPYf', 'Detective Knight: Independence', 'images/detective knight independence.jpg', 'banner/detective knight independence banner.jpg', 14, 91, '2023', 0, 0, '<p>Film yang menceritakan sebuah Penugasan terakhir Detektif James Knight untuk shift Hari Kemerdekaan yang berubah menjadi sebuah perlombaan untuk menghentikan seorang EMT Ambulans ini yang dimana akan tidak seimbang dari membahayakan perayaan kota tersebut.</p>\r\n<p>&nbsp;</p>\r\n<p>Penegak hukum sembarang yang bermain polisi tersebut dengan senjata dan seragam yang dicuri memiliki sebuah lemari yang besi penuh alasan untuk menampilkan pertunjukan kembang api miliknya sendiri tersebut satu yang akan berdekatan sangat berbahaya dengan rumah Knight itu.</p>\r\n<p>&nbsp;</p>\r\n<p>Dari cerita yang sudah dibangun oleh Edward Drake dan Corey Large, film tersebutlah yang akan terasa sangat seru untuk ditonton oleh anda.&nbsp;Apalagi untuk film Detective Knight: Independence tersebut yang dibintangi banyak actor dan aktris yang sangat berbakat dan tidak perlu diragukan lagi untuk kemampuan beraktingnya tersebut, ialah Lorenzo Antonucci, Dax Campbell, dan Scott Cargle.&nbsp;Demikian informasi mengenai&nbsp;<a href=\"https://radargarut.jabarekspres.com/tag/sinopsis-film/\">Sinopsis Film</a> DETECTIVE KNIGHT: INDEPENDENCE (2023), Penugasan Terakhir Detektif James Knight.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>', '2023-12-07 12:33:36', '2023-12-07 12:33:36');
+(97, 'AD-011', 'https://youtu.be/zt-hyQE-sIA?si=8JKbO3o2O1EsqPYf', 'Detective Knight: Independence', 'images/detective knight independence.jpg', 'banner/detective knight independence banner.jpg', 14, 91, '2023', 0, 0, '<p>Film yang menceritakan sebuah Penugasan terakhir Detektif James Knight untuk shift Hari Kemerdekaan yang berubah menjadi sebuah perlombaan untuk menghentikan seorang EMT Ambulans ini yang dimana akan tidak seimbang dari membahayakan perayaan kota tersebut.</p>\r\n<p>&nbsp;</p>\r\n<p>Penegak hukum sembarang yang bermain polisi tersebut dengan senjata dan seragam yang dicuri memiliki sebuah lemari yang besi penuh alasan untuk menampilkan pertunjukan kembang api miliknya sendiri tersebut satu yang akan berdekatan sangat berbahaya dengan rumah Knight itu.</p>\r\n<p>&nbsp;</p>\r\n<p>Dari cerita yang sudah dibangun oleh Edward Drake dan Corey Large, film tersebutlah yang akan terasa sangat seru untuk ditonton oleh anda.&nbsp;Apalagi untuk film Detective Knight: Independence tersebut yang dibintangi banyak actor dan aktris yang sangat berbakat dan tidak perlu diragukan lagi untuk kemampuan beraktingnya tersebut, ialah Lorenzo Antonucci, Dax Campbell, dan Scott Cargle.&nbsp;Demikian informasi mengenai&nbsp;<a href=\"https://radargarut.jabarekspres.com/tag/sinopsis-film/\">Sinopsis Film</a> DETECTIVE KNIGHT: INDEPENDENCE (2023), Penugasan Terakhir Detektif James Knight.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>', '2023-12-07 12:33:36', '2023-12-07 12:33:36'),
+(98, 'AD-012', 'https://youtu.be/82I1ErFD63U?si=kLBJRO6GxqbevAE-', 'We Have A Ghost', 'images/we have A Ghost.jpg', 'banner/Banner We have A ghost.jpeg', 14, 127, '2023', 0, 0, '<p>We Have A Ghost mengisahkan&nbsp;<strong>pengalaman menemukan hantu laki-laki bernama Ernest yang menyebabkan keluarga Kevin menjadi sensasi di media sosial</strong>. Kevin yang memiliki kemampuan melihat hantu pun kerap melihat sosok hantu di rumah barunya.</p>', '2023-12-07 13:22:30', '2023-12-07 13:22:30'),
+(99, 'A-005', 'https://youtu.be/yiTs7bxUc-s?si=h7ta4FucYjSlKZ5C', 'The Big 4', 'images/big4.jpg', 'banner/banner big4.webp', 8, 141, '2022', 0, 0, '<p style=\"text-align: justify;\">Cerita The&nbsp;<strong>Big 4</strong> berpusat pada Dina (Putri Marino), detektif yang dikenal lurus dan memegang teguh prinsip sebagai anggota polisi. Suatu hari, Dina mendapati sang ayah (Budi Ros) meninggal secara misterius. Ia berupaya mengungkap misteri kematian ayahnya dengan mengikuti petunjuk yang ditemukan</p>', '2023-12-09 07:40:34', '2023-12-09 07:40:34'),
+(100, 'A-006', 'https://youtu.be/yXhoytk0Hfw?si=P0VMpXPinjoNcKjR', 'Headshot', 'images/Poster_headshot.jpg', 'banner/Headshot_Landscape.jpg', 8, 117, '2016', 0, 0, '<p style=\"text-align: justify;\">Seorang dokter muda merawat sesosok pria tak dikenal yang terluka parah dan kehilangan ingatannya. Tak lama beberapa orang datang mencarinya dan menculik si dokter - membuatnya tak punya pilihan lain.</p>', '2023-12-09 07:46:56', '2023-12-09 07:46:56'),
+(101, 'A-007', 'https://youtu.be/PQ6yUHHfZ04?si=5qwFOuJ2_urkxgNB', 'The Raid 2 - Berandal', 'images/Poster_Teatrikal_The_Raid_2-Berandal.jpeg', 'banner/brandal-131210b.webp', 8, 150, '2014', 0, 0, '<p style=\"text-align: justify;\">Dalam sekuel film laga ini, Rama dikirim menyamar untuk membasmi pejabat polisi yang korup dan komplotan geng dunia kriminal bawah tanah.</p>', '2023-12-09 07:54:25', '2023-12-09 07:54:25'),
+(102, 'A-008', 'https://youtu.be/8rauD1vxMCw?si=ceFKU2c0tfszChN0', 'Gundala', 'images/gundala.jpg', 'banner/gundala banner.jpeg', 8, 123, '2019', 0, 0, '<p style=\"text-align: justify;\">Sancaka hidup di jalanan sejak ditinggal ayah dan ibunya. Menghadapi hidup yang keras, Sancaka belajar untuk bertahan hidup dengan tidak peduli dengan orang lain dan hanya mencoba untuk mendapatkan tempat yang aman bagi dirinya sendiri. Ketika situasi kota semakin tidak aman dan ketidakadilan merajalela di seluruh negeri, Sancaka harus buat keputusan yang berat, tetap hidup di zona amannya, atau keluar sebagai Gundala untuk membela orang-orang yang ditindas.</p>', '2023-12-09 08:01:54', '2023-12-09 08:01:54'),
+(103, 'A-009', 'https://youtu.be/K6n3VPO1oGE?si=bjD8m-1X1xcY5v0C', 'Foxtrot Six', 'images/foxtrot six.jpg', 'banner/banner foxtrot six.jpeg', 8, 114, '2019', 0, 0, '<p style=\"text-align: justify;\">Ketika Indonesia diambil alih oleh partai pembelot PIRANAS, serangkaian peristiwa membawa mantan marinir Angga (Oka Antara) kepada masa lalunya Sari (Julie Estelle) dimana kebenaran dibalik&hellip;</p>', '2023-12-09 08:10:55', '2023-12-09 08:10:55'),
+(104, 'A-010', 'https://youtu.be/RHTrW0LN3E4?si=jP-M9Y00huCT7QIM', 'Ben & Jody', 'images/Poster_film_Ben_&_Jody.jpg', 'banner/ben-n-jody-800x500.jpg', 8, 114, '2022', 0, 0, '<p style=\"text-align: justify;\">Sejak keluar dari Filosofi Kopi, Ben (Chicco Jerikho) yang kini aktif membela kelompok petani untuk melawan perusahaan, kini menghilang. Jody (Rio Dewanto) sebagai sahabat setianya pun melakukan pencarian untuk menemukan keberadaan Ben.</p>', '2023-12-09 08:14:32', '2023-12-09 08:14:32'),
+(105, 'A-011', 'https://youtu.be/Z5T67lOcjoM?si=c6EZlOYpcQ5o0x7S', 'Wiro Sableng', 'images/Poster_film_Wiro_Sableng_212.jpg', 'banner/wiro-sableng-212-diperankan-vino-g-bastian.jpg', 8, 123, '2018', 0, 0, '<p style=\"text-align: justify;\">Nusantara, abad ke-16, Wiro Sableng (Vino G Bastian), seorang pemuda, murid dari pendekar misterius bernama Sinto Gendeng (Ruth Marini), mendapat titah dari gurunya untuk meringkus Mahesa Birawa (Yayan Ruhian), mantan murid Sinto Gendeng yang berkhianat. Dalam perjalanannya mencari Mahesa Birawa, Wiro terlibat dalam suatu petualangan seru bersama dua sahabat barunya Anggini (Sherina Munaf) dan Bujang Gila Tapak Sakti (Fariz Alfarazi). Pada akhirnya Wiro bukan hanya menguak rencana keji Mahesa Birawa, tetapi juga menemukan esensi sejati seorang pendekar.</p>', '2023-12-09 08:22:57', '2023-12-09 08:22:57'),
+(106, 'A-012', 'https://youtu.be/Lgr59kA3PCE?si=rYGT9QlQlwNwb0Ti', 'Pendekar Tongkat Emas', 'images/Pendekar_Tongkat_Emas_poster.jpg', 'banner/pendekar-tongkat-emas-1ed4ac.webp', 8, 112, '2014', 0, 0, '<p style=\"text-align: justify;\">Seorang murid bela diri ditunjuk untuk menjadi penerus gurunya. Namun, keadaan berubah saat ia harus melawan dua anggota lain yang membunuh sang guru dan mencuri pusakanya.</p>', '2023-12-09 08:29:55', '2023-12-09 08:29:55'),
+(107, 'R-003', 'https://youtu.be/rKGvrEWCG3A?si=mfXoE9n1EkzyCPQs', 'Habibi & Ainun', 'images/Habibie_Ainun_Poster.jpg', 'banner/banner habibi dan ainun.jpg', 9, 118, '2012', 0, 0, '<p style=\"text-align: justify;\">Ini adalah kisah tentang apa yang terjadi bila kau menemukan belahan hatimu. Kisah tentang cinta pertama dan cinta terakhir. Kisah tentang Presiden ketiga Indonesia dan ibu negara. Kisah tentang Habibie dan Ainun. Rudy Habibie seorang jenius ahli pesawat terbang yang punya mimpi besar: berbakti kepada bangsa Indonesia dengan membuat truk terbang untuk menyatukan Indonesia. Sedangkan Ainun adalah seorang dokter muda cerdas yang dengan jalur karir terbuka lebar untuknya. Pada tahun 1962, dua kawan SMP ini bertemu lagi di Bandung. Habibie jatuh cinta seketika pada Ainun yang baginya semanis gula. Tapi Ainun, dia tak hanya jatuh cinta, dia iman pada visi dan mimpi Habibie. Mereka menikah dan terbang ke Jerman. Punya mimpi tak akan pernah mudah. Habibie dan Ainun tahu itu. Cinta mereka terbangun dalam perjalanan mewujudkan mimpi. Dinginnya salju Jerman, pengorbanan, rasa sakit, kesendirian serta godaan harta dan kuasa saat mereka kembali ke Indonesia mengiringi perjalanan dua hidup menjadi satu. Bagi Habibie, Ainun adalah segalanya. Ainun adalah mata untuk melihat hidupnya. Bagi Ainun, Habibie adalah segalanya, pengisi kasih dalam hidupnya. Namun setiap kisah mempunyai akhir, setiap mimpi mempunyai batas. Kemudian pada satu titik, dua belahan jiwa ini tersadar; Apakah cinta mereka akan bisa terus abadi?</p>', '2023-12-09 08:47:32', '2023-12-09 08:47:32'),
+(108, 'R-004', 'https://youtu.be/C2yFJaXmdQs?si=0N5B0SI9LZXv0npw', 'Milea', 'images/milea.jpg', 'banner/004491100_1608011207-Milea-_-Mariposa-Feed.webp', 9, 102, '2020', 0, 0, '<p style=\"text-align: justify;\">Tidak ada kisah yang lebih Indah dari kisah cinta di SMA.Sama halnya dengan kisah cinta Dilan dan Milea.Dari yang awalnya benci hingga saling mencintai. Dari yang awalnya manis hingga menjadi rumit.Menjelang reuni akbar,Dilan memutuskan untuk menceritakan kembali masa masa itu.</p>', '2023-12-09 09:02:05', '2023-12-09 09:02:05'),
+(109, 'R-005', 'https://youtu.be/k_nK2PQ1Q8Q?si=DvU2fDkbL0q_HSBf', 'Tenggelamnya Kapal Van Der Wich', 'images/Poster_film_Tenggelamnya_Kapal_van_der_Wijck.jpg', 'banner/Tenggelamnya-Kapal-Van-Der-Wijck.jpeg', 9, 155, '2013', 0, 0, '<p style=\"text-align: justify;\">Dari Makasar, Zainuddin berlayar menuju tanah kelahiran ayahnya di Padang Panjang. Hatinya terpikat pada seorang gadis jelita bangsawan, Hayati. Namun apa daya, adat istiadat menghalangi cinta mereka.</p>', '2023-12-09 15:41:34', '2023-12-09 15:41:34'),
+(110, 'R-006', 'https://youtu.be/3c_McS4_2A8?si=uWB250osE8mBqBdR', 'Ada Apa Dengan Cinta 2', 'images/aadc.jpg', 'banner/aadc banner.jpg', 9, 123, '2016', 0, 0, '<p>14 tahun setelah percintaan mereka di sekolah menengah, Rangga dan Cinta bersatu kembali di Yogyakarta untuk menutup kisah mereka setelah Rangga meninggalkan Cinta tanpa penjelasan.</p>', '2023-12-09 15:50:59', '2023-12-09 15:50:59');
 
 -- --------------------------------------------------------
 
@@ -1070,13 +1138,13 @@ ALTER TABLE `komentar`
 -- AUTO_INCREMENT untuk tabel `pemain`
 --
 ALTER TABLE `pemain`
-  MODIFY `id_nama_pemain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=333;
+  MODIFY `id_nama_pemain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=360;
 
 --
 -- AUTO_INCREMENT untuk tabel `pemeran`
 --
 ALTER TABLE `pemeran`
-  MODIFY `id_pemeran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=358;
+  MODIFY `id_pemeran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=387;
 
 --
 -- AUTO_INCREMENT untuk tabel `saran`
@@ -1088,7 +1156,7 @@ ALTER TABLE `saran`
 -- AUTO_INCREMENT untuk tabel `tb_film`
 --
 ALTER TABLE `tb_film`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
