@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Des 2023 pada 16.53
+-- Waktu pembuatan: 09 Des 2023 pada 21.04
 -- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.1.17
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -89,39 +89,107 @@ CREATE TABLE `komentar` (
 --
 
 INSERT INTO `komentar` (`id_nama_review`, `id_user`, `id_film`, `review`, `rating`, `created_at`) VALUES
-(92, 1, 23, 'halo', 5, '2023-12-03 15:57:40'),
-(93, 1, 28, 'keren bangettt', 3, '2023-12-04 03:38:01'),
-(100, 1, 48, 'KKN di Desa Penari adalah film yang menghadirkan nuansa horor yang memikat. Alur ceritanya menegangkan dengan adegan-adegan yang berhasil menciptakan ketegangan. Karakter-karakternya juga terasa autentik dan mendalam.', 4, '2023-12-04 06:26:33'),
-(102, 2, 48, 'Film ini menggabungkan unsur horor dan misteri dengan apik. Skenarionya kuat dan atmosfer yang dibangun begitu menakutkan. Efek visualnya luar biasa, dan akting para pemainnya sangat meyakinkan.', 5, '2023-12-04 06:56:52'),
-(103, 3, 48, 'Saya merasa film ini tidak berhasil mengeksploitasi potensi ceritanya sepenuhnya. Ketegangan yang seharusnya ada dalam film horor kurang terasa, dan hal itu membuatnya menjadi pengalaman yang kurang memuaskan.', 1, '2023-12-04 06:58:18'),
-(104, 4, 48, 'Film ini memiliki konsep menarik namun tidak sepenuhnya dieksekusi dengan baik. Beberapa adegan terasa terlalu dipaksakan untuk menciptakan ketegangan, dan plotnya terasa sedikit membosankan di beberapa titik.', 2, '2023-12-04 07:00:55'),
-(105, 5, 48, 'KKN di Desa Penari menawarkan horor yang cukup solid dengan beberapa momen menegangkan yang membuat penonton terpaku pada layar. Namun, beberapa bagian dari plot terasa terlalu dipaksakan.', 3, '2023-12-04 07:03:12'),
-(106, 6, 48, 'Saya sangat terkesan dengan cinematography dan penggunaan setting yang kuat dalam film ini. Dialog antar karakternya kuat, dan penyelesaian ceritanya sangat memuaskan.', 4, '2023-12-04 07:05:53'),
-(107, 7, 48, 'Kisahnya menarik dengan latar belakang desa yang misterius, tetapi sayangnya ada beberapa bagian yang terasa kurang terjelaskan. Meskipun demikian, film ini berhasil mengejutkan penonton dengan plot twist yang menarik.', 5, '2023-12-04 07:09:02'),
-(108, 7, 12, 'Film \\\'Danur 2: Maddah\\\' berhasil mempertahankan ketegangan dan atmosfer mencekam dari film sebelumnya. Cerita yang menarik dengan visual yang menakutkan.', 5, '2023-12-04 09:39:49'),
-(109, 4, 12, 'Saya sangat menikmati kelanjutan kisah Risa dalam \\\'Danur 2: Maddah\\\'. Adegan-adegan menegangkan dan twist-nya berhasil membuat saya terpaku di kursi sepanjang film', 4, '2023-12-04 09:41:19'),
-(110, 2, 12, 'Sekuel ini kurang memberikan jawaban atas pertanyaan-pertanyaan dari film sebelumnya, membuat penonton terasa ditinggalkan dengan kebingungan.', 2, '2023-12-04 09:42:16'),
-(111, 5, 12, 'Sekuel ini mampu menyajikan ketegangan yang lebih intensif dibandingkan dengan film sebelumnya. Penampilan akting yang kuat dan atmosfer yang seram membuatnya berhasil.', 3, '2023-12-04 09:46:30'),
-(112, 5, 13, 'Penggambaran cerita yang intens dan jalan cerita yang terbangun dengan baik membuat film ini sangat menegangkan. Akting yang kuat dan efek khusus yang luar biasa membuatnya layak ditonton.', 5, '2023-12-04 09:48:38'),
-(113, 4, 13, '\\\"Meskipun tidak sehoror film sebelumnya dalam seri ini, alur cerita yang solid dan karakter yang kuat membuatnya menarik. Tidak untuk orang yang mudah terintimidasi!', 4, '2023-12-04 09:49:48'),
-(114, 6, 13, 'The Conjuring 2: The Devil Made Me Do It menyajikan campuran yang sempurna antara kengerian dan ketegangan. Beberapa adegan cukup menghantui dan akan membuatmu terpaku di tempatmu.', 5, '2023-12-04 09:50:48'),
-(115, 1, 31, 'The Avengers adalah sebuah mahakarya! Aksi yang luar biasa, cerita yang menarik, dan karakter yang kuat membuat film ini menjadi salah satu film superhero terbaik sepanjang masa.', 5, '2023-12-04 16:26:37'),
-(117, 6, 41, 'Film ini tidak hanya menghibur, tetapi juga memberikan pesan yang mendalam. Dengan kombinasi humor yang cerdas dan momen dramatis yang kuat, film ini layak mendapatkan rating tinggi', 5, '2023-12-04 19:42:18'),
-(118, 6, 30, 'Dari segi teknis, film ini tak tertandingi. Efek visual yang luar biasa, musik yang memikat, dan alur cerita yang menegangkan membuatnya menjadi film terbaik dalam genre ini', 5, '2023-12-04 20:06:39'),
-(119, 6, 42, 'Gampang Cuan adalah film komedi yang cerdas dan menghibur, menggabungkan humor segar dengan narasi yang sederhana namun mengena. Dengan sutradara yang tahu cara menangkap esensi komedi, film ini menjadi persembahan yang menghibur dan mudah dicerna.', 4, '2023-12-05 05:21:45'),
-(120, 6, 38, 'Dilan 1990 adalah sebuah film Indonesia yang menghadirkan kisah cinta remaja dengan sentuhan nostalgiawi. Disutradarai oleh Fajar Bustomi dan Pidi Baiq, film ini merupakan sekuel dari film sebelumnya, Dilan 1990, dan menjadi fenomena tersendiri di dunia perfilman Tanah Air.', 5, '2023-12-05 05:22:41'),
-(121, 2, 43, 'Film ini menawarkan pengalaman visual yang menarik, dengan adegan aksi dan efek khusus yang baik. Pengaturan di hutan dan tantangan dalam permainan menyumbang pada nada petualangan keseluruhan.', 5, '2023-12-05 07:05:52'),
-(122, 2, 44, 'Film ini tidak hanya mengisahkan kisah cinta, tetapi juga menyampaikan pesan moral dan inspiratif. Kisah kehidupan Habibie yang berfokus pada kejujuran, dedikasi, dan perjuangan hidup memberikan inspirasi bagi banyak penonton', 5, '2023-12-05 07:23:32'),
-(123, 2, 49, 'Film ini mengeksplorasi aspek emosional dan hubungan antara karakter dengan cara yang mendalam. Hubungan antara Maleficent dan Aurora menjadi fokus utama, dan pengembangan karakter ini dianggap berhasil', 5, '2023-12-05 08:04:11'),
-(124, 2, 50, 'Harry potter gausah diragin lagi sih filmnya... udah paling top ', 5, '2023-12-05 08:16:34'),
-(125, 2, 51, 'film ini baguss sih... cuman karakter ariel disini kurang karena biasa ariel identik dengan rambut merah terang sedangkan di film nya rambutnya merah kecoklatan.', 4, '2023-12-05 10:33:27'),
-(126, 2, 52, 'dari dulu suka banget sama film cinderella mulai dari kartunnya sampe movie nya juga', 4, '2023-12-05 10:53:23'),
-(127, 2, 29, 'labirinnya gokill', 3, '2023-12-05 11:01:33'),
-(128, 2, 53, 'Film ini indah dalam menggambarkan tantangan yang dihadapi para karakter, menyentuh isu-isu sosial, dan menyoroti pentingnya pendidikan dalam memutus rantai kemiskinan. ', 5, '2023-12-05 11:20:38'),
-(129, 2, 54, 'sukaa banget sama film inii!!!', 4, '2023-12-05 11:38:21'),
 (130, 11, 77, 'Haii barbiee!!!!', 0, '2023-12-07 06:59:15'),
 (131, 11, 84, 'siapa yang narok bawang disinii huhuuu :(\\n', 0, '2023-12-07 07:05:32'),
-(132, 11, 83, 'angga ngapainn???', 0, '2023-12-07 07:07:23');
+(132, 11, 83, 'angga ngapainn???', 0, '2023-12-07 07:07:23'),
+(133, 13, 12, 'Saya tidak bisa lebih puas dengan sequel ini! Alur ceritanya terjalin dengan apik, memberikan ketegangan yang konstan. Visual dan suara yang digunakan berhasil menghadirkan suasana yang sangat menyeramkan.', 5, '2023-12-09 18:20:11'),
+(134, 12, 12, 'Dari segi cerita dan visual, film ini menghadirkan kualitas yang luar biasa. Alurnya menarik dan tidak terduga, membuat penonton tetap terpaku pada layar sepanjang film.', 4, '2023-12-09 18:21:18'),
+(135, 8, 12, 'Sayangnya, film ini gagal mempertahankan standar yang diharapkan. Saya merasa beberapa bagian ceritanya terlalu dipaksakan dan tidak memberikan kejutan yang memuaskan.', 2, '2023-12-09 18:34:19'),
+(136, 9, 12, 'Saya agak kecewa dengan sekuel ini. Meskipun beberapa adegannya menegangkan, tapi ada banyak plot hole yang tidak terjawab, membuat pengalaman menontonnya kurang memuaskan.', 2, '2023-12-09 18:35:09'),
+(137, 14, 12, 'Dari segi cerita dan visual, film ini menghadirkan kualitas yang luar biasa. Alurnya menarik dan tidak terduga, membuat penonton tetap terpaku pada layar sepanjang film.', 4, '2023-12-09 18:37:03'),
+(138, 15, 13, 'The Conjuring: The Devil Made Me Do It menghadirkan atmosfir yang menggigit kukunya sejak awal hingga akhir. Jalan ceritanya yang kompleks dan penuh kejutan membuatnya sulit untuk diprediksi. Akting yang luar biasa dan penggambaran yang detail terhadap kasus nyata menambah kedalaman cerita secara keseluruhan.', 5, '2023-12-09 18:39:58'),
+(139, 9, 13, 'Secara visual dan artistik, film ini memukau. Setiap adegan disusun dengan cermat, efek visual yang memukau, dan desain suara yang membuat atmosfer semakin mencekam.', 5, '2023-12-09 18:40:44'),
+(140, 8, 13, 'Secara visual dan artistik, film ini memukau. Setiap adegan disusun dengan cermat, efek visual yang memukau, dan desain suara yang membuat atmosfer semakin mencekam.', 4, '2023-12-09 18:42:09'),
+(141, 16, 13, 'The Conjuring: The Devil Made Me Do It berhasil menggabungkan elemen horor klasik dengan inovasi yang menyegarkan. Ia tidak hanya mengandalkan jump scares, tetapi juga membangun ketegangan secara bertahap, menciptakan suasana mencekam yang bertahan lama.', 4, '2023-12-09 18:44:24'),
+(142, 16, 23, 'Alur cerita terlalu klise dan mudah ditebak, kurang memberikan kejutan kepada penonton', 1, '2023-12-09 18:47:13'),
+(143, 14, 23, 'Pengambilan gambar dan sinematografi dalam film ini sungguh memukau. Setiap adegan terasa seperti lukisan hidup yang indah.', 5, '2023-12-09 18:48:19'),
+(144, 13, 23, 'Saya terkesan dengan visual dan sinematografi yang memikat dalam film ini. Penggunaan pencahayaan dan angle kamera benar-benar menghidupkan suasana cerita.', 5, '2023-12-09 18:49:44'),
+(145, 22, 23, 'Film ini menghadirkan sudut pandang yang menarik tentang tekanan sosial dan psikologis yang dialami oleh tokoh utama. Hal ini membuatnya jadi lebih berkesan.', 4, '2023-12-09 18:56:25'),
+(146, 17, 28, 'Plane 2023 adalah film yang luar biasa! Plotnya menarik dan penuh dengan aksi yang memukau.', 5, '2023-12-09 18:59:17'),
+(147, 9, 28, 'Saya suka bagaimana film ini berhasil menggabungkan cerita yang menegangkan dengan pesan moral yang dalam. Sungguh inspiratif!', 5, '2023-12-09 18:59:57'),
+(148, 14, 28, 'Meskipun visualnya mengagumkan, plot film ini terasa klise dan dapat ditebak.', 3, '2023-12-09 19:00:35'),
+(149, 15, 28, 'Akting para pemainnya sangat mengesankan dan membuat saya terhubung emosional dengan karakter-karakter mereka.', 4, '2023-12-09 19:01:21'),
+(150, 23, 28, 'Saat menonton Plane 2023, saya merasa seperti sedang berada di udara. Penggunaan teknologi dalam film ini benar-benar memukau dan membuatnya layak untuk dinikmati di layar besar', 5, '2023-12-09 19:29:27'),
+(151, 24, 28, 'Film ini memiliki potensi besar dengan konsep yang menarik, tetapi sayangnya eksekusinya kurang memuaskan. Terdapat beberapa lubang dalam plot yang membuatnya terasa kurang utuh.', 3, '2023-12-09 19:30:27'),
+(152, 33, 29, 'Film The Maze Runner adalah perjalanan penuh adrenalin dari awal hingga akhir. Alur cerita yang menegangkan dan pengisahan yang memikat membuatnya unggul di genre distopia. Pengembangan karakter yang luar biasa, dan penampilan para pemainnya luar biasa, terutama Dylan O\\\'Brien dalam perannya sebagai Thomas. Harus ditonton bagi siapa pun yang menyukai misteri yang mendebarkan.', 5, '2023-12-09 19:36:16'),
+(154, 32, 29, 'Petualangan yang mendebarkan dan intens yang membuat Anda duduk di ujung kursi. Adegan-adegan di labirin sangat memukau secara visual, dan cara cerita ini terungkap membuat penonton terlibat sepanjang film. Pacing film ini sangat baik, menyatukan aksi dan misteri dengan sempurna. Adaptasi yang fantastis yang memberikan keadilan pada seri bukunya.', 5, '2023-12-09 19:38:15'),
+(155, 26, 29, 'Menarik secara visual dan penuh emosi, The Maze Runner memukau penonton dengan premis yang menarik dan tempo yang tak kenal lelah. Pembangunan dunia dalam film ini fantastis, membuat penonton terbenam dalam suasana pasca-apokaliptik yang penuh dengan ketegangan dan bahaya. Kemampuan film ini untuk membuat Anda menebak sampai akhir sangat diacungi jempol, membuatnya pengalaman sinematik yang tak terlupakan.', 4, '2023-12-09 19:39:05'),
+(156, 28, 29, 'The Maze Runner dimulai dengan baik tetapi kehilangan momentum seiring berjalannya cerita. Narasinya menjadi terduga pada beberapa saat, dan beberapa klise mengurangi dampak dari premis yang unik. Meskipun menghibur, kurangnya kedalaman yang diperlukan untuk membuat kesan yang abadi.', 3, '2023-12-09 19:40:35'),
+(157, 30, 29, 'Walaupun The Maze Runner memiliki momen-momen yang mendebarkan, film ini mengalami masalah dalam penceritaannya. Pembangunan menuju klimaks terasa terburu-buru, dan beberapa pengungkapan kurang memiliki dampak yang diperlukan karena pengisahan yang tergesa-gesa. Film yang menyenangkan tetapi meninggalkan banyak yang diinginkan dalam hal kefasihan penceritaan.', 3, '2023-12-09 19:41:20'),
+(158, 39, 30, 'Death on the Nile\\\" adalah sebuah masterpiece! Alur ceritanya memikat, memadukan misteri dengan twist yang brilian. Penampilan aktor dan visual yang luar biasa membuat film ini layak dinikmati. Sangat direkomendasikan bagi pecinta cerita detektif yang penuh teka-teki', 5, '2023-12-09 19:45:50'),
+(159, 12, 30, 'Film ini adalah sebuah mahakarya yang menggabungkan elemen-elemen yang sempurna. Dialog yang tajam, performa akting yang kuat, dan pengembangan karakter yang mendalam. Christie pasti bangga melihat adaptasi yang sedemikian rupa', 5, '2023-12-09 19:46:30'),
+(160, 25, 30, 'Keindahan visual tidak dapat disangkal, tapi plotnya terasa dipaksakan. Twist yang seharusnya mengagetkan terasa terlalu dipaksakan dan kehilangan daya tariknya', 3, '2023-12-09 19:47:46'),
+(161, 27, 30, 'Saya berharap lebih banyak dari film ini, tetapi sayangnya, porsi misteri yang biasanya menjadi daya tarik utama dalam karya Christie terasa kurang dalam. Terlalu banyak fokus pada drama antar karakter yang mengurangi kekuatan cerita.', 2, '2023-12-09 19:48:24'),
+(162, 21, 30, 'Death on the Nile\\\" tidak mampu mengeksploitasi sepenuhnya potensi cerita yang ada. Kecepatan cerita terasa lambat di beberapa bagian dan menurunkan tingkat kegembiraan menonton', 2, '2023-12-09 19:49:19'),
+(163, 9, 30, 'Sebagai penggemar novel Agatha Christie, film ini memuaskan. Penyutradaraan yang cermat dan penampilan hebat dari para aktor menghidupkan karakter-karakter yang legendaris. Endingnya mengejutkan dan memuaskan, membuatnya patut ditonton berkali-kali.', 5, '2023-12-09 19:50:12'),
+(164, 9, 31, 'The Avengers adalah sebuah mahakarya dalam dunia film superhero. Aksi yang mengagumkan, cerita yang menarik, dan pengembangan karakter yang luar biasa membuatnya menjadi salah satu film yang paling ikonik dalam Marvel Cinematic Universe (MCU).', 5, '2023-12-09 19:52:32'),
+(165, 31, 31, 'The Avengers berhasil menggabungkan humor yang tepat, aksi yang mendebarkan, dan efek khusus yang luar biasa. Film ini berhasil memenuhi harapan para penggemar dan bahkan melebihinya.', 5, '2023-12-09 19:53:16'),
+(166, 20, 31, 'Jalan cerita yang terstruktur dengan baik, menyediakan ruang bagi setiap karakter untuk bersinar tanpa merusak keseimbangan keseluruhan film. Sutradara berhasil menggabungkan elemen-elemen yang berbeda dengan sempurna.', 5, '2023-12-09 19:53:58'),
+(167, 18, 31, 'Koreografi adegan pertempuran yang luar biasa. Ketika para Avengers beraksi bersama, itu bukan hanya aksi yang menghibur, tetapi juga memberikan momen-momen epik yang tidak akan pernah terlupakan.', 5, '2023-12-09 19:54:38'),
+(168, 16, 31, 'Jalan cerita yang terstruktur dengan baik, menyediakan ruang bagi setiap karakter untuk bersinar tanpa merusak keseimbangan keseluruhan film. Sutradara berhasil menggabungkan elemen-elemen yang berbeda dengan sempurna.', 5, '2023-12-09 19:57:42'),
+(169, 35, 32, 'Film ini adalah karya seni yang luar biasa! Ceritanya menggugah, dengan penampilan aktor yang luar biasa dan sinematografi yang memukau. Sangat merekomendasikan untuk ditonton!', 5, '2023-12-09 20:01:57'),
+(170, 40, 32, 'Saya terpukau dengan bagaimana film ini menggambarkan kehidupan Raden Saleh dengan begitu indahnya. Setiap adegan terasa seperti lukisan hidup yang menghormati warisan budaya kita.', 5, '2023-12-09 20:02:41'),
+(171, 42, 32, 'Sebagai penggemar sejarah, film ini benar-benar menghidupkan kembali atmosfer zaman tersebut. Saya sangat terkesan dengan penelitian yang mendalam dan akurat untuk menampilkan kehidupan Raden Saleh', 5, '2023-12-09 20:03:19'),
+(172, 43, 32, 'Karya ini menawarkan pengalaman sinematik yang memukau. Dari skenario hingga pengarahan seni, semuanya berpadu sempurna memberikan makna yang mendalam', 4, '2023-12-09 20:04:03');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `like`
+--
+
+CREATE TABLE `like` (
+  `id_like` int(11) NOT NULL,
+  `id_film_like` int(11) NOT NULL,
+  `id_user_like` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `like`
+--
+
+INSERT INTO `like` (`id_like`, `id_film_like`, `id_user_like`) VALUES
+(17, 12, 9),
+(4, 12, 12),
+(3, 12, 13),
+(6, 12, 14),
+(18, 12, 23),
+(16, 12, 28),
+(2, 13, 8),
+(1, 13, 9),
+(7, 13, 15),
+(8, 13, 16),
+(15, 13, 28),
+(10, 23, 13),
+(9, 23, 14),
+(11, 23, 22),
+(13, 28, 9),
+(14, 28, 15),
+(12, 28, 17),
+(19, 28, 23),
+(20, 28, 24),
+(23, 29, 26),
+(24, 29, 28),
+(25, 29, 30),
+(22, 29, 32),
+(21, 29, 33),
+(31, 30, 9),
+(26, 30, 12),
+(30, 30, 21),
+(28, 30, 25),
+(29, 30, 27),
+(32, 31, 9),
+(38, 31, 16),
+(35, 31, 17),
+(34, 31, 18),
+(36, 31, 24),
+(33, 31, 31),
+(37, 31, 39),
+(39, 32, 16),
+(40, 32, 35),
+(41, 32, 40),
+(42, 32, 42),
+(43, 32, 43);
 
 -- --------------------------------------------------------
 
@@ -1040,17 +1108,41 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_nama_user`, `username`, `password`, `nama`, `alamat`, `phone_number`) VALUES
-(1, 'dhilah', '1234567890', 'Siti Nur Fadhilah', 'Purwokerto', '0887435464273'),
-(2, 'raisaa', 'raisanur', 'Raisa Nurlita', 'Palembang', '085289907588'),
-(3, 'aryaa', 'arya1', 'arya', 'jakarta', '0986397424'),
-(4, 'naufal', 'naufal1', 'muhamad naufal', 'Purworejo', '082133887594'),
-(5, 'fairuz12', 'fairuz1', 'Fairuz', 'Cirebon', '081327648264'),
-(6, 'dzikri11', 'dzikri', 'Muhammad Dzikri', 'Pekalongan', '089326723827'),
-(7, 'Dian', 'dian01', 'Rizki Dian ', 'Pemalang', '0897643543256'),
 (8, 'nabila11', '95e90858eae276a3237e4c51781f604b', 'Nabila Ayu', 'Makassar', '089356477837'),
 (9, 'andika', '7e51eea5fa101ed4dade9ad3a7a072bb', 'Andika', 'Purwokerto', '089754365476'),
-(10, 'rei', 'raisa', 'Raisa Nurlita', 'Palembang', '085289907588'),
-(11, 'reinz', '4b8ed057e4f0960d8413e37060d4c175', 'Raisa', 'Palembang', '082278879009');
+(11, 'reinz', '4b8ed057e4f0960d8413e37060d4c175', 'Raisa', 'Palembang', '082278879009'),
+(12, 'dhilah12', '4d85010526c4c9ab3cfb037a6660c4d3', 'Siti Nur Fadhilah', 'Makassar', '0887435464273'),
+(13, 'dzikri', 'b64d39a5bb552206fb1452fc33cd74e5', 'Muhammad Dzikri', 'Malang', '087464537283'),
+(14, 'arya1', '1983db0b728f1ab57feea563f80d0693', 'Arya Dewantara', 'Yogyakarta', '087643642435'),
+(15, 'fairuz67', 'df59b64c01823c9c6c83facefbb741a4', 'Fairuz', 'Cirebon', '087467659345'),
+(16, 'naufal06', 'ed60a8404a9c31e1a297bd5a47bfa2f9', 'Muhamad Naufal', 'Purworejo', '082133887594'),
+(17, 'bagus', '17b38fc02fd7e92f3edeb6318e3066d8', 'Bagus Setiawan', 'Pemalang', '087634258564'),
+(18, 'amanda1', '41722e651761ffe9d2e6f44635aa647c', 'Amanda Cantika', 'Bandung', '089647653845'),
+(19, 'andre11', '88a9daaa42352b5077bbba91e6f8c158', 'Ade Andre Wirayuda', 'Kalimantan', '081264837452'),
+(20, 'indah12', 'aff4a825d7110edfe5bbf80ed736f7eb', 'Indah Puspitasari', 'Jakarta', '089276453827'),
+(21, 'mutia', 'ab250ab2e876197de1c2c98fd18873a9', 'Mutiara', 'Tegal', '089754732638'),
+(22, 'inayah', '0d93c80516e40b473649cbbc0bad3539', 'Inayah Nurilahi', 'Gorontalo', '085172638561'),
+(23, 'rani', 'b9f81618db3b0d7a8be8fd904cca8b6a', 'Khaerani Awinar', 'Pekanbaru', '087236583648'),
+(24, 'amel', 'da0e22de18e3fbe1e96bdc882b912ea4', 'Amaliah Putri', 'Pekalongan', '081234537583'),
+(25, 'johan', '7fedcb034ecf9df4be8c1ea13362053b', 'Johandika Saputra', 'Banjar', '082936482638'),
+(26, 'zahra', '01e50c681c0b05ff22686b3e0f7290d3', 'Azzahra Thahira', 'Medan', '084956763856'),
+(27, 'yatni', '09a17d8335e336d1f1b680b9613f5228', 'Triyatni Garina', 'Kudus', '089364728364'),
+(28, 'setya', 'f5b98bb2b03c96f763ee43f752778316', 'Setya Rizki Pradana', 'Kemranjen', '089375832345'),
+(29, 'nanda', '859a37720c27b9f70e11b79bab9318fe', 'Ananda Putri', 'Toraja', '089468253648'),
+(30, 'chandra', 'ad845a24a47deecbfa8396e90db75c6a', 'Mahardika Chandra', 'Kudus', '087936485723'),
+(31, 'ratih', 'a5bd72a3d2c4d1686415f93a46fc7a0a', 'Ratih Ayuni', 'Baturaden', '089463745836'),
+(32, 'dela', '4e4a3b45c22f1be8f65067b617722ad6', 'Dela Safitri', 'Cilacap', '082364821945'),
+(33, 'tegar', '1d31802d64bae29d88923d795fc73734', 'Tegar Subianto', 'Sokaraja', '081364829465'),
+(34, 'fajar', '24bc50d85ad8fa9cda686145cf1f8aca', 'Fajar Akmali', 'Majenang', '081264728462'),
+(35, 'wastian', '3020612a9768979fa25761d219947dfb', 'Wastian Salwa', 'Purwokerto', '081274917492'),
+(36, 'deni', '43f41d127a81c54d4c8f5f93daeb7118', 'Deni Nugraha', 'Cilacap', '083651983452'),
+(37, 'agustina', 'e97a9daede1b082531118bc6a05c6d14', 'Agustina Churil', 'Purwokerto', '082648125368'),
+(38, 'emil', 'f7cb3054af5084f5b0d84703c867349b', 'Emilia Putri', 'Makassar', '083728362536'),
+(39, 'dian', 'f97de4a9986d216a6e0fea62b0450da9', 'Dian Andira', 'Lombok', '082746193854'),
+(40, 'rezky', '061e7f6083e4287185043b9ac0e8dcf0', 'Rezky Hardianti', 'Bali', '083527345628'),
+(41, 'dini', '83476316a972856163fb987b861a0a2c', 'Nataza Andini', 'Cimahi', '089234719353'),
+(42, 'jejes', 'c21a668f7217ebe91566f72ff18c7767', 'Jessica', 'Tangerang', '089354725374'),
+(43, 'ayu', '29c65f781a1068a41f735e1b092546de', 'Putriana Ayu', 'Jambi', '089254786432');
 
 --
 -- Indexes for dumped tables
@@ -1075,6 +1167,14 @@ ALTER TABLE `komentar`
   ADD PRIMARY KEY (`id_nama_review`),
   ADD KEY `id_user` (`id_user`,`id_film`),
   ADD KEY `id_film` (`id_film`);
+
+--
+-- Indeks untuk tabel `like`
+--
+ALTER TABLE `like`
+  ADD PRIMARY KEY (`id_like`),
+  ADD KEY `id_film_like` (`id_film_like`,`id_user_like`),
+  ADD KEY `id_user_like` (`id_user_like`);
 
 --
 -- Indeks untuk tabel `pemain`
@@ -1132,7 +1232,13 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_nama_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `id_nama_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
+
+--
+-- AUTO_INCREMENT untuk tabel `like`
+--
+ALTER TABLE `like`
+  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT untuk tabel `pemain`
@@ -1162,7 +1268,7 @@ ALTER TABLE `tb_film`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_nama_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_nama_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -1174,6 +1280,13 @@ ALTER TABLE `user`
 ALTER TABLE `komentar`
   ADD CONSTRAINT `komentar_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_nama_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `komentar_ibfk_2` FOREIGN KEY (`id_film`) REFERENCES `tb_film` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `like`
+--
+ALTER TABLE `like`
+  ADD CONSTRAINT `like_ibfk_1` FOREIGN KEY (`id_user_like`) REFERENCES `user` (`id_nama_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `like_ibfk_2` FOREIGN KEY (`id_film_like`) REFERENCES `tb_film` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `pemeran`

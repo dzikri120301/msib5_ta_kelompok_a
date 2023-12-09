@@ -2148,6 +2148,7 @@ section {
 }
 
 .kotak {
+  margin-top: -50px;
   width: 800px; /* Sesuaikan lebar kotak sesuai kebutuhan */
   word-wrap: break-word; /* Memastikan teks terlalu panjang akan pindah ke baris baru */
   white-space: pre-line;

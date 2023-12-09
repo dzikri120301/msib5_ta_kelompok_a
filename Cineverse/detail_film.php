@@ -48,6 +48,32 @@ if (!isUserLoggedIn()) {
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    .love-button {
+      cursor: pointer;
+      font-size: 1.5em;
+    }
+
+    .love-button.full {
+      color: #e74c3c;
+      /* Warna ikon love penuh */
+    }
+
+    .love-button.empty {
+      color: lightgray;
+      /* Warna ikon love kosong */
+    }
+
+    .lope {
+      margin-top: -1px;
+    }
+
+    .angka_lope {
+      margin-top: -7px;
+      margin-left: 8px;
+      font-size: 12px;
+    }
+  </style>
 </head>
 
 <body>
@@ -134,7 +160,48 @@ if (!isUserLoggedIn()) {
               <p><?php echo $film['nama_genre'] ?></p>
               <p class="ml-3">&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-clock"></i>&nbsp;<?php echo $film['durasi'] ?> menit</p>
             </div>
-            <a href="<?php echo $film['trailer'] ?>" class="glightbox"><button class="tonton"><i class="fa-solid fa-play"></i> Tonton Sekarang</button></a>
+            <div class="row">
+              <a href="<?php echo $film['trailer'] ?>" class="glightbox"><button class="tonton"><i class="fa-solid fa-play"></i> Tonton Sekarang</button></a>
+              <?php
+              $userId = $_SESSION['username'];
+              // Pastikan $_GET['id'] telah diatur sebelum menggunakannya
+              if (isset($_GET['id'])) {
+                $filmId = $_GET['id'];
+
+                // Mengambil ID pengguna berdasarkan username
+                $result_user = mysqli_query($conn, "SELECT id_nama_user FROM user WHERE username = '$userId'");
+                $row_user = mysqli_fetch_assoc($result_user);
+                $id_user = $row_user['id_nama_user'];
+
+                // Set your travel article ID here
+                $query = "SELECT * FROM `like` WHERE id_film_like = $filmId AND id_user_like = $id_user";
+                $result = mysqli_query($conn, $query);
+
+                if (mysqli_num_rows($result) > 0) {
+                  $iconClass = '<div class="love-button full"><i class="fas fa-heart"></i></div>';
+                } else {
+                  $iconClass = '<div class="love-button empty"><i class="fas fa-heart kosong"></i></div>';
+                }
+
+                echo '<div class="like-button" data-film-id="' . $filmId . '" data-user-id="' . $id_user . '">';
+                echo $iconClass;
+                echo '</div>';
+
+              ?>
+                <div class="angka_lope">
+                  <?php
+                  $filmsuka = mysqli_query($conn, "SELECT COUNT(id_user_like) AS total_likes FROM `like` WHERE id_film_like = $filmId");
+                  $filmLikes = mysqli_fetch_assoc($filmsuka);
+                  ?>
+                  <p><?php echo $filmLikes['total_likes'] ?></p>
+                <?php
+              } else {
+                echo '<p>Invalid film ID.</p>';
+              }
+                ?>
+                </div>
+            </div>
+
             <div class="kotak">
               <p><?php echo $film['sinopsis'] ?></p>
             </div>
@@ -428,8 +495,35 @@ if (!isUserLoggedIn()) {
       document.getElementById('selectedRating').innerHTML = 'Rating: ' + selectedValue;
     }
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.like-button').click(function() {
+        var filmId = $(this).data('film-id');
+        var userId = $(this).data('user-id');
+        var likeButton = $(this); // Store the like button element
 
+        $.ajax({
+          type: 'POST',
+          url: 'f_suka.php',
+          data: {
+            filmId: filmId,
+            userId: userId
+          },
+          success: function(response) {
+            // Handle the response if needed
 
+            // Reload the page
+            location.reload();
+          },
+          error: function(error) {
+            // Handle the error if needed
+            console.error('Error:', error);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
