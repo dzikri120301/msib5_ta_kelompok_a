@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Des 2023 pada 21.04
+-- Waktu pembuatan: 10 Des 2023 pada 08.04
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -168,6 +168,7 @@ INSERT INTO `like` (`id_like`, `id_film_like`, `id_user_like`) VALUES
 (12, 28, 17),
 (19, 28, 23),
 (20, 28, 24),
+(44, 29, 9),
 (23, 29, 26),
 (24, 29, 28),
 (25, 29, 30),
@@ -561,7 +562,22 @@ INSERT INTO `pemain` (`id_nama_pemain`, `nama_pemain`, `foto`, `asal`, `tgl_lahi
 (356, 'Samara Weaving', 'Samara Weaving.jpeg', 'Adelaide', '1992-02-23'),
 (357, 'Jack Champion', 'jack-champion-header.jpg', 'Virginia', '2004-11-16'),
 (358, 'Cortenney Cox Arquette', 'Courteney Cox Arquette.jpeg', 'Alabama', '1964-06-15'),
-(359, 'Skeet Ulrich', 'Skeet Ulrich.jpeg', 'Virginia', '1970-01-20');
+(359, 'Skeet Ulrich', 'Skeet Ulrich.jpeg', 'Virginia', '1970-01-20'),
+(360, 'Lutesha', 'lutesha.jpg', 'Jakarta', '1994-06-23'),
+(361, 'Putri Marino', 'putrimarino.jpeg', 'Denpasar', '1993-08-04'),
+(362, 'Michelle Tahalea', 'michelletahalea.jpg', 'Jakarta', '1989-10-06'),
+(363, 'Kristo Immanuel', 'kristo.jpg', 'Bogor', '1997-02-28'),
+(364, 'Marthino Lio', 'Marthino_Lio.jpg', 'Surabaya', '1989-01-26'),
+(365, 'Arie Kriting', 'ariekriting.jpg', 'Kendari', '1985-04-13'),
+(366, 'Iko Uwais', 'ikouwais.jpeg', 'Jakarta', '1983-02-12'),
+(367, 'Very Tri Yulisman', 'verytri.jpg', 'Jakarta', '1987-07-11'),
+(368, 'David Hendrawan', 'david.jpg', 'Jakarta', '1987-02-12'),
+(369, 'Sunny Pang', 'sunny.jpeg', 'Singapure', '1975-03-16'),
+(370, 'Julie Estelle', 'julie_estelle.jpeg', 'Jakarta', '1989-01-04'),
+(371, 'Zack Lee', 'zack_lee.webp', 'Liverpool', '1984-08-15'),
+(372, 'Yayan Ruhian', 'yayan.jpeg', 'Tasikmalaya', '1968-10-19'),
+(373, 'Fariz Alfarazi', 'farizalfarazi.jpg', 'Jakarta', '1987-07-26'),
+(374, 'Ruth Marini', 'ruthmarini.jpg', 'Bandar Lampung', '1984-08-18');
 
 -- --------------------------------------------------------
 
@@ -958,7 +974,28 @@ INSERT INTO `pemeran` (`id_pemeran`, `id_pemain`, `id_film`, `peran`) VALUES
 (383, 356, 90, 'Laura Crene'),
 (384, 357, 90, 'Ethan Laudry'),
 (385, 358, 90, 'Gale Weather'),
-(386, 359, 90, 'Billy Loomis');
+(386, 359, 90, 'Billy Loomis'),
+(387, 360, 99, 'Alpha'),
+(388, 361, 99, 'Dina'),
+(389, 273, 99, 'Topan'),
+(390, 362, 99, 'Alo'),
+(391, 363, 99, 'Pelor'),
+(392, 364, 99, 'Antonio Sandoval'),
+(393, 365, 99, 'Jenggo'),
+(394, 366, 100, 'Ishmael'),
+(395, 367, 100, 'Besi'),
+(396, 368, 100, 'Tejo'),
+(397, 369, 100, 'Lee'),
+(398, 370, 100, 'Rika '),
+(399, 104, 100, 'Ailin'),
+(400, 371, 100, 'Tano'),
+(401, 374, 105, 'Sinto Gendeng'),
+(402, 372, 105, 'Mahesa Birawa'),
+(403, 16, 105, 'Wiro'),
+(404, 319, 105, 'Kamandaka'),
+(405, 373, 105, 'Bujang Gila Tapak Sakti'),
+(406, 79, 105, 'Bidadari Angin Timur'),
+(407, 11, 105, 'Rara Murni');
 
 -- --------------------------------------------------------
 
@@ -1142,7 +1179,12 @@ INSERT INTO `user` (`id_nama_user`, `username`, `password`, `nama`, `alamat`, `p
 (40, 'rezky', '061e7f6083e4287185043b9ac0e8dcf0', 'Rezky Hardianti', 'Bali', '083527345628'),
 (41, 'dini', '83476316a972856163fb987b861a0a2c', 'Nataza Andini', 'Cimahi', '089234719353'),
 (42, 'jejes', 'c21a668f7217ebe91566f72ff18c7767', 'Jessica', 'Tangerang', '089354725374'),
-(43, 'ayu', '29c65f781a1068a41f735e1b092546de', 'Putriana Ayu', 'Jambi', '089254786432');
+(43, 'ayu', '29c65f781a1068a41f735e1b092546de', 'Putriana Ayu', 'Jambi', '089254786432'),
+(44, 'saskia', '7d207ce9e36a6a60ec529d1f62038ed2', 'Saskia Ramadhani', 'Cimahi', '089463548273'),
+(45, 'laras', 'cc5a9fb4b1b93629e9aa413b8bf00fe9', 'Laras Reviana', 'Banyuwangi', '0813647284536'),
+(46, 'adam', '1d7c2923c1684726dc23d2901c4d8157', 'Muhammad Nursaddam', 'Makassaar', '083619273845'),
+(47, 'irvan', '4c8e0251c853de2172b5e138075c7b3f', 'Irvan Wijaya', 'Pekalongan', '082316273517'),
+(48, 'rainy', '45793d862ee49ff7759cf6c5e35ab7cb', 'Wenti Risma Damayanti', 'Ajibarang', '082374927345');
 
 --
 -- Indexes for dumped tables
@@ -1238,19 +1280,19 @@ ALTER TABLE `komentar`
 -- AUTO_INCREMENT untuk tabel `like`
 --
 ALTER TABLE `like`
-  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT untuk tabel `pemain`
 --
 ALTER TABLE `pemain`
-  MODIFY `id_nama_pemain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=360;
+  MODIFY `id_nama_pemain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=375;
 
 --
 -- AUTO_INCREMENT untuk tabel `pemeran`
 --
 ALTER TABLE `pemeran`
-  MODIFY `id_pemeran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=387;
+  MODIFY `id_pemeran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=408;
 
 --
 -- AUTO_INCREMENT untuk tabel `saran`
@@ -1268,7 +1310,7 @@ ALTER TABLE `tb_film`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_nama_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_nama_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
