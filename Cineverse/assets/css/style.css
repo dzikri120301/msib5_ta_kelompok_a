@@ -2308,3 +2308,10 @@ section {
   left: -10px;
   border-right: 15px solid #dcf8c6; /* Sesuaikan warna dengan latar belakang gelembung komentar */
 }
+
+/* Gaya untuk tombol share */
+.sharethis-inline-share-buttons {
+  position: absolute;
+  margin-left: 430px;
+  margin-top: 240px;
+}
