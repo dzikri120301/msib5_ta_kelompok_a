@@ -143,6 +143,11 @@ if (!isAdminLoggedIn()) {
                             <i class="bi bi-circle"></i><span>Daftar Peran</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="../like/like.php">
+                            <i class="bi bi-circle"></i><span>Film Paling Banyak Disukai</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item">

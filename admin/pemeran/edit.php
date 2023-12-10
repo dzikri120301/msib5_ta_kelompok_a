@@ -33,12 +33,8 @@ if (!isAdminLoggedIn()) {
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
@@ -118,6 +114,11 @@ if (!isAdminLoggedIn()) {
                     <li>
                         <a href="peran.php">
                             <i class="bi bi-circle"></i><span>Daftar Peran</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="like/like.php">
+                            <i class="bi bi-circle"></i><span>Film Paling Banyak Disukai</span>
                         </a>
                     </li>
                 </ul>
@@ -242,10 +243,6 @@ if (!isAdminLoggedIn()) {
             &copy; Copyright <strong><span>Cineverse Admin</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
             Designed by <strong><span>Cineverse</span></strong>
         </div>
     </footer><!-- End Footer -->
@@ -255,8 +252,6 @@ if (!isAdminLoggedIn()) {
     <!-- Vendor JS Files -->
     <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="../assets/vendor/echarts/echarts.min.js"></script>
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
 
