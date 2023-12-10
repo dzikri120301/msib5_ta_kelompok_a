@@ -46,6 +46,9 @@ if (!isUserLoggedIn()) {
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+  <!-- Share Button -->
+  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=657565a65cb4e300199aa9f4&product=inline-share-buttons&source=platform" async="async"></script>
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <style>
@@ -204,6 +207,10 @@ if (!isUserLoggedIn()) {
 
             <div class="kotak">
               <p><?php echo $film['sinopsis'] ?></p>
+            </div>
+            <div>
+              <p style="margin-left: 590px;"> share on : </p>
+              <div class="sharethis-inline-share-buttons"></div>
             </div>
           </div>
         </div>
