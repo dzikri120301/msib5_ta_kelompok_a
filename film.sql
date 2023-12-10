@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Des 2023 pada 08.04
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Generation Time: Dec 10, 2023 at 06:41 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,17 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username_admin` varchar(50) NOT NULL,
   `password` varchar(75) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `username_admin`, `password`) VALUES
@@ -47,16 +47,16 @@ INSERT INTO `admin` (`id`, `username_admin`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `genre`
+-- Table structure for table `genre`
 --
 
 CREATE TABLE `genre` (
   `id_nama_genre` int(11) NOT NULL,
   `nama_genre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `genre`
+-- Dumping data for table `genre`
 --
 
 INSERT INTO `genre` (`id_nama_genre`, `nama_genre`) VALUES
@@ -72,7 +72,7 @@ INSERT INTO `genre` (`id_nama_genre`, `nama_genre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `komentar`
+-- Table structure for table `komentar`
 --
 
 CREATE TABLE `komentar` (
@@ -82,10 +82,10 @@ CREATE TABLE `komentar` (
   `review` text NOT NULL,
   `rating` int(5) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `komentar`
+-- Dumping data for table `komentar`
 --
 
 INSERT INTO `komentar` (`id_nama_review`, `id_user`, `id_film`, `review`, `rating`, `created_at`) VALUES
@@ -135,17 +135,17 @@ INSERT INTO `komentar` (`id_nama_review`, `id_user`, `id_film`, `review`, `ratin
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `like`
+-- Table structure for table `like`
 --
 
 CREATE TABLE `like` (
   `id_like` int(11) NOT NULL,
   `id_film_like` int(11) NOT NULL,
   `id_user_like` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `like`
+-- Dumping data for table `like`
 --
 
 INSERT INTO `like` (`id_like`, `id_film_like`, `id_user_like`) VALUES
@@ -186,6 +186,7 @@ INSERT INTO `like` (`id_like`, `id_film_like`, `id_user_like`) VALUES
 (36, 31, 24),
 (33, 31, 31),
 (37, 31, 39),
+(46, 32, 11),
 (39, 32, 16),
 (40, 32, 35),
 (41, 32, 40),
@@ -195,7 +196,7 @@ INSERT INTO `like` (`id_like`, `id_film_like`, `id_user_like`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pemain`
+-- Table structure for table `pemain`
 --
 
 CREATE TABLE `pemain` (
@@ -204,10 +205,10 @@ CREATE TABLE `pemain` (
   `foto` text NOT NULL,
   `asal` varchar(50) NOT NULL,
   `tgl_lahir` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `pemain`
+-- Dumping data for table `pemain`
 --
 
 INSERT INTO `pemain` (`id_nama_pemain`, `nama_pemain`, `foto`, `asal`, `tgl_lahir`) VALUES
@@ -321,7 +322,7 @@ INSERT INTO `pemain` (`id_nama_pemain`, `nama_pemain`, `foto`, `asal`, `tgl_lahi
 (114, 'Lesley Manville', 'lesley.jpg', 'Britania Raya', '1956-03-12'),
 (115, 'Imelda Mary', 'imelda.jpg', 'London', '1956-01-09'),
 (116, 'Sharlto Colpey', 'sharlto.jpg', 'Pretoria', '1973-11-27'),
-(117, 'Daniel Jacob Radcliffe', 'daniel.jpg', 'London', '1989-07-23'),
+(117, 'Daniel Jacob Radcliffe', 'harry.jpg', 'London', '1989-07-23'),
 (118, 'Emma Watson', 'emma.jpg', 'Paris', '1990-04-15'),
 (119, 'Rupert Alexander', 'rupert.jpg', 'Harlow', '1988-08-24'),
 (120, 'Alan Sidney Patrick', 'alan.jpg', 'London', '1946-02-21'),
@@ -577,12 +578,114 @@ INSERT INTO `pemain` (`id_nama_pemain`, `nama_pemain`, `foto`, `asal`, `tgl_lahi
 (371, 'Zack Lee', 'zack_lee.webp', 'Liverpool', '1984-08-15'),
 (372, 'Yayan Ruhian', 'yayan.jpeg', 'Tasikmalaya', '1968-10-19'),
 (373, 'Fariz Alfarazi', 'farizalfarazi.jpg', 'Jakarta', '1987-07-26'),
-(374, 'Ruth Marini', 'ruthmarini.jpg', 'Bandar Lampung', '1984-08-18');
+(374, 'Ruth Marini', 'ruthmarini.jpg', 'Bandar Lampung', '1984-08-18'),
+(375, 'Mike Muliardo', 'mike.jpg', 'Jakarta', '1986-10-19'),
+(376, 'Tio Pakusadewo', 'tio.jpg', 'Jakarta', '1963-09-02'),
+(377, 'Bayu Oktara', 'fanny.jpg', 'Jakarta', '1978-10-01'),
+(378, 'Vita Mariana', 'vita.jpg', 'Bogor', '1984-03-13'),
+(379, 'Ira Wibowo', 'ira wibowo.jpg', 'Jerman', '1967-12-20'),
+(380, 'happy salma', 'happy salma.jpg', 'Sukabumi', '1980-01-04'),
+(381, 'Gesya Shandy Alatas', 'gesya.jpg', 'Jakarta', '1995-06-11'),
+(382, 'Randy Danistha', 'randy.jpg', 'Jakarta', '1984-10-09'),
+(383, 'Arzeti Bilbina', 'arzeti.jpg', 'Lampung', '1973-09-04'),
+(384, 'Kevin Andrean', 'kevinandrean.jpg', 'Jakarta', '1992-12-31'),
+(385, 'Nicholas Saputra', 'nicholas.jpg', 'Jakarta', '1984-02-24'),
+(386, 'Dian Sastrowardoyo', 'dian.jpg', 'Jakarta', '1982-03-16'),
+(387, 'Theresia Ladya Cherly', 'ladya.jpg', 'Jakarta', '1981-04-11'),
+(388, 'Adinia Wirasti Wijayanto', 'adinia.jpg', 'Jakarta', '1987-01-19'),
+(389, 'Lyssie Priscillia', 'sisy.jpg', 'Jakarta', '1985-04-05'),
+(390, 'Dennis Adhiswara', 'dennis.jpg', 'Malang', '1982-09-14'),
+(391, 'R. Soepardiman', 'mangdiman.jpg', 'Jakarta', '1930-11-23'),
+(392, 'Rosamund Mary Ellen', 'rosamund.jpg', 'London', '1979-01-27'),
+(393, 'Benjamin Geza Affleck', 'ben.jpg', 'Berkeley', '1972-08-15'),
+(394, 'Emily O Hara', 'emily.jpg', 'London', '1991-06-07'),
+(395, 'Carrie Alexandra', 'carrie.jpg', 'Ohio', '1961-01-24'),
+(396, 'Neil Patrick Harris', 'neil.jpg', 'Meksiko', '1973-06-15'),
+(397, 'Kimberly Jan Dickens', 'kim.jpg', 'Amerika', '1965-06-18'),
+(398, 'Robert Boyd Holbrook', 'boyd.jpg', 'Amerika', '1981-09-01'),
+(399, 'Shailene Diann Woodley', 'shailene.jpg', 'California', '1991-11-15'),
+(400, 'Paul Benjamin', 'bens.jpg', 'Melbourne', '1969-04-03'),
+(401, 'Ralph Michael Ineson', 'ralph.jpg', 'Britania Raya', '1969-12-15'),
+(402, 'Jovan Adepo', 'jovan.jpg', 'Britania Raya', '1988-09-06'),
+(403, 'Michael Cram', 'michaelj.jpg', 'Kanada', '1968-07-11'),
+(404, 'Patrick Labbe', 'patrick.jpg', 'Kanada', '1970-07-27'),
+(405, 'Marcella Lentz', 'marcella.jpg', 'London', '1988-08-16'),
+(406, 'Alice Braga Moraes', 'alice.jpg', 'Brazil', '1983-04-15'),
+(407, 'William Edward', 'iamm.jpg', 'Britania Raya', '1956-11-27'),
+(408, 'Hala Finley', 'hala.jpg', 'Amerika', '1999-07-11'),
+(409, 'J.D. Pardo', 'jd.jpg', 'Los Angeles', '1980-09-07'),
+(410, 'Jeffrey David Fahey', 'jeff.jpg', 'New York', '1952-11-29'),
+(411, 'Corina Calderon', 'corina.jpg', 'Amerika', '1996-08-20'),
+(412, 'John Adedayo Adegboyega', 'john.jpg', 'London', '1992-03-17'),
+(413, 'Eric Marlon Bishop', 'jammie.jpg', 'Texas', '1967-12-13'),
+(414, 'Teyonah Parris', 'tteyonah.jpg', 'Hopkins', '1987-09-22'),
+(415, 'Kieffer William', 'kiefer.jpg', 'London', '1966-12-21'),
+(416, 'Megan Sousa', 'megan.jpg', 'Amerika', '1988-03-23'),
+(417, 'David Alan Grier', 'david.jpg', 'London', '1969-05-11'),
+(418, 'Patricia Rooney', 'rooney.jpg', 'New York', '1985-04-17'),
+(419, 'Eric Banadinovic', 'ericbana.jpg', 'Melbourne', '1968-08-09'),
+(420, 'Theo James', 'theo.jpg', 'Britania Raya', '1984-12-16'),
+(421, 'Vanessa Redgrave', 'vanessa.jpg', 'London', '1937-01-30'),
+(422, 'Jack Reynor', 'jack.jpg', 'Amerika', '1992-01-23'),
+(423, 'Aidan Turner', 'aidan.jpg', 'Clondalkin', '1983-06-19'),
+(424, 'Tom Vaughan', 'tomv.jpg', 'Irlandia', '1977-11-04'),
+(425, 'Uwais Qorny', 'iko.jpg', 'Jakarta', '1983-02-12'),
+(426, 'Yayan Ruhian', 'yayan.jpg', 'Tasikmalaya', '1968-10-19'),
+(427, 'Julie Estelle Gasnier', 'julie.jpg', 'Jakarta', '1989-01-04'),
+(428, 'Putra Arifin', 'arifin.jpg', 'Jerman', '1987-05-01'),
+(429, 'Alex Abdullah Abbad', 'alex.jpg', 'Jakarta', '1987-06-18'),
+(430, 'Cecep Arif Rahman', 'cecep.jpg', 'Jakarta', '1978-05-03'),
+(431, 'Dony Alamsyah', 'dony.jpg', 'Jakarta', '1978-09-07'),
+(432, 'Ario Bayu Wicaksono', 'rio.jpg', 'Jakarta', '1985-02-06'),
+(433, 'Daniel Adnanova', 'danielad.jpg', 'Praha', '1992-04-09'),
+(434, 'Nasrul Suhaimin', 'bront.jpg', 'Malaysia', '1978-09-27'),
+(435, 'Faris Fadjar Munggaran', 'faris.jpg', 'Jakarta', '2004-05-16'),
+(436, 'Chicco Jerikho', 'chico.jpg', 'Jakarta', '1984-07-03'),
+(437, 'Zulverdi Amos Solaiman', 'verdi.jpg', 'Jakarta', '1975-03-14'),
+(438, 'Mohammad Suhaemi', 'miller.jpg', 'Malaysia', '1987-03-03'),
+(439, 'Hana Pitrashata Malasan', 'hana.jpg', 'Bandung', '1991-06-28'),
+(440, 'Luna Maya', 'luna.jpg', 'Denpasar', '1983-08-26'),
+(441, 'Herlina Christine Natalia', 'hakim.jpg', 'Kuala Lumpur', '1956-12-25'),
+(442, 'Aria Kusumah', 'aria.jpg', 'Jakarta', '2009-01-12'),
+(443, 'Eva Celia Lesmana', 'eva.jpg', 'Jakarta', '1992-09-21'),
+(444, 'Prisia Wulansari Nasution', 'prisia.jpg', 'Jakarta', '1984-06-01'),
+(445, 'Tom Cruise', 'tomc.jpg', 'New York', '1962-07-03'),
+(446, 'Simon Pegg', 'simon.jpg', 'Inggris', '1970-02-14'),
+(447, 'Ving Rhames', 'ving.jpg', 'New York', '1959-05-12'),
+(448, 'Rebecca Ferguson', 'rebecalois.jpg', 'Swedia', '1983-10-19'),
+(449, 'Vanessa Kirby', 'kirby.jpg', 'London', '1988-04-18'),
+(450, 'Shea Whigam', 'franklin.jpg', 'Florida', '1969-01-05'),
+(451, 'Bruna Markuezine', 'bruna.jpg', 'Brazil', '1995-08-04'),
+(452, 'Romario Xolo Mariduena', 'xolo.jpg', 'California', '2001-06-09'),
+(453, 'Rebbeca Marie Gomez', 'becky.jpg', 'California', '1997-03-02'),
+(454, 'Susan Sarandon', 'susan.jpg', 'New York', '1946-10-04'),
+(455, 'George Edward Lopez', 'george.jpg', 'Los Angeles', '1961-04-23'),
+(456, 'Belissa Escobedo', 'bellisa.jpg', 'Los Angeles', '1998-09-16'),
+(457, 'Vin Diesel', 'vin.jpg', 'California', '1967-07-18'),
+(458, 'Joseph Jason', 'jason.jpg', 'Hawai', '1979-08-01'),
+(459, 'Alan Ritchson', 'alann.jpg', 'New York', '1978-02-14'),
+(460, 'Rita Moreno', 'rita.jpg', 'Humacao', '1931-12-11'),
+(461, 'Mayte Michelle Rodriguez', 'michelle.jpg', 'Texas', '1978-07-12'),
+(462, 'Brie Larson', 'brie.jpg', 'California', '1989-10-01'),
+(463, 'Willow Shields', 'willow.jpg', 'Meksiko', '2000-06-01'),
+(464, 'John Wallace Kilmer', 'jak.jpg', 'Los Angeles', '1995-06-06'),
+(465, 'Walter Bruce Wilis', 'bruce.jpg', 'Jerman', '1955-03-19'),
+(466, 'Lochlyn Munro', 'loclyn.jpg', 'Kanada', '1966-02-12'),
+(467, 'Dina Meyer', 'dina.jpg', 'New York', '1968-12-22'),
+(468, 'Timothy V Murphy', 'timothy.jpg', 'Irlandia', '1960-04-05'),
+(469, 'Trevor Gretzky', 'trevor.jpg', 'California', '1992-09-14'),
+(470, 'Anthony Mackie', 'anthony.jpg', 'New Orieans', '1978-09-23'),
+(471, 'David Harbour', 'davidharbour.jpg', 'New York', '1975-04-10'),
+(472, 'Jahi Di Allo Winston', 'jahi.jpg', 'Atlanta', '2003-12-01'),
+(473, 'Tig Notaro', 'tig.jpg', 'Amerika', '1971-03-24'),
+(474, 'Erica Ash', 'erica.jpg', 'Florida', '1977-09-19'),
+(475, 'Jennifer Coolidge', 'jenn.jpg', 'Boston', '1961-08-28'),
+(476, 'Faith Ford', 'ford.jpg', 'Louisiana', '1964-09-14');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pemeran`
+-- Table structure for table `pemeran`
 --
 
 CREATE TABLE `pemeran` (
@@ -590,10 +693,10 @@ CREATE TABLE `pemeran` (
   `id_pemain` int(11) NOT NULL,
   `id_film` int(11) NOT NULL,
   `peran` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `pemeran`
+-- Dumping data for table `pemeran`
 --
 
 INSERT INTO `pemeran` (`id_pemeran`, `id_pemain`, `id_film`, `peran`) VALUES
@@ -712,13 +815,6 @@ INSERT INTO `pemeran` (`id_pemeran`, `id_pemain`, `id_film`, `peran`) VALUES
 (118, 114, 49, 'Flittle'),
 (119, 115, 49, 'Knotgrass'),
 (120, 116, 49, 'Stefan'),
-(121, 117, 50, 'Harry Potter'),
-(122, 118, 50, 'Hermione Granger'),
-(123, 119, 50, 'Ron Weasley'),
-(124, 120, 50, 'Severus Snape'),
-(125, 121, 50, 'Draco Malfoy'),
-(126, 122, 50, 'Neville Longbottom'),
-(127, 123, 50, 'Ginny Weasley'),
 (128, 124, 51, 'Ariel'),
 (129, 125, 51, 'Raja Triton'),
 (130, 126, 51, 'Ursula'),
@@ -730,7 +826,6 @@ INSERT INTO `pemeran` (`id_pemeran`, `id_pemain`, `id_film`, `peran`) VALUES
 (136, 132, 52, 'Kit'),
 (137, 133, 52, 'Ibu peri'),
 (138, 134, 52, 'Anastasia'),
-(139, 135, 50, 'Grand Duke'),
 (140, 136, 52, 'Raja'),
 (141, 137, 52, 'Ibu Cinderella'),
 (142, 138, 52, 'Lady Tremaine'),
@@ -995,12 +1090,141 @@ INSERT INTO `pemeran` (`id_pemeran`, `id_pemain`, `id_film`, `peran`) VALUES
 (404, 319, 105, 'Kamandaka'),
 (405, 373, 105, 'Bujang Gila Tapak Sakti'),
 (406, 79, 105, 'Bidadari Angin Timur'),
-(407, 11, 105, 'Rara Murni');
+(407, 11, 105, 'Rara Murni'),
+(408, 103, 107, 'Bacharuddin Jusuf Habibie'),
+(409, 262, 107, 'Hasri Ainun Habibie'),
+(410, 375, 107, 'Ilham Akbar Habibie'),
+(411, 376, 107, 'H. M. Soeharto'),
+(412, 35, 107, 'Tuti Marini Puspowardojo'),
+(413, 377, 107, 'Fanny Habibie'),
+(414, 378, 107, 'Arlies'),
+(415, 8, 108, 'Dilan'),
+(416, 82, 108, 'Milea'),
+(417, 86, 108, 'Ancika'),
+(418, 87, 108, 'Wati'),
+(419, 379, 108, 'Bnda Dilan'),
+(420, 14, 108, 'Ayah Dilan'),
+(421, 380, 108, 'Ibu Milea'),
+(422, 159, 109, 'Zainuddin'),
+(423, 103, 109, 'Aziz'),
+(424, 158, 109, 'Hayati'),
+(425, 381, 109, 'Khadijah'),
+(426, 382, 109, 'Muluk'),
+(427, 383, 109, 'Ibu Muluk'),
+(428, 384, 109, 'Sophian'),
+(429, 385, 110, 'Rangga'),
+(430, 386, 110, 'Cinta'),
+(431, 387, 110, 'Alya'),
+(432, 388, 110, 'Karmen'),
+(433, 389, 110, 'Milly'),
+(434, 309, 110, 'Maura'),
+(435, 390, 110, 'Mamet'),
+(436, 392, 85, 'Amy Dunne'),
+(437, 393, 85, 'Nick Dunne'),
+(438, 394, 85, 'Andie Fitzgerald'),
+(439, 395, 85, 'Margo Dunne'),
+(440, 396, 85, 'Desi Collings'),
+(441, 397, 85, 'Detektif Rhonda'),
+(442, 398, 85, 'Jeff'),
+(443, 399, 91, 'Eleanor Falco'),
+(444, 400, 91, 'Lammark'),
+(445, 401, 91, 'Dean'),
+(446, 402, 91, 'MacKenzie'),
+(447, 403, 91, 'Gavin'),
+(448, 404, 91, 'Hicks'),
+(449, 405, 91, 'Lementing'),
+(450, 393, 92, 'Danny Rourke'),
+(451, 406, 92, 'Diana Cruz'),
+(452, 407, 92, 'Dellrayne'),
+(453, 408, 92, 'Minnie'),
+(454, 409, 92, 'Nicks'),
+(455, 410, 92, 'Carl'),
+(456, 411, 92, 'Maria'),
+(457, 412, 93, 'Fontaine'),
+(458, 413, 93, 'Slick Charles'),
+(459, 414, 93, 'Yo-Yo'),
+(460, 415, 93, 'Nixon'),
+(461, 416, 93, 'Ree-Ree'),
+(462, 417, 93, 'The Preacher'),
+(463, 418, 111, 'Roseanne'),
+(464, 419, 111, 'Dr. William Grene'),
+(465, 420, 111, 'Father Gaunt'),
+(466, 421, 111, 'Rosseane McNulty'),
+(467, 422, 111, 'Michael McNulty'),
+(468, 423, 111, 'Jack Eanes'),
+(469, 424, 111, 'McCabe'),
+(470, 425, 101, 'Yuda'),
+(471, 426, 101, 'Prakoso'),
+(472, 427, 101, 'Alicia'),
+(473, 428, 101, 'Uco'),
+(474, 429, 101, 'Bejo'),
+(475, 430, 101, 'The Assassin'),
+(476, 431, 101, 'Andi'),
+(477, 273, 102, 'Gundala'),
+(478, 158, 102, 'Sri Asih'),
+(479, 27, 102, 'Sedhah Esti Wulan'),
+(480, 432, 102, 'Ghani Zulham'),
+(481, 433, 102, 'Tanto Ginanjar'),
+(482, 434, 102, 'Pengkor'),
+(483, 435, 102, 'Awang'),
+(484, 246, 103, 'Angga'),
+(485, 202, 103, 'Bara'),
+(486, 428, 103, 'Tino'),
+(487, 370, 103, 'Sari Nirmala'),
+(488, 436, 103, 'Spec'),
+(489, 437, 103, 'Oggi'),
+(490, 438, 103, 'Indra'),
+(491, 439, 104, 'Rinjani'),
+(492, 202, 104, 'Jody'),
+(493, 11, 104, 'Tambora'),
+(494, 372, 104, 'Aa Tubir'),
+(495, 440, 104, 'Tara'),
+(496, 436, 104, 'Ben'),
+(497, 318, 104, 'Gele'),
+(498, 385, 106, 'Elang'),
+(499, 27, 106, 'Gerhana'),
+(500, 103, 106, 'Biru'),
+(501, 441, 106, 'Cempaka'),
+(502, 442, 106, 'Angin'),
+(503, 443, 106, 'Dara'),
+(504, 444, 106, 'Cempaka Muda'),
+(505, 445, 94, 'Ethan Hunt'),
+(506, 446, 94, 'Benji Dunn'),
+(507, 447, 94, 'Luther Stickell'),
+(508, 448, 94, 'Ilsa Faust'),
+(509, 449, 94, 'Alanna Mitsopolis'),
+(510, 450, 94, 'Jasper Briggs'),
+(511, 451, 95, 'Jenny Kord'),
+(512, 452, 95, 'Jaime Reyes'),
+(513, 453, 95, 'Khaji-Da'),
+(514, 454, 95, 'Victoria Kord'),
+(515, 455, 95, 'Rudy Reyes'),
+(516, 456, 95, 'Milagro Reyes'),
+(517, 457, 96, 'Dominic Toretto'),
+(518, 458, 96, 'Dante Reyes'),
+(519, 459, 96, 'Aimes'),
+(520, 460, 96, 'Abuelita Toretto'),
+(521, 461, 96, 'Letty'),
+(522, 462, 96, 'Tess'),
+(523, 463, 97, 'Ally'),
+(524, 464, 97, 'Dezi'),
+(525, 465, 97, 'James Knight'),
+(526, 466, 97, 'Eric Fitzgerald'),
+(527, 467, 97, 'Charlotte Burnham'),
+(528, 468, 97, 'Vincent'),
+(529, 469, 97, 'Mike Rochester'),
+(530, 470, 98, 'Frank Presley'),
+(531, 471, 98, 'Ernest'),
+(532, 472, 98, 'Kevin Presley'),
+(533, 473, 98, 'Leslie Monroe'),
+(534, 474, 98, 'Melanie Presley'),
+(535, 475, 98, 'Judy Romanco'),
+(536, 476, 98, 'Barbara Mangold');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `saran`
+-- Table structure for table `saran`
 --
 
 CREATE TABLE `saran` (
@@ -1008,10 +1232,10 @@ CREATE TABLE `saran` (
   `username` varchar(30) NOT NULL,
   `subject` varchar(255) NOT NULL,
   `pesan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `saran`
+-- Dumping data for table `saran`
 --
 
 INSERT INTO `saran` (`id_saran`, `username`, `subject`, `pesan`) VALUES
@@ -1020,7 +1244,7 @@ INSERT INTO `saran` (`id_saran`, `username`, `subject`, `pesan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_film`
+-- Table structure for table `tb_film`
 --
 
 CREATE TABLE `tb_film` (
@@ -1038,97 +1262,115 @@ CREATE TABLE `tb_film` (
   `sinopsis` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tb_film`
+-- Dumping data for table `tb_film`
 --
 
 INSERT INTO `tb_film` (`id`, `kode_film`, `trailer`, `nama_film`, `gambar`, `banner`, `id_genre`, `durasi`, `tahun`, `id_review`, `id_rekomendasi`, `sinopsis`, `created_at`, `updated_at`) VALUES
-(12, 'H-001', 'https://youtu.be/ui9XZlcAwgo?si=euiknHISXvi83O5E', 'Danur 2 : Maddah', 'images/danur.jpg', 'banner/danur2 (1).jpg', 6, 105, '2021', 0, 0, '<p style=\"text-align: justify;\">Risa, remaja perempuan yang memiliki 3 sahabat hantu bernama Peter, William, dan Janshen. Risa kini tinggal bersama adiknya Riri, yang sudah mulai jengah dengan kemampuan Risa bisa melihat hantu. Apalagi mereka untuk sementara hanya tinggal berdua karena ibunya menemani bapaknya dinas di luar negeri. Keluarga pamannya, Om Ahmad baru pindah ke Bandung bersama istrinya, Tante Tina dan Angki anaknya. Risa dan Riri sering berkunjung bahkan menginap di rumah Om Ahmad dan Tante Tina. Risa awalnya tidak merasa ada yang aneh dengan rumah Om Ahmad, namun suatu hari Risa memergoki Om Ahmad pergi bersama seorang wanita, Risa hampir tidak percaya bahwa Omnya selingkuh, Risa tidak berani bilang ke Tante Tina dan memilih menyelidiki sendiri. Namun, setelah itu Angki bercerita beberapa hal janggal terjadi dan yang paling aneh adalah sikap Om Ahmad berubah. Suatu malam Risa diganggu oleh sosok hantu perempuan menyeramkan di rumah itu. Apakah benar Om Ahmad selingkuh? Apa hubungannya dengan teror hantu wanita di rumah itu yang mengganggu keluarga Om Ahmad termasuk Risa? Apakah Peter dan kawan-kawan akan datang membantu Risa, meskipun Peter memperingatkan Risa sebelumnya tentang roh jahat berbahaya di rumah Om Ahmad itu?</p>', '2023-11-25 11:04:03', '2023-11-25 11:04:03'),
-(13, 'H-002', 'https://youtu.be/h9Q4zZS2v1k?si=xmHGGsJSaEd8dn8M', 'The Conjuring: The Devil Made Me Do It ', 'images/The_Conjuring_-_The_Devil_Made_Me_Do_It.png', 'banner/conjuring3 (1).jpg', 6, 112, '2021', 0, 0, '<p style=\"text-align: justify;\">The Conjuring: The Devil Made Me Do It adalah film horor supranatural yang dirilis pada tahun 2021, bukan 2020. Film ini merupakan sekuel dari seri film The Conjuring yang sangat populer. Film ini berdasarkan kisah nyata dari kasus pengadilan pertama di Amerika Serikat yang melibatkan pembelaan kekerasan setan dalam kasus pembunuhan. Film ini mengikuti investigasi pasangan paranormal, Ed dan Lorraine Warren, yang terlibat dalam kasus tersebut. Mereka berusaha membantu membuktikan bahwa tersangka kasus pembunuhan tidak sepenuhnya bertanggung jawab atas perbuatannya karena terpengaruh oleh kekuatan supranatural yang jahat. Dalam perjalanan mereka, Ed dan Lorraine menemui banyak hal aneh dan menyeramkan yang terkait dengan kasus tersebut. Mereka harus menghadapi kekuatan gelap yang sangat kuat untuk membuktikan kebenaran dan melindungi orang-orang yang mereka cintai. Film ini menawarkan suasana tegang, adegan mencekam, dan elemen horor yang intens, sambil mencoba menggali sisi psikologis dari pengaruh supranatural terhadap tindakan manusia.</p>', '2023-11-25 12:32:45', '2023-11-25 12:32:45'),
-(23, 'K-001', 'https://youtu.be/olXfjgN1WWo?si=N7KKNDobTBIWhuWb', 'Baby Blues', 'images/posterbabyblues.jpg', 'banner/Film-Baby-Blues-2022.jpg', 7, 100, '2022', 0, 0, '<p style=\"text-align: justify;\">mengisahkan Dika (Vino G. Bastian) dan Dinda (Aurelie Moeremans), sepasang suami-istri yang baru saja memiliki anak bayi. Namun, ketimbang mengurusi anaknya, keduanya justru jauh lebih sering bertengkar. Hal ini terjadi karena Dinda merasa kesulitan merawat bayi ditambah dengan Dika yang cuek dan tak ikut mengurus anaknya. Akibatnya, Dinda jadi mengalami sindrom baby blues. Setelah pertengkaran hebat, keduanya terlibat dalam fenomena misterius yang membuat jiwa mereka bertukar tubuh. Jadi, jiwa Dinda ada pada tubuh Dika, dan begitu juga sebaliknya. Kondisi ini membuat keduanya jadi tukar tanggung jawab dan saling memahami kondisi antara satu sama lain. Namun, bisakah keduanya kembali ke tubuhnya masing-masing dan menjalani kehidupan normal seperti sebelumnya.</p>', '2023-11-26 05:01:07', '2023-11-26 05:01:07'),
-(28, 'A-001', 'https://www.youtube.com/watch?v=M25zXBIUVr0', 'Plane', 'images/plane.jpg', 'banner/plane (1).jpg', 8, 107, '2023', 0, 0, '<p style=\"text-align: justify;\">Seorang pilot bernama Brodie Torrance (Gerard Butler) terjebak di wilayah berbahaya saat ia terpaksa mendaratkan pesawat komersialnya setelah badai mengerikan melanda. Setelah selamat mendaratkan pesawat, semua penumpang disandera kelompok bersenjata yang sadis. Satu-satunya cara untuk menyelamatkan mereka semua adalah bekerja sama dengan Louis Gaspare (Mike Colter), seorang terdakwa pembunuh yang turut ikut dalam pesawat tersebut.</p>', '2023-11-26 14:53:33', '2023-11-26 14:53:33'),
-(29, 'A-002', 'https://www.youtube.com/watch?v=AwwbhhjQ9Xk', 'The Maze Runner', 'images/tmr.jpg', 'banner/background_1.jpg', 8, 113, '2014', 0, 0, '<p style=\"text-align: justify;\">Film The Maze Runner ini diangkat dari novel young adult karangan James Dashner. Film ini menceritakan bagaimana jadinya jika tatanan dunia yang sempurna itu dilanggar. Dalam dunia dystopia ciptaan James ini, sekelompok pria berhasil bertahan hidup di dataran hijau di tengahtengah sebuah labirin raksasa. Mereka bahkan telah sukses membangun semacam kota, sesuai letaknya, mereka menyebut nya Glade, dimana disana dilengkapi dengan aturan-aturan yang tentunya dibutuhkan untuk menjaga keseimbangan di dalam komunitas kecil tersebut. Tidak ada yang tahu mengapa mereka ditempatkan di sana. Semua orang yang dikirim ke sana sudah dihapus terlebih dahulu ingatannya. Yang pasti , setiap sebulan sekali akan ada seorang penghuni baru yang dikirimkan ke Glade.</p>', '2023-11-27 07:52:13', '2023-11-27 07:52:13'),
-(30, 'M-002', 'https://www.youtube.com/watch?v=AwwbhhjQ9Xk', 'Death On The Nile', 'images/death.jpg', 'banner/background.jpg', 13, 127, '2022', 0, 0, '<p style=\"text-align: justify;\">Kedamaian dan ketenangan yang hadir sementara di kapal uap Karnak saat berlayar di Sungai Nil seketika hancur setelah salah satu penumpang ditemukan terbunuh secara tragis. Detektif terkenal dari Belgia, Hercule Poirot yang sedang liburan dipercayakan dengan tugas penting untuk mengidentifikasi penumpang mana yang menjadi pembunuh sebelum mereka menyerang lagi. Berlatar pemandangan epik dari pemandangan gurun Mesir yang luas dan piramida Giza yang megah, kisah tentang hasrat yang tak terkendali dan kecemburuan yang melumpuhkan ini menampilkan sekelompok pelancong kosmopolitan yang berpakaian rapi. Ada cukup banyak tikungan dan intrik jahat film ini yang membuat penonton menebak-nebak sampai akhir yang mengejutkan.</p>', '2023-11-27 07:56:03', '2023-11-27 07:56:03'),
-(31, 'A-003', 'https://www.youtube.com/watch?v=eOrNdBpGMv8', 'The Avengers', 'images/avengers (2).jpg', 'banner/background_2.jpg', 8, 127, '2022', 0, 0, '<p style=\"text-align: justify;\">Ketika musuh yang tak terduga muncul, mengancam keselamatan dan keamanan dunia, Nick Fury, direktur Badan Perdamaian Internasional, dikenal sebagai S.H.I.E.L.D. , membutuhkan tim untuk menyelamatkan dunia dari bencana. Usaha perekrutan pun dimulai Iron Man, Captain America, Hulk, Thor, Black Widow dan Hawkeye dikumpulkan untuk menaklukkan Dewa Kehancuran, Loki, dalam usahanya menghancurkan bumi. Dengan semua gabungan kekuatan, tugas nampak lebih mudah. Namun kenyatannya tidak demikian! Para pahlawan super justru saling melawan satu sama lain Hulk melawan Captain America, siapa yang akan menang? Apakah Iron Man dapat mengalahkan kekuatan super milik Thor? Bagaimana para pahlawan super ini secara bersamasama menghadapi bencana, melindungi masyarakat dan yang terpenting, bertahan hidup?</p>', '2023-11-27 08:01:29', '2023-11-27 08:01:29'),
-(32, 'A-004', 'https://youtu.be/DN3sRz_veBU?si=bMPCcC8vfuOn0Top', 'Mencuri Raden Saleh', 'images/radensaleh.jpg', 'banner/bnradensalehhd.jpg', 8, 154, '2022', 0, 0, '<p style=\"text-align: justify;\">Pencurian terbesar abad ini tinggal menghitung hari menjelang tanggal eksekusinya. Komplotan sudah lengkap dan siap menjalankan misi untuk mencuri lukisan sang maestro, Raden Saleh, yang berjudul Penangkapan Diponegoro. Pemalsuan, peretasan, pertarungan, dan manipulasi terjadi dalam pencurian berencana yang dijalankan oleh sekelompok anak muda amatiran</p>', '2023-11-28 07:26:21', '2023-11-28 07:26:21'),
-(37, 'K-002', 'https://www.youtube.com/watch?v=0uf6QUacVgs', 'Miracle in cell No.7', 'images/miracle.jpeg', 'banner/bannermiracle.jpg', 7, 145, '2022', 0, 0, '<p style=\"text-align: justify;\"><span class=\"fontstyle0\">Kedamaian dan ketenangan yang hadir sementara di kapal uap Karnak saat berlayar di Sungai Nil seketika hancur setelah salah satu penumpang ditemukan terbunuh secara tragis. Detektif terkenal dari Belgia, Hercule Poirot yang sedang liburan dipercayakan dengan tugas penting untuk mengidentifikasi penumpang mana yang menjadi pembunuh sebelum mereka menyerang lagi. Berlatar pemandangan epik dari pemandangan gurun Mesir yang luas dan piramida Giza yang megah, kisah tentang hasrat yang tak terkendali dan kecemburuan yang melumpuhkan ini menampilkan sekelompok pelancong kosmopolitan yang berpakaian rapi. Ada cukup banyak tikungan dan intrik jahat film ini yang membuat penonton menebak-nebak sampai akhir yang mengejutkan</span>&nbsp;</p>', '2023-12-02 14:12:30', '2023-12-02 14:12:30'),
-(38, 'R-001', 'https://www.youtube.com/watch?v=nwhB2Hb7g5c', 'Dilan 1990', 'images/posterdilan.jpg', 'banner/dilan.webp', 9, 110, '2018', 0, 0, '<p style=\"text-align: justify;\"><span class=\"fontstyle0\">Milea (Vanesha Prescilla) bertemu dengan Dilan (Iqbaal Ramadhan) di sebuah SMA di Bandung. Itu adalah tahun 1990, saat Milea pindah dari Jakarta ke Bandung. Perkenalan yang tidak biasa kemudian membawa Milea mulai mengenal keunikan Dilan lebih jauh. Dilan yang pintar, baik hati dan romantis... semua dengan caranya sendiri. Cara Dilan mendekati Milea tidak sama dengan teman-teman lelakinya yang lain, bahkan Beni, pacar Milea di Jakarta. Bahkan cara berbicara Dilan yang terdengar kaku, lambat laun justru membuat Milea kerap merindukannya jika sehari saja ia tak mendengar suara itu. Perjalanan hubungan mereka tak selalu mulus. Beni, gank motor, tawuran, Anhar, Kang Adi, semua mewarnai perjalanan itu. Dan Dilan... dengan caranya sendiri...selalu bisa membuat Milea percaya ia bisa tiba di tujuan dengan selamat. Tujuan dari perjalanan ini. Perjalanan mereka berdua. Katanya, dunia SMA adalah dunia paling indah. Dunia Milea dan Dilan satu tingkat lebih indah daripada itu.</span></p>', '2023-12-02 14:14:30', '2023-12-02 14:14:30'),
-(41, 'K-003', 'https://www.youtube.com/watch?v=1nTIyQSkCt8', 'Srimulat : Hidup Memang Komedi', 'images/srimulat.jpg', 'banner/bannersrimulat.jpg', 7, 105, '2023', 0, 0, '<p style=\"text-align: justify;\"><span class=\"fontstyle0\">Mendapatkan tawaran menjadi bintang nasional, membawa grup Srimulat berhadapan dengan kerasnya ibukota dan kendala bahasa. Saat berproses, masalah bertambah karena kisah asmara Gepeng (Juan Bio One) dan Royani (Indah Permatasari), hingga krisis identitas Tessy (Erick Estrada) yang membuatnya masuk penjara. Apa mereka bisa menaklukkan ibukota dengan tawa, atau mereka yang akan ditertawakan ibukota dan harus menerima kenyataan hidup memang komedi?</span>&nbsp;</p>', '2023-12-02 14:35:51', '2023-12-02 14:35:51'),
-(42, 'K-004', 'https://www.youtube.com/watch?v=hCTfpDnnxtA', 'Gampang Cuan', 'images/gampangcuan.jpg', 'banner/bannergampangcuan.jpg', 7, 118, '2023', 0, 0, '<p style=\"text-align: justify;\"><span class=\"fontstyle0\">Sultan, Bilqis, dan Aji tengah bersusah payah dalam mencari uang. Ketiga kakak beradik tersebut berusaha mempertahankan rumah mereka yang akan tersegel. Dalam teaser itu terlihat sebuah rumah sederhana dengan sebuah toko kecil di depannya, yang oleh mereka bertiga berusaha dipertahankan berkat lilitan hutang yang dimiliki oleh keluarganya. Berkat peristiwa itu, Sultan dan kedua saudaranya pun mulai melakukan berbagai cara agar dapat terbebas dari jeratan hutang tersebut tanpa sepengetahuan ibu mereka.</span>&nbsp;</p>', '2023-12-02 14:37:34', '2023-12-02 14:37:34'),
-(43, 'AD-001', 'https://www.youtube.com/watch?v=rBxcF-r9Ibs', 'Jumanji : The Next Level', 'images/jumanji.jpg', 'banner/bannerjumanji.jpeg', 14, 123, '2019', 0, 0, '<p style=\"text-align: justify;\">Dalam Jumanji: The Next Level, keempat sahabat kembali lagi, tetapi permainannya telah berubah. Saat memutuskan masuk lagi ke Jumanji untuk menyelamatkan salah satu dari mereka, mereka menemukan segalanya tak seperti yang diduga. Para pemain harus melaju ke wilayah-wilayah tersembunyi dan belum dijamah, dari gurun nan gersang ke pegunungan bersalju, demi meloloskan diri dari permainan paling berbahaya di dunia.</p>', '2023-12-02 14:59:12', '2023-12-02 14:59:12'),
-(44, 'R-002', 'https://www.youtube.com/watch?v=G4HH8kVI4OY', 'Rudy Habibie (Habibie & Ainun 2)', 'images/rudyhabibie.jpg', 'banner/posterrudyhabibie.jpg', 9, 124, '2016', 0, 0, '<p style=\"text-align: justify;\">Rudy sangat ingin membuat pesawat untuk memenuhi pesan almarhum Papinya: &ldquo;MENJADI MATA AIR&rdquo;, menjadi berguna untuk orang banyak. Tapi di atas hanya arus membuat keluarga nya berkorban karena dia harus kuliah di RWTH Aachen, Jerman Barat. Di sana Rudy hidup dalam kondisi terbatas, rasa rindu rumah, dan belajar soal arti persahabatan, cinta, juga pengkhianatan bersama para mahasiswa Indonesia yang baru dikenal nya di sana.</p>', '2023-12-02 15:01:53', '2023-12-02 15:01:53'),
-(45, 'H-003', 'https://www.youtube.com/watch?v=0hSptYxWB3E', 'Pengabdi Setan', 'images/Pengabdi_Setan_poster.jpg', 'banner/banner_pengabdisetan.jpg', 6, 107, '2017', 0, 0, '<p style=\"text-align: justify;\">Setelah sakit aneh selama 3 tahun, Ibu akhirnya meninggal dunia. Bapak lalu memutuskan untuk kerja di luar kota meninggalkan anak-anak. Tak lama kemudian, anak-anak merasa bahwa Ibu kembali berada di rumah. Situasi semakin menyeramkan ketika mereka mengetahui bahwa Ibu datang lagi tidak sekedar untuk menjenguk, tapi untuk menjemput mereka.</p>', '2023-12-02 17:47:40', '2023-12-02 17:47:40'),
-(48, 'H-004', 'https://www.youtube.com/watch?v=jtDRXPTZT-M&t=9s', 'KKN di Desa Penari', 'images/kkn.jpg', 'banner/banner_kkn.webp', 6, 121, '2022', 0, 0, '<p style=\"text-align: justify;\">Seorang laki-laki yang dikenal dengan sebutan Simpleman, mendapatkan sebuah kisah menyeramkan. Berawal dari 5 mahasiswa yang harus melaksanakan KKN di sebuah desa terpencil, Nur (Tissa Biani), Widya ( Adinda Thomas), Ayu (Aghniny Haque), Bima (Achmad Megantara), Anton (Calvin Jeremy) dan Wahyu ( M. Fajar Nugraga) tidak pernah menyangka kalau desa yang mereka pilih ternyata bukanlah desa biasa. Pak Prabu (Kiki Narendra), sang kepala desa memperingatkan mereka untuk tidak melewati batas gapura terlarang, sebuah gapura yang menuju tapak tilas. Tempat misterius itu mungkin ada hubungannya dengan sosok penari cantik yang mulai menganggu Nur dan juga Widya. Satu persatu mulai merasakan keanehan desa tersebut. Bima pun mulai berubah sikap. Proker KKN mereka berantakan, tampaknya penghuni ghaib desa tersebut tidak menyukai mereka. Nur akhirnya menemukan fakta mencengangkan bahwa salah satu dari mereka melanggar aturan yang paling fatal di desa tersebut. Teror sosok penari misterius semakin menyeramkan, mereka mencoba meminta bantuan Mbah Buyut (Diding Boneng) dukun setempat, namun sudah terlambat, mereka terancam tidak akan bisa pulang dengan selamat dari desa yang dikenal dengan sebutan Desa Penari itu.</p>', '2023-12-02 17:56:18', '2023-12-02 17:56:18'),
-(49, 'M-001', 'https://youtu.be/CGQkoZ8s4Pw?si=4deATdcwzaZiljG9', 'Maleficent', 'images/maleficentposter.jpg', 'banner/mff.png', 13, 97, '2019', 0, 0, '<p style=\"text-align: justify;\">Maleficent (Angelina Jolie) dan putri angkatnya Aurora (Elle Fanning) mulai berseteru dan mempertanyakan arti keluarga saat keduanya memiliki pandangan yang berbeda. Sebuah pernikahan yang diinginkan Aurora dan ditentang Maleficent. Aliansi serta pasukan gelap baru yang akan melanjutkan petualangan Maleficent.</p>', '2023-12-05 07:36:47', '2023-12-05 07:36:47'),
-(50, 'M-003', 'https://youtu.be/S8-SXEGMmi4?si=YV_c1ZYWodC9_i8c', 'Harry Potter', 'images/harrypotterposter.jpg', 'banner/harpotbn.png', 13, 138, '2007', 0, 0, '<p style=\"text-align: justify;\">Harry Potter and the Order of the Phoenix adalah film petualangan fantasi, berdasarkan novel dengan nama yang sama, yang tulis oleh J. K. Rowling. Disutradarai oleh David Yates, ini adalah film kelima di seri Harry Potter yang populer.</p>', '2023-12-05 07:45:56', '2023-12-05 07:45:56'),
-(51, 'F-001', 'https://youtu.be/0-wPm99PF9U?si=hkADD_gVbEzwyYxWThe Little Mermaid', 'The Little Mermaid', 'images/posterariel.jpg', 'banner/bannerariel.png', 12, 135, '2023', 0, 0, '<p style=\"padding-left: 80px; text-align: justify;\"><em><strong>The Little Mermaid</strong></em>&nbsp;adalah film&nbsp;<a title=\"Film fantasi\" href=\"https://id.wikipedia.org/wiki/Film_fantasi\">fantasi</a>&nbsp;<a title=\"Film musikal\" href=\"https://id.wikipedia.org/wiki/Film_musikal\">musikal</a>&nbsp;Amerika Serikat yang disutradarai oleh&nbsp;<a title=\"Rob Marshall\" href=\"https://id.wikipedia.org/wiki/Rob_Marshall\">Rob Marshall</a>&nbsp;dari skenario yang ditulis oleh David Magee. Diproduksi oleh&nbsp;<a title=\"Walt Disney Pictures\" href=\"https://id.wikipedia.org/wiki/Walt_Disney_Pictures\">Walt Disney Pictures</a>&nbsp;bersama DeLuca Marshall dan Marc Platt Productions. Film ini adalah adaptasi live action dari&nbsp;<a title=\"The Little Mermaid (film 1989)\" href=\"https://id.wikipedia.org/wiki/The_Little_Mermaid_(film_1989)\">film animasi Disney tahun 1989 dengan judul yang sama</a>, yang secara longgar berdasarkan pada&nbsp;<a title=\"Putri Duyung (dongeng)\" href=\"https://id.wikipedia.org/wiki/Putri_Duyung_(dongeng)\">dongeng tahun 1837 dengan judul yang sama</a>&nbsp;oleh&nbsp;<a title=\"Hans Christian Andersen\" href=\"https://id.wikipedia.org/wiki/Hans_Christian_Andersen\">Hans Christian Andersen</a>. Film ini dibintangi&nbsp;<a title=\"Halle Bailey\" href=\"https://id.wikipedia.org/wiki/Halle_Bailey\">Halle Bailey</a>&nbsp;sebagai&nbsp;<a title=\"Ariel (Disney)\" href=\"https://id.wikipedia.org/wiki/Ariel_(Disney)\">Ariel</a>&nbsp;si putri duyung, bersama&nbsp;<a title=\"Jonah Hauer-King\" href=\"https://id.wikipedia.org/wiki/Jonah_Hauer-King\">Jonah Hauer-King</a>,&nbsp;<a title=\"Daveed Diggs\" href=\"https://id.wikipedia.org/wiki/Daveed_Diggs\">Daveed Diggs</a>,&nbsp;<a title=\"Awkwafina\" href=\"https://id.wikipedia.org/wiki/Awkwafina\">Awkwafina</a>,&nbsp;<a title=\"Jacob Tremblay\" href=\"https://id.wikipedia.org/wiki/Jacob_Tremblay\">Jacob Tremblay</a>,&nbsp;<a title=\"Noma Dumezweni\" href=\"https://id.wikipedia.org/wiki/Noma_Dumezweni\">Noma Dumezweni</a>,&nbsp;<a title=\"Javier Bardem\" href=\"https://id.wikipedia.org/wiki/Javier_Bardem\">Javier Bardem</a>&nbsp;dan&nbsp;<a title=\"Melissa McCarthy\" href=\"https://id.wikipedia.org/wiki/Melissa_McCarthy\">Melissa McCarthy</a>.&nbsp;<em>The Little Mermaid</em> menceritakan tentang Ariel si putri duyung yang membuat kesepakatan dengan penyihir laut berbahaya bernama Ursula untuk menukar suaranya dengan kaki manusia untuk mengesankan Pangeran Eric, yang ia selamatkan dari kapal karam.</p>', '2023-12-05 10:08:50', '2023-12-05 10:08:50'),
-(52, 'F-002', 'https://youtu.be/20DF6U1HcGQ?si=OiiwGKS-q5W_IPZn', 'Cinderella', 'images/cinderllaposter.jpg', 'banner/bannercinderella.png', 12, 112, '2015', 0, 0, '<p style=\"text-align: justify;\">Cerita film berkisah tentang Ella, yang dijadikan pesuruh oleh&nbsp;<a class=\"mw-redirect\" title=\"Ibu tiri\" href=\"https://id.wikipedia.org/wiki/Ibu_tiri\">ibu tirinya</a>&nbsp;sendiri. Setelah ayahnya meninggal dunia, kelakuan ibu dan saudara tirinya makin menjadi-jadi. Ella yang dijadikan pembantu, juga diganti namanya menjadi&nbsp;<a title=\"Cinderella\" href=\"https://id.wikipedia.org/wiki/Cinderella\">Cinderella</a>. Dan kemudian Ella bertemu orang asing yang gagah di hutan. Dia tak menyadari bahwa orang tersebut adalah seorang&nbsp;<a title=\"Pangeran\" href=\"https://id.wikipedia.org/wiki/Pangeran\">pangeran</a>. Ketika istana mengirimkan undangan terbuka untuk semua gadis, Cinderella pun berharap bisa bertemu dengan pangerannya lag</p>', '2023-12-05 10:16:54', '2023-12-05 10:16:54'),
-(53, 'D-001', 'https://youtu.be/e1SxNP7PWAc?si=dE-WHIiVrHxt-mmF', 'Laskar Pelangi', 'images/Laskar_Pelangi_film.jpg', 'banner/bannerlaskar (2).jpg', 11, 125, '2008', 0, 0, '<p class=\"MsoNormal\" style=\"text-align: justify;\">Laskar Pelangi adalah novel pertama karya Andrea Hirata yang diterbitkan oleh Bentang Pustaka pada tahun 2005. Novel ini bercerita tentang kehidupan 10 anak dari keluarga miskin yang bersekolah (SD dan SMP) di sebuah sekolah Muhammadiyah di Belitung yang penuh dengan keterbatasan. Mereka bersekolah dan belajar pada kelas yang sama dari kelas 1 SD sampai kelas 3 SMP, dan menyebut diri mereka sebagai Laskar Pelangi. Pada bagian-bagian akhir cerita, anggota Laskar Pelangi bertambah satu anak perempuan yang bernama Flo, seorang murid pindahan. Keterbatasan yang ada bukan membuat mereka putus asa, tetapi malah membuat mereka terpacu untuk dapat melakukan sesuatu yang lebih baik.</p>', '2023-12-05 11:09:35', '2023-12-05 11:09:35'),
-(54, 'D-002', 'https://youtu.be/oKolDtQDqYI?si=ykNK9_bitf7fQ5QD', 'Hafalan Shalat Delisa', 'images/posterdelisa.jpg', 'banner/delisabanner (1).jpg', 11, 150, '2011', 0, 0, '<p class=\"MsoNormal\" style=\"text-align: justify;\">Delisa (Chantiq Schagerl), gadis kecil yang periang, tinggal di Lhok Nga, sebuah desa kecil yang berada di tepi pantai Aceh, dan mempunyai hidup yang indah sebagai anak bungsu dari keluarga Abi Usman (Reza Rahadian), ayahnya bertugas di sebuah kapal tanker perusahaan minyak internasional. Delisa sangat dekat dengan ibunya yang dia panggil Ummi (Nirina Zubir), serta ketiga kakaknya yaitu Fatimah (Ghina Salsabila) dan si kembar Aisyah (Reska Tania Apriadi) dan Zahra (Riska Tania Apriadi). Pada 26 Desember 2004, Delisa bersama Ummi sedang bersiap menuju ujian praktik shalat ketika tiba-tiba terjadi gempa. Gempa yang cukup membuat ibu dan kakak-kakak Delisa ketakutan. Tiba-tiba tsunami menghantam, menggulung desa kecil mereka, menggulung sekolah mereka, dan menggulung tubuh kecil Delisa serta ratusan ribu lainnya di Aceh serta berbagai pelosok pantai di Asia Tenggara.</p>', '2023-12-05 11:26:48', '2023-12-05 11:26:48'),
-(55, 'AD-002', 'https://www.youtube.com/watch?v=nAx3GaOE5xI', 'Petualangan Sherina ', 'images/sherina.jpg', 'banner/banner-petualangan-sherina-2.jpg', 14, 120, '2000', 0, 0, '<p style=\"text-align: justify;\">Sherina sedih harus pindah ke Bandung mengikuti ayahnya. Di sekolah baru, Sadam, si anak lelaki sok, selalu mengganggunya. Namun, permusuhan mereka berubah jadi persahabatan ketika keduanya diculik.</p>', '2023-12-05 12:21:07', '2023-12-05 12:21:07'),
-(56, 'AD-003', 'https://www.youtube.com/watch?v=fcGeZvvWCpo', '5 cm', 'images/5 cm.png', 'banner/5-cm.png', 14, 120, '2012', 0, 0, '<p style=\"text-align: justify;\">17 Agustus di puncak tertinggi Jawa, 5 sahabat 2 cinta, sebuah mimpi mengubah segalanya\" Genta, Arial, Zafran, Riani dan Ian adalah lima remaja yang telah menjalin persahabatan belasan tahun lamanya. Suatu hari mereka berlima merasa &ldquo;jenuh&rdquo; dengan persahabatan mereka dan akhirnya kelimanya memutuskan untuk berpisah, tidak saling berkomunikasi satu sama lain selama tiga bulan lamanya. Selama tiga bulan berpisah penuh kerinduan, banyak yang terjadi dalam kehidupan mereka berlima, sesuatu yang mengubah diri mereka masing-masing untuk lebih baik dalam menjalani kehidupan. Setelah tiga bulan berselang mereka berlimapun bertemu kembali dan merayakan pertemuan mereka dengan sebuah perjalanan penuh impian dan tantangan. Sebuah perjalanan hati demi mengibarkan sang saka merah putih di puncak tertinggi Jawa pada tanggal 17 Agustus. Sebuah perjalanan penuh perjuangan yang membuat mereka semakin mencintai Indonesia. Sebuah perjuangan atas impian, perjalanan hati yang merubah hidup mereka untuk selamanya</p>', '2023-12-05 12:49:08', '2023-12-05 12:49:08'),
-(57, 'AD-004', 'https://www.youtube.com/watch?v=gj3r5XDPuac', '5 Elang', 'images/5_Elang.png', 'banner/lima elang.png', 14, 120, '2011', 0, 0, '<p style=\"text-align: justify;\">Baron sangat kesal ketika harus mengikuti orang tuanya pindah dari Jakarta ke Balikpapan. Ia pun memilih untuk menutup diri dari lingkungan barunya dan sibuk sendiri bermain mobil RC. Namun, karena satu dan lain hal, Baron harus mewakili sekolahnya ikut perkemahan Pramuka dan satu regu dengan Rusdi, pramuka supel yang kelewat optimistis dan kerap kali membuat Baron jengkel.&nbsp;Bersama dengan anggota lain, Anton si ahli api, dan Aldi si kerdil yang tempramental dan jagoan berenang, serta kedua anak besar yang menjadi ahli fisik. Mereka memulai petualangan barunya di Perkemahan.&nbsp;Mereka juga bertemu dengan Sindai yaitu seorang gadis perkasa, yang banyak membantu Baron dan tim ketika harus menjelajahi hutan lebat dalam salah satu games perkemahan yaitu pada games markas bintang.</p>', '2023-12-05 13:11:28', '2023-12-05 13:11:28'),
-(58, 'AD-005', 'https://www.youtube.com/watch?v=eQfMbSe7F2g', 'Indiana Jones and the Dial of Destiny', 'images/Indiana Jones and the Dial of Destiny.png', 'banner/Indiana Jones and the Dial of Destiny.png', 14, 120, '2023', 0, 0, '<p style=\"text-align: justify;\">Arkeolog pemberani Indiana Jones berpacu dengan waktu untuk merebut cakram legendaris yang dapat mengubah sejarah. Didampingi putri baptisnya, ia harus menghadapi tantanan dari Jrgen Voller, bekas pengikut Nazi yang kini bekerja untuk NASA.</p>', '2023-12-05 14:18:08', '2023-12-05 14:18:08'),
-(59, 'AD-006', 'https://www.youtube.com/watch?v=C4qgAaxB_pc', 'The Jungle Book', 'images/The Jungle Book.png', 'banner/The-Jungle-Book-banner.png', 14, 120, '2016', 0, 0, '<p style=\"text-align: justify;\">The Jungle Book adalah film fantasi petualangan Amerika Serikat tahun 2016 yang disutradarai oleh Jon Favreau dan diproduseri oleh Jon Favreau dan Brigham Taylor.</p>', '2023-12-05 14:41:17', '2023-12-05 14:41:17'),
-(60, 'AD-007', 'https://www.youtube.com/watch?v=usEkWtuNn-w', 'the chronicles of narnia', 'images/The Chronicles of Narnia.png', 'banner/Narnia-8-the-chronicles-of-narnia.png', 14, 120, '2005', 0, 0, '<p style=\"text-align: justify;\">The Chronicles of Narnia: The Lion, the Witch and the Wardrobe adalah sebuah film berdasarkan buku The Chronicles Of Narnia: Sang Singa, sang Penyihir, dan Lemari, novel pertama yang diterbitkan dalam seri fantasi anak-anak The Chronicles of Narnia karangan C.S. Lewis.</p>', '2023-12-05 14:46:19', '2023-12-05 14:46:19'),
-(61, 'H-005', 'https://www.youtube.com/watch?v=QqcyvQUnqoY', 'Mata Batin 2', 'images/matabatin2.jpg', 'banner/bannermatabatin2.jpg', 6, 115, '2019', 0, 0, '<p style=\"text-align: justify;\">Setelah adiknya meninggal, ALIA memutuskan untuk memulai hidup baru dengan tinggal di sebuah panti asuhan milik BU LAKSMI dan PAK FADLI sekaligus kerja sosial di sana. Tapi Alia merasa ada yang janggal dengan panti itu. Apalagi NADIA, salah seorang anak panti yang ternyata juga memiliki mata batin terbuka seperti Alia, bisa mendengar suara misterius yang minta tolong dari seluruh dinding rumah. Alia dan Nadia pun membuka sebuah kamar misterius yang terkunci. Sejak itu malapetaka mulai terjadi. Ternyata Alia dan Nadia telah melakakukan kesalahan besar dan membebaskan DARMAH, arwah penuh dendam yang memang sengaja dikunci di kamar itu. Bersama dengan BU WINDU, paranormal dan pembimbing mata batinnya, Alia harus menghadapi Darmah dan menyelamatkan panti asuhan itu.</p>', '2023-12-06 14:30:38', '2023-12-06 14:30:38'),
-(62, 'H-006', 'https://www.youtube.com/watch?v=d173ahbvzUA', 'Mata Batin', 'images/matabatin1.jpg', 'banner/bannermatabatin.jpg', 6, 108, '2017', 0, 0, '<p style=\"text-align: justify;\">ALIA memutuskan untuk meninggalkan Bangkok dan kembali ke Jakarta begitu kedua orang tuanya meninggal. Ia dan Abel, adiknya yang masih remaja, pindah ke rumah masa kecil mereka yang jauh dari tengah kota. Tapi Abel yang sering bersikap aneh dan ketakutan, tidak menyukai rumah itu. Katanya, di sana ada &lsquo;yang lain&rsquo; selain mereka. Alia dan Davin, pacar Alia yang menemani Alia, tidak pernah menghiraukan Abel. Tapi sikap Abel semakin mengkhawatirkan. Merasa harus menolong Abel, Alia berniat untuk membawa Abel ke psikiater. Tapi Abel menolak dan ia bilang kalau ia bisa melihat &lsquo;mereka yang sudah mati&rsquo; karena mata batinnya sudah terbuka sejak kecil. Abel mengajak Alia menemui Bu Windu, seorang paranormal yang selama ini membantu Abel. Ingin membuktikan semua hal yang baginya tidak masuk akal ini, Alia meminta Bu Windu untuk membuka mata batinnya. Dan perlahan-lahan, Alia pun mulai mengalami kejadian-kejadian yang tidak biasa. Ia mulai melihat sosok yang tidak bisa dilihat orang lain, dan kehadiran &lsquo;orang-orang&rsquo; yang minta tolong padanya. Tapi &lsquo;mereka&rsquo; yang berada di rumah Alia mengganggunya sampai menyakitinya. Energi &lsquo;mereka&rsquo; begitu negatif sehingga bisa membahayakan Alia dan Abel. Tanpa tempat tinggal lain, mereka terpaksa menetap disana dan meminta bantuan Bu Windu. Apakah Bu Windu bisa membantu mereka?</p>', '2023-12-06 14:57:29', '2023-12-06 14:57:29'),
-(63, 'H-007', 'https://www.youtube.com/watch?v=12sXNFbQa6I', 'Sewu Dino', 'images/sewu dino.jpg', 'banner/bannersewudino.jpg', 6, 121, '2023', 0, 0, '<p style=\"text-align: justify;\">Ditengah kesulitan ekonomi, Sri diterima bekerja untuk keluarga Atmojo dengan bayaran yang tinggi, karena keunikan yang ia miliki, yaitu lahir pada hari Jumat Kliwon. Bersama Erna dan Dini, mereka dibawa ke sebuah gubuk tersembunyi di tengah hutan. Di gubuk tersebut, Sri, Erna, dan Dini bertugas untuk memandikan Dela Atmojo, cucu dari Mbah Karsa Atmojo yang tidak sadarkan diri karena kutukan santet Sewu Dino, salah satu santet yang paling mengerikan. Mereka tidak bisa lari dari gubuk tersebut karena terikat perjanjian mistis dengan Mbah Karsa Atmojo, dan mereka harus selesaikan ritual sampai hari ke 1000. Jika melanggar, kematian menanti mereka.</p>', '2023-12-06 15:07:54', '2023-12-06 15:07:54'),
-(64, 'H-008', 'https://www.youtube.com/watch?v=YLU6Qfi0cDY', 'Danur: I Can See Ghosts', 'images/Danur_poster.jpg', 'banner/danur_banner.jpg', 6, 78, '2017', 0, 0, '<p style=\"text-align: justify;\">Mengikuti kisah Risa yang bisa berkomunikasi dengan hantu. Masalah timbul saat sang adik, Riri, secara misterius hilang tanpa jejak. Ia pun meminta bantuan pada teman-teman hantunya untuk mencarinya.</p>', '2023-12-06 15:28:06', '2023-12-06 15:28:06'),
-(65, 'H-009', 'https://www.youtube.com/watch?v=zLANvkUI2nU', 'Menjelang Maghrib', 'images/menjelangmaghrib.jpg', 'banner/menjelangmaghribbanner.jpg', 6, 104, '2022', 0, 0, '<p style=\"text-align: justify;\">Mahasiswa jurusan psychology menemui seorang pasien sakit jiwa untuk materi research skripsi mereka. Bermula dari masalah kejiwaan Nina yang akhirnya berkembang menjadi hal-hal mistis yang diluar logika. Tahayul, Mistis dan Budaya bertabrakan dengan science dan pengetahuan mereka selama ini.</p>', '2023-12-06 15:50:54', '2023-12-06 15:50:54'),
-(66, 'H-010', 'https://www.youtube.com/watch?v=8TVPxHVUWS8', 'Bayi Ajaib', 'images/bayi gaib.jpg', 'banner/bannerbayigaib.webp', 6, 99, '2023', 0, 0, '<p style=\"text-align: justify;\">Kosim, menjadi kaya mendadak setelah menemukan emas di sungai desa Hirupbagja. Dia segera menikahi Sumi dan hidup makmur sebagai juragan tanah. Ketika anak mereka lahir, Didi, jiwanya sudah dirasuki arwah Albert Dominique, yang haus darah dan meneror warga desa. Kosim berusaha menutupi kenyataan ini<span class=\"yZlgBd\">&nbsp;karena dia sedang mencalonkan diri sebagai Kepala Desa yang baru. Dia harus bisa mengalahkan Soleh yang sudah mendapatkan simpati dari warga desa. Namun ketika arwah tersebut berbalik mengancam kehidupan keluarganya, Kosim memutuskan untuk membebaskan Didi dari jeratan pengaruh Albert Dominique. Untuk itu, Kosim harus berhadapan dengan Dorman, dukun hitam, yang ingin membalaskan dendam kakek buyutnya pada orang-orang yang telah menghancurkan kehidupannya?</span></p>', '2023-12-06 16:10:50', '2023-12-06 16:10:50'),
-(67, 'H-011', 'https://www.youtube.com/watch?v=O29hLG_37qI', 'Ivanna', 'images/ivanna-setan-1.webp', 'banner/film-ivanna-2022_169.jpeg', 6, 103, '2022', 0, 0, '<p>Ketika Ambar &amp; Dika pindah setelah kematian orang tua mereka, tidak pernah terpikirkan apa yang seharusnya menjadi awal baru berubah menjadi awal kesengsaraan terbesar dalam hidup mereka. Semua akibat kemampuan Ambar merasakan yang tak terlihat, yang didapatkan setelah mengalami gangguan penglihatan.</p>', '2023-12-06 17:02:00', '2023-12-06 17:02:00'),
-(68, 'H-012', 'https://www.youtube.com/watch?v=081X-uXzj78', 'Aku Tahu Kapan Kamu Mati (Desa Bunuh Diri)', 'images/369271103_832167921857387_8918204220588687730_n.heic', 'banner/Desa-Bunuh-Diri-web-banner-1.jpg', 6, 106, '2023', 0, 0, '<p style=\"text-align: justify;\">Lima tahun sejak SIENA (Natasha Wilona) memiliki kemampuan untuk melihat tanda kapan seseorang akan mati, Siena masih sering diliputi rasa takut, yang bahkan dia sembunyikan dari kedua sahabatnya, WINDY (Marsha Aruan) dan RIO (Giulio Parengkuan). Siena hanya bercerita dengan NAYA (Acha Septriasa), dosen dan psikolog klinis di kampus, Sampai suatu hari, sebuah kematian terjadi di kampus, namun kali ini Siena tidak melihat tanda apa-apa.Peristiwa tersebut membuat Naya kembali ke kampung halamannya, Desa Remetuk untuk bertemu dengan LARAS (Ratu Felisha). Berbekal sebuah pesan yang ditinggalkan, Siena berhasil ditemani Windy dan Rio pergi ke Desa Remetuk. Menjelang musim panen, di Desa Remetuk selalu terjadi percobaan bunuh diri, tapi Siena yang ingin menolong tak pernah bisa melihat tanda-tandanya. Siena, Windy, Rio, Naya, serta Naya dan Laras, tak satu pun dapat lari dari kutukan tersebut, keinginan bagi setiap dari mereka untuk tahu dan menentukan kapan diri sendiri akan mati.</p>', '2023-12-06 17:26:46', '2023-12-06 17:26:46'),
-(69, 'K-005', 'https://www.youtube.com/watch?v=1rqSEfLt4z0', 'Kejar Mimpi Gaspol!!', 'images/kejar-mimpi-gaspol-2023dokkejar-mimpi-gaspol-2023.jpeg', 'banner/KMG4.jpeg', 7, 113, '2023', 0, 0, '<p>Film ini mengisahkan perjuangan seorang ibu tunggal bernama Fifi, yang mengorbankan cita-citanya sebagai penulis terkenal untuk menjadi tulang punggung keluarga dengan menjadi sopir jeep di wilayah Gunung Bromo. Namun, kehidupan Fifi dan keluarganya berubah secara tak terduga ketika seorang pria masuk dalam kehidupan mereka.</p>', '2023-12-06 18:15:06', '2023-12-06 18:15:06'),
-(70, 'K-006', 'https://www.youtube.com/watch?v=YRPN6luQaSY', 'Onde Mande', 'images/onde-mande-2023dok-visinema-pictures.jpeg', 'banner/IMG-20230609-WA0021.jpg', 7, 97, '2023', 0, 0, '<p style=\"text-align: justify;\"><em>Onde Mande!</em> adalah film komedi Indonesia yang mengisahkan tentang seorang pensiunan guru dan tetua Desa Sigiran bernama Angku Wan yang memenangkan undian Rp2 miliar dari perusahaan sabun. Namun ia meninggal sebelum mengambil hadiahnya.&nbsp;Warga desa berusaha mendapatkan uang tersebut untuk membangun desa, tetapi rencana mereka terancam ketika Anwar datang untuk mengecek identitas Angku Wan.</p>', '2023-12-06 18:33:55', '2023-12-06 18:33:55'),
-(71, 'K-007', 'https://www.youtube.com/watch?v=XlgnP_kLVFM', 'Ganjil Genap', 'images/ganjil-genap-2023dokmd-pictures.jpeg', 'banner/film-ganjil-genap-1539618162.webp', 7, 124, '2023', 0, 0, '<p><em>Ganjil Genap</em> adalah film komedi Indonesia yang mengisahkan tentang Gala dan Bara, sepasang kekasih yang sudah berpacaran selama delapan tahun. Gala meminta Bara untuk menikah, tetapi hubungan mereka hancur ketika Bara memutuskan berpisah. Aiman mencoba membantu Gala, tetapi hubungan mereka juga menjadi rumit. Gala kemudian menyadari bahwa Aiman adalah sosok yang sama dengan Bara.</p>', '2023-12-06 18:53:28', '2023-12-06 18:53:28'),
-(72, 'K-008', 'https://www.youtube.com/watch?v=sTxYQNTlihY', 'Scandal Makers', 'images/scandal-makers-2023dokmd-pictures-present.jpeg', 'banner/63bbb6868f70f.jpeg', 7, 86, '2023', 0, 0, '<p style=\"text-align: justify;\"><em>Scandal Makers</em> adalah film adaptasi dari Korea Selatan yang mengisahkan tentang Oskar, seorang penyiar radio terkenal yang hidupnya tiba-tiba berubah ketika seorang wanita bernama Karin dan anak laki-lakinya, Gempa, mengaku sebagai keluarganya. Oskar awalnya skeptis terhadap klaim Karin dan untuk membuktikannya, ia meminta mereka untuk melakukan tes DNA.&nbsp;Cerita ini menghadirkan kebingungan dan konflik emosional saat Oskar berusaha memahami dan menerima kenyataan tentang keluarganya yang tak terduga.</p>', '2023-12-06 19:18:55', '2023-12-06 19:18:55'),
-(73, 'K-009', 'https://www.youtube.com/watch?v=xb9iRweZfcA', 'Hitmen', 'images/hitmen-2023dokmd-pictures.jpeg', 'banner/review-hitmen-2023-film-komedi-laga-indonesia-untuk-penonton-17-eb7782.webp', 7, 96, '2023', 0, 0, '<p style=\"text-align: justify;\"><em>Hitmen</em> merupakan film komedi aksi yang mengisahkan petualangan Johnny dan Frangky, dua pembunuh bayaran yang berusaha keluar dari kehidupan gelap mereka dengan pensiun. Sebelum meraih impian itu, mereka terpaksa menghadapi misi terakhir yang penuh bahaya dan mengancam nyawa.&nbsp;Dalam perjalanan, Johnny dan Frangky harus melawan waktu dan musuh-musuhnya demi mencapai tujuan pensiun yang diimpikan.</p>', '2023-12-06 19:41:15', '2023-12-06 19:41:15'),
-(74, 'K-010', 'https://www.youtube.com/watch?v=FuC8H8eXZFU', 'My Stupid Boss', 'images/my-stupid-boss-2016dokfalcon-pictures.jpeg', 'banner/061672300_1694171143-SVOD_-_My_Stupid_Boss_-_Thumbnail.jpg', 7, 108, '2016', 0, 0, '<p><em>My Stupid Boss</em>&nbsp;adalah film komedi Indonesia yang disutradarai oleh Upi Avianto. Film ini mengisahkan tentang hubungan antara seorang karyawan bernama Diana dan bosnya yang berkelakuan super ajaib, Bossman.</p>\r\n<p>Diana tinggal di Kuala Lumpur mengikuti suaminya, Dika yang bekerja di sana. Ketika Diana melamar bekerja di sebuah perusahaan, kebetulan bosnya adalah teman kuliah Dika sewaktu di Amerika. Perilaku unik Bossman membuat hubungan mereka penuh dengan kekonyolan dan komedi.</p>', '2023-12-06 19:46:22', '2023-12-06 19:46:22'),
-(75, 'K-011', 'https://www.youtube.com/watch?v=MbZtoOuRpyU', 'Susah Sinyal', 'images/susah-sinyal-2017dokstarvision.jpeg', 'banner/5aa2d86ffcf8a2eb30c704edc8347c8e3ab4a9b9_2_1024x576.jpeg', 7, 110, '2017', 0, 0, '<p>Ceritanya mengikuti Ellen, seorang ibu tunggal yang sibuk sebagai seorang pengacara sukses dan jarang meluangkan waktu untuk putrinya, Kiara. Kiara, sebagai seorang remaja, memiliki hobi membuat konten di Internet dan sering melanggar peraturan sekolah tentang penggunaan gawai.</p>\r\n<p>Ketika tragedi menghampiri, Ellen dianjurkan untuk berlibur dengan Kiara untuk mengobati rasa kehilangannya. Mereka pergi ke Sumba dan hubungan antara Ellen dan Kiara berangsur membaik, tetapi Ellen harus menghadapi masalah besar dalam pekerjaannya yang mengancam janjinya untuk mendukung Kiara dalam acara bakat menyanyi.</p>', '2023-12-06 19:50:43', '2023-12-06 19:50:43'),
-(76, 'K-012', 'https://www.youtube.com/watch?v=m3U03b9yHKk', 'Warkop DKI Reborn: Jangkrik Boss! Part 1', 'images/warkop-dki-reborn-jangkrik-boss-part-1-2016dokfalcon-pictures.jpeg', 'banner/jangkrik-bos.jpg', 7, 110, '2016', 0, 0, '<p>Film komedi Indonesia ini mengisahkan tentang tiga sahabat, Dono , Kasino, dan Indro, yang bekerja sebagai petugas keamanan di organisasi CHIIPS. Meskipun tugas mereka adalah menertibkan dan menjaga keamanan masyarakat, kelakuan konyol dan bermasalah mereka selalu membuat jengkel atasannya.</p>\r\n<p>Kehadiran Sophie, anggota CHIIPS dari Paris, membawa mereka pada petualangan kocak untuk mencari harta karun guna membayar denda Rp8 miliar dan menghindari penjara.</p>', '2023-12-06 19:56:51', '2023-12-06 19:56:51'),
-(77, 'F-003', 'https://youtu.be/pBk4NYhWNMM?si=dr47xxMOWwdxE1jc', 'Barbie', 'images/barbie.jpg', 'banner/bannerbarbie (1).jpg', 12, 114, '2023', 0, 0, '<p style=\"text-align: justify;\">Film Barbie menceritakan tentang kehidupan para Barbie di Barbie Land dengan keunikan karakternya masing-masing. Di tempat tersebut, para perempuan dipanggil Barbie sedangkan laki-laki dipanggil Ken.&nbsp;Barbie dengan peran utama Margot Robbie dan Ken dengan peran utama Ryan Gosling menjalani kehidupannya di Barbie Land dengan penuh kebahagiaan dan berwarna hingga tampak sempurna.&nbsp;Barbie hidup layaknya boneka Barbie dengan kaki yang selalu berjinjit. Tidak hanya itu, Barbie juga berpenampilan yang menarik dan berglitter.&nbsp;Namun pada suatu hari, kaki Barbie tersebut berubah menjadi datar sehingga tidak lagi berjinjit. Ia juga tidak memiliki kemampuan untuk terbang lagi saat keluar rumah.&nbsp;Oleh sebab itu, Barbie akhirnya diusir dari Barbie Land lantaran dianggap tidak normal. Barbie pun pergi bersama Ken dengan mobil merah muda ke dunia nyata.&nbsp;Saat berada di dunia nyata, mereka segera menemukan kegembiraan. Namun, keberadaan Barbie di dunia nyata disadari oleh beberapa orang sehingga membuat mereka dihantui bahaya hidup di antara manusia.<br><br><br><br></p>', '2023-12-07 04:05:07', '2023-12-07 04:05:07'),
-(78, 'F-004', 'https://youtu.be/RDDM_Cky9M8?si=w6ZUkL1rOhSu-6GM', 'Beauty And The Beast', 'images/beautybeast.jpg', 'banner/bnbeauty.png', 12, 129, '2017', 0, 0, '<p style=\"text-align: justify;\">&nbsp;Film ini mengisahkan Belle, seorang gadis muda yang tinggal di sebuah desa kecil bersama ayahnya yang eksentrik, Maurice. Suatu hari, Maurice tersesat di dalam hutan dan menemukan istana misterius yang ditinggalkan. Namun, ketika dia mencoba untuk mengambil mawar sebagai hadiah untuk Belle, pemilik istana, yang ternyata adalah seorang penyihir dan memiliki wajah yang menakutkan, marah padanya.&nbsp;Belle yang khawatir tentang ayahnya, menawarkan diri untuk menggantikan ayahnya sebagai tawanan sang penyihir. Di istana tersebut, Belle menemukan bahwa para pelayan istana telah berubah menjadi benda-benda hidup, seperti Lilin, Jam, dan Teapot, akibat kutukan penyihir. Pemilik istana, yang merupakan seorang pangeran tampan, telah berubah menjadi Beast dan akan tetap seperti itu kecuali seseorang mencintainya meskipun penampilannya yang menakutkan.</p>', '2023-12-07 04:13:43', '2023-12-07 04:13:43'),
-(79, 'F-005', 'https://youtu.be/tCFq6gOXDqY?si=6QgYcxFcBHgc-9yB', 'Snow White And The Huntsman', 'images/snowwhite.jpg', 'banner/bnsnowwhite.png', 12, 127, '2012', 0, 0, '<p style=\"text-align: justify;\">Snow White adalah perempuan tercantik di seluruh negeri. Inilah sebabnya Queen Ravenna ingin membunuhnya dan mengirim seorang pemburu Namun bukannya membunuh, pemburu tersebut malah melatih Snow White cara bertarung dan seni berperang. Kini, Snow White menjelma menjadi seorang pejuang yang mengancam pemerintahan Queen Ravenna</p>', '2023-12-07 04:17:54', '2023-12-07 04:17:54'),
-(80, 'F-006', 'https://youtu.be/p-5sVX7MRj8?si=v2ZkNPvc4Br0CD68', 'Peter Pan & Wendy', 'images/PETER PAN & WENDY (2023).jpg', 'banner/bnpeterpan.png', 12, 109, '2023', 0, 0, '<p>Pada suatu malam, Wendy sedang tertidur dengan damai di tempat tidurnya. Beberapa menit kemudian, ia mendadak terbangun akibat kegaduhan yang ditimbulkan oleh kedua adik laki-lakinya, John dan Michael. Keduanya terlihat menangkap Tinker Bell, yang mereka duga sebagai seekor serangga.&nbsp;Bersamaan dengan kejadian itu. Muncullah Peter Pan, seorang anak laki-laki yang menolak untuk tumbuh dewasa.&nbsp;Peter Pan mengajak Wendy, John dan Michael untuk bepergian ke Neverland, dibantu dengan serbuk peri milik Tinker Bell. Di sana, Wendy bertemu dengan anak-anak yang hilang, Tiger Lily dan Kapten Hook, sosok kapten bajak laut yang jahat serta memulai petualangan menabjukkan dan mendebarkan. Sekaligus, melakukan pertarungan berbahaya yang bakal mengubah hidupnya selamanya.</p>', '2023-12-07 04:26:17', '2023-12-07 04:26:17'),
-(81, 'D-003', 'https://youtu.be/elIcNsHm6pM?si=fM4E6HIAQzpmfO2a', 'Hati Suhita', 'images/posterhatisuhita.jpg', 'banner/suhita.png', 11, 137, '2023', 0, 0, '<p style=\"text-align: justify;\">Kisah Alina Suhita. Perempuan teguh, matang dan pantang menyerah. Ketabahan memandunya menghadapi badai rumah tangga yang terjadi bahkan sejak malam pertama. Perjuangan lahir batinnya diuji untuk merengkuh cinta Gus Birru, suaminya sendiri.</p>', '2023-12-07 05:42:53', '2023-12-07 05:42:53'),
-(82, 'D-004', '', 'Air Mata di Ujung Sajadah', 'images/airmata.jpg', 'banner/airmatabn.png', 11, 105, '2023', 0, 0, '<p style=\"text-align: justify;\">Tujuh tahun berlalu, Aqilla baru mengetahui bahwa anaknya yakni Baskara, ternyata masih hidup dan diasuh oleh Arif dan Yumna, pasangan yang hanya memiliki satu harapan: memiliki seorang anak. Aqilla bertolak dari kehidupannya yang hampa di Eropa menuju Kota Solo untuk menjemput masa depan barunya. Akankah Aqilla tega merenggut Baskara yang sudah dibesarkan oleh Arif dan Yumna selama bertahun-tahun? Memang darah dan daging Aqilla ada dalam diri Baskara, namun di sana juga ada keringat dan airmata Yumna. Siapakah yang lebih berhak menjadi ibu dari Baskara?</p>', '2023-12-07 05:50:39', '2023-12-07 05:50:39'),
-(83, 'D-005', 'https://youtu.be/3VkYiatpTVQ?si=-IrjY5Ux2w5A6BGq', 'Budi Pekerti', 'images/budipekerti.jpg', 'banner/bnbudipekerti.png', 11, 110, '2023', 0, 0, '<p style=\"text-align: justify;\">Bu Prani, seorang guru BK terlibat perselisihan dengan pengunjung di pasar. Sayangnya, kejadian tersebut berhasil direkam oleh seseorang dan diunggah ke media sosial. Karena sikap Bu Prani yang dinilai tidak mencerminkan layaknya seorang guru, ia mendapatkan kecaman dan komentar negatif dari netizen.&nbsp;Tidak hanya Bu Prani yang terkena&nbsp;<em>bullying</em>, keluarganya pun ikut dikecam oleh masyarakat. Segala tindakan dan perlakuan masing-masing anggota keluarganya pun ikut dinilai dari dicari kesalahannya. Sehingga hidup mereka menjadi tidak tenang dan apa pun yang mereka lakukan akan dipandang salah. Selain kehilangan keharmonisan keluarga, hingga Bu Prani terancam kehilangan pekerjaannya</p>', '2023-12-07 06:03:07', '2023-12-07 06:03:07'),
-(84, 'D-006', 'https://youtu.be/IPRBKGxCCZQ?si=ImIquZwlXyAXEM-n', '172 Days', 'images/172 Days.jpg', 'banner/banner172.png', 11, 103, '2023', 0, 0, '<p style=\"text-align: justify;\">Film 172 Days menecritakan seorang perempuan bernama Nadzira Shafa memutuskan untuk berhijrah dan ingin menjalani kehidupan yang lebih baik. Dari proses hijrahnya tersebut, Nadzira Shafa mulai banyak mempelajari tentang ilmu agama serta kerap kali hadir dalam suatu majlis pengajian. Ameer adalah putra dari mendiang Ustadz Arifin Ilham, seorang ulama dan pendakwah yang sangat terkenal di Indonesia. Ameer adalah seorang pemuda yang taat beragama dan memiliki akhlak yang mulia. Ameer pun mulai mendekati Zira. Ia mengajak Zira untuk taaruf dan menikah. Zira pun menerima ajakan Ameer dan mereka pun menikah.Kehidupan pernikahan Zira dan Ameer sangat bahagia. Mereka saling mencintai dan saling mendukung. Namun, kebahagiaan mereka tidak bertahan lama. Ameer yang menderita penyakit kritis harus menjalani perawatan intensif di rumah sakit. Zira pun setia mendampingi Ameer selama masa-masa sulitnya. Akhirnya, Ameer menghembuskan napas terakhirnya di usia yang masih sangat muda, 22 tahun. Kepergian Ameer meninggalkan duka yang mendalam bagi Zira.</p>', '2023-12-07 06:07:51', '2023-12-07 06:07:51'),
-(85, 'M-004', 'https://youtu.be/CzUtxsJxCzQ?si=Rr-DJYCL0YWvDRkD', 'Gone Girl', 'images/gone-girl.jpg', 'banner/648d86bc8f038-gone-girl_bandung.jpg', 13, 149, '2014', 0, 0, '<p>Pada suatu pagi istrinya hilang secara misterius. Nick Dunne lapor polisi dan media segera meliput kasus ini secara besar-besaran. Namun mereka curiga - mungkin Nick telah membunuh istrinya sendiri.</p>', '2023-12-07 10:13:25', '2023-12-07 10:13:25'),
-(86, 'M-005', 'https://youtu.be/5iaYLCiq5RM?si=IZJaGXdXR3PE474e', 'Shutter Island', 'images/SI_.jpg', 'banner/Shutter-Island.webp', 13, 138, '2010', 0, 0, '<p>Seorang perwira ditugaskan untuk menyelidiki hilangnya seorang pasien yang telah melarikan diri dari rumah sakit jiwa. Hal-hal berbahaya mulai meragukan segalanya, termasuk kewarasannya sendiri.</p>\r\n<p>&nbsp;</p>', '2023-12-07 10:27:14', '2023-12-07 10:27:14'),
-(87, 'M-006', 'https://youtu.be/seBixtcx19E?si=WvRkloqvpRKQl6C5', 'Missing', 'images/14.-PF-Missing.jpg', 'banner/missing.jpg', 13, 111, '2022', 0, 0, '<p>Ketika sang ibu dan pacar barunya menghilang saat berlibur berdua ke Kolombia, upaya June dalam mencari jawaban selalu terjegal oleh birokrasi internasional. Tak mampu beranjak dari Los Angeles, June dengan cerdik mempergunakan segala teknologi yang ada dalam genggamannya untuk mencari ibunya sebelum semuanya terlambat. Namun semakin ia mencari tahu, penyelidikan digital yang ia lakukan berbuahkan lebih banyak pertanyaan daripada jawaban, dan begitu June menemukan rahasia-rahasia tentang sang ibu, ia tersadar bahwa selama ini ia tak benar-benar mengenal ibunya sendiri.</p>', '2023-12-07 11:10:34', '2023-12-07 11:10:34'),
-(88, 'M-007', 'https://youtu.be/OtYQB4r8Jew?si=DBpOFmsltQzVn-KV', 'There s Something Wrong with the Children', 'images/Tswwtc.jpg', 'banner/tswwtc.webp', 13, 92, '2023', 0, 0, '<p><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Margaret dan Ben melakukan perjalanan akhir pekan dengan teman lama mereka, Ellie dan Thomas serta dua anak kecil mereka. </span><span style=\"vertical-align: inherit;\">Ben mulai curiga suatu hal supernatural sedang terjadi saat anak-anak itu sering mendapat pesan aneh setelah hilang semalaman di hutan.</span></span></p>', '2023-12-07 11:16:31', '2023-12-07 11:16:31');
+(12, 'H-001', 'https://youtu.be/ui9XZlcAwgo?si=euiknHISXvi83O5E', 'Danur 2 : Maddah', 'images/danur.jpg', 'banner/danur2 (1).jpg', 6, 105, 2021, 0, 0, '<p style=\"text-align: justify;\">Risa, remaja perempuan yang memiliki 3 sahabat hantu bernama Peter, William, dan Janshen. Risa kini tinggal bersama adiknya Riri, yang sudah mulai jengah dengan kemampuan Risa bisa melihat hantu. Apalagi mereka untuk sementara hanya tinggal berdua karena ibunya menemani bapaknya dinas di luar negeri. Keluarga pamannya, Om Ahmad baru pindah ke Bandung bersama istrinya, Tante Tina dan Angki anaknya. Risa dan Riri sering berkunjung bahkan menginap di rumah Om Ahmad dan Tante Tina. Risa awalnya tidak merasa ada yang aneh dengan rumah Om Ahmad, namun suatu hari Risa memergoki Om Ahmad pergi bersama seorang wanita, Risa hampir tidak percaya bahwa Omnya selingkuh, Risa tidak berani bilang ke Tante Tina dan memilih menyelidiki sendiri. Namun, setelah itu Angki bercerita beberapa hal janggal terjadi dan yang paling aneh adalah sikap Om Ahmad berubah. Suatu malam Risa diganggu oleh sosok hantu perempuan menyeramkan di rumah itu. Apakah benar Om Ahmad selingkuh? Apa hubungannya dengan teror hantu wanita di rumah itu yang mengganggu keluarga Om Ahmad termasuk Risa? Apakah Peter dan kawan-kawan akan datang membantu Risa, meskipun Peter memperingatkan Risa sebelumnya tentang roh jahat berbahaya di rumah Om Ahmad itu?</p>', '2023-11-25 11:04:03', '2023-11-25 11:04:03'),
+(13, 'H-002', 'https://youtu.be/h9Q4zZS2v1k?si=xmHGGsJSaEd8dn8M', 'The Conjuring: The Devil Made Me Do It ', 'images/The_Conjuring_-_The_Devil_Made_Me_Do_It.png', 'banner/conjuring3 (1).jpg', 6, 112, 2021, 0, 0, '<p style=\"text-align: justify;\">The Conjuring: The Devil Made Me Do It adalah film horor supranatural yang dirilis pada tahun 2021, bukan 2020. Film ini merupakan sekuel dari seri film The Conjuring yang sangat populer. Film ini berdasarkan kisah nyata dari kasus pengadilan pertama di Amerika Serikat yang melibatkan pembelaan kekerasan setan dalam kasus pembunuhan. Film ini mengikuti investigasi pasangan paranormal, Ed dan Lorraine Warren, yang terlibat dalam kasus tersebut. Mereka berusaha membantu membuktikan bahwa tersangka kasus pembunuhan tidak sepenuhnya bertanggung jawab atas perbuatannya karena terpengaruh oleh kekuatan supranatural yang jahat. Dalam perjalanan mereka, Ed dan Lorraine menemui banyak hal aneh dan menyeramkan yang terkait dengan kasus tersebut. Mereka harus menghadapi kekuatan gelap yang sangat kuat untuk membuktikan kebenaran dan melindungi orang-orang yang mereka cintai. Film ini menawarkan suasana tegang, adegan mencekam, dan elemen horor yang intens, sambil mencoba menggali sisi psikologis dari pengaruh supranatural terhadap tindakan manusia.</p>', '2023-11-25 12:32:45', '2023-11-25 12:32:45'),
+(23, 'K-001', 'https://youtu.be/olXfjgN1WWo?si=N7KKNDobTBIWhuWb', 'Baby Blues', 'images/posterbabyblues.jpg', 'banner/Film-Baby-Blues-2022.jpg', 7, 100, 2022, 0, 0, '<p style=\"text-align: justify;\">mengisahkan Dika (Vino G. Bastian) dan Dinda (Aurelie Moeremans), sepasang suami-istri yang baru saja memiliki anak bayi. Namun, ketimbang mengurusi anaknya, keduanya justru jauh lebih sering bertengkar. Hal ini terjadi karena Dinda merasa kesulitan merawat bayi ditambah dengan Dika yang cuek dan tak ikut mengurus anaknya. Akibatnya, Dinda jadi mengalami sindrom baby blues. Setelah pertengkaran hebat, keduanya terlibat dalam fenomena misterius yang membuat jiwa mereka bertukar tubuh. Jadi, jiwa Dinda ada pada tubuh Dika, dan begitu juga sebaliknya. Kondisi ini membuat keduanya jadi tukar tanggung jawab dan saling memahami kondisi antara satu sama lain. Namun, bisakah keduanya kembali ke tubuhnya masing-masing dan menjalani kehidupan normal seperti sebelumnya.</p>', '2023-11-26 05:01:07', '2023-11-26 05:01:07'),
+(28, 'A-001', 'https://www.youtube.com/watch?v=M25zXBIUVr0', 'Plane', 'images/plane.jpg', 'banner/plane (1).jpg', 8, 107, 2023, 0, 0, '<p style=\"text-align: justify;\">Seorang pilot bernama Brodie Torrance (Gerard Butler) terjebak di wilayah berbahaya saat ia terpaksa mendaratkan pesawat komersialnya setelah badai mengerikan melanda. Setelah selamat mendaratkan pesawat, semua penumpang disandera kelompok bersenjata yang sadis. Satu-satunya cara untuk menyelamatkan mereka semua adalah bekerja sama dengan Louis Gaspare (Mike Colter), seorang terdakwa pembunuh yang turut ikut dalam pesawat tersebut.</p>', '2023-11-26 14:53:33', '2023-11-26 14:53:33'),
+(29, 'A-002', 'https://www.youtube.com/watch?v=AwwbhhjQ9Xk', 'The Maze Runner', 'images/tmr.jpg', 'banner/background_1.jpg', 8, 113, 2014, 0, 0, '<p style=\"text-align: justify;\">Film The Maze Runner ini diangkat dari novel young adult karangan James Dashner. Film ini menceritakan bagaimana jadinya jika tatanan dunia yang sempurna itu dilanggar. Dalam dunia dystopia ciptaan James ini, sekelompok pria berhasil bertahan hidup di dataran hijau di tengahtengah sebuah labirin raksasa. Mereka bahkan telah sukses membangun semacam kota, sesuai letaknya, mereka menyebut nya Glade, dimana disana dilengkapi dengan aturan-aturan yang tentunya dibutuhkan untuk menjaga keseimbangan di dalam komunitas kecil tersebut. Tidak ada yang tahu mengapa mereka ditempatkan di sana. Semua orang yang dikirim ke sana sudah dihapus terlebih dahulu ingatannya. Yang pasti , setiap sebulan sekali akan ada seorang penghuni baru yang dikirimkan ke Glade.</p>', '2023-11-27 07:52:13', '2023-11-27 07:52:13'),
+(30, 'M-002', 'https://www.youtube.com/watch?v=AwwbhhjQ9Xk', 'Death On The Nile', 'images/death.jpg', 'banner/background.jpg', 13, 127, 2022, 0, 0, '<p style=\"text-align: justify;\">Kedamaian dan ketenangan yang hadir sementara di kapal uap Karnak saat berlayar di Sungai Nil seketika hancur setelah salah satu penumpang ditemukan terbunuh secara tragis. Detektif terkenal dari Belgia, Hercule Poirot yang sedang liburan dipercayakan dengan tugas penting untuk mengidentifikasi penumpang mana yang menjadi pembunuh sebelum mereka menyerang lagi. Berlatar pemandangan epik dari pemandangan gurun Mesir yang luas dan piramida Giza yang megah, kisah tentang hasrat yang tak terkendali dan kecemburuan yang melumpuhkan ini menampilkan sekelompok pelancong kosmopolitan yang berpakaian rapi. Ada cukup banyak tikungan dan intrik jahat film ini yang membuat penonton menebak-nebak sampai akhir yang mengejutkan.</p>', '2023-11-27 07:56:03', '2023-11-27 07:56:03'),
+(31, 'A-003', 'https://www.youtube.com/watch?v=eOrNdBpGMv8', 'The Avengers', 'images/avengers (2).jpg', 'banner/background_2.jpg', 8, 127, 2022, 0, 0, '<p style=\"text-align: justify;\">Ketika musuh yang tak terduga muncul, mengancam keselamatan dan keamanan dunia, Nick Fury, direktur Badan Perdamaian Internasional, dikenal sebagai S.H.I.E.L.D. , membutuhkan tim untuk menyelamatkan dunia dari bencana. Usaha perekrutan pun dimulai Iron Man, Captain America, Hulk, Thor, Black Widow dan Hawkeye dikumpulkan untuk menaklukkan Dewa Kehancuran, Loki, dalam usahanya menghancurkan bumi. Dengan semua gabungan kekuatan, tugas nampak lebih mudah. Namun kenyatannya tidak demikian! Para pahlawan super justru saling melawan satu sama lain Hulk melawan Captain America, siapa yang akan menang? Apakah Iron Man dapat mengalahkan kekuatan super milik Thor? Bagaimana para pahlawan super ini secara bersamasama menghadapi bencana, melindungi masyarakat dan yang terpenting, bertahan hidup?</p>', '2023-11-27 08:01:29', '2023-11-27 08:01:29'),
+(32, 'A-004', 'https://youtu.be/DN3sRz_veBU?si=bMPCcC8vfuOn0Top', 'Mencuri Raden Saleh', 'images/radensaleh.jpg', 'banner/bnradensalehhd.jpg', 8, 154, 2022, 0, 0, '<p style=\"text-align: justify;\">Pencurian terbesar abad ini tinggal menghitung hari menjelang tanggal eksekusinya. Komplotan sudah lengkap dan siap menjalankan misi untuk mencuri lukisan sang maestro, Raden Saleh, yang berjudul Penangkapan Diponegoro. Pemalsuan, peretasan, pertarungan, dan manipulasi terjadi dalam pencurian berencana yang dijalankan oleh sekelompok anak muda amatiran</p>', '2023-11-28 07:26:21', '2023-11-28 07:26:21'),
+(37, 'K-002', 'https://www.youtube.com/watch?v=0uf6QUacVgs', 'Miracle in cell No.7', 'images/miracle.jpeg', 'banner/bannermiracle.jpg', 7, 145, 2022, 0, 0, '<p style=\"text-align: justify;\"><span class=\"fontstyle0\">Kedamaian dan ketenangan yang hadir sementara di kapal uap Karnak saat berlayar di Sungai Nil seketika hancur setelah salah satu penumpang ditemukan terbunuh secara tragis. Detektif terkenal dari Belgia, Hercule Poirot yang sedang liburan dipercayakan dengan tugas penting untuk mengidentifikasi penumpang mana yang menjadi pembunuh sebelum mereka menyerang lagi. Berlatar pemandangan epik dari pemandangan gurun Mesir yang luas dan piramida Giza yang megah, kisah tentang hasrat yang tak terkendali dan kecemburuan yang melumpuhkan ini menampilkan sekelompok pelancong kosmopolitan yang berpakaian rapi. Ada cukup banyak tikungan dan intrik jahat film ini yang membuat penonton menebak-nebak sampai akhir yang mengejutkan</span>&nbsp;</p>', '2023-12-02 14:12:30', '2023-12-02 14:12:30'),
+(38, 'R-001', 'https://www.youtube.com/watch?v=nwhB2Hb7g5c', 'Dilan 1990', 'images/posterdilan.jpg', 'banner/dilan.webp', 9, 110, 2018, 0, 0, '<p style=\"text-align: justify;\"><span class=\"fontstyle0\">Milea (Vanesha Prescilla) bertemu dengan Dilan (Iqbaal Ramadhan) di sebuah SMA di Bandung. Itu adalah tahun 1990, saat Milea pindah dari Jakarta ke Bandung. Perkenalan yang tidak biasa kemudian membawa Milea mulai mengenal keunikan Dilan lebih jauh. Dilan yang pintar, baik hati dan romantis... semua dengan caranya sendiri. Cara Dilan mendekati Milea tidak sama dengan teman-teman lelakinya yang lain, bahkan Beni, pacar Milea di Jakarta. Bahkan cara berbicara Dilan yang terdengar kaku, lambat laun justru membuat Milea kerap merindukannya jika sehari saja ia tak mendengar suara itu. Perjalanan hubungan mereka tak selalu mulus. Beni, gank motor, tawuran, Anhar, Kang Adi, semua mewarnai perjalanan itu. Dan Dilan... dengan caranya sendiri...selalu bisa membuat Milea percaya ia bisa tiba di tujuan dengan selamat. Tujuan dari perjalanan ini. Perjalanan mereka berdua. Katanya, dunia SMA adalah dunia paling indah. Dunia Milea dan Dilan satu tingkat lebih indah daripada itu.</span></p>', '2023-12-02 14:14:30', '2023-12-02 14:14:30'),
+(41, 'K-003', 'https://www.youtube.com/watch?v=1nTIyQSkCt8', 'Srimulat : Hidup Memang Komedi', 'images/srimulat.jpg', 'banner/bannersrimulat.jpg', 7, 105, 2023, 0, 0, '<p style=\"text-align: justify;\"><span class=\"fontstyle0\">Mendapatkan tawaran menjadi bintang nasional, membawa grup Srimulat berhadapan dengan kerasnya ibukota dan kendala bahasa. Saat berproses, masalah bertambah karena kisah asmara Gepeng (Juan Bio One) dan Royani (Indah Permatasari), hingga krisis identitas Tessy (Erick Estrada) yang membuatnya masuk penjara. Apa mereka bisa menaklukkan ibukota dengan tawa, atau mereka yang akan ditertawakan ibukota dan harus menerima kenyataan hidup memang komedi?</span>&nbsp;</p>', '2023-12-02 14:35:51', '2023-12-02 14:35:51'),
+(42, 'K-004', 'https://www.youtube.com/watch?v=hCTfpDnnxtA', 'Gampang Cuan', 'images/gampangcuan.jpg', 'banner/bannergampangcuan.jpg', 7, 118, 2023, 0, 0, '<p style=\"text-align: justify;\"><span class=\"fontstyle0\">Sultan, Bilqis, dan Aji tengah bersusah payah dalam mencari uang. Ketiga kakak beradik tersebut berusaha mempertahankan rumah mereka yang akan tersegel. Dalam teaser itu terlihat sebuah rumah sederhana dengan sebuah toko kecil di depannya, yang oleh mereka bertiga berusaha dipertahankan berkat lilitan hutang yang dimiliki oleh keluarganya. Berkat peristiwa itu, Sultan dan kedua saudaranya pun mulai melakukan berbagai cara agar dapat terbebas dari jeratan hutang tersebut tanpa sepengetahuan ibu mereka.</span>&nbsp;</p>', '2023-12-02 14:37:34', '2023-12-02 14:37:34'),
+(43, 'AD-001', 'https://www.youtube.com/watch?v=rBxcF-r9Ibs', 'Jumanji : The Next Level', 'images/jumanji.jpg', 'banner/bannerjumanji.jpeg', 14, 123, 2019, 0, 0, '<p style=\"text-align: justify;\">Dalam Jumanji: The Next Level, keempat sahabat kembali lagi, tetapi permainannya telah berubah. Saat memutuskan masuk lagi ke Jumanji untuk menyelamatkan salah satu dari mereka, mereka menemukan segalanya tak seperti yang diduga. Para pemain harus melaju ke wilayah-wilayah tersembunyi dan belum dijamah, dari gurun nan gersang ke pegunungan bersalju, demi meloloskan diri dari permainan paling berbahaya di dunia.</p>', '2023-12-02 14:59:12', '2023-12-02 14:59:12'),
+(44, 'R-002', 'https://www.youtube.com/watch?v=G4HH8kVI4OY', 'Rudy Habibie (Habibie & Ainun 2)', 'images/rudyhabibie.jpg', 'banner/posterrudyhabibie.jpg', 9, 124, 2016, 0, 0, '<p style=\"text-align: justify;\">Rudy sangat ingin membuat pesawat untuk memenuhi pesan almarhum Papinya: &ldquo;MENJADI MATA AIR&rdquo;, menjadi berguna untuk orang banyak. Tapi di atas hanya arus membuat keluarga nya berkorban karena dia harus kuliah di RWTH Aachen, Jerman Barat. Di sana Rudy hidup dalam kondisi terbatas, rasa rindu rumah, dan belajar soal arti persahabatan, cinta, juga pengkhianatan bersama para mahasiswa Indonesia yang baru dikenal nya di sana.</p>', '2023-12-02 15:01:53', '2023-12-02 15:01:53'),
+(45, 'H-003', 'https://www.youtube.com/watch?v=0hSptYxWB3E', 'Pengabdi Setan', 'images/Pengabdi_Setan_poster.jpg', 'banner/banner_pengabdisetan.jpg', 6, 107, 2017, 0, 0, '<p style=\"text-align: justify;\">Setelah sakit aneh selama 3 tahun, Ibu akhirnya meninggal dunia. Bapak lalu memutuskan untuk kerja di luar kota meninggalkan anak-anak. Tak lama kemudian, anak-anak merasa bahwa Ibu kembali berada di rumah. Situasi semakin menyeramkan ketika mereka mengetahui bahwa Ibu datang lagi tidak sekedar untuk menjenguk, tapi untuk menjemput mereka.</p>', '2023-12-02 17:47:40', '2023-12-02 17:47:40'),
+(48, 'H-004', 'https://www.youtube.com/watch?v=jtDRXPTZT-M&t=9s', 'KKN di Desa Penari', 'images/kkn.jpg', 'banner/banner_kkn.webp', 6, 121, 2022, 0, 0, '<p style=\"text-align: justify;\">Seorang laki-laki yang dikenal dengan sebutan Simpleman, mendapatkan sebuah kisah menyeramkan. Berawal dari 5 mahasiswa yang harus melaksanakan KKN di sebuah desa terpencil, Nur (Tissa Biani), Widya ( Adinda Thomas), Ayu (Aghniny Haque), Bima (Achmad Megantara), Anton (Calvin Jeremy) dan Wahyu ( M. Fajar Nugraga) tidak pernah menyangka kalau desa yang mereka pilih ternyata bukanlah desa biasa. Pak Prabu (Kiki Narendra), sang kepala desa memperingatkan mereka untuk tidak melewati batas gapura terlarang, sebuah gapura yang menuju tapak tilas. Tempat misterius itu mungkin ada hubungannya dengan sosok penari cantik yang mulai menganggu Nur dan juga Widya. Satu persatu mulai merasakan keanehan desa tersebut. Bima pun mulai berubah sikap. Proker KKN mereka berantakan, tampaknya penghuni ghaib desa tersebut tidak menyukai mereka. Nur akhirnya menemukan fakta mencengangkan bahwa salah satu dari mereka melanggar aturan yang paling fatal di desa tersebut. Teror sosok penari misterius semakin menyeramkan, mereka mencoba meminta bantuan Mbah Buyut (Diding Boneng) dukun setempat, namun sudah terlambat, mereka terancam tidak akan bisa pulang dengan selamat dari desa yang dikenal dengan sebutan Desa Penari itu.</p>', '2023-12-02 17:56:18', '2023-12-02 17:56:18'),
+(49, 'M-001', 'https://youtu.be/CGQkoZ8s4Pw?si=4deATdcwzaZiljG9', 'Maleficent', 'images/maleficentposter.jpg', 'banner/mff.png', 13, 97, 2019, 0, 0, '<p style=\"text-align: justify;\">Maleficent (Angelina Jolie) dan putri angkatnya Aurora (Elle Fanning) mulai berseteru dan mempertanyakan arti keluarga saat keduanya memiliki pandangan yang berbeda. Sebuah pernikahan yang diinginkan Aurora dan ditentang Maleficent. Aliansi serta pasukan gelap baru yang akan melanjutkan petualangan Maleficent.</p>', '2023-12-05 07:36:47', '2023-12-05 07:36:47'),
+(51, 'F-001', 'https://youtu.be/0-wPm99PF9U?si=hkADD_gVbEzwyYxWThe Little Mermaid', 'The Little Mermaid', 'images/posterariel.jpg', 'banner/bannerariel.png', 12, 135, 2023, 0, 0, '<p style=\"padding-left: 80px; text-align: justify;\"><em><strong>The Little Mermaid</strong></em>&nbsp;adalah film&nbsp;<a title=\"Film fantasi\" href=\"https://id.wikipedia.org/wiki/Film_fantasi\">fantasi</a>&nbsp;<a title=\"Film musikal\" href=\"https://id.wikipedia.org/wiki/Film_musikal\">musikal</a>&nbsp;Amerika Serikat yang disutradarai oleh&nbsp;<a title=\"Rob Marshall\" href=\"https://id.wikipedia.org/wiki/Rob_Marshall\">Rob Marshall</a>&nbsp;dari skenario yang ditulis oleh David Magee. Diproduksi oleh&nbsp;<a title=\"Walt Disney Pictures\" href=\"https://id.wikipedia.org/wiki/Walt_Disney_Pictures\">Walt Disney Pictures</a>&nbsp;bersama DeLuca Marshall dan Marc Platt Productions. Film ini adalah adaptasi live action dari&nbsp;<a title=\"The Little Mermaid (film 1989)\" href=\"https://id.wikipedia.org/wiki/The_Little_Mermaid_(film_1989)\">film animasi Disney tahun 1989 dengan judul yang sama</a>, yang secara longgar berdasarkan pada&nbsp;<a title=\"Putri Duyung (dongeng)\" href=\"https://id.wikipedia.org/wiki/Putri_Duyung_(dongeng)\">dongeng tahun 1837 dengan judul yang sama</a>&nbsp;oleh&nbsp;<a title=\"Hans Christian Andersen\" href=\"https://id.wikipedia.org/wiki/Hans_Christian_Andersen\">Hans Christian Andersen</a>. Film ini dibintangi&nbsp;<a title=\"Halle Bailey\" href=\"https://id.wikipedia.org/wiki/Halle_Bailey\">Halle Bailey</a>&nbsp;sebagai&nbsp;<a title=\"Ariel (Disney)\" href=\"https://id.wikipedia.org/wiki/Ariel_(Disney)\">Ariel</a>&nbsp;si putri duyung, bersama&nbsp;<a title=\"Jonah Hauer-King\" href=\"https://id.wikipedia.org/wiki/Jonah_Hauer-King\">Jonah Hauer-King</a>,&nbsp;<a title=\"Daveed Diggs\" href=\"https://id.wikipedia.org/wiki/Daveed_Diggs\">Daveed Diggs</a>,&nbsp;<a title=\"Awkwafina\" href=\"https://id.wikipedia.org/wiki/Awkwafina\">Awkwafina</a>,&nbsp;<a title=\"Jacob Tremblay\" href=\"https://id.wikipedia.org/wiki/Jacob_Tremblay\">Jacob Tremblay</a>,&nbsp;<a title=\"Noma Dumezweni\" href=\"https://id.wikipedia.org/wiki/Noma_Dumezweni\">Noma Dumezweni</a>,&nbsp;<a title=\"Javier Bardem\" href=\"https://id.wikipedia.org/wiki/Javier_Bardem\">Javier Bardem</a>&nbsp;dan&nbsp;<a title=\"Melissa McCarthy\" href=\"https://id.wikipedia.org/wiki/Melissa_McCarthy\">Melissa McCarthy</a>.&nbsp;<em>The Little Mermaid</em> menceritakan tentang Ariel si putri duyung yang membuat kesepakatan dengan penyihir laut berbahaya bernama Ursula untuk menukar suaranya dengan kaki manusia untuk mengesankan Pangeran Eric, yang ia selamatkan dari kapal karam.</p>', '2023-12-05 10:08:50', '2023-12-05 10:08:50'),
+(52, 'F-002', 'https://youtu.be/20DF6U1HcGQ?si=OiiwGKS-q5W_IPZn', 'Cinderella', 'images/cinderllaposter.jpg', 'banner/bannercinderella.png', 12, 112, 2015, 0, 0, '<p style=\"text-align: justify;\">Cerita film berkisah tentang Ella, yang dijadikan pesuruh oleh&nbsp;<a class=\"mw-redirect\" title=\"Ibu tiri\" href=\"https://id.wikipedia.org/wiki/Ibu_tiri\">ibu tirinya</a>&nbsp;sendiri. Setelah ayahnya meninggal dunia, kelakuan ibu dan saudara tirinya makin menjadi-jadi. Ella yang dijadikan pembantu, juga diganti namanya menjadi&nbsp;<a title=\"Cinderella\" href=\"https://id.wikipedia.org/wiki/Cinderella\">Cinderella</a>. Dan kemudian Ella bertemu orang asing yang gagah di hutan. Dia tak menyadari bahwa orang tersebut adalah seorang&nbsp;<a title=\"Pangeran\" href=\"https://id.wikipedia.org/wiki/Pangeran\">pangeran</a>. Ketika istana mengirimkan undangan terbuka untuk semua gadis, Cinderella pun berharap bisa bertemu dengan pangerannya lag</p>', '2023-12-05 10:16:54', '2023-12-05 10:16:54'),
+(53, 'D-001', 'https://youtu.be/e1SxNP7PWAc?si=dE-WHIiVrHxt-mmF', 'Laskar Pelangi', 'images/Laskar_Pelangi_film.jpg', 'banner/bannerlaskar (2).jpg', 11, 125, 2008, 0, 0, '<p class=\"MsoNormal\" style=\"text-align: justify;\">Laskar Pelangi adalah novel pertama karya Andrea Hirata yang diterbitkan oleh Bentang Pustaka pada tahun 2005. Novel ini bercerita tentang kehidupan 10 anak dari keluarga miskin yang bersekolah (SD dan SMP) di sebuah sekolah Muhammadiyah di Belitung yang penuh dengan keterbatasan. Mereka bersekolah dan belajar pada kelas yang sama dari kelas 1 SD sampai kelas 3 SMP, dan menyebut diri mereka sebagai Laskar Pelangi. Pada bagian-bagian akhir cerita, anggota Laskar Pelangi bertambah satu anak perempuan yang bernama Flo, seorang murid pindahan. Keterbatasan yang ada bukan membuat mereka putus asa, tetapi malah membuat mereka terpacu untuk dapat melakukan sesuatu yang lebih baik.</p>', '2023-12-05 11:09:35', '2023-12-05 11:09:35'),
+(54, 'D-002', 'https://youtu.be/oKolDtQDqYI?si=ykNK9_bitf7fQ5QD', 'Hafalan Shalat Delisa', 'images/posterdelisa.jpg', 'banner/delisabanner (1).jpg', 11, 150, 2011, 0, 0, '<p class=\"MsoNormal\" style=\"text-align: justify;\">Delisa (Chantiq Schagerl), gadis kecil yang periang, tinggal di Lhok Nga, sebuah desa kecil yang berada di tepi pantai Aceh, dan mempunyai hidup yang indah sebagai anak bungsu dari keluarga Abi Usman (Reza Rahadian), ayahnya bertugas di sebuah kapal tanker perusahaan minyak internasional. Delisa sangat dekat dengan ibunya yang dia panggil Ummi (Nirina Zubir), serta ketiga kakaknya yaitu Fatimah (Ghina Salsabila) dan si kembar Aisyah (Reska Tania Apriadi) dan Zahra (Riska Tania Apriadi). Pada 26 Desember 2004, Delisa bersama Ummi sedang bersiap menuju ujian praktik shalat ketika tiba-tiba terjadi gempa. Gempa yang cukup membuat ibu dan kakak-kakak Delisa ketakutan. Tiba-tiba tsunami menghantam, menggulung desa kecil mereka, menggulung sekolah mereka, dan menggulung tubuh kecil Delisa serta ratusan ribu lainnya di Aceh serta berbagai pelosok pantai di Asia Tenggara.</p>', '2023-12-05 11:26:48', '2023-12-05 11:26:48'),
+(55, 'AD-002', 'https://www.youtube.com/watch?v=nAx3GaOE5xI', 'Petualangan Sherina ', 'images/sherina.jpg', 'banner/banner-petualangan-sherina-2.jpg', 14, 120, 2000, 0, 0, '<p style=\"text-align: justify;\">Sherina sedih harus pindah ke Bandung mengikuti ayahnya. Di sekolah baru, Sadam, si anak lelaki sok, selalu mengganggunya. Namun, permusuhan mereka berubah jadi persahabatan ketika keduanya diculik.</p>', '2023-12-05 12:21:07', '2023-12-05 12:21:07'),
+(56, 'AD-003', 'https://www.youtube.com/watch?v=fcGeZvvWCpo', '5 cm', 'images/5 cm.png', 'banner/5-cm.png', 14, 120, 2012, 0, 0, '<p style=\"text-align: justify;\">17 Agustus di puncak tertinggi Jawa, 5 sahabat 2 cinta, sebuah mimpi mengubah segalanya\" Genta, Arial, Zafran, Riani dan Ian adalah lima remaja yang telah menjalin persahabatan belasan tahun lamanya. Suatu hari mereka berlima merasa &ldquo;jenuh&rdquo; dengan persahabatan mereka dan akhirnya kelimanya memutuskan untuk berpisah, tidak saling berkomunikasi satu sama lain selama tiga bulan lamanya. Selama tiga bulan berpisah penuh kerinduan, banyak yang terjadi dalam kehidupan mereka berlima, sesuatu yang mengubah diri mereka masing-masing untuk lebih baik dalam menjalani kehidupan. Setelah tiga bulan berselang mereka berlimapun bertemu kembali dan merayakan pertemuan mereka dengan sebuah perjalanan penuh impian dan tantangan. Sebuah perjalanan hati demi mengibarkan sang saka merah putih di puncak tertinggi Jawa pada tanggal 17 Agustus. Sebuah perjalanan penuh perjuangan yang membuat mereka semakin mencintai Indonesia. Sebuah perjuangan atas impian, perjalanan hati yang merubah hidup mereka untuk selamanya</p>', '2023-12-05 12:49:08', '2023-12-05 12:49:08'),
+(57, 'AD-004', 'https://www.youtube.com/watch?v=gj3r5XDPuac', '5 Elang', 'images/5_Elang.png', 'banner/lima elang.png', 14, 120, 2011, 0, 0, '<p style=\"text-align: justify;\">Baron sangat kesal ketika harus mengikuti orang tuanya pindah dari Jakarta ke Balikpapan. Ia pun memilih untuk menutup diri dari lingkungan barunya dan sibuk sendiri bermain mobil RC. Namun, karena satu dan lain hal, Baron harus mewakili sekolahnya ikut perkemahan Pramuka dan satu regu dengan Rusdi, pramuka supel yang kelewat optimistis dan kerap kali membuat Baron jengkel.&nbsp;Bersama dengan anggota lain, Anton si ahli api, dan Aldi si kerdil yang tempramental dan jagoan berenang, serta kedua anak besar yang menjadi ahli fisik. Mereka memulai petualangan barunya di Perkemahan.&nbsp;Mereka juga bertemu dengan Sindai yaitu seorang gadis perkasa, yang banyak membantu Baron dan tim ketika harus menjelajahi hutan lebat dalam salah satu games perkemahan yaitu pada games markas bintang.</p>', '2023-12-05 13:11:28', '2023-12-05 13:11:28'),
+(58, 'AD-005', 'https://www.youtube.com/watch?v=eQfMbSe7F2g', 'Indiana Jones and the Dial of Destiny', 'images/Indiana Jones and the Dial of Destiny.png', 'banner/Indiana Jones and the Dial of Destiny.png', 14, 120, 2023, 0, 0, '<p style=\"text-align: justify;\">Arkeolog pemberani Indiana Jones berpacu dengan waktu untuk merebut cakram legendaris yang dapat mengubah sejarah. Didampingi putri baptisnya, ia harus menghadapi tantanan dari Jrgen Voller, bekas pengikut Nazi yang kini bekerja untuk NASA.</p>', '2023-12-05 14:18:08', '2023-12-05 14:18:08'),
+(59, 'AD-006', 'https://www.youtube.com/watch?v=C4qgAaxB_pc', 'The Jungle Book', 'images/The Jungle Book.png', 'banner/The-Jungle-Book-banner.png', 14, 120, 2016, 0, 0, '<p style=\"text-align: justify;\">The Jungle Book adalah film fantasi petualangan Amerika Serikat tahun 2016 yang disutradarai oleh Jon Favreau dan diproduseri oleh Jon Favreau dan Brigham Taylor.</p>', '2023-12-05 14:41:17', '2023-12-05 14:41:17'),
+(60, 'AD-007', 'https://www.youtube.com/watch?v=usEkWtuNn-w', 'the chronicles of narnia', 'images/The Chronicles of Narnia.png', 'banner/Narnia-8-the-chronicles-of-narnia.png', 14, 120, 2005, 0, 0, '<p style=\"text-align: justify;\">The Chronicles of Narnia: The Lion, the Witch and the Wardrobe adalah sebuah film berdasarkan buku The Chronicles Of Narnia: Sang Singa, sang Penyihir, dan Lemari, novel pertama yang diterbitkan dalam seri fantasi anak-anak The Chronicles of Narnia karangan C.S. Lewis.</p>', '2023-12-05 14:46:19', '2023-12-05 14:46:19'),
+(61, 'H-005', 'https://www.youtube.com/watch?v=QqcyvQUnqoY', 'Mata Batin 2', 'images/matabatin2.jpg', 'banner/bannermatabatin2.jpg', 6, 115, 2019, 0, 0, '<p style=\"text-align: justify;\">Setelah adiknya meninggal, ALIA memutuskan untuk memulai hidup baru dengan tinggal di sebuah panti asuhan milik BU LAKSMI dan PAK FADLI sekaligus kerja sosial di sana. Tapi Alia merasa ada yang janggal dengan panti itu. Apalagi NADIA, salah seorang anak panti yang ternyata juga memiliki mata batin terbuka seperti Alia, bisa mendengar suara misterius yang minta tolong dari seluruh dinding rumah. Alia dan Nadia pun membuka sebuah kamar misterius yang terkunci. Sejak itu malapetaka mulai terjadi. Ternyata Alia dan Nadia telah melakakukan kesalahan besar dan membebaskan DARMAH, arwah penuh dendam yang memang sengaja dikunci di kamar itu. Bersama dengan BU WINDU, paranormal dan pembimbing mata batinnya, Alia harus menghadapi Darmah dan menyelamatkan panti asuhan itu.</p>', '2023-12-06 14:30:38', '2023-12-06 14:30:38'),
+(62, 'H-006', 'https://www.youtube.com/watch?v=d173ahbvzUA', 'Mata Batin', 'images/matabatin1.jpg', 'banner/bannermatabatin.jpg', 6, 108, 2017, 0, 0, '<p style=\"text-align: justify;\">ALIA memutuskan untuk meninggalkan Bangkok dan kembali ke Jakarta begitu kedua orang tuanya meninggal. Ia dan Abel, adiknya yang masih remaja, pindah ke rumah masa kecil mereka yang jauh dari tengah kota. Tapi Abel yang sering bersikap aneh dan ketakutan, tidak menyukai rumah itu. Katanya, di sana ada &lsquo;yang lain&rsquo; selain mereka. Alia dan Davin, pacar Alia yang menemani Alia, tidak pernah menghiraukan Abel. Tapi sikap Abel semakin mengkhawatirkan. Merasa harus menolong Abel, Alia berniat untuk membawa Abel ke psikiater. Tapi Abel menolak dan ia bilang kalau ia bisa melihat &lsquo;mereka yang sudah mati&rsquo; karena mata batinnya sudah terbuka sejak kecil. Abel mengajak Alia menemui Bu Windu, seorang paranormal yang selama ini membantu Abel. Ingin membuktikan semua hal yang baginya tidak masuk akal ini, Alia meminta Bu Windu untuk membuka mata batinnya. Dan perlahan-lahan, Alia pun mulai mengalami kejadian-kejadian yang tidak biasa. Ia mulai melihat sosok yang tidak bisa dilihat orang lain, dan kehadiran &lsquo;orang-orang&rsquo; yang minta tolong padanya. Tapi &lsquo;mereka&rsquo; yang berada di rumah Alia mengganggunya sampai menyakitinya. Energi &lsquo;mereka&rsquo; begitu negatif sehingga bisa membahayakan Alia dan Abel. Tanpa tempat tinggal lain, mereka terpaksa menetap disana dan meminta bantuan Bu Windu. Apakah Bu Windu bisa membantu mereka?</p>', '2023-12-06 14:57:29', '2023-12-06 14:57:29'),
+(63, 'H-007', 'https://www.youtube.com/watch?v=12sXNFbQa6I', 'Sewu Dino', 'images/sewu dino.jpg', 'banner/bannersewudino.jpg', 6, 121, 2023, 0, 0, '<p style=\"text-align: justify;\">Ditengah kesulitan ekonomi, Sri diterima bekerja untuk keluarga Atmojo dengan bayaran yang tinggi, karena keunikan yang ia miliki, yaitu lahir pada hari Jumat Kliwon. Bersama Erna dan Dini, mereka dibawa ke sebuah gubuk tersembunyi di tengah hutan. Di gubuk tersebut, Sri, Erna, dan Dini bertugas untuk memandikan Dela Atmojo, cucu dari Mbah Karsa Atmojo yang tidak sadarkan diri karena kutukan santet Sewu Dino, salah satu santet yang paling mengerikan. Mereka tidak bisa lari dari gubuk tersebut karena terikat perjanjian mistis dengan Mbah Karsa Atmojo, dan mereka harus selesaikan ritual sampai hari ke 1000. Jika melanggar, kematian menanti mereka.</p>', '2023-12-06 15:07:54', '2023-12-06 15:07:54'),
+(64, 'H-008', 'https://www.youtube.com/watch?v=YLU6Qfi0cDY', 'Danur: I Can See Ghosts', 'images/Danur_poster.jpg', 'banner/danur_banner.jpg', 6, 78, 2017, 0, 0, '<p style=\"text-align: justify;\">Mengikuti kisah Risa yang bisa berkomunikasi dengan hantu. Masalah timbul saat sang adik, Riri, secara misterius hilang tanpa jejak. Ia pun meminta bantuan pada teman-teman hantunya untuk mencarinya.</p>', '2023-12-06 15:28:06', '2023-12-06 15:28:06'),
+(65, 'H-009', 'https://www.youtube.com/watch?v=zLANvkUI2nU', 'Menjelang Maghrib', 'images/menjelangmaghrib.jpg', 'banner/menjelangmaghribbanner.jpg', 6, 104, 2022, 0, 0, '<p style=\"text-align: justify;\">Mahasiswa jurusan psychology menemui seorang pasien sakit jiwa untuk materi research skripsi mereka. Bermula dari masalah kejiwaan Nina yang akhirnya berkembang menjadi hal-hal mistis yang diluar logika. Tahayul, Mistis dan Budaya bertabrakan dengan science dan pengetahuan mereka selama ini.</p>', '2023-12-06 15:50:54', '2023-12-06 15:50:54'),
+(66, 'H-010', 'https://www.youtube.com/watch?v=8TVPxHVUWS8', 'Bayi Ajaib', 'images/bayi gaib.jpg', 'banner/bannerbayigaib.webp', 6, 99, 2023, 0, 0, '<p style=\"text-align: justify;\">Kosim, menjadi kaya mendadak setelah menemukan emas di sungai desa Hirupbagja. Dia segera menikahi Sumi dan hidup makmur sebagai juragan tanah. Ketika anak mereka lahir, Didi, jiwanya sudah dirasuki arwah Albert Dominique, yang haus darah dan meneror warga desa. Kosim berusaha menutupi kenyataan ini<span class=\"yZlgBd\">&nbsp;karena dia sedang mencalonkan diri sebagai Kepala Desa yang baru. Dia harus bisa mengalahkan Soleh yang sudah mendapatkan simpati dari warga desa. Namun ketika arwah tersebut berbalik mengancam kehidupan keluarganya, Kosim memutuskan untuk membebaskan Didi dari jeratan pengaruh Albert Dominique. Untuk itu, Kosim harus berhadapan dengan Dorman, dukun hitam, yang ingin membalaskan dendam kakek buyutnya pada orang-orang yang telah menghancurkan kehidupannya?</span></p>', '2023-12-06 16:10:50', '2023-12-06 16:10:50'),
+(67, 'H-011', 'https://www.youtube.com/watch?v=O29hLG_37qI', 'Ivanna', 'images/ivanna-setan-1.webp', 'banner/film-ivanna-2022_169.jpeg', 6, 103, 2022, 0, 0, '<p>Ketika Ambar &amp; Dika pindah setelah kematian orang tua mereka, tidak pernah terpikirkan apa yang seharusnya menjadi awal baru berubah menjadi awal kesengsaraan terbesar dalam hidup mereka. Semua akibat kemampuan Ambar merasakan yang tak terlihat, yang didapatkan setelah mengalami gangguan penglihatan.</p>', '2023-12-06 17:02:00', '2023-12-06 17:02:00'),
+(68, 'H-012', 'https://www.youtube.com/watch?v=081X-uXzj78', 'Aku Tahu Kapan Kamu Mati (Desa Bunuh Diri)', 'images/369271103_832167921857387_8918204220588687730_n.heic', 'banner/Desa-Bunuh-Diri-web-banner-1.jpg', 6, 106, 2023, 0, 0, '<p style=\"text-align: justify;\">Lima tahun sejak SIENA (Natasha Wilona) memiliki kemampuan untuk melihat tanda kapan seseorang akan mati, Siena masih sering diliputi rasa takut, yang bahkan dia sembunyikan dari kedua sahabatnya, WINDY (Marsha Aruan) dan RIO (Giulio Parengkuan). Siena hanya bercerita dengan NAYA (Acha Septriasa), dosen dan psikolog klinis di kampus, Sampai suatu hari, sebuah kematian terjadi di kampus, namun kali ini Siena tidak melihat tanda apa-apa.Peristiwa tersebut membuat Naya kembali ke kampung halamannya, Desa Remetuk untuk bertemu dengan LARAS (Ratu Felisha). Berbekal sebuah pesan yang ditinggalkan, Siena berhasil ditemani Windy dan Rio pergi ke Desa Remetuk. Menjelang musim panen, di Desa Remetuk selalu terjadi percobaan bunuh diri, tapi Siena yang ingin menolong tak pernah bisa melihat tanda-tandanya. Siena, Windy, Rio, Naya, serta Naya dan Laras, tak satu pun dapat lari dari kutukan tersebut, keinginan bagi setiap dari mereka untuk tahu dan menentukan kapan diri sendiri akan mati.</p>', '2023-12-06 17:26:46', '2023-12-06 17:26:46'),
+(69, 'K-005', 'https://www.youtube.com/watch?v=1rqSEfLt4z0', 'Kejar Mimpi Gaspol!!', 'images/kejar-mimpi-gaspol-2023dokkejar-mimpi-gaspol-2023.jpeg', 'banner/KMG4.jpeg', 7, 113, 2023, 0, 0, '<p>Film ini mengisahkan perjuangan seorang ibu tunggal bernama Fifi, yang mengorbankan cita-citanya sebagai penulis terkenal untuk menjadi tulang punggung keluarga dengan menjadi sopir jeep di wilayah Gunung Bromo. Namun, kehidupan Fifi dan keluarganya berubah secara tak terduga ketika seorang pria masuk dalam kehidupan mereka.</p>', '2023-12-06 18:15:06', '2023-12-06 18:15:06'),
+(70, 'K-006', 'https://www.youtube.com/watch?v=YRPN6luQaSY', 'Onde Mande', 'images/onde-mande-2023dok-visinema-pictures.jpeg', 'banner/IMG-20230609-WA0021.jpg', 7, 97, 2023, 0, 0, '<p style=\"text-align: justify;\"><em>Onde Mande!</em> adalah film komedi Indonesia yang mengisahkan tentang seorang pensiunan guru dan tetua Desa Sigiran bernama Angku Wan yang memenangkan undian Rp2 miliar dari perusahaan sabun. Namun ia meninggal sebelum mengambil hadiahnya.&nbsp;Warga desa berusaha mendapatkan uang tersebut untuk membangun desa, tetapi rencana mereka terancam ketika Anwar datang untuk mengecek identitas Angku Wan.</p>', '2023-12-06 18:33:55', '2023-12-06 18:33:55'),
+(71, 'K-007', 'https://www.youtube.com/watch?v=XlgnP_kLVFM', 'Ganjil Genap', 'images/ganjil-genap-2023dokmd-pictures.jpeg', 'banner/film-ganjil-genap-1539618162.webp', 7, 124, 2023, 0, 0, '<p><em>Ganjil Genap</em> adalah film komedi Indonesia yang mengisahkan tentang Gala dan Bara, sepasang kekasih yang sudah berpacaran selama delapan tahun. Gala meminta Bara untuk menikah, tetapi hubungan mereka hancur ketika Bara memutuskan berpisah. Aiman mencoba membantu Gala, tetapi hubungan mereka juga menjadi rumit. Gala kemudian menyadari bahwa Aiman adalah sosok yang sama dengan Bara.</p>', '2023-12-06 18:53:28', '2023-12-06 18:53:28'),
+(72, 'K-008', 'https://www.youtube.com/watch?v=sTxYQNTlihY', 'Scandal Makers', 'images/scandal-makers-2023dokmd-pictures-present.jpeg', 'banner/63bbb6868f70f.jpeg', 7, 86, 2023, 0, 0, '<p style=\"text-align: justify;\"><em>Scandal Makers</em> adalah film adaptasi dari Korea Selatan yang mengisahkan tentang Oskar, seorang penyiar radio terkenal yang hidupnya tiba-tiba berubah ketika seorang wanita bernama Karin dan anak laki-lakinya, Gempa, mengaku sebagai keluarganya. Oskar awalnya skeptis terhadap klaim Karin dan untuk membuktikannya, ia meminta mereka untuk melakukan tes DNA.&nbsp;Cerita ini menghadirkan kebingungan dan konflik emosional saat Oskar berusaha memahami dan menerima kenyataan tentang keluarganya yang tak terduga.</p>', '2023-12-06 19:18:55', '2023-12-06 19:18:55'),
+(73, 'K-009', 'https://www.youtube.com/watch?v=xb9iRweZfcA', 'Hitmen', 'images/hitmen-2023dokmd-pictures.jpeg', 'banner/review-hitmen-2023-film-komedi-laga-indonesia-untuk-penonton-17-eb7782.webp', 7, 96, 2023, 0, 0, '<p style=\"text-align: justify;\"><em>Hitmen</em> merupakan film komedi aksi yang mengisahkan petualangan Johnny dan Frangky, dua pembunuh bayaran yang berusaha keluar dari kehidupan gelap mereka dengan pensiun. Sebelum meraih impian itu, mereka terpaksa menghadapi misi terakhir yang penuh bahaya dan mengancam nyawa.&nbsp;Dalam perjalanan, Johnny dan Frangky harus melawan waktu dan musuh-musuhnya demi mencapai tujuan pensiun yang diimpikan.</p>', '2023-12-06 19:41:15', '2023-12-06 19:41:15'),
+(74, 'K-010', 'https://www.youtube.com/watch?v=FuC8H8eXZFU', 'My Stupid Boss', 'images/my-stupid-boss-2016dokfalcon-pictures.jpeg', 'banner/061672300_1694171143-SVOD_-_My_Stupid_Boss_-_Thumbnail.jpg', 7, 108, 2016, 0, 0, '<p><em>My Stupid Boss</em>&nbsp;adalah film komedi Indonesia yang disutradarai oleh Upi Avianto. Film ini mengisahkan tentang hubungan antara seorang karyawan bernama Diana dan bosnya yang berkelakuan super ajaib, Bossman.</p>\r\n<p>Diana tinggal di Kuala Lumpur mengikuti suaminya, Dika yang bekerja di sana. Ketika Diana melamar bekerja di sebuah perusahaan, kebetulan bosnya adalah teman kuliah Dika sewaktu di Amerika. Perilaku unik Bossman membuat hubungan mereka penuh dengan kekonyolan dan komedi.</p>', '2023-12-06 19:46:22', '2023-12-06 19:46:22'),
+(75, 'K-011', 'https://www.youtube.com/watch?v=MbZtoOuRpyU', 'Susah Sinyal', 'images/susah-sinyal-2017dokstarvision.jpeg', 'banner/5aa2d86ffcf8a2eb30c704edc8347c8e3ab4a9b9_2_1024x576.jpeg', 7, 110, 2017, 0, 0, '<p>Ceritanya mengikuti Ellen, seorang ibu tunggal yang sibuk sebagai seorang pengacara sukses dan jarang meluangkan waktu untuk putrinya, Kiara. Kiara, sebagai seorang remaja, memiliki hobi membuat konten di Internet dan sering melanggar peraturan sekolah tentang penggunaan gawai.</p>\r\n<p>Ketika tragedi menghampiri, Ellen dianjurkan untuk berlibur dengan Kiara untuk mengobati rasa kehilangannya. Mereka pergi ke Sumba dan hubungan antara Ellen dan Kiara berangsur membaik, tetapi Ellen harus menghadapi masalah besar dalam pekerjaannya yang mengancam janjinya untuk mendukung Kiara dalam acara bakat menyanyi.</p>', '2023-12-06 19:50:43', '2023-12-06 19:50:43'),
+(76, 'K-012', 'https://www.youtube.com/watch?v=m3U03b9yHKk', 'Warkop DKI Reborn: Jangkrik Boss! Part 1', 'images/warkop-dki-reborn-jangkrik-boss-part-1-2016dokfalcon-pictures.jpeg', 'banner/jangkrik-bos.jpg', 7, 110, 2016, 0, 0, '<p>Film komedi Indonesia ini mengisahkan tentang tiga sahabat, Dono , Kasino, dan Indro, yang bekerja sebagai petugas keamanan di organisasi CHIIPS. Meskipun tugas mereka adalah menertibkan dan menjaga keamanan masyarakat, kelakuan konyol dan bermasalah mereka selalu membuat jengkel atasannya.</p>\r\n<p>Kehadiran Sophie, anggota CHIIPS dari Paris, membawa mereka pada petualangan kocak untuk mencari harta karun guna membayar denda Rp8 miliar dan menghindari penjara.</p>', '2023-12-06 19:56:51', '2023-12-06 19:56:51'),
+(77, 'F-003', 'https://youtu.be/pBk4NYhWNMM?si=dr47xxMOWwdxE1jc', 'Barbie', 'images/barbie.jpg', 'banner/bannerbarbie (1).jpg', 12, 114, 2023, 0, 0, '<p style=\"text-align: justify;\">Film Barbie menceritakan tentang kehidupan para Barbie di Barbie Land dengan keunikan karakternya masing-masing. Di tempat tersebut, para perempuan dipanggil Barbie sedangkan laki-laki dipanggil Ken.&nbsp;Barbie dengan peran utama Margot Robbie dan Ken dengan peran utama Ryan Gosling menjalani kehidupannya di Barbie Land dengan penuh kebahagiaan dan berwarna hingga tampak sempurna.&nbsp;Barbie hidup layaknya boneka Barbie dengan kaki yang selalu berjinjit. Tidak hanya itu, Barbie juga berpenampilan yang menarik dan berglitter.&nbsp;Namun pada suatu hari, kaki Barbie tersebut berubah menjadi datar sehingga tidak lagi berjinjit. Ia juga tidak memiliki kemampuan untuk terbang lagi saat keluar rumah.&nbsp;Oleh sebab itu, Barbie akhirnya diusir dari Barbie Land lantaran dianggap tidak normal. Barbie pun pergi bersama Ken dengan mobil merah muda ke dunia nyata.&nbsp;Saat berada di dunia nyata, mereka segera menemukan kegembiraan. Namun, keberadaan Barbie di dunia nyata disadari oleh beberapa orang sehingga membuat mereka dihantui bahaya hidup di antara manusia.<br><br><br><br></p>', '2023-12-07 04:05:07', '2023-12-07 04:05:07'),
+(78, 'F-004', 'https://youtu.be/RDDM_Cky9M8?si=w6ZUkL1rOhSu-6GM', 'Beauty And The Beast', 'images/beautybeast.jpg', 'banner/bnbeauty.png', 12, 129, 2017, 0, 0, '<p style=\"text-align: justify;\">&nbsp;Film ini mengisahkan Belle, seorang gadis muda yang tinggal di sebuah desa kecil bersama ayahnya yang eksentrik, Maurice. Suatu hari, Maurice tersesat di dalam hutan dan menemukan istana misterius yang ditinggalkan. Namun, ketika dia mencoba untuk mengambil mawar sebagai hadiah untuk Belle, pemilik istana, yang ternyata adalah seorang penyihir dan memiliki wajah yang menakutkan, marah padanya.&nbsp;Belle yang khawatir tentang ayahnya, menawarkan diri untuk menggantikan ayahnya sebagai tawanan sang penyihir. Di istana tersebut, Belle menemukan bahwa para pelayan istana telah berubah menjadi benda-benda hidup, seperti Lilin, Jam, dan Teapot, akibat kutukan penyihir. Pemilik istana, yang merupakan seorang pangeran tampan, telah berubah menjadi Beast dan akan tetap seperti itu kecuali seseorang mencintainya meskipun penampilannya yang menakutkan.</p>', '2023-12-07 04:13:43', '2023-12-07 04:13:43'),
+(79, 'F-005', 'https://youtu.be/tCFq6gOXDqY?si=6QgYcxFcBHgc-9yB', 'Snow White And The Huntsman', 'images/snowwhite.jpg', 'banner/bnsnowwhite.png', 12, 127, 2012, 0, 0, '<p style=\"text-align: justify;\">Snow White adalah perempuan tercantik di seluruh negeri. Inilah sebabnya Queen Ravenna ingin membunuhnya dan mengirim seorang pemburu Namun bukannya membunuh, pemburu tersebut malah melatih Snow White cara bertarung dan seni berperang. Kini, Snow White menjelma menjadi seorang pejuang yang mengancam pemerintahan Queen Ravenna</p>', '2023-12-07 04:17:54', '2023-12-07 04:17:54'),
+(80, 'F-006', 'https://youtu.be/p-5sVX7MRj8?si=v2ZkNPvc4Br0CD68', 'Peter Pan & Wendy', 'images/PETER PAN & WENDY (2023).jpg', 'banner/bnpeterpan.png', 12, 109, 2023, 0, 0, '<p>Pada suatu malam, Wendy sedang tertidur dengan damai di tempat tidurnya. Beberapa menit kemudian, ia mendadak terbangun akibat kegaduhan yang ditimbulkan oleh kedua adik laki-lakinya, John dan Michael. Keduanya terlihat menangkap Tinker Bell, yang mereka duga sebagai seekor serangga.&nbsp;Bersamaan dengan kejadian itu. Muncullah Peter Pan, seorang anak laki-laki yang menolak untuk tumbuh dewasa.&nbsp;Peter Pan mengajak Wendy, John dan Michael untuk bepergian ke Neverland, dibantu dengan serbuk peri milik Tinker Bell. Di sana, Wendy bertemu dengan anak-anak yang hilang, Tiger Lily dan Kapten Hook, sosok kapten bajak laut yang jahat serta memulai petualangan menabjukkan dan mendebarkan. Sekaligus, melakukan pertarungan berbahaya yang bakal mengubah hidupnya selamanya.</p>', '2023-12-07 04:26:17', '2023-12-07 04:26:17'),
+(81, 'D-003', 'https://youtu.be/elIcNsHm6pM?si=fM4E6HIAQzpmfO2a', 'Hati Suhita', 'images/posterhatisuhita.jpg', 'banner/suhita.png', 11, 137, 2023, 0, 0, '<p style=\"text-align: justify;\">Kisah Alina Suhita. Perempuan teguh, matang dan pantang menyerah. Ketabahan memandunya menghadapi badai rumah tangga yang terjadi bahkan sejak malam pertama. Perjuangan lahir batinnya diuji untuk merengkuh cinta Gus Birru, suaminya sendiri.</p>', '2023-12-07 05:42:53', '2023-12-07 05:42:53'),
+(82, 'D-004', '', 'Air Mata di Ujung Sajadah', 'images/airmata.jpg', 'banner/airmatabn.png', 11, 105, 2023, 0, 0, '<p style=\"text-align: justify;\">Tujuh tahun berlalu, Aqilla baru mengetahui bahwa anaknya yakni Baskara, ternyata masih hidup dan diasuh oleh Arif dan Yumna, pasangan yang hanya memiliki satu harapan: memiliki seorang anak. Aqilla bertolak dari kehidupannya yang hampa di Eropa menuju Kota Solo untuk menjemput masa depan barunya. Akankah Aqilla tega merenggut Baskara yang sudah dibesarkan oleh Arif dan Yumna selama bertahun-tahun? Memang darah dan daging Aqilla ada dalam diri Baskara, namun di sana juga ada keringat dan airmata Yumna. Siapakah yang lebih berhak menjadi ibu dari Baskara?</p>', '2023-12-07 05:50:39', '2023-12-07 05:50:39'),
+(83, 'D-005', 'https://youtu.be/3VkYiatpTVQ?si=-IrjY5Ux2w5A6BGq', 'Budi Pekerti', 'images/budipekerti.jpg', 'banner/bnbudipekerti.png', 11, 110, 2023, 0, 0, '<p style=\"text-align: justify;\">Bu Prani, seorang guru BK terlibat perselisihan dengan pengunjung di pasar. Sayangnya, kejadian tersebut berhasil direkam oleh seseorang dan diunggah ke media sosial. Karena sikap Bu Prani yang dinilai tidak mencerminkan layaknya seorang guru, ia mendapatkan kecaman dan komentar negatif dari netizen.&nbsp;Tidak hanya Bu Prani yang terkena&nbsp;<em>bullying</em>, keluarganya pun ikut dikecam oleh masyarakat. Segala tindakan dan perlakuan masing-masing anggota keluarganya pun ikut dinilai dari dicari kesalahannya. Sehingga hidup mereka menjadi tidak tenang dan apa pun yang mereka lakukan akan dipandang salah. Selain kehilangan keharmonisan keluarga, hingga Bu Prani terancam kehilangan pekerjaannya</p>', '2023-12-07 06:03:07', '2023-12-07 06:03:07'),
+(84, 'D-006', 'https://youtu.be/IPRBKGxCCZQ?si=ImIquZwlXyAXEM-n', '172 Days', 'images/172 Days.jpg', 'banner/banner172.png', 11, 103, 2023, 0, 0, '<p style=\"text-align: justify;\">Film 172 Days menecritakan seorang perempuan bernama Nadzira Shafa memutuskan untuk berhijrah dan ingin menjalani kehidupan yang lebih baik. Dari proses hijrahnya tersebut, Nadzira Shafa mulai banyak mempelajari tentang ilmu agama serta kerap kali hadir dalam suatu majlis pengajian. Ameer adalah putra dari mendiang Ustadz Arifin Ilham, seorang ulama dan pendakwah yang sangat terkenal di Indonesia. Ameer adalah seorang pemuda yang taat beragama dan memiliki akhlak yang mulia. Ameer pun mulai mendekati Zira. Ia mengajak Zira untuk taaruf dan menikah. Zira pun menerima ajakan Ameer dan mereka pun menikah.Kehidupan pernikahan Zira dan Ameer sangat bahagia. Mereka saling mencintai dan saling mendukung. Namun, kebahagiaan mereka tidak bertahan lama. Ameer yang menderita penyakit kritis harus menjalani perawatan intensif di rumah sakit. Zira pun setia mendampingi Ameer selama masa-masa sulitnya. Akhirnya, Ameer menghembuskan napas terakhirnya di usia yang masih sangat muda, 22 tahun. Kepergian Ameer meninggalkan duka yang mendalam bagi Zira.</p>', '2023-12-07 06:07:51', '2023-12-07 06:07:51'),
+(85, 'M-004', 'https://youtu.be/CzUtxsJxCzQ?si=Rr-DJYCL0YWvDRkD', 'Gone Girl', 'images/gone-girl.jpg', 'banner/648d86bc8f038-gone-girl_bandung.jpg', 13, 149, 2014, 0, 0, '<p>Pada suatu pagi istrinya hilang secara misterius. Nick Dunne lapor polisi dan media segera meliput kasus ini secara besar-besaran. Namun mereka curiga - mungkin Nick telah membunuh istrinya sendiri.</p>', '2023-12-07 10:13:25', '2023-12-07 10:13:25'),
+(86, 'M-005', 'https://youtu.be/5iaYLCiq5RM?si=IZJaGXdXR3PE474e', 'Shutter Island', 'images/SI_.jpg', 'banner/Shutter-Island.webp', 13, 138, 2010, 0, 0, '<p>Seorang perwira ditugaskan untuk menyelidiki hilangnya seorang pasien yang telah melarikan diri dari rumah sakit jiwa. Hal-hal berbahaya mulai meragukan segalanya, termasuk kewarasannya sendiri.</p>\r\n<p>&nbsp;</p>', '2023-12-07 10:27:14', '2023-12-07 10:27:14'),
+(87, 'M-006', 'https://youtu.be/seBixtcx19E?si=WvRkloqvpRKQl6C5', 'Missing', 'images/14.-PF-Missing.jpg', 'banner/missing.jpg', 13, 111, 2022, 0, 0, '<p>Ketika sang ibu dan pacar barunya menghilang saat berlibur berdua ke Kolombia, upaya June dalam mencari jawaban selalu terjegal oleh birokrasi internasional. Tak mampu beranjak dari Los Angeles, June dengan cerdik mempergunakan segala teknologi yang ada dalam genggamannya untuk mencari ibunya sebelum semuanya terlambat. Namun semakin ia mencari tahu, penyelidikan digital yang ia lakukan berbuahkan lebih banyak pertanyaan daripada jawaban, dan begitu June menemukan rahasia-rahasia tentang sang ibu, ia tersadar bahwa selama ini ia tak benar-benar mengenal ibunya sendiri.</p>', '2023-12-07 11:10:34', '2023-12-07 11:10:34'),
+(88, 'M-007', 'https://youtu.be/OtYQB4r8Jew?si=DBpOFmsltQzVn-KV', 'There s Something Wrong with the Children', 'images/Tswwtc.jpg', 'banner/tswwtc.webp', 13, 92, 2023, 0, 0, '<p><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Margaret dan Ben melakukan perjalanan akhir pekan dengan teman lama mereka, Ellie dan Thomas serta dua anak kecil mereka. </span><span style=\"vertical-align: inherit;\">Ben mulai curiga suatu hal supernatural sedang terjadi saat anak-anak itu sering mendapat pesan aneh setelah hilang semalaman di hutan.</span></span></p>', '2023-12-07 11:16:31', '2023-12-07 11:16:31'),
+(89, 'M-008', 'https://youtu.be/0wiBHEACNHs?si=1l1eMdsPur-YM0QD', 'Knock At the Cabin', 'images/knock-at-the-cabin-2023_600_880.webp', 'banner/katc.jpg', 13, 100, 2022, 0, 0, '<p>Eric dan Andrew adalah pasangan sesama jenis yang hidup bahagia. Untuk memperlengkap kebahagiaan mereka, keduanya memutuskan untuk mengadopsi anak keturunan Tionghoa bernama Wen. Di waktu senggang mereka, Eric dan Andrew memutuskan menyewa sebuah kabin di New England. Liburan ini bertujuan untuk menghabiskan waktu berkualitas bersama keluarga mereka.&nbsp;</p>', '2023-12-07 11:20:59', '2023-12-07 11:20:59');
 INSERT INTO `tb_film` (`id`, `kode_film`, `trailer`, `nama_film`, `gambar`, `banner`, `id_genre`, `durasi`, `tahun`, `id_review`, `id_rekomendasi`, `sinopsis`, `created_at`, `updated_at`) VALUES
-(89, 'M-008', 'https://youtu.be/0wiBHEACNHs?si=1l1eMdsPur-YM0QD', 'Knock At the Cabin', 'images/knock-at-the-cabin-2023_600_880.webp', 'banner/katc.jpg', 13, 100, '2022', 0, 0, '<p>Eric dan Andrew adalah pasangan sesama jenis yang hidup bahagia. Untuk memperlengkap kebahagiaan mereka, keduanya memutuskan untuk mengadopsi anak keturunan Tionghoa bernama Wen. Di waktu senggang mereka, Eric dan Andrew memutuskan menyewa sebuah kabin di New England. Liburan ini bertujuan untuk menghabiskan waktu berkualitas bersama keluarga mereka.&nbsp;</p>', '2023-12-07 11:20:59', '2023-12-07 11:20:59'),
-(90, 'M-009', 'https://youtu.be/h74AXqw4Opc?si=qFyxVOW8EdYv1NXv', 'Streem VI', 'images/Streem 6.jpg', 'banner/Streem VI.webp', 13, 162, '2023', 0, 0, '<p><strong>Samantha Carpenter merupakan salah satu penyintas dari tragedi Pembunuhan Woodsboro 2022 dan sedang menjalani terapi</strong>. Samantha mengaku baik saja, walaupun ia harus diasingkan di depan umum karena menikam Richie Kirsch dan dituduh mendalangi tragedi pembunuhan tersebut.</p>', '2023-12-07 11:30:23', '2023-12-07 11:30:23'),
-(91, 'M-010', 'https://youtu.be/DXs8BJsnxU8?si=5gIT3tYnNADiKjaM', 'To Catch A Killer', 'images/to-catch-a-killer-2023.webp', 'banner/film-to-catch-a-killer_169.jpeg', 13, 119, '2023', 0, 0, '<p><strong>Eleanor Falco (Shailene Woodley) adalah sosok petugas polisi yang berbakat namun sering bermasalah</strong>. Kemampuannya ini membuat ia direkrut oleh kepala penyelidik FBI, Lammark (Ben Mendelsohn) untuk membantunya mengungkap sosok misterius yang meneror kota.</p>', '2023-12-07 11:38:21', '2023-12-07 11:38:21'),
-(92, 'M-011', 'https://youtu.be/N-qn4h-amyY?si=Pg1mtJT9KiuEqark', 'Hypnotic', 'images/PF-Hypnotic.jpg', 'banner/poster-film-hypnotic.jpg', 13, 93, '2023', 0, 0, '<p>Bertekad untuk menemukan putrinya yang hilang, Detektif Danny Rourke terseret dalam misteri yang lebih besar ketika menyelidiki serangkaian tindak kejahatan yang membelokkan realita. Dengan bantuan Diana Cruz, seorang cenayang berbakat, Rourke memburu sekaligus diburu oleh sesosok mematikan, yang Rourke yakini memegang kunci keberadaan sang putri.</p>', '2023-12-07 11:43:20', '2023-12-07 11:43:20'),
-(93, 'M-012', 'https://youtu.be/2S3M1xFVdVg?si=r8XlmwVwWzdxCTd3', 'They Cloned Tyrone', 'images/they cloned tyrone.jpg', 'banner/tct.jpg', 13, 122, '2023', 0, 0, '<p>Menceritakan tentang aksi tiga orang yang melakukan penyelidikan serius.Tiga orang ini berasal dari satu kesamaan yakni dari kalangan orang kulit hitam.Mereka bertemu karena mengalami kejadian yang sama pada suatu waktu. Fontaine (John Boyega) seorang pengedar narkoba menemui Slick Charles (Jamie Foxx) usai mendapati masalah dengan saingannya.</p>', '2023-12-07 11:58:32', '2023-12-07 11:58:32'),
-(94, 'AD-008', 'https://youtu.be/avz06PDqDbM?si=2kDzl5GV4TSEcSoX', 'Mission Impossible ', 'images/mission Imposible.jpg', 'banner/Mission-Impossible.jpg', 14, 183, '2023', 0, 0, '<p>Ethan Hunt dan tim IMF beraksi dalam misi paling berbahaya dari yang pernah ada: Melacak sebuah senjata jenis baru yang dapat mengancam kelangsungan umat manusia, sebelum jatuh ke tangan yang salah. Dengan kendali terhadap masa depan dan nasib dunia sebagai taruhannya, serta pihak-pihak jahat dari masa lalu Ethan yang turut mengintai, perlombaan maut lintas negara dimulai. Dihadang oleh musuh yang misterius dan berkuasa, Ethan dipaksa untuk menjadikan misi ini sebagai prioritas terpentingbahkan lebih penting dari nyawa orang-orang terdekatnya sekalipun.</p>', '2023-12-07 12:14:24', '2023-12-07 12:14:24'),
-(95, 'AD-009', 'https://youtu.be/4wxyy8Rcz4k?si=z9KmTC2mivzZVjIe', 'Blue beetle', 'images/blue beetle.jpg', 'banner/Blue-Beetle.jpg', 14, 127, '2023', 0, 0, '<p>Sebuah relik peninggalan alien memilih Jaime Reyes (Xolo Mariduena) untuk menjadi pewaris kekuatan luar biasa. Kekuatan baru ini mengubah takdir hidup Reyes menjadi pahlawan super kumbang biru.</p>', '2023-12-07 12:18:23', '2023-12-07 12:18:23'),
-(96, 'AD-010', 'https://youtu.be/32RAq6JzY-w?si=eQKIddzzDCroBn6w', 'Fast X', 'images/fast X.jpg', 'banner/b -fastX.webp', 14, 141, '2023', 0, 0, '<p>Selama banyak misi dan melawan rintangan yang mustahil, Dom Toretto dan keluarganya telah mengakali dan mengalahkan setiap musuh di jalan mereka. Sekarang, mereka menghadapi lawan paling mematikan yang pernah mereka hadapi: Ancaman mengerikan yang muncul dari bayang-bayang masa lalu yang dipicu oleh dendam berdarah, dan yang bertekad untuk menghancurkan keluarga ini dan menghancurkan segalanyadan semua orangyang dicintai Dom, selamanya. Dalam Fast Five 2011, Dom dan krunya mengalahkan gembong narkoba Brasil Hernan Reyes yang jahat dan memenggal kerajaannya di sebuah jembatan di Rio De Janeiro. Apa yang tidak mereka ketahui adalah bahwa putra Reyes, Dante, menyaksikan semuanya dan telah menghabiskan 12 tahun terakhir mendalangi rencana untuk membuat Dom membayar harga tertinggi. Plot Dante akan menyebarkan keluarga Dom dari Los Angeles ke katakombe Roma, dari Brasil ke London dan dari Portugal ke Antartika. Sekutu baru akan ditempa dan musuh lama akan muncul kembali. Tapi semuanya berubah ketika Dom menemukan bahwa putranya sendiri yang berusia 8 tahun adalah target utama balas dendam Dante.</p>', '2023-12-07 12:24:17', '2023-12-07 12:24:17'),
-(97, 'AD-011', 'https://youtu.be/zt-hyQE-sIA?si=8JKbO3o2O1EsqPYf', 'Detective Knight: Independence', 'images/detective knight independence.jpg', 'banner/detective knight independence banner.jpg', 14, 91, '2023', 0, 0, '<p>Film yang menceritakan sebuah Penugasan terakhir Detektif James Knight untuk shift Hari Kemerdekaan yang berubah menjadi sebuah perlombaan untuk menghentikan seorang EMT Ambulans ini yang dimana akan tidak seimbang dari membahayakan perayaan kota tersebut.</p>\r\n<p>&nbsp;</p>\r\n<p>Penegak hukum sembarang yang bermain polisi tersebut dengan senjata dan seragam yang dicuri memiliki sebuah lemari yang besi penuh alasan untuk menampilkan pertunjukan kembang api miliknya sendiri tersebut satu yang akan berdekatan sangat berbahaya dengan rumah Knight itu.</p>\r\n<p>&nbsp;</p>\r\n<p>Dari cerita yang sudah dibangun oleh Edward Drake dan Corey Large, film tersebutlah yang akan terasa sangat seru untuk ditonton oleh anda.&nbsp;Apalagi untuk film Detective Knight: Independence tersebut yang dibintangi banyak actor dan aktris yang sangat berbakat dan tidak perlu diragukan lagi untuk kemampuan beraktingnya tersebut, ialah Lorenzo Antonucci, Dax Campbell, dan Scott Cargle.&nbsp;Demikian informasi mengenai&nbsp;<a href=\"https://radargarut.jabarekspres.com/tag/sinopsis-film/\">Sinopsis Film</a> DETECTIVE KNIGHT: INDEPENDENCE (2023), Penugasan Terakhir Detektif James Knight.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>', '2023-12-07 12:33:36', '2023-12-07 12:33:36'),
-(98, 'AD-012', 'https://youtu.be/82I1ErFD63U?si=kLBJRO6GxqbevAE-', 'We Have A Ghost', 'images/we have A Ghost.jpg', 'banner/Banner We have A ghost.jpeg', 14, 127, '2023', 0, 0, '<p>We Have A Ghost mengisahkan&nbsp;<strong>pengalaman menemukan hantu laki-laki bernama Ernest yang menyebabkan keluarga Kevin menjadi sensasi di media sosial</strong>. Kevin yang memiliki kemampuan melihat hantu pun kerap melihat sosok hantu di rumah barunya.</p>', '2023-12-07 13:22:30', '2023-12-07 13:22:30'),
-(99, 'A-005', 'https://youtu.be/yiTs7bxUc-s?si=h7ta4FucYjSlKZ5C', 'The Big 4', 'images/big4.jpg', 'banner/banner big4.webp', 8, 141, '2022', 0, 0, '<p style=\"text-align: justify;\">Cerita The&nbsp;<strong>Big 4</strong> berpusat pada Dina (Putri Marino), detektif yang dikenal lurus dan memegang teguh prinsip sebagai anggota polisi. Suatu hari, Dina mendapati sang ayah (Budi Ros) meninggal secara misterius. Ia berupaya mengungkap misteri kematian ayahnya dengan mengikuti petunjuk yang ditemukan</p>', '2023-12-09 07:40:34', '2023-12-09 07:40:34'),
-(100, 'A-006', 'https://youtu.be/yXhoytk0Hfw?si=P0VMpXPinjoNcKjR', 'Headshot', 'images/Poster_headshot.jpg', 'banner/Headshot_Landscape.jpg', 8, 117, '2016', 0, 0, '<p style=\"text-align: justify;\">Seorang dokter muda merawat sesosok pria tak dikenal yang terluka parah dan kehilangan ingatannya. Tak lama beberapa orang datang mencarinya dan menculik si dokter - membuatnya tak punya pilihan lain.</p>', '2023-12-09 07:46:56', '2023-12-09 07:46:56'),
-(101, 'A-007', 'https://youtu.be/PQ6yUHHfZ04?si=5qwFOuJ2_urkxgNB', 'The Raid 2 - Berandal', 'images/Poster_Teatrikal_The_Raid_2-Berandal.jpeg', 'banner/brandal-131210b.webp', 8, 150, '2014', 0, 0, '<p style=\"text-align: justify;\">Dalam sekuel film laga ini, Rama dikirim menyamar untuk membasmi pejabat polisi yang korup dan komplotan geng dunia kriminal bawah tanah.</p>', '2023-12-09 07:54:25', '2023-12-09 07:54:25'),
-(102, 'A-008', 'https://youtu.be/8rauD1vxMCw?si=ceFKU2c0tfszChN0', 'Gundala', 'images/gundala.jpg', 'banner/gundala banner.jpeg', 8, 123, '2019', 0, 0, '<p style=\"text-align: justify;\">Sancaka hidup di jalanan sejak ditinggal ayah dan ibunya. Menghadapi hidup yang keras, Sancaka belajar untuk bertahan hidup dengan tidak peduli dengan orang lain dan hanya mencoba untuk mendapatkan tempat yang aman bagi dirinya sendiri. Ketika situasi kota semakin tidak aman dan ketidakadilan merajalela di seluruh negeri, Sancaka harus buat keputusan yang berat, tetap hidup di zona amannya, atau keluar sebagai Gundala untuk membela orang-orang yang ditindas.</p>', '2023-12-09 08:01:54', '2023-12-09 08:01:54'),
-(103, 'A-009', 'https://youtu.be/K6n3VPO1oGE?si=bjD8m-1X1xcY5v0C', 'Foxtrot Six', 'images/foxtrot six.jpg', 'banner/banner foxtrot six.jpeg', 8, 114, '2019', 0, 0, '<p style=\"text-align: justify;\">Ketika Indonesia diambil alih oleh partai pembelot PIRANAS, serangkaian peristiwa membawa mantan marinir Angga (Oka Antara) kepada masa lalunya Sari (Julie Estelle) dimana kebenaran dibalik&hellip;</p>', '2023-12-09 08:10:55', '2023-12-09 08:10:55'),
-(104, 'A-010', 'https://youtu.be/RHTrW0LN3E4?si=jP-M9Y00huCT7QIM', 'Ben & Jody', 'images/Poster_film_Ben_&_Jody.jpg', 'banner/ben-n-jody-800x500.jpg', 8, 114, '2022', 0, 0, '<p style=\"text-align: justify;\">Sejak keluar dari Filosofi Kopi, Ben (Chicco Jerikho) yang kini aktif membela kelompok petani untuk melawan perusahaan, kini menghilang. Jody (Rio Dewanto) sebagai sahabat setianya pun melakukan pencarian untuk menemukan keberadaan Ben.</p>', '2023-12-09 08:14:32', '2023-12-09 08:14:32'),
-(105, 'A-011', 'https://youtu.be/Z5T67lOcjoM?si=c6EZlOYpcQ5o0x7S', 'Wiro Sableng', 'images/Poster_film_Wiro_Sableng_212.jpg', 'banner/wiro-sableng-212-diperankan-vino-g-bastian.jpg', 8, 123, '2018', 0, 0, '<p style=\"text-align: justify;\">Nusantara, abad ke-16, Wiro Sableng (Vino G Bastian), seorang pemuda, murid dari pendekar misterius bernama Sinto Gendeng (Ruth Marini), mendapat titah dari gurunya untuk meringkus Mahesa Birawa (Yayan Ruhian), mantan murid Sinto Gendeng yang berkhianat. Dalam perjalanannya mencari Mahesa Birawa, Wiro terlibat dalam suatu petualangan seru bersama dua sahabat barunya Anggini (Sherina Munaf) dan Bujang Gila Tapak Sakti (Fariz Alfarazi). Pada akhirnya Wiro bukan hanya menguak rencana keji Mahesa Birawa, tetapi juga menemukan esensi sejati seorang pendekar.</p>', '2023-12-09 08:22:57', '2023-12-09 08:22:57'),
-(106, 'A-012', 'https://youtu.be/Lgr59kA3PCE?si=rYGT9QlQlwNwb0Ti', 'Pendekar Tongkat Emas', 'images/Pendekar_Tongkat_Emas_poster.jpg', 'banner/pendekar-tongkat-emas-1ed4ac.webp', 8, 112, '2014', 0, 0, '<p style=\"text-align: justify;\">Seorang murid bela diri ditunjuk untuk menjadi penerus gurunya. Namun, keadaan berubah saat ia harus melawan dua anggota lain yang membunuh sang guru dan mencuri pusakanya.</p>', '2023-12-09 08:29:55', '2023-12-09 08:29:55'),
-(107, 'R-003', 'https://youtu.be/rKGvrEWCG3A?si=mfXoE9n1EkzyCPQs', 'Habibi & Ainun', 'images/Habibie_Ainun_Poster.jpg', 'banner/banner habibi dan ainun.jpg', 9, 118, '2012', 0, 0, '<p style=\"text-align: justify;\">Ini adalah kisah tentang apa yang terjadi bila kau menemukan belahan hatimu. Kisah tentang cinta pertama dan cinta terakhir. Kisah tentang Presiden ketiga Indonesia dan ibu negara. Kisah tentang Habibie dan Ainun. Rudy Habibie seorang jenius ahli pesawat terbang yang punya mimpi besar: berbakti kepada bangsa Indonesia dengan membuat truk terbang untuk menyatukan Indonesia. Sedangkan Ainun adalah seorang dokter muda cerdas yang dengan jalur karir terbuka lebar untuknya. Pada tahun 1962, dua kawan SMP ini bertemu lagi di Bandung. Habibie jatuh cinta seketika pada Ainun yang baginya semanis gula. Tapi Ainun, dia tak hanya jatuh cinta, dia iman pada visi dan mimpi Habibie. Mereka menikah dan terbang ke Jerman. Punya mimpi tak akan pernah mudah. Habibie dan Ainun tahu itu. Cinta mereka terbangun dalam perjalanan mewujudkan mimpi. Dinginnya salju Jerman, pengorbanan, rasa sakit, kesendirian serta godaan harta dan kuasa saat mereka kembali ke Indonesia mengiringi perjalanan dua hidup menjadi satu. Bagi Habibie, Ainun adalah segalanya. Ainun adalah mata untuk melihat hidupnya. Bagi Ainun, Habibie adalah segalanya, pengisi kasih dalam hidupnya. Namun setiap kisah mempunyai akhir, setiap mimpi mempunyai batas. Kemudian pada satu titik, dua belahan jiwa ini tersadar; Apakah cinta mereka akan bisa terus abadi?</p>', '2023-12-09 08:47:32', '2023-12-09 08:47:32'),
-(108, 'R-004', 'https://youtu.be/C2yFJaXmdQs?si=0N5B0SI9LZXv0npw', 'Milea', 'images/milea.jpg', 'banner/004491100_1608011207-Milea-_-Mariposa-Feed.webp', 9, 102, '2020', 0, 0, '<p style=\"text-align: justify;\">Tidak ada kisah yang lebih Indah dari kisah cinta di SMA.Sama halnya dengan kisah cinta Dilan dan Milea.Dari yang awalnya benci hingga saling mencintai. Dari yang awalnya manis hingga menjadi rumit.Menjelang reuni akbar,Dilan memutuskan untuk menceritakan kembali masa masa itu.</p>', '2023-12-09 09:02:05', '2023-12-09 09:02:05'),
-(109, 'R-005', 'https://youtu.be/k_nK2PQ1Q8Q?si=DvU2fDkbL0q_HSBf', 'Tenggelamnya Kapal Van Der Wich', 'images/Poster_film_Tenggelamnya_Kapal_van_der_Wijck.jpg', 'banner/Tenggelamnya-Kapal-Van-Der-Wijck.jpeg', 9, 155, '2013', 0, 0, '<p style=\"text-align: justify;\">Dari Makasar, Zainuddin berlayar menuju tanah kelahiran ayahnya di Padang Panjang. Hatinya terpikat pada seorang gadis jelita bangsawan, Hayati. Namun apa daya, adat istiadat menghalangi cinta mereka.</p>', '2023-12-09 15:41:34', '2023-12-09 15:41:34'),
-(110, 'R-006', 'https://youtu.be/3c_McS4_2A8?si=uWB250osE8mBqBdR', 'Ada Apa Dengan Cinta 2', 'images/aadc.jpg', 'banner/aadc banner.jpg', 9, 123, '2016', 0, 0, '<p>14 tahun setelah percintaan mereka di sekolah menengah, Rangga dan Cinta bersatu kembali di Yogyakarta untuk menutup kisah mereka setelah Rangga meninggalkan Cinta tanpa penjelasan.</p>', '2023-12-09 15:50:59', '2023-12-09 15:50:59');
+(90, 'M-009', 'https://youtu.be/h74AXqw4Opc?si=qFyxVOW8EdYv1NXv', 'Streem VI', 'images/Streem 6.jpg', 'banner/Streem VI.webp', 13, 162, 2023, 0, 0, '<p><strong>Samantha Carpenter merupakan salah satu penyintas dari tragedi Pembunuhan Woodsboro 2022 dan sedang menjalani terapi</strong>. Samantha mengaku baik saja, walaupun ia harus diasingkan di depan umum karena menikam Richie Kirsch dan dituduh mendalangi tragedi pembunuhan tersebut.</p>', '2023-12-07 11:30:23', '2023-12-07 11:30:23'),
+(91, 'M-010', 'https://youtu.be/DXs8BJsnxU8?si=5gIT3tYnNADiKjaM', 'To Catch A Killer', 'images/to-catch-a-killer-2023.webp', 'banner/film-to-catch-a-killer_169.jpeg', 13, 119, 2023, 0, 0, '<p><strong>Eleanor Falco (Shailene Woodley) adalah sosok petugas polisi yang berbakat namun sering bermasalah</strong>. Kemampuannya ini membuat ia direkrut oleh kepala penyelidik FBI, Lammark (Ben Mendelsohn) untuk membantunya mengungkap sosok misterius yang meneror kota.</p>', '2023-12-07 11:38:21', '2023-12-07 11:38:21'),
+(92, 'M-011', 'https://youtu.be/N-qn4h-amyY?si=Pg1mtJT9KiuEqark', 'Hypnotic', 'images/PF-Hypnotic.jpg', 'banner/poster-film-hypnotic.jpg', 13, 93, 2023, 0, 0, '<p>Bertekad untuk menemukan putrinya yang hilang, Detektif Danny Rourke terseret dalam misteri yang lebih besar ketika menyelidiki serangkaian tindak kejahatan yang membelokkan realita. Dengan bantuan Diana Cruz, seorang cenayang berbakat, Rourke memburu sekaligus diburu oleh sesosok mematikan, yang Rourke yakini memegang kunci keberadaan sang putri.</p>', '2023-12-07 11:43:20', '2023-12-07 11:43:20'),
+(93, 'M-012', 'https://youtu.be/2S3M1xFVdVg?si=r8XlmwVwWzdxCTd3', 'They Cloned Tyrone', 'images/they cloned tyrone.jpg', 'banner/tct.jpg', 13, 122, 2023, 0, 0, '<p>Menceritakan tentang aksi tiga orang yang melakukan penyelidikan serius.Tiga orang ini berasal dari satu kesamaan yakni dari kalangan orang kulit hitam.Mereka bertemu karena mengalami kejadian yang sama pada suatu waktu. Fontaine (John Boyega) seorang pengedar narkoba menemui Slick Charles (Jamie Foxx) usai mendapati masalah dengan saingannya.</p>', '2023-12-07 11:58:32', '2023-12-07 11:58:32'),
+(94, 'AD-008', 'https://youtu.be/avz06PDqDbM?si=2kDzl5GV4TSEcSoX', 'Mission Impossible ', 'images/mission Imposible.jpg', 'banner/Mission-Impossible.jpg', 14, 183, 2023, 0, 0, '<p>Ethan Hunt dan tim IMF beraksi dalam misi paling berbahaya dari yang pernah ada: Melacak sebuah senjata jenis baru yang dapat mengancam kelangsungan umat manusia, sebelum jatuh ke tangan yang salah. Dengan kendali terhadap masa depan dan nasib dunia sebagai taruhannya, serta pihak-pihak jahat dari masa lalu Ethan yang turut mengintai, perlombaan maut lintas negara dimulai. Dihadang oleh musuh yang misterius dan berkuasa, Ethan dipaksa untuk menjadikan misi ini sebagai prioritas terpentingbahkan lebih penting dari nyawa orang-orang terdekatnya sekalipun.</p>', '2023-12-07 12:14:24', '2023-12-07 12:14:24'),
+(95, 'AD-009', 'https://youtu.be/4wxyy8Rcz4k?si=z9KmTC2mivzZVjIe', 'Blue beetle', 'images/blue beetle.jpg', 'banner/Blue-Beetle.jpg', 14, 127, 2023, 0, 0, '<p>Sebuah relik peninggalan alien memilih Jaime Reyes (Xolo Mariduena) untuk menjadi pewaris kekuatan luar biasa. Kekuatan baru ini mengubah takdir hidup Reyes menjadi pahlawan super kumbang biru.</p>', '2023-12-07 12:18:23', '2023-12-07 12:18:23'),
+(96, 'AD-010', 'https://youtu.be/32RAq6JzY-w?si=eQKIddzzDCroBn6w', 'Fast X', 'images/fast X.jpg', 'banner/b -fastX.webp', 14, 141, 2023, 0, 0, '<p>Selama banyak misi dan melawan rintangan yang mustahil, Dom Toretto dan keluarganya telah mengakali dan mengalahkan setiap musuh di jalan mereka. Sekarang, mereka menghadapi lawan paling mematikan yang pernah mereka hadapi: Ancaman mengerikan yang muncul dari bayang-bayang masa lalu yang dipicu oleh dendam berdarah, dan yang bertekad untuk menghancurkan keluarga ini dan menghancurkan segalanyadan semua orangyang dicintai Dom, selamanya. Dalam Fast Five 2011, Dom dan krunya mengalahkan gembong narkoba Brasil Hernan Reyes yang jahat dan memenggal kerajaannya di sebuah jembatan di Rio De Janeiro. Apa yang tidak mereka ketahui adalah bahwa putra Reyes, Dante, menyaksikan semuanya dan telah menghabiskan 12 tahun terakhir mendalangi rencana untuk membuat Dom membayar harga tertinggi. Plot Dante akan menyebarkan keluarga Dom dari Los Angeles ke katakombe Roma, dari Brasil ke London dan dari Portugal ke Antartika. Sekutu baru akan ditempa dan musuh lama akan muncul kembali. Tapi semuanya berubah ketika Dom menemukan bahwa putranya sendiri yang berusia 8 tahun adalah target utama balas dendam Dante.</p>', '2023-12-07 12:24:17', '2023-12-07 12:24:17'),
+(97, 'AD-011', 'https://youtu.be/zt-hyQE-sIA?si=8JKbO3o2O1EsqPYf', 'Detective Knight: Independence', 'images/detective knight independence.jpg', 'banner/detective knight independence banner.jpg', 14, 91, 2023, 0, 0, '<p style=\"text-align: justify;\">Film yang menceritakan sebuah Penugasan terakhir Detektif James Knight untuk shift Hari Kemerdekaan yang berubah menjadi sebuah perlombaan untuk menghentikan seorang EMT Ambulans ini yang dimana akan tidak seimbang dari membahayakan perayaan kota tersebut.Penegak hukum sembarang yang bermain polisi tersebut dengan senjata dan seragam yang dicuri memiliki sebuah lemari yang besi penuh alasan untuk menampilkan pertunjukan kembang api miliknya sendiri tersebut satu yang akan berdekatan sangat berbahaya dengan rumah Knight itu.</p>', '2023-12-07 12:33:36', '2023-12-07 12:33:36'),
+(98, 'AD-012', 'https://youtu.be/82I1ErFD63U?si=kLBJRO6GxqbevAE-', 'We Have A Ghost', 'images/we have A Ghost.jpg', 'banner/Banner We have A ghost.jpeg', 14, 127, 2023, 0, 0, '<p>We Have A Ghost mengisahkan&nbsp;<strong>pengalaman menemukan hantu laki-laki bernama Ernest yang menyebabkan keluarga Kevin menjadi sensasi di media sosial</strong>. Kevin yang memiliki kemampuan melihat hantu pun kerap melihat sosok hantu di rumah barunya.</p>', '2023-12-07 13:22:30', '2023-12-07 13:22:30'),
+(99, 'A-005', 'https://youtu.be/yiTs7bxUc-s?si=h7ta4FucYjSlKZ5C', 'The Big 4', 'images/big4.jpg', 'banner/banner big4.webp', 8, 141, 2022, 0, 0, '<p style=\"text-align: justify;\">Cerita The&nbsp;<strong>Big 4</strong> berpusat pada Dina (Putri Marino), detektif yang dikenal lurus dan memegang teguh prinsip sebagai anggota polisi. Suatu hari, Dina mendapati sang ayah (Budi Ros) meninggal secara misterius. Ia berupaya mengungkap misteri kematian ayahnya dengan mengikuti petunjuk yang ditemukan</p>', '2023-12-09 07:40:34', '2023-12-09 07:40:34'),
+(100, 'A-006', 'https://youtu.be/yXhoytk0Hfw?si=P0VMpXPinjoNcKjR', 'Headshot', 'images/Poster_headshot.jpg', 'banner/Headshot_Landscape.jpg', 8, 117, 2016, 0, 0, '<p style=\"text-align: justify;\">Seorang dokter muda merawat sesosok pria tak dikenal yang terluka parah dan kehilangan ingatannya. Tak lama beberapa orang datang mencarinya dan menculik si dokter - membuatnya tak punya pilihan lain.</p>', '2023-12-09 07:46:56', '2023-12-09 07:46:56'),
+(101, 'A-007', 'https://youtu.be/PQ6yUHHfZ04?si=5qwFOuJ2_urkxgNB', 'The Raid 2 - Berandal', 'images/Poster_Teatrikal_The_Raid_2-Berandal.jpeg', 'banner/brandal-131210b.webp', 8, 150, 2014, 0, 0, '<p style=\"text-align: justify;\">Dalam sekuel film laga ini, Rama dikirim menyamar untuk membasmi pejabat polisi yang korup dan komplotan geng dunia kriminal bawah tanah.</p>', '2023-12-09 07:54:25', '2023-12-09 07:54:25'),
+(102, 'A-008', 'https://youtu.be/8rauD1vxMCw?si=ceFKU2c0tfszChN0', 'Gundala', 'images/gundala.jpg', 'banner/gundala banner.jpeg', 8, 123, 2019, 0, 0, '<p style=\"text-align: justify;\">Sancaka hidup di jalanan sejak ditinggal ayah dan ibunya. Menghadapi hidup yang keras, Sancaka belajar untuk bertahan hidup dengan tidak peduli dengan orang lain dan hanya mencoba untuk mendapatkan tempat yang aman bagi dirinya sendiri. Ketika situasi kota semakin tidak aman dan ketidakadilan merajalela di seluruh negeri, Sancaka harus buat keputusan yang berat, tetap hidup di zona amannya, atau keluar sebagai Gundala untuk membela orang-orang yang ditindas.</p>', '2023-12-09 08:01:54', '2023-12-09 08:01:54'),
+(103, 'A-009', 'https://youtu.be/K6n3VPO1oGE?si=bjD8m-1X1xcY5v0C', 'Foxtrot Six', 'images/foxtrot six.jpg', 'banner/banner foxtrot six.jpeg', 8, 114, 2019, 0, 0, '<p style=\"text-align: justify;\">Ketika Indonesia diambil alih oleh partai pembelot PIRANAS, serangkaian peristiwa membawa mantan marinir Angga (Oka Antara) kepada masa lalunya Sari (Julie Estelle) dimana kebenaran dibalik&hellip;</p>', '2023-12-09 08:10:55', '2023-12-09 08:10:55'),
+(104, 'A-010', 'https://youtu.be/RHTrW0LN3E4?si=jP-M9Y00huCT7QIM', 'Ben & Jody', 'images/Poster_film_Ben_&_Jody.jpg', 'banner/ben-n-jody-800x500.jpg', 8, 114, 2022, 0, 0, '<p style=\"text-align: justify;\">Sejak keluar dari Filosofi Kopi, Ben (Chicco Jerikho) yang kini aktif membela kelompok petani untuk melawan perusahaan, kini menghilang. Jody (Rio Dewanto) sebagai sahabat setianya pun melakukan pencarian untuk menemukan keberadaan Ben.</p>', '2023-12-09 08:14:32', '2023-12-09 08:14:32'),
+(105, 'A-011', 'https://youtu.be/Z5T67lOcjoM?si=c6EZlOYpcQ5o0x7S', 'Wiro Sableng', 'images/Poster_film_Wiro_Sableng_212.jpg', 'banner/wiro-sableng-212-diperankan-vino-g-bastian.jpg', 8, 123, 2018, 0, 0, '<p style=\"text-align: justify;\">Nusantara, abad ke-16, Wiro Sableng (Vino G Bastian), seorang pemuda, murid dari pendekar misterius bernama Sinto Gendeng (Ruth Marini), mendapat titah dari gurunya untuk meringkus Mahesa Birawa (Yayan Ruhian), mantan murid Sinto Gendeng yang berkhianat. Dalam perjalanannya mencari Mahesa Birawa, Wiro terlibat dalam suatu petualangan seru bersama dua sahabat barunya Anggini (Sherina Munaf) dan Bujang Gila Tapak Sakti (Fariz Alfarazi). Pada akhirnya Wiro bukan hanya menguak rencana keji Mahesa Birawa, tetapi juga menemukan esensi sejati seorang pendekar.</p>', '2023-12-09 08:22:57', '2023-12-09 08:22:57'),
+(106, 'A-012', 'https://youtu.be/Lgr59kA3PCE?si=rYGT9QlQlwNwb0Ti', 'Pendekar Tongkat Emas', 'images/Pendekar_Tongkat_Emas_poster.jpg', 'banner/pendekar-tongkat-emas-1ed4ac.webp', 8, 112, 2014, 0, 0, '<p style=\"text-align: justify;\">Seorang murid bela diri ditunjuk untuk menjadi penerus gurunya. Namun, keadaan berubah saat ia harus melawan dua anggota lain yang membunuh sang guru dan mencuri pusakanya.</p>', '2023-12-09 08:29:55', '2023-12-09 08:29:55'),
+(107, 'R-003', 'https://youtu.be/rKGvrEWCG3A?si=mfXoE9n1EkzyCPQs', 'Habibi & Ainun', 'images/Habibie_Ainun_Poster.jpg', 'banner/banner habibi dan ainun.jpg', 9, 118, 2012, 0, 0, '<p style=\"text-align: justify;\">Ini adalah kisah tentang cinta pertama dan cinta terakhir. Kisah tentang Presiden ketiga Indonesia dan ibu negara. Kisah tentang Habibie dan Ainun. Rudy Habibie seorang jenius ahli pesawat terbang yang punya mimpi besar: berbakti kepada bangsa Indonesia dengan membuat truk terbang untuk menyatukan Indonesia. Sedangkan Ainun adalah seorang dokter muda cerdas yang dengan jalur karir terbuka lebar untuknya. Pada tahun 1962, dua kawan SMP ini bertemu lagi di Bandung.Mereka menikah dan terbang ke Jerman. Punya mimpi tak akan pernah mudah. Habibie dan Ainun tahu itu. Cinta mereka terbangun dalam perjalanan mewujudkan mimpi. Dinginnya salju Jerman, pengorbanan, rasa sakit, kesendirian serta godaan harta dan kuasa saat mereka kembali ke Indonesia mengiringi perjalanan dua hidup menjadi satu. Bagi Habibie, Ainun adalah segalanya. Ainun adalah mata untuk melihat hidupnya. Bagi Ainun, Habibie adalah segalanya, pengisi kasih dalam hidupnya. Namun setiap kisah mempunyai akhir, setiap mimpi mempunyai batas. Kemudian pada satu titik, dua belahan jiwa ini tersadar; Apakah cinta mereka akan bisa terus abadi?</p>', '2023-12-09 08:47:32', '2023-12-09 08:47:32'),
+(108, 'R-004', 'https://youtu.be/C2yFJaXmdQs?si=0N5B0SI9LZXv0npw', 'Milea', 'images/milea.jpg', 'banner/004491100_1608011207-Milea-_-Mariposa-Feed.webp', 9, 102, 2020, 0, 0, '<p style=\"text-align: justify;\">Tidak ada kisah yang lebih Indah dari kisah cinta di SMA.Sama halnya dengan kisah cinta Dilan dan Milea.Dari yang awalnya benci hingga saling mencintai. Dari yang awalnya manis hingga menjadi rumit.Menjelang reuni akbar,Dilan memutuskan untuk menceritakan kembali masa masa itu.</p>', '2023-12-09 09:02:05', '2023-12-09 09:02:05'),
+(109, 'R-005', 'https://youtu.be/k_nK2PQ1Q8Q?si=DvU2fDkbL0q_HSBf', 'Tenggelamnya Kapal Van Der Wich', 'images/Poster_film_Tenggelamnya_Kapal_van_der_Wijck.jpg', 'banner/Tenggelamnya-Kapal-Van-Der-Wijck.jpeg', 9, 155, 2013, 0, 0, '<p style=\"text-align: justify;\">Dari Makasar, Zainuddin berlayar menuju tanah kelahiran ayahnya di Padang Panjang. Hatinya terpikat pada seorang gadis jelita bangsawan, Hayati. Namun apa daya, adat istiadat menghalangi cinta mereka.</p>', '2023-12-09 15:41:34', '2023-12-09 15:41:34'),
+(110, 'R-006', 'https://youtu.be/3c_McS4_2A8?si=uWB250osE8mBqBdR', 'Ada Apa Dengan Cinta 2', 'images/aadc.jpg', 'banner/aadc banner.jpg', 9, 123, 2016, 0, 0, '<p>14 tahun setelah percintaan mereka di sekolah menengah, Rangga dan Cinta bersatu kembali di Yogyakarta untuk menutup kisah mereka setelah Rangga meninggalkan Cinta tanpa penjelasan.</p>', '2023-12-09 15:50:59', '2023-12-09 15:50:59'),
+(111, 'M-003', 'https://youtu.be/0PvJTnnythI?si=4OSdSRIyc9zCpc7A', 'The Secret Scripture', 'images/secret.jpg', 'banner/bannersecret.jpg', 13, 108, 2017, 0, 0, '<p style=\"text-align: justify;\">Setelah lama dikurung di rumah sakit jiwa, Roseanne harus pindah ke institusi lain. Seorang psikiater tertarik pada buku hariannya, yang mengungkap masa lalunya yang bahagia sekaligus menyedihkan.</p>', '2023-12-10 09:27:42', '2023-12-10 09:27:42'),
+(112, 'R-007', 'https://youtu.be/jiK1A3BhEBQ?si=hA9xqehixCfcCKQd', 'Sayap Sayap Patah', 'images/Poster film sayap-sayap patah.jpg', 'banner/sayappatahbn.jpg', 9, 110, 2022, 0, 0, '<p style=\"text-align: justify;\">Pada suatu hari, terdapat sebuah rumah tahanan yang dibobol oleh para tahanan, hingga memicu kerusuhan besar. Mereka melakukan penyerangan kepada para petugas. Adji dan rekan-rekan kerjanya segera bertindak untuk meredam gejolak yang ada. Namun, tidak semua tahanan bisa diatasi. Drama penyanderaan petugas terjadi dan salah satu pelakunya adalah tahanan bernama Leong . Leong merupakan salah seorang penjahat kejam, yang tidak segan melukai orang-orang yang menghalanginya, termasuk kepada aparat keamanan. Leong berhasil mendapatkan pistol yang dijadikan alat pengancamannya. Adji adalah salah satu petugas keamanan yang turut terkena imbas dari keberingasan para tahanan. Bahkan, sempat terjadi sebuah ledakan cukup besar di tempat tersebut. Akhirnya, terjadi sesuatu pada Adji, yang membuat impiannya untuk hidup bahagia bersama Nani hancu</p>', '2023-12-10 16:05:27', '2023-12-10 16:05:27'),
+(114, 'R-008', 'https://youtu.be/CEwLJnrT3X0?si=Lah7bgzJUdUrwTWv', 'Surat Cinta Untuk Starla', 'images/starla.jpg', 'banner/bannerstarla.webp', 9, 104, 2017, 0, 0, '<p>Hema&nbsp;adalah seorang cowok yang terobsesi dengan cintanya pada alam yang memiliki keunikan membuat surat cinta untuk alam. Dengan dibantu mesin tik tuanya peninggalan sang kakek mantan jurnalis, Hema membuat mural yang menunjukkan betapa cintanya Reza pada alam ini. Alam adalah satu satunya cinta yang Hema kenal.&nbsp;Hingga suatu saat Hema mengenal Starla&nbsp;Gadis cantik dan mandiri yang selama 6 jam telah berhasil membuatnya jatuh cinta. Untuk pertama kalinya Hema menyadari ada surat cinta yang lebih indah daripada surat cinta untuk alam yaitu surat cinta untuk Starla.</p>', '2023-12-10 16:11:22', '2023-12-10 16:11:22'),
+(115, 'R-009', 'https://youtu.be/LjLN8PKPa2Q?si=egGdmZa1ew4Qip1o', 'Thank You Salma', 'images/postersalma.jpeg', 'banner/bnsalma.jpg', 9, 112, 2022, 0, 0, '<p style=\"text-align: justify;\">Zanna, teman sekelas Nathan di kampus yang menjadi korban pelecehan seksual oleh temannya di Mapala. Namun, karena ayah pelaku pelecehan adalah dosen di kampusnya, Zanna takut untuk melaporkan kejadian tersebut. Ia memilih untuk bungkam dan masuk ke dalam komunitas&nbsp;<em>Love Your Self</em>. Di sana ia bertemu dengan Rebecca. Rebecca kemudian meminta bantuan Nathan untuk menyelesaikan masalah ini agar Zanna bisa melupakan traumanya.&nbsp;Di sisi lain, hubungan Nathan dan Salma tidak ada kejelasan. Hal tersebut membuat Salma bingung dengan dirinya ditambah dengan kedatangan Afkar, kakak tingkat Salma di kampus.</p>', '2023-12-10 16:13:34', '2023-12-10 16:13:34'),
+(116, 'R-010', 'https://youtu.be/N9PUbRIKYOA?si=jnUQW4MMZjUI8Gcj', 'Mariposa', 'images/mariposa.jpg', 'banner/bnmariposa.jpg', 9, 118, 2020, 0, 0, '<p style=\"text-align: justify;\">Iqbal (<a title=\"Angga Aldi Yunanda\" href=\"https://id.wikipedia.org/wiki/Angga_Aldi_Yunanda\">Angga Yunanda</a>) seperti kupu-kupu Mariposa bagi Acha (<a title=\"Adhisty Zara\" href=\"https://id.wikipedia.org/wiki/Adhisty_Zara\">Adhisty Zara</a>). Tiap kali didekati ia selalu menghindar. Acha bertekad ingin mendapatkan hati Iqbal, seorang cowok cakep, pintar dan dikenal berhati dingin. Ternyata sikap dingin Iqbal itu tuntutan dari sang ayah yang menginginkannya menang dalam olimpiade sains. Amanda takut Acha akan terluka dan sakit hati. Sekali pun lugu dan polos, tekad Acha sangat kuat. Sahabat Acha, Amanda (<a title=\"Dannia Salsabilla\" href=\"https://id.wikipedia.org/wiki/Dannia_Salsabilla\">Dannia Salsabilla</a>), berusaha mencegah niat Acha untuk mendekati Iqbal. Acha mendekati Iqbal dengan berbagai cara. Acha yakin, jika pun hati Iqbal sekeras batu, Acha adalah air yang menetesinya setiap waktu, hingga batu itu akan pecah dan menerima dirinya. Berhasilkah Acha mendapatkan hati Iqbal?</p>', '2023-12-10 16:16:30', '2023-12-10 16:16:30'),
+(117, 'R-011', 'https://youtu.be/6RXDz3a_A38?si=P_he50tKroiGGlGf', 'London Love Story 3', 'images/posterlondon.jpg', 'banner/london.jpg', 9, 90, 2018, 0, 0, '<p style=\"text-align: justify;\">Setelah dua tahun menjalin kasih, Dave memutuskan untuk melamar Caramel. Caramel sangat bahagia. Keduanya langsung pulang ke Jakarta dari London, untuk memberitahukan berita bahagia ini kepada Ibu Caramel. Baik Caramel maupun Dave sepakat, sebelum mereka menikah, mereka akan berlibur ke Bali, mengenang pertama kali pertemuan mereka dulu.</p>', '2023-12-10 16:18:43', '2023-12-10 16:18:43'),
+(118, 'R-012', 'https://youtu.be/8CpvovvXlLQ?si=f_7rMzO8unb_BsY3', 'Teman Tapi Menikah', 'images/ttmoster.png', 'banner/ttmbanner.png', 9, 102, 2018, 0, 0, '<p style=\"text-align: justify;\">Semenjak pertama kali bertemu, Ditto (<a title=\"Adipati Dolken\" href=\"https://id.wikipedia.org/wiki/Adipati_Dolken\">Adipati Dolken</a>) sudah suka setengah mati pada Ayu (<a title=\"Vanesha Prescilla\" href=\"https://id.wikipedia.org/wiki/Vanesha_Prescilla\">Vanesha Prescilla</a>). Bukan karena Ayu adalah seorang artis, tetapi karena Ayu suka bergaya gahar seperti preman. Kocak! Sayangnya selama 11 tahun bersahabat, Ditto selalu gagal keluar dari zona pertemanan. Apa pun usahanya, dari PDKT ke Ayu berkedok&nbsp;<em>nge-band</em>, sampai akhirnya menjadi musisi perkusi profesional, di mata Ayu, Ditto adalah teman makan dan teman curhat semata. Untungnya, kehidupan cinta Ayu yang berliku-liku, sering diselingkuhi sana-sini, memastikan Ditto selalu di dekatnya sebagai tempat curhat langganan. Sampai suatu hari, Ayu bercerita bahwa ia akan menikah dengan pacarnya, seorang pria sempurna luar dan dalam. Ditto harus memilih : menyatakan perasaan atau merelakan cinta pertamanya jadi sahabat seumur hidup. Kalau saja Ayu tidak tahu kelemahan Ditto sebagai pacar : tidak setia.</p>', '2023-12-10 16:21:16', '2023-12-10 16:21:16'),
+(119, 'D-007', 'https://youtu.be/JBeLpMHcpYY?si=QpXc1EHwnyX6lifc', 'Sweet 20', 'images/sweet20.jpg', 'banner/bnsweet20.jpg', 11, 109, 2017, 0, 0, '<p style=\"text-align: justify;\">Fatmawati&nbsp; adalah seorang wanita lanjut usia berusia 70 tahun yang serba mengatur kehidupan anak semata wayangnya, Aditya, &nbsp;yang sudah berkeluarga dengan istrinya, Salma&nbsp;dan dua anaknya Juna dan Luna.&nbsp;Fatmawati kendatinya beritikad baik, ia hanya merasa paling tahu apa yang terbaik untuk keluarga anaknya, tetapi hal ini malah membuat keluarga Aditya merasa terkekang. Sikapnya yang jelas lebih menyukai cucu lelaki dibanding cucu perempuannya pun membuat Salma semakin gerah. Tidak hanya di rumah, bahkan di panti jompo tempat ia mengunjungi teman-teman lamanya yang dirawat disana yaitu Hamzah&nbsp;dan Rahayu, Fatmawati pun kerap menjadi sosok yang serba mengatur. Tidak tahan dengan&nbsp;<em>stress</em> yang dirasakannya, Salma pun jatuh sakit. Saat dirawat, ia akhirnya memberikan ultimatum pada Aditya, untuk mengusir ibunya agar dirawat di panti jompo, atau Salma yang akan angkat kaki bersama anak-anaknya.</p>', '2023-12-10 16:44:37', '2023-12-10 16:44:37'),
+(120, 'D-008', 'https://youtu.be/A0RKE3bDbk0?si=xE06WKUvjkeUHW9g', 'Balada Si Roy', 'images/Balada Si Roy.jpg', 'banner/balada si roy bnner.jpeg', 11, 109, 2022, 0, 0, '<p style=\"text-align: justify;\">Bagi Roy (Abidzar Al Ghifari), tempat asing ada untuk ditaklukkan. Itulah yang membuatnya langsung menjadi pusat perhatian di sekolah barunya di Serang, kota kelahiran Sang Ibu (Lulu Tobing) sepeninggal ayahnya. Tampan, gayanya cool, sedikit berandal, dan selalu ditemani Joe, anjing herdernya yang setia. Dari semua siswa, hanya Ani (Febby Rastanty) gadis manis yang yang bisa merebut hatinya. Kedekatan Ani dengan Roy membuat Dullah (Bio One), penguasa sekolah yang juga anak seorang pejabat terpandang di Serang, merasa terancam dan bersama kubunya, Borsalino, terus-menerus menyerang Roy.</p>', '2023-12-10 16:46:18', '2023-12-10 16:46:18'),
+(121, 'D-009', 'https://youtu.be/yc6ALmsEqHI?si=O6YuTk-J4TtxSqdY', 'Me vs Mami', 'images/postermami.jpg', 'banner/mevsmamibanner.jpg', 11, 90, 2016, 0, 0, '<p style=\"text-align: justify;\">Me vs Mami adalah sebuah film drama komedi keluarga Indonesia yang diadaptasi dari FTV berjudul sama. Film ini dirilis pada 20 Oktober 2016 dan diproduksi oleh MNC Pictures. Film ini menghadirkan Cut Mini Theo dan Irish Bella sebagai aktor utama memerankan Ibu dan anak.</p>', '2023-12-10 16:47:59', '2023-12-10 16:47:59'),
+(122, 'D-010', 'https://youtu.be/aPBoctGF0BA?si=0ju_tl5IH3rCwTLY', 'Sesuai Aplikasi', 'images/posterseuaiaplikasi.jpg', 'banner/sesuaiaplikasi.jpg', 11, 89, 2018, 0, 0, '<p style=\"text-align: justify;\">Cerita persahabatan dua driver ojek online, Pras (Valentino Peter) dan Duras (Lolox). Keduanya harus berjuang untuk memenuhi kebutuhan hidup mereka. Suatu hari Sakti (Ernest Prakasa) seorang pencuri ulung yang berkedok pemilik warung kopi bernama Nasgitel (Panas Legi Kentel) kehilangan barang curiannya. Rupanya berlian yang ia curi dari Ci Asiu sang rentenir (Dayu Wijanto) itu tak sengaja terbawa oleh diva dangdut Sofiyah (Titi Kamal)</p>', '2023-12-10 16:49:38', '2023-12-10 16:49:38'),
+(123, 'D-011', 'https://youtu.be/f4Sc26vQHcU?si=Eh5zB7KyqJjY5elT', 'Imperfect', 'images/Imperfect.jpg', 'banner/bnimperfect.webp', 11, 113, 2019, 0, 0, '<p style=\"text-align: justify;\">Berkisah mengenai Rara (Jessica Mila) yang terlahir dengan gen gemuk dan kulit sawo matang, warisan sang ayah. Sementara, adiknya Lulu (Yasmin Napper) mengikuti gen ibu mereka Debby (Karina Suwandi) yang merupakan mantan peragawati tahun 1990-an. Rara sendiri bekerja sebagai manajer riset di sebuah perusahaan kosmetik. Meski mendapat perlakuan tidak menyenangkan dari lingkungan sekitar, namun Rara mencintai pekerjaannya. Untung ada Dika (Reza Rahadian), kekasih yang mencintai Rara apa adanya. Suatu hari, muncul peluang bagi Rara untuk naik jabatan di kantor, tapi bos Rara yakni KELVIN (Dion Wiyoko) mengharuskan Rara mengubah total penampilannya jika ia mau mengemban tanggung jawab baru ini. Berhasilkan Rara membuktikan dirinya?</p>', '2023-12-10 16:51:37', '2023-12-10 16:51:37'),
+(124, 'D-012', 'https://youtu.be/sGaeDzD_3o0?si=b13MbBmlXVcLPtGg', 'Keluarga Cemara', 'images/cemaraa.jpg', 'banner/bnkeluargacemara.webp', 11, 110, 2018, 0, 0, '<p style=\"text-align: justify;\">ABAH (35/Ringgo Agus Rahman), sangat ingin bertahan setelah rumah dan pasca hartanya disita oleh debt collector untuk membayar hutang perusahaan yang disebabkan oleh kakak iparnya, dengan cara pindah sementara ke rumah di desa terpencil di Jawa Barat. Rumah itu merupakan rumah masa kecilnya, sebuah warisan dari ayahnya. Namun dia menghadapi kesulitan karena kasusnya kalah di pengadilan dan keluarganya terancam selamanya hidup dalam kemiskinan di desa itu.</p>', '2023-12-10 16:53:43', '2023-12-10 16:53:43'),
+(125, 'F-007', 'https://youtu.be/l91Km49W9qI?si=eKnPEs2KXt4awJtq', 'Harry Potter And The Philosophers Stone', 'images/hp1.jpg', 'banner/bnhp1.jpg', 12, 152, 2001, 0, 0, '<p style=\"text-align: justify;\">Harry Potter adalah seorang anak yang tampaknya biasa, hidup dengan keluarga yang berhubungan darah dengan-nya, keluarga Dursley di Surrey. Pada ulang tahunnya yang kesebelas, Harry mengetahui dari seorang asing misterius, Rubeus Hagrid, bahwa ia sebenarnya seorang penyihir, terkenal di Dunia sihir karena dapat bertahan dari serangan Lord Voldemort yang jahat ketika Harry masih bayi. Voldemort membunuh orang tua Harry, tetapi serangan kepada Harry gagal dilakukan, kejadian tersebut menyisakan bekas luka berbentuk petir di dahi Harry dan membuat Voldemort tewas. Hagrid mengungkapkan kepada Harry bahwa ia telah diundang untuk bersekolah di Hogwarts, sebuah Sekolah Sihir. Setelah membeli perlengkapan sekolahnya di Diagon Alley, Harry berangkat dengan menggunakan kereta ke Hogwarts melalui Platform 9 3/4 yang tersembunyi di Stasiun Kings Cross di London.</p>', '2023-12-10 17:13:29', '2023-12-10 17:13:29'),
+(126, 'F-008', 'https://youtu.be/VjN5_mB7KFs?si=A2IcINcomgreQfxa', 'Harry Potter And The Chamber Of Secrets', 'images/hp2.jpg', 'banner/bnhp2.jpg', 12, 161, 2002, 0, 0, '<p class=\"MsoNormal\" style=\"text-align: justify;\">Harry Potter disuruh mempersiapkan rumah untuk kunjungan dari klien potensial Vernon Dursley. Namun, setelah selesai, paman Dursley menyuruh Harry ke kamarnya. Di kamar, Harry bertemu Dobby si peri rumah, ia memperingatkan Harry untuk tidak kembali ke Hogwarts. Ketika Harry menolak, Dobby menyebabkan kekacauan di rumah dan membuat Harry merusak pertemuan Vernon. Vernon mengunci Harry di kamarnya untuk mencegah kembali ke Hogwarts. Namun, Ron, Fred, dan George Weasley tiba dengan mobil terbang mereka untuk menyelamatkan Harry dari cengkeraman Paman Vernon, yang sedang berusaha untuk menarik Harry kembali ke kamarnya. Harry kemudian dibawa ke The Burrow, rumah keluarga Weasley.</p>', '2023-12-10 17:17:18', '2023-12-10 17:17:18'),
+(127, 'F-009', 'https://youtu.be/MjoMN9RMKAY?si=rTUYtbtjEd_7HcdG', 'Harry Potter And The Prisoner Of Azkaban', 'images/hp3.jpg', 'banner/bnhp3.webp', 12, 142, 2004, 0, 0, '<p class=\"MsoNormal\" style=\"text-align: justify;\">Setelah marah dengan Bibi Marge dan secara tidak sengaja menyebabkan dia mengembang secara ajaib, Harry Potter melarikan diri dari keluarga Dursley. Harry menaiki Bus Ksatria ke The Leaky Cauldron, di mana ia bertemu Cornelius Fudge, Menteri Sihir. Fudge memberi tahu Harry bahwa Bibi Marge telah dikempiskan dan bahwa ia tidak akan dihukum. Kementerian Sihir hanya peduli tentang keselamatan Harry karena melarikan diri dari pembunuh-massa Sirius Black dari penjara sihir Azkaban. Black adalah teman baik dari keluarga dan wali Harry Potter, tetapi mengkhianati keluarga kepada Lord Voldemort yang jahat. Voldemort membunuh orang tua Harry, tetapi, ketika ia mencoba untuk membunuh Harry, misterius menghilang. Setelah itu, Black membunuh teman mereka Peter Pettigrew.</p>', '2023-12-10 17:19:45', '2023-12-10 17:19:45'),
+(129, 'F-010', 'https://youtu.be/QkSJdNy1AsM?si=iUksXY4Koz8xTyEr', 'Harry Potter And The Goblet Of Fire', 'images/hp4.jpg', 'banner/bnhp4.jpg', 12, 157, 2005, 0, 0, '<p class=\"MsoNormal\" style=\"text-align: justify;\">Suatu malam di sebuah pemakaman, terlihat petugas pemakaman melihat lampu di rumah tua menyala. Ketika dia kesana, ternyata didalam salah satu ruangan rumah itu adalah Voldermort, Peter Pettigrew, dan Barty Crouch Jr yang sedang berunding. Menyadari petugas makam ada disitu, Voldermort segera membunuh petugas makam itu. Di lain hari saat liburan musim panas, Harry, Hermione, Keluarga Weasley, dan Amos Diggory beserta anaknya bernama Cedric pergi untuk menonton final Piala Dunia Quidditch. Setelah menonton pertandingan, tiba-tiba terjadi kekacauan diperkemahan. Para Pelahap Maut yang mengenakan topeng muncul dan membakari tenda-tenda. Harry yang terpisah dari teman-temannya dan sempat pingsan, melihat sesosok bayangan menggumamkan sesuatu dan mengirimkan Tanda Kegelapan ke angkasa, tetapi ketika Ron dan Hermione tiba, orang tersebut telah pergi. Mereka nyaris dituduh sebagai orang yang melepaskan Tanda Kegelapan tersebut.</p>', '2023-12-10 17:25:27', '2023-12-10 17:25:27'),
+(130, 'F-011', 'https://youtu.be/-ok_8UuFZ4Y?si=rsMCEaRtvRheYec8', 'Harry Potter And The Order Of The Phoenix', 'images/hp5.jpg', 'banner/bnhp5.jpg', 12, 138, 2007, 0, 0, '<p class=\"MsoNormal\" style=\"text-align: justify;\">Tidak banyak penyihir yang percaya (atau mau percaya) bahwa Voldermort telah kembali, termasuk Kementerian Sihir. Harry dan Dumbledore dianggap menyebar kabar bohong dan dianggap terganggu jiwanya. Meskipun demikian, masih banyak orang yang percaya pada Dumbledore, dan mereka inilah yang tergabung dalam Orde Phoenix. Namun karena situasi belum memungkinkan, mereka bergerak secara diam-diam untuk menghindari kecurigaan dari Kementerian. Mereka menggunakan kediaman Sirius, Grimmauld Place nomor 12 sebagai Markas Besar, sehingga Sirius tidak lagi dalam pelarian (tapi tetap bersembunyi karena pihak kementrian masih mencarinya).</p>', '2023-12-10 17:28:26', '2023-12-10 17:28:26'),
+(131, 'F-012', 'https://youtu.be/HcryxumRxUI?si=6afv_RUC-h4EhHoX', 'Harry Potter And The Half-Blood Prince', 'images/hp6.jpg', 'banner/bnhp6.jpg', 12, 153, 2009, 0, 0, '<p class=\"MsoNormal\" style=\"text-align: justify;\">Di Hogwarts, sekolah diamankan secara ketat baik oleh pihak sekolah maupun Kementerian Sihir untuk memastikan agar Pelahap Maut tidak dapat mendekati sekolah tersebut. Dengan kembalinya Slughorn mengajar Ramuan, Snape kini mendapatkan posisi untuk mengajar Pertahanan Terhadap Ilmu Hitam. Profesor McGonagall mendorong Harry dan Ron untuk mengambil kelas Ramuan, yang kini diajar Slughorn yang mau menerima siswa dengan nilai OWL yang lebih rendah. Harry dan Ron, yang tidak membeli buku teks karena tidak menduga bahwa mereka dapat mengambil kelas itu, dipinjami buku teksnya dari kelas Ramuan.</p>', '2023-12-10 17:31:06', '2023-12-10 17:31:06');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -1138,10 +1380,10 @@ CREATE TABLE `user` (
   `nama` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
   `phone_number` varchar(13) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_nama_user`, `username`, `password`, `nama`, `alamat`, `phone_number`) VALUES
@@ -1191,19 +1433,19 @@ INSERT INTO `user` (`id_nama_user`, `username`, `password`, `nama`, `alamat`, `p
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `genre`
+-- Indexes for table `genre`
 --
 ALTER TABLE `genre`
   ADD PRIMARY KEY (`id_nama_genre`);
 
 --
--- Indeks untuk tabel `komentar`
+-- Indexes for table `komentar`
 --
 ALTER TABLE `komentar`
   ADD PRIMARY KEY (`id_nama_review`),
@@ -1211,7 +1453,7 @@ ALTER TABLE `komentar`
   ADD KEY `id_film` (`id_film`);
 
 --
--- Indeks untuk tabel `like`
+-- Indexes for table `like`
 --
 ALTER TABLE `like`
   ADD PRIMARY KEY (`id_like`),
@@ -1219,13 +1461,13 @@ ALTER TABLE `like`
   ADD KEY `id_user_like` (`id_user_like`);
 
 --
--- Indeks untuk tabel `pemain`
+-- Indexes for table `pemain`
 --
 ALTER TABLE `pemain`
   ADD PRIMARY KEY (`id_nama_pemain`);
 
 --
--- Indeks untuk tabel `pemeran`
+-- Indexes for table `pemeran`
 --
 ALTER TABLE `pemeran`
   ADD PRIMARY KEY (`id_pemeran`),
@@ -1233,13 +1475,13 @@ ALTER TABLE `pemeran`
   ADD KEY `id_film` (`id_film`);
 
 --
--- Indeks untuk tabel `saran`
+-- Indexes for table `saran`
 --
 ALTER TABLE `saran`
   ADD PRIMARY KEY (`id_saran`);
 
 --
--- Indeks untuk tabel `tb_film`
+-- Indexes for table `tb_film`
 --
 ALTER TABLE `tb_film`
   ADD PRIMARY KEY (`id`),
@@ -1249,96 +1491,96 @@ ALTER TABLE `tb_film`
   ADD KEY `id_review` (`id_review`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_nama_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `genre`
+-- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
   MODIFY `id_nama_genre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `komentar`
+-- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
   MODIFY `id_nama_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
 
 --
--- AUTO_INCREMENT untuk tabel `like`
+-- AUTO_INCREMENT for table `like`
 --
 ALTER TABLE `like`
-  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT untuk tabel `pemain`
+-- AUTO_INCREMENT for table `pemain`
 --
 ALTER TABLE `pemain`
-  MODIFY `id_nama_pemain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=375;
+  MODIFY `id_nama_pemain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=477;
 
 --
--- AUTO_INCREMENT untuk tabel `pemeran`
+-- AUTO_INCREMENT for table `pemeran`
 --
 ALTER TABLE `pemeran`
-  MODIFY `id_pemeran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=408;
+  MODIFY `id_pemeran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=537;
 
 --
--- AUTO_INCREMENT untuk tabel `saran`
+-- AUTO_INCREMENT for table `saran`
 --
 ALTER TABLE `saran`
   MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_film`
+-- AUTO_INCREMENT for table `tb_film`
 --
 ALTER TABLE `tb_film`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_nama_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `komentar`
+-- Constraints for table `komentar`
 --
 ALTER TABLE `komentar`
   ADD CONSTRAINT `komentar_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_nama_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `komentar_ibfk_2` FOREIGN KEY (`id_film`) REFERENCES `tb_film` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `like`
+-- Constraints for table `like`
 --
 ALTER TABLE `like`
   ADD CONSTRAINT `like_ibfk_1` FOREIGN KEY (`id_user_like`) REFERENCES `user` (`id_nama_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `like_ibfk_2` FOREIGN KEY (`id_film_like`) REFERENCES `tb_film` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pemeran`
+-- Constraints for table `pemeran`
 --
 ALTER TABLE `pemeran`
   ADD CONSTRAINT `pemeran_ibfk_1` FOREIGN KEY (`id_film`) REFERENCES `tb_film` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pemeran_ibfk_2` FOREIGN KEY (`id_pemain`) REFERENCES `pemain` (`id_nama_pemain`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_film`
+-- Constraints for table `tb_film`
 --
 ALTER TABLE `tb_film`
   ADD CONSTRAINT `tb_film_ibfk_1` FOREIGN KEY (`id_genre`) REFERENCES `genre` (`id_nama_genre`) ON DELETE CASCADE ON UPDATE CASCADE;
