@@ -57,7 +57,7 @@ if (!isUserLoggedIn()) {
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
-            <h1 class="logo me-auto"><a href="index.html">Cineverse</a></h1>
+            <h1 class="logo me-auto"><a href="#">Cineverse</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -80,6 +80,7 @@ if (!isUserLoggedIn()) {
                                 <?php echo $_SESSION['username'] ?>
                             </a>
                             <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="profil.php">My Profile</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

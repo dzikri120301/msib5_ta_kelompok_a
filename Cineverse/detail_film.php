@@ -105,6 +105,7 @@ if (!isUserLoggedIn()) {
                 <?php echo $_SESSION['username'] ?>
               </a>
               <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="profil.php">My Profile</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>

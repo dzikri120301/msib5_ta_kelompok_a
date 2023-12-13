@@ -55,7 +55,7 @@ if (!isUserLoggedIn()) {
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link active" href="#hero">Home</a></li>
+          <li><a class="nav-link active" href="home.php">Home</a></li>
           <li>
             <a class="nav-link scrollto" href="film.php">Film</a>
           </li>
@@ -70,6 +70,7 @@ if (!isUserLoggedIn()) {
                 <?php echo $_SESSION['username'] ?>
               </a>
               <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="profil.php">My Profile</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
