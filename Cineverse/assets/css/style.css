@@ -2310,7 +2310,7 @@ section {
 }
 
 /* Gaya untuk tombol share */
-.sharethis-inline-share-buttons {
+.sfb-share-button {
   position: absolute;
   margin-left: 425px;
   margin-top: 230px;
