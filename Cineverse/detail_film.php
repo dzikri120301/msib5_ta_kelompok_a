@@ -46,8 +46,9 @@ if (!isUserLoggedIn()) {
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Share Button -->
-  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=65757fc12b4443001967460a&product=inline-share-buttons&source=platform" async="async"></script>
+  <!-- Pastikan untuk mengganti {your-app-id} dengan ID aplikasi Facebook Anda -->
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0&appId={your-app-id}&autoLogAppEvents=1" nonce="BZcKwplF"></script>
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <style>
@@ -71,11 +72,29 @@ if (!isUserLoggedIn()) {
     }
 
     .angka_lope {
-      margin-top: -7px;
+      margin-top: 0px;
       margin-left: 8px;
       font-size: 12px;
     }
+
+    .share {
+      margin-top: 225px;
+      margin-left: 20px;
+    }
+
+    .lop {
+      margin-top: 220px;
+      margin-left: 390px;
+    }
   </style>
+  <script>
+    function shareOnFacebook() {
+      var url = "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcodeverseindonesia.tech%2Fcineverse%2Fuser%2Fdetail_film.php%3Fid%3D%253C%253Fphp%2Becho%2B%2524film%255B%2527id%2527%255D%253B%2B%253F%253E&amp;src=sdkpreparse";
+      var popupWindow = window.open(url, "ShareWindow", "width=600,height=400");
+      return false;
+    }
+  </script>
+
 </head>
 
 <body>
@@ -137,8 +156,55 @@ if (!isUserLoggedIn()) {
         <div class="row">
           <div class="col-md-2">
             <img class="poster-single" src="../admin/film/<?php echo $film['gambar'] ?>">
-            <div class="sharethis-inline-share-buttons"></div>
+            <!-- Ganti URL yang ingin Anda bagikan sesuai kebutuhan -->
+            <div class="d-flex">
+              <div class="lop">
+                <?php
+                $userId = $_SESSION['username'];
+                // Pastikan $_GET['id'] telah diatur sebelum menggunakannya
+                if (isset($_GET['id'])) {
+                  $filmId = $_GET['id'];
 
+                  // Mengambil ID pengguna berdasarkan username
+                  $result_user = mysqli_query($conn, "SELECT id_nama_user FROM user WHERE username = '$userId'");
+                  $row_user = mysqli_fetch_assoc($result_user);
+                  $id_user = $row_user['id_nama_user'];
+
+                  // Set your travel article ID here
+                  $query = "SELECT * FROM `like` WHERE id_film_like = $filmId AND id_user_like = $id_user";
+                  $result = mysqli_query($conn, $query);
+
+                  if (mysqli_num_rows($result) > 0) {
+                    $iconClass = '<div class="love-button full"><i class="fas fa-heart"></i></div>';
+                  } else {
+                    $iconClass = '<div class="love-button empty"><i class="fas fa-heart kosong"></i></div>';
+                  }
+
+                  echo '<div class="like-button" data-film-id="' . $filmId . '" data-user-id="' . $id_user . '">';
+                  echo $iconClass;
+                  echo '</div>';
+
+                ?>
+                  <div class="angka_lope">
+                    <?php
+                    $filmsuka = mysqli_query($conn, "SELECT COUNT(id_user_like) AS total_likes FROM `like` WHERE id_film_like = $filmId");
+                    $filmLikes = mysqli_fetch_assoc($filmsuka);
+                    ?>
+                    <p><?php echo $filmLikes['total_likes'] ?></p>
+                  <?php
+                } else {
+                  echo '<p>Invalid film ID.</p>';
+                }
+                  ?>
+                  </div>
+              </div>
+              <div id="fb-root"></div>
+              <div class="share" data-href="https://codeverseindonesia.tech/cineverse/user/detail_film.php?id=&lt;?php echo $film[&#039;id&#039;]; ?&gt;" data-layout="" data-size="">
+                <a href="#" onclick="return shareOnFacebook();">
+                  <img src="assets/img/fb.png" style="width:30px; height: 30px;" alt="Bagikan ke Facebook">
+                </a>
+              </div>
+            </div>
           </div>
           <div class="col-md-10 position-relative">
             <div class="d-flex">
@@ -167,44 +233,6 @@ if (!isUserLoggedIn()) {
             </div>
             <div class="row">
               <a href="<?php echo $film['trailer'] ?>" class="glightbox"><button class="tonton"><i class="fa-solid fa-play"></i> Tonton Sekarang</button></a>
-              <?php
-              $userId = $_SESSION['username'];
-              // Pastikan $_GET['id'] telah diatur sebelum menggunakannya
-              if (isset($_GET['id'])) {
-                $filmId = $_GET['id'];
-
-                // Mengambil ID pengguna berdasarkan username
-                $result_user = mysqli_query($conn, "SELECT id_nama_user FROM user WHERE username = '$userId'");
-                $row_user = mysqli_fetch_assoc($result_user);
-                $id_user = $row_user['id_nama_user'];
-
-                // Set your travel article ID here
-                $query = "SELECT * FROM `like` WHERE id_film_like = $filmId AND id_user_like = $id_user";
-                $result = mysqli_query($conn, $query);
-
-                if (mysqli_num_rows($result) > 0) {
-                  $iconClass = '<div class="love-button full"><i class="fas fa-heart"></i></div>';
-                } else {
-                  $iconClass = '<div class="love-button empty"><i class="fas fa-heart kosong"></i></div>';
-                }
-
-                echo '<div class="like-button" data-film-id="' . $filmId . '" data-user-id="' . $id_user . '">';
-                echo $iconClass;
-                echo '</div>';
-
-              ?>
-                <div class="angka_lope">
-                  <?php
-                  $filmsuka = mysqli_query($conn, "SELECT COUNT(id_user_like) AS total_likes FROM `like` WHERE id_film_like = $filmId");
-                  $filmLikes = mysqli_fetch_assoc($filmsuka);
-                  ?>
-                  <p><?php echo $filmLikes['total_likes'] ?></p>
-                <?php
-              } else {
-                echo '<p>Invalid film ID.</p>';
-              }
-                ?>
-                </div>
             </div>
 
             <div class="kotak">
@@ -529,6 +557,7 @@ if (!isUserLoggedIn()) {
       });
     });
   </script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v18.0&appId=227224487074532" nonce="5StlNltj"></script>
 </body>
 
 </html>
