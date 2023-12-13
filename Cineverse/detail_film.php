@@ -47,8 +47,7 @@ if (!isUserLoggedIn()) {
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Share Button -->
-  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=65756e2b088a0f0019878d12&product=inline-share-buttons&source=platform" async="async"></script>
-
+  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=65757fc12b4443001967460a&product=inline-share-buttons&source=platform" async="async"></script>
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <style>
@@ -138,6 +137,7 @@ if (!isUserLoggedIn()) {
           <div class="col-md-2">
             <img class="poster-single" src="../admin/film/<?php echo $film['gambar'] ?>">
             <div class="sharethis-inline-share-buttons"></div>
+
           </div>
           <div class="col-md-10 position-relative">
             <div class="d-flex">
@@ -208,8 +208,6 @@ if (!isUserLoggedIn()) {
 
             <div class="kotak">
               <p><?php echo $film['sinopsis'] ?></p>
-            </div>
-            <div>
             </div>
           </div>
         </div>
