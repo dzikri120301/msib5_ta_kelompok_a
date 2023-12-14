@@ -36,7 +36,6 @@ if (!isUserLoggedIn()) {
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
@@ -195,10 +194,6 @@ if (!isUserLoggedIn()) {
         </section>
         <!-- End Cta Section -->
 
-        <!-- ======= Portfolio Section ======= -->
-
-        <!-- End Portfolio Section -->
-
         <!-- ======= Team Section ======= -->
         <section id="team" class="team section-bg">
             <div class="container" data-aos="fade-up">
@@ -211,17 +206,14 @@ if (!isUserLoggedIn()) {
                     <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
                         <div class="member d-flex align-items-start">
                             <div class="pic">
-                                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="" />
+                                <img src="assets/img/team/dzikri.jpg" class="img-fluid" alt="" />
                             </div>
                             <div class="member-info mt-5">
                                 <h4>Muhammad Dzikri Mufarrij</h4>
                                 <hr>
                                 <p>Mahasiswa</p>
                                 <div class="social">
-                                    <a href=""><i class="ri-twitter-fill"></i></a>
-                                    <a href=""><i class="ri-facebook-fill"></i></a>
-                                    <a href=""><i class="ri-instagram-fill"></i></a>
-                                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                                    <a href="https://instagram.com/dzikbae?igshid=MmVlMjlkMTBhMg=="><i class="ri-instagram-fill"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -230,7 +222,7 @@ if (!isUserLoggedIn()) {
                     <div class="col-lg-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="200">
                         <div class="member d-flex align-items-start">
                             <div class="pic">
-                                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="" />
+                                <img src="assets/img/team/dhilah.jpg" class="img-fluid" alt="" />
                             </div>
                             <div class="member-info mt-5">
                                 <h4>Siti Nur Fadhilah</h4>
@@ -247,17 +239,15 @@ if (!isUserLoggedIn()) {
                     <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="300">
                         <div class="member d-flex align-items-start">
                             <div class="pic">
-                                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="" />
+                                <img src="assets/img/team/arya.png" class="img-fluid" alt="" />
                             </div>
                             <div class="member-info mt-5">
                                 <h4>Arya Dewantara</h4>
                                 <hr>
                                 <p>Mahasiswa</p>
                                 <div class="social">
-                                    <a href=""><i class="ri-twitter-fill"></i></a>
-                                    <a href=""><i class="ri-facebook-fill"></i></a>
-                                    <a href=""><i class="ri-instagram-fill"></i></a>
-                                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                                    <a href="https://x.com/arydwntr_?t=cBhHCJLqHBMEi0lI3qJ-kw&s=08"><i class="ri-twitter-fill"></i></a>
+                                    <a href="https://www.instagram.com/arydwntr_/"><i class="ri-instagram-fill"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -266,17 +256,15 @@ if (!isUserLoggedIn()) {
                     <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="400">
                         <div class="member d-flex align-items-start">
                             <div class="pic">
-                                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="" />
+                                <img src="assets/img/team/raisa.jpg" class="img-fluid" alt="" />
                             </div>
                             <div class="member-info mt-5">
                                 <h4>Raisa Nurlita</h4>
                                 <hr>
                                 <p>Mahasiswa</p>
                                 <div class="social">
-                                    <a href=""><i class="ri-twitter-fill"></i></a>
-                                    <a href=""><i class="ri-facebook-fill"></i></a>
-                                    <a href=""><i class="ri-instagram-fill"></i></a>
-                                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                                    <a href="https://www.facebook.com/profile.php?id=61553995785977&mibextid=ZbWKwL"><i class="ri-facebook-fill"></i></a>
+                                    <a href="https://instagram.com/raisanurlita?igshid=NzZlODBkYWE4Ng=="><i class="ri-instagram-fill"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -457,10 +445,6 @@ if (!isUserLoggedIn()) {
                 &copy; Copyright <strong><span>Cineverse</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
                 Designed by Cineverse</a>
             </div>
         </div>
@@ -476,8 +460,6 @@ if (!isUserLoggedIn()) {
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 </body>

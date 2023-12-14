@@ -20,8 +20,6 @@
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="../admin/assets/css/style.css" rel="stylesheet">
@@ -46,6 +44,10 @@
         .password-input .toggle-password:hover {
             color: blue;
             /* Ganti warna sesuai keinginan Anda */
+        }
+
+        .credits {
+            color: white;
         }
     </style>
 </head>
@@ -98,12 +100,7 @@
 
                                 </div>
                             </div>
-
                             <div class="credits">
-                                <!-- All the links in the footer should remain intact. -->
-                                <!-- You can delete the links only if you purchased the pro version. -->
-                                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
                                 Designed by <strong><span>CINEVERSE</span></strong>
                             </div>
 
@@ -121,8 +118,6 @@
     <!-- Vendor JS Files -->
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="assets/vendor/echarts/echarts.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 

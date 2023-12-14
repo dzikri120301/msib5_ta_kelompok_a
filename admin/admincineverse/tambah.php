@@ -29,9 +29,6 @@ if (!isAdminLoggedIn()) {
     <!-- Vendor CSS Files -->
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
 
@@ -53,7 +50,6 @@ if (!isAdminLoggedIn()) {
 
         .password-input .toggle-password:hover {
             color: blue;
-            /* Ganti warna sesuai keinginan Anda */
         }
     </style>
 </head>
@@ -92,13 +88,10 @@ if (!isAdminLoggedIn()) {
                                 <span>Sign Out</span>
                             </a>
                         </li>
-
                     </ul><!-- End Profile Dropdown Items -->
                 </li><!-- End Profile Nav -->
-
             </ul>
         </nav><!-- End Icons Navigation -->
-
     </header><!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
@@ -225,10 +218,6 @@ if (!isAdminLoggedIn()) {
             &copy; Copyright <strong><span>Cineverse Admin</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
             Designed by <strong><span>Cineverse</span></strong>
         </div>
     </footer><!-- End Footer -->
@@ -257,7 +246,6 @@ if (!isAdminLoggedIn()) {
         }
 
         function togglePassword() {
-            // ... (kode yang telah Anda tuliskan sebelumnya untuk toggle password)
             enableSubmitButton(); // Panggil fungsi enableSubmitButton setiap kali password diubah
         }
     </script>

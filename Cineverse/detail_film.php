@@ -44,10 +44,6 @@ if (!isUserLoggedIn()) {
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Pastikan untuk mengganti {your-app-id} dengan ID aplikasi Facebook Anda -->
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0&appId={your-app-id}&autoLogAppEvents=1" nonce="BZcKwplF"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -72,9 +68,10 @@ if (!isUserLoggedIn()) {
     }
 
     .angka_lope {
-      margin-top: 0px;
+      margin-top: -5px;
       margin-left: 8px;
       font-size: 12px;
+      color: white;
     }
 
     .share {
@@ -87,9 +84,32 @@ if (!isUserLoggedIn()) {
       margin-left: 390px;
     }
   </style>
+  <?php
+  $envFilePath = '.env';
+
+  // Baca isi file .env
+  if (file_exists($envFilePath)) {
+    $envFile = file_get_contents($envFilePath);
+
+    // Pisahkan setiap baris
+    $envLines = explode("\n", $envFile);
+
+    foreach ($envLines as $envLine) {
+      // Pisahkan nama variabel dan nilainya
+      list($envVar, $envValue) = explode('=', $envLine, 2);
+
+      // Atur variabel lingkungan
+      $_ENV[trim($envVar)] = trim($envValue);
+    }
+  }
+
+  // Gunakan variabel lingkungan seperti biasa
+  $facebookAppId = $_ENV['APPID'];
+  ?>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v18.0&appId=<?php echo $facebookAppId ?>" nonce="5StlNltj"></script>
   <script>
     function shareOnFacebook() {
-      var url = "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcodeverseindonesia.tech%2Fcineverse%2Fuser%2Fdetail_film.php%3Fid%3D%253C%253Fphp%2Becho%2B%2524film%255B%2527id%2527%255D%253B%2B%253F%253E&amp;src=sdkpreparse";
+      var url = "https://www.facebook.com/sharer/sharer.php?u=https://codeverseindonesia.tech/cineverse/user/detail_film.php?id=<?php echo $film['id'] ?>&amp;src=sdkpreparse";
       var popupWindow = window.open(url, "ShareWindow", "width=600,height=400");
       return false;
     }
@@ -103,8 +123,6 @@ if (!isUserLoggedIn()) {
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
       <h1 class="logo me-auto"><a href="index.html">Cineverse</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -231,7 +249,7 @@ if (!isUserLoggedIn()) {
               <p><?php echo $film['nama_genre'] ?></p>
               <p class="ml-3">&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-clock"></i>&nbsp;<?php echo $film['durasi'] ?> menit</p>
             </div>
-            <div class="row">
+            <div class="row mb-4">
               <a href="<?php echo $film['trailer'] ?>" class="glightbox"><button class="tonton"><i class="fa-solid fa-play"></i> Tonton Sekarang</button></a>
             </div>
 
@@ -456,10 +474,6 @@ if (!isUserLoggedIn()) {
         &copy; Copyright <strong><span>Cineverse</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
         Designed by <strong><span>Cineverse</span></strong>
       </div>
     </div>
@@ -473,9 +487,6 @@ if (!isUserLoggedIn()) {
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
@@ -557,7 +568,6 @@ if (!isUserLoggedIn()) {
       });
     });
   </script>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v18.0&appId=227224487074532" nonce="5StlNltj"></script>
 </body>
 
 </html>

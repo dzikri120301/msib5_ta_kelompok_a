@@ -127,7 +127,7 @@ if (!isAdminLoggedIn()) {
                             </a>
                         </li>
                         <li>
-                            <a href="like/like.php">
+                            <a href="../like/like.php">
                                 <i class="bi bi-circle"></i><span>Film Paling Banyak Disukai</span>
                             </a>
                         </li>
