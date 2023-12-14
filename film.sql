@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2023 at 01:31 AM
+-- Generation Time: Dec 14, 2023 at 08:32 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -39,8 +39,6 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `username_admin`, `password`) VALUES
 (6, 'admin', '21232f297a57a5a743894a0e4a801fc3'),
-(7, 'admin2', 'admin2'),
-(8, 'admin3', 'admin3'),
 (10, 'admin4', 'fc1ebc848e31e0a68e868432225e3c82'),
 (11, 'raisa', '4b8ed057e4f0960d8413e37060d4c175');
 
@@ -89,9 +87,6 @@ CREATE TABLE `komentar` (
 --
 
 INSERT INTO `komentar` (`id_nama_review`, `id_user`, `id_film`, `review`, `rating`, `created_at`) VALUES
-(130, 11, 77, 'Haii barbiee!!!!', 0, '2023-12-07 06:59:15'),
-(131, 11, 84, 'siapa yang narok bawang disinii huhuuu :(\\n', 0, '2023-12-07 07:05:32'),
-(132, 11, 83, 'angga ngapainn???', 0, '2023-12-07 07:07:23'),
 (133, 13, 12, 'Saya tidak bisa lebih puas dengan sequel ini! Alur ceritanya terjalin dengan apik, memberikan ketegangan yang konstan. Visual dan suara yang digunakan berhasil menghadirkan suasana yang sangat menyeramkan.', 5, '2023-12-09 18:20:11'),
 (134, 12, 12, 'Dari segi cerita dan visual, film ini menghadirkan kualitas yang luar biasa. Alurnya menarik dan tidak terduga, membuat penonton tetap terpaku pada layar sepanjang film.', 4, '2023-12-09 18:21:18'),
 (135, 8, 12, 'Sayangnya, film ini gagal mempertahankan standar yang diharapkan. Saya merasa beberapa bagian ceritanya terlalu dipaksakan dan tidak memberikan kejutan yang memuaskan.', 2, '2023-12-09 18:34:19'),
@@ -222,7 +217,33 @@ INSERT INTO `komentar` (`id_nama_review`, `id_user`, `id_film`, `review`, `ratin
 (261, 11, 129, 'kesell banget sama voldemortt', 4, '2023-12-14 00:24:14'),
 (262, 11, 130, 'nangiss bangettt liatt sirius black dibunuh sama si belatrix huaa', 5, '2023-12-14 00:24:46'),
 (263, 11, 130, 'kasiann banget jadi harry, sirius satu\\\\\\\"nya keluarga yg dia puny tapi harus dibunuh :(', 4, '2023-12-14 00:24:54'),
-(264, 11, 131, 'malfoy sebenernya baik tapi tekanan keluarga nya aja yg buat dia jadi gitu :(', 5, '2023-12-14 00:25:36');
+(264, 11, 131, 'malfoy sebenernya baik tapi tekanan keluarga nya aja yg buat dia jadi gitu :(', 5, '2023-12-14 00:25:36'),
+(265, 26, 110, 'biasanya film-film yang romansa gini buat boring tapi aadc berhasil buat alurnya hidup dan ga membosankan', 4, '2023-12-14 06:10:04'),
+(266, 26, 112, ' Karakter-karakternya juga keren, gue ngerasa deket banget sama mereka. Jadi berasa ikut hidupin ceritanya.', 4, '2023-12-14 06:11:39'),
+(267, 26, 123, ' Dialognya natural, ada yang lucu, ada yang menyentuh, bikin kita ikutan merasakan emosinya.', 4, '2023-12-14 06:20:34'),
+(268, 26, 53, 'aku suka cara mereka ngegambarin semangat belajar anak-anak, plus hubungan guru-murid yang kental. Musiknya juga pas banget, bikin suasana film makin dapet.', 5, '2023-12-14 06:21:26'),
+(269, 26, 125, 'aku  seneng liat Harry, Ron, sama Hermione makin gede dari waktu ke waktu? Mereka bener-bener jago akting, dan chemistry-nya itu loh, bikin kita ngerasa kaya ikut berpetualang bareng mereka.', 5, '2023-12-14 06:22:34'),
+(270, 26, 127, ' adegan Quidditch dan pas Harry pakai Time-Turner, bener-bener bikin mata terbelalak. Gue sampe ngerasa kayak pengen punya Time-Turner sendiri buat bisa nonton film ini berkali-kali!', 5, '2023-12-14 06:27:26'),
+(271, 26, 130, 'Gue salut sama akting Daniel Radcliffe yang berhasil bawain sisi emosional Harry dengan baik. Kita bener-bener bisa ngerasain amarah, frustasi, dan kebingungan yang dia alami. Chemistry antara para aktor juga makin kuat, terutama antara trio utama.', 5, '2023-12-14 06:28:59'),
+(272, 26, 37, 'Jalan ceritanya unik dan penuh kejutan. Gimana seorang tukang parkir bisa terjerat dalam kasus kriminal dan berakhir di penjara, terus hubungannya sama anaknya yang punya gangguan mental, bener-bener bikin kita ngerasa campur aduk.', 4, '2023-12-14 06:33:59'),
+(273, 26, 38, 'Efek masa lalu dan musiknya beneran nambahin nuansa nostalgia. Tempat-tempat yang dijadiin lokasi syuting juga pilihan yang pas banget buat nggambarkan suasana era 90-an.', 4, '2023-12-14 06:34:43'),
+(274, 26, 41, 'Pertama-tama, karakter-karakternya tuh kocak dan unik banget. Mereka berhasil bawain gaya Srimulat yang udah jadi ikonnya, dan chemistry antar pemainnya tuh nggak ada matinya. Gue ketawa terus deh!', 4, '2023-12-14 06:35:40'),
+(275, 26, 42, 'Efek humornya tuh cocok buat yang suka genre komedi. Meskipun ada beberapa lelucon yang mungkin gak semua orang ngerti, tapi secara keseluruhan, bikin ketawa.', 4, '2023-12-14 06:43:46'),
+(276, 26, 43, 'Efek-efeknya keren abis, terutama pas karakter-karakternya masuk ke dunia Jumanji. Action-nya juga nggak ngebosenin, ada ketegangan tapi juga banyak adegan kocak yang bikin senyam-senyum sendiri.', 2, '2023-12-14 06:45:02'),
+(277, 26, 44, 'Dialognya juga keren, banyak kata-kata inspiratif yang bikin kita mikir. Gue suka gimana film ini bisa ngegambarkan semangat Habibie dalam mengejar impian dan cintanya sama Ainun.', 4, '2023-12-14 06:46:03'),
+(278, 26, 45, 'Akting para pemainnya, terutama Ayu Laksmi yang jadi ibu, itu luar biasa. Mereka bener-bener bisa bawain karakter-karakter yang penuh dengan rasa takut dan ketidakpastian. Jadi, kita ikut merasakan kepanikan mereka.', 3, '2023-12-14 06:47:14'),
+(279, 26, 48, 'Settingnya juga pas banget, rumah tua yang agak angker dan suasana di malam hari. ', 3, '2023-12-14 06:47:38'),
+(280, 26, 49, 'Pertama-tama, akting Angelina Jolie sebagai Maleficent itu luar biasa. Dia berhasil banget bawain karakter yang kuat, misterius, tapi juga punya sisi lembutnya. Gue jadi lebih relate sama Maleficent, yang ternyata punya alasan dan cerita sendiri.', 4, '2023-12-14 06:48:39'),
+(281, 26, 51, 'Ada beberapa kutipan yang bikin kita mikir dan nambahin kedalaman cerita. Gue suka gimana film ini ngajakin penonton buat melihat karakter-karakter dongeng dari sisi yang berbeda.', 2, '2023-12-14 06:49:29'),
+(282, 26, 52, 'Ceritanya nggak melulu tentang cinta romantis klasik. Ada unsur persahabatan, pengorbanan, dan pembelajaran dari kesalahan. Jadi, buat yang suka kisah yang lebih kompleks daripada sekadar cinta-cintaan, film ini bakal bener-bener memuaskan.', 4, '2023-12-14 06:50:30'),
+(283, 26, 54, 'Dialognya, terutama yang dilontarkan oleh karakter Delisa, tuh ada beberapa yang sederhana tapi dalam banget. Gue suka gimana film ini ngasih pesan tentang kebaikan hati dan harapan di tengah keadaan sulit.', 4, '2023-12-14 06:52:53'),
+(284, 26, 55, 'Humornya kocak abis, terutama adegan-adegan lawakan yang bikin ngakak. Gue suka gimana film ini bisa nggabungin komedi sama petualangan, bikin kita enggak bosen dan terhibur sepanjang film.', 3, '2023-12-14 06:53:49'),
+(285, 26, 56, 'Akting para pemainnya juga juara, terutama Herjunot Ali, Fedi Nuril, dan kawan-kawan. Mereka berhasil bawain karakter yang punya dinamika kompleks dan bikin kita ngerasa deket sama perjalanan emosional mereka.', 0, '2023-12-14 06:58:41'),
+(286, 26, 57, ' durasinya yang agak panjang, jadi buat yang kurang suka film yang berlarut-larut, mungkin agak berat.', 2, '2023-12-14 07:00:14'),
+(287, 26, 58, 'filmnya agak membosankan', 2, '2023-12-14 07:00:49'),
+(288, 26, 77, 'visualnya itu selalu colorful dan eye-catching banget. Animasinya yang cerah dan karakter-karakter yang penuh warna tuh nggak cuma buat anak-anak, tapi juga bisa buat yang lagi butuh refreshing.', 4, '2023-12-14 07:27:44'),
+(289, 26, 84, 'siapa yang narok bawang disiniii :(', 4, '2023-12-14 07:29:53'),
+(290, 26, 83, 'Ceritanya sendiri seringkali mengajarkan nilai-nilai positif, seperti persahabatan, keberanian, dan kebaikan hati. Meskipun nggak selalu kompleks, tapi kadang ada pesan moral yang sederhana dan manis.', 4, '2023-12-14 07:31:27');
 
 -- --------------------------------------------------------
 
@@ -284,12 +305,17 @@ INSERT INTO `like` (`id_like`, `id_film_like`, `id_user_like`) VALUES
 (41, 32, 40),
 (42, 32, 42),
 (43, 32, 43),
+(61, 53, 26),
+(59, 110, 26),
 (53, 112, 11),
+(60, 112, 26),
 (54, 125, 11),
+(62, 125, 26),
 (55, 126, 11),
 (52, 127, 11),
 (56, 129, 11),
 (57, 130, 11),
+(63, 130, 26),
 (58, 131, 11);
 
 -- --------------------------------------------------------
@@ -1802,13 +1828,13 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_nama_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
+  MODIFY `id_nama_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=291;
 
 --
 -- AUTO_INCREMENT for table `like`
 --
 ALTER TABLE `like`
-  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `pemain`
