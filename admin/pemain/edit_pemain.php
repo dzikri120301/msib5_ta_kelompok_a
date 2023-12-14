@@ -2,7 +2,7 @@
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION["username"])) {
+if (!isset($_SESSION["username_admin"])) {
     // Redirect to the login page or perform other actions
     header("Location: login.php");
     exit();
@@ -66,7 +66,7 @@ while ($data = mysqli_fetch_array($query)) {
             <ul class="d-flex align-items-center">
                 <li class="nav-item dropdown pe-3">
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username"] ?></span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION["username_admin"] ?></span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
