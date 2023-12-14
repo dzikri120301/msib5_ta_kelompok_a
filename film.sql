@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2023 at 12:14 AM
+-- Generation Time: Dec 14, 2023 at 01:31 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -130,7 +130,99 @@ INSERT INTO `komentar` (`id_nama_review`, `id_user`, `id_film`, `review`, `ratin
 (169, 35, 32, 'Film ini adalah karya seni yang luar biasa! Ceritanya menggugah, dengan penampilan aktor yang luar biasa dan sinematografi yang memukau. Sangat merekomendasikan untuk ditonton!', 5, '2023-12-09 20:01:57'),
 (170, 40, 32, 'Saya terpukau dengan bagaimana film ini menggambarkan kehidupan Raden Saleh dengan begitu indahnya. Setiap adegan terasa seperti lukisan hidup yang menghormati warisan budaya kita.', 5, '2023-12-09 20:02:41'),
 (171, 42, 32, 'Sebagai penggemar sejarah, film ini benar-benar menghidupkan kembali atmosfer zaman tersebut. Saya sangat terkesan dengan penelitian yang mendalam dan akurat untuk menampilkan kehidupan Raden Saleh', 5, '2023-12-09 20:03:19'),
-(172, 43, 32, 'Karya ini menawarkan pengalaman sinematik yang memukau. Dari skenario hingga pengarahan seni, semuanya berpadu sempurna memberikan makna yang mendalam', 4, '2023-12-09 20:04:03');
+(172, 43, 32, 'Karya ini menawarkan pengalaman sinematik yang memukau. Dari skenario hingga pengarahan seni, semuanya berpadu sempurna memberikan makna yang mendalam', 4, '2023-12-09 20:04:03'),
+(173, 11, 41, 'bio one kalo meranin film selalu totalitass', 4, '2023-12-13 23:29:55'),
+(174, 11, 42, 'lucu banget mereka pas ngomong bahasa sunda', 4, '2023-12-13 23:32:04'),
+(175, 11, 43, 'Chemistry antara Dwayne Johnson, Kevin Hart, Jack Black, dan Karen Gillan tetep kocak banget. Mereka bener-bener jadi karakter-karakter di dalam game, dan itu bikin ketawa terus.', 3, '2023-12-13 23:32:29'),
+(176, 11, 44, 'Ceritanya sendiri nggak cuma tentang cinta, tapi juga banyak nilai tentang perjuangan dan mimpi. Kamu bisa ngerasain banget gimana perjuangan Habibie dalam menggapai cita-citanya, terutama di dunia penerbangan.', 4, '2023-12-13 23:33:01'),
+(177, 11, 45, 'siapin mental deh untuk kalian yang gaberani tidur sendiri', 3, '2023-12-13 23:33:38'),
+(178, 11, 48, 'mungkin beberapa orang bilang ceritanya klise atau terlalu mengandalkan jump scare. Tapi, menurut gue, film ini sukses banget buat yang suka horor lokal dengan nuansa yang kental.', 3, '2023-12-13 23:34:18'),
+(179, 11, 49, 'Efek visual dan desain produksi film ini luar biasa. Dunia sihir, makhluk fantastis, dan istana yang menakjubkan memberikan atmosfer yang memukau. Juga, desain Maleficent sendiri, termasuk tanduknya, sangat ikonik.', 4, '2023-12-13 23:34:36'),
+(180, 11, 51, 'karakter ariel disini kayak kurang menurut aku, karna biasanya ariel kan identik dengan rambut merah terang tapi di film rambut ariel merah kecoklatan', 3, '2023-12-13 23:34:56'),
+(181, 11, 52, 'visualnya itu juara banget. Kostum-kostumnya bikin terpukau, terutama gaun Cinderella yang ikonik itu. Dan meskipun ceritanya udah kita kenal, film ini sukses bawa nuansa dongeng yang manis dan ajaib.', 4, '2023-12-13 23:35:16'),
+(182, 11, 53, 'Film ini bukan hanya sekadar cerita tentang perjuangan, tetapi juga memberikan pesan kuat tentang pentingnya pendidikan dan semangat untuk meraih mimpi, terutama di tengah keterbatasan yang ada.', 5, '2023-12-13 23:35:51'),
+(183, 11, 54, 'Film ini membawa pesan religius yang kuat, terutama dalam menjalani cobaan hidup dan mempertahankan keimanan. Hafalan shalat Delisa menjadi simbol keteguhan spiritual di tengah kepahitan hidup.', 4, '2023-12-13 23:36:11'),
+(184, 11, 55, 'Petualangan Sherina itu film yang bikin senyum dari awal sampe akhir. Cocok buat yang pengen bernostalgia sama film-film Indonesia jaman dulu atau buat yang cari tontonan keluarga yang ringan dan seru.', 3, '2023-12-13 23:36:31'),
+(185, 11, 56, 'Yang pertama kali bikin kita terpesona adalah persahabatan mereka. Jujur, chemistry antara pemainnya itu dapet banget, dan berasa banget kayak sahabat-sahabat kita sendiri. Tiap karakter punya konflik dan masalah masing-masing yang bikin kita bisa relate.', 3, '2023-12-13 23:36:52'),
+(186, 11, 57, 'dialog nya terkesan maksa atau klise. Tapi overall, film ini tetap menghibur dan memberikan pesan positif.', 2, '2023-12-13 23:37:22'),
+(187, 11, 58, 'Humornya juga pas banget, terutama melihat interaksi antara Indiana Jones dan orang-orang di sekitarnya. Film ini punya kesan yang ringan dibandingkan dengan dua film sebelumnya, tapi tetap nggak kehilangan esensi petualangan Indiana Jones.', 3, '2023-12-13 23:37:55'),
+(188, 11, 59, 'Mowgli-nya yang diperankan sama Neel Sethi juga oke banget. Gue kagum sama dia, bayangin aja, main sama karakter-karakter CGI tapi tetap keliatan natural dan enggak kaku.', 3, '2023-12-13 23:38:32'),
+(189, 11, 60, 'ada beberapa adegan yang terasa agak lambat. Tapi ini mungkin karena filmnya diadaptasi dari novel, jadi mereka butuh waktu buat eksplorasi karakter dan alur cerita.', 3, '2023-12-13 23:39:54'),
+(190, 11, 61, 'jumspcare nya kacau bikin jantung mau lepas', 4, '2023-12-13 23:40:35'),
+(191, 11, 62, 'seruuuu bangettt', 4, '2023-12-13 23:41:09'),
+(192, 11, 63, 'menurut aku agak kurang sih film nya ga kayak yg di omngin orang2 karna endingnya gantung banget', 3, '2023-12-13 23:41:34'),
+(193, 11, 64, 'aku suka cara film ini membangun ketegangan dan suspense. Mereka nggak cuma ngejar jump scare, tapi juga bikin penonton merasa anxious dan ngerasa ketakutan yang bertahan lama.', 4, '2023-12-13 23:42:00'),
+(194, 11, 65, 'plotnya bisa terasa klise, dan beberapa adegan mungkin agak stereotip tentang hantu-hantu Indonesia. Tapi, di sisi lain, film ini berhasil ngebuat genre horor Indonesia makin dikenal di mata dunia.', 3, '2023-12-13 23:42:21'),
+(195, 11, 66, 'menurut aku film nya biasa aja', 2, '2023-12-13 23:42:41'),
+(196, 11, 67, 'Efek suara dan musiknya juga mendukung atmosfer horor film ini. Mereka sukses banget bikin penonton ngerasa tegang dan terlibat langsung dalam ketegangan yang ada.', 4, '2023-12-13 23:43:13'),
+(197, 11, 68, 'film nya agak membosankan', 3, '2023-12-13 23:44:43'),
+(198, 11, 69, 'kaloo udah ada asri welas gausah diraguin lagii pasti ngakakk poll', 4, '2023-12-13 23:45:09'),
+(199, 11, 70, 'sukaa banget sama film iniii', 3, '2023-12-13 23:45:34'),
+(200, 11, 71, 'Humornya ala Raditya Dika banget. Buat yang suka gaya humor dia, pasti bakal ketawa ngakak. Ada banyak punchline dan situasi kocak yang bikin geleng-geleng kepala.', 3, '2023-12-13 23:45:59'),
+(201, 11, 72, 'mungkin plotnya agak lemah atau beberapa adegan agak maksa. Tapi, di sisi lain, film ini dikemas buat ngehibur dan nggak terlalu bikin penonton mikir keras.', 2, '2023-12-13 23:46:22'),
+(202, 11, 73, 'Adegan aksi dan kejar-kejaran dalam film ini juga seru. Meskipun beberapa adegan terlihat klise, tapi eksekusinya tetap membuat penonton terhibur', 2, '2023-12-13 23:46:47'),
+(203, 11, 74, 'ngakakk banget sama reza rahardian meranin filmnyaa', 4, '2023-12-13 23:47:23'),
+(204, 11, 75, 'Bisa dibilang, film ini ngebahas problematika kehidupan sehari-hari yang bisa banget lo relate. Mulai dari masalah sinyal yang bikin frustasi sampe masalah-masalah keluarga yang kadang kocak dan kadang juga bikin baper.', 4, '2023-12-13 23:47:48'),
+(205, 11, 76, 'Humor di film ini tetap khas Warkop DKI, yang nggak terlalu mikir tapi bisa bikin ketawa ngakak. Ada banyak lelucon dan dialog kocak yang berhasil mempertahankan esensi lawakan Warkop.', 4, '2023-12-13 23:48:15'),
+(206, 11, 78, 'Karakter Belle yang pintar dan anggun banget bikin kita klepek-klepek. Desain set dan kostumnya juga keren abis, beneran bikin kita masuk ke dalam dongeng.', 4, '2023-12-13 23:48:46'),
+(207, 11, 79, 'ceritanya agak bingung . Meskipun Kristen Stewart mencoba ngerubah image jadi pahlawan, beberapa orang malah rada nggak cocok sama perannya.', 3, '2023-12-13 23:49:12'),
+(208, 11, 80, 'Jujur aja, visualnya keren banget. Dunia Neverland itu dibikin seru banget, penuh warna dan keajaiban. Adegan Peter Pan terbang juga berhasil bikin kita kagum. Terus si Captain Hook yang dimainkan sama Yohana Amanie, dia juga berhasil banget bawa karakter jahat yang menyenangkan.', 4, '2023-12-13 23:49:43'),
+(209, 11, 81, 'kasian banget jadi suhita tapi kalo jadi rengganis juga sakit', 4, '2023-12-13 23:50:35'),
+(210, 11, 82, 'Film ini nggak cuma cerita tentang kehidupan perempuan, tapi juga ngeangkat tema agama dan spiritualitas. Ada banyak pesan-pesan moral yang dikemas dengan baik tanpa terkesan menggurui', 4, '2023-12-13 23:50:50'),
+(211, 11, 85, 'Film ini punya nuansa yang bikin kita gak bisa bersikap pasti terhadap karakter-karakternya. Kita bakal dibawa masuk ke dalam kebingungan, misteri, dan ketidakpastian yang sama seperti tokoh-tokoh di film ini.', 3, '2023-12-13 23:51:10'),
+(212, 11, 86, 'Plot twist-nya tuh emang jadi salah satu kekuatan film ini. Jujur, nggak banyak film yang bisa bikin lo bingung dan terus terusan dibuat penasaran kayak gini. Pergulatan pikiran antara karakter-karakternya itu bener-bener bikin lo stuck di kursi nonton', 3, '2023-12-13 23:51:42'),
+(213, 11, 87, 'endingnya agak kontroversial. Ada yang suka, ada yang nggak. Tapi inilah yang jadi daya tarik film ini, bikin penonton mikir dan diskusiin endingnya.', 3, '2023-12-13 23:52:13'),
+(214, 11, 88, 'film nya agak membosankan', 2, '2023-12-13 23:53:14'),
+(215, 11, 89, 'alurnya membingungkan', 2, '2023-12-13 23:53:31'),
+(216, 11, 90, 'endingnya gantung', 2, '2023-12-13 23:53:48'),
+(217, 11, 91, 'plotnya agak klise, tapi tetap aja film ini bisa nyerahin hiburan yang oke.', 3, '2023-12-13 23:54:43'),
+(218, 11, 93, 'Plot twist-nya tuh emang jadi salah satu kekuatan film ini. Jujur, nggak banyak film yang bisa bikin lo bingung dan terus terusan dibuat penasaran kayak gini', 3, '2023-12-13 23:55:16'),
+(219, 11, 94, 'aksi dan kejar-kejaran di setiap filmnya itu bener-bener ngehibur. Mulai dari adegan memanjat gedung, melompat dari satu bangunan ke bangunan lain, sampai adegan di dalam kendaraan yang bener-bener bikin deg-degan.', 4, '2023-12-13 23:56:07'),
+(220, 11, 95, 'Plot-twist di setiap filmnya juga seru banget. Mereka sukses bikin penonton terus-terusan diberi kejutan dan twists yang bikin kita bertanya-tanya. Meskipun kadang agak kompleks, tapi justru itu yang bikin film-film ini unik.', 3, '2023-12-13 23:56:57'),
+(221, 11, 96, 'seruu bangett', 3, '2023-12-13 23:57:41'),
+(222, 11, 97, 'aku suka banget sama aksinya, deh. Mulai dari adegan kejar-kejaran, sampe aksi tembak-menembaknya, semuanya seru abis!', 3, '2023-12-13 23:57:54'),
+(223, 11, 98, 'Aktor-aktornya kocak abis, terutama yang mainin peran hantu. Ekspresinya lucu banget dan bener-bener bikin ngakak. Gue suka banget sama chemistry antara karakter-karakternya, serasa beneran keluarga.', 3, '2023-12-13 23:58:32'),
+(224, 11, 99, 'Grafisnya ok. Efek-efek keren, kamera yang pas, dan pencahayaan yang bikin suasana makin seru', 3, '2023-12-13 23:58:57'),
+(225, 11, 100, 'Adegan-adegan pertarungan di film ini, sumpah, nggak ada matinya. aku sampe nahan napas, takut aja kepalanya kena pukulan itu keras banget. Pemeran utamanya tuh bener-bener dapet karakternya, ekspresinya keren dan bikin lo beneran ikut merasakan setiap aksi.', 3, '2023-12-14 00:00:58'),
+(226, 11, 101, 'perrtarungannya itu luar biasa, seolah-olah setiap adegan tuh kayak karya seni. Choreography-nya keren banget, ditambah lagi sama kecepatan dan ketepatan gerak aktornya. Gue sampe ngerasa pegel sendiri nontonnya.', 3, '2023-12-14 00:01:26'),
+(227, 11, 102, 'aku salut sama efek-efeknya, nggak nyangka bisa sebagus ini. Plus, musiknya juga oke banget, nunjukin suasana yang pas buat film superhero.', 3, '2023-12-14 00:03:35'),
+(228, 11, 103, 'Nggak cuman pukulan dan tendangan, tapi juga seni bela diri yang bervariasi. Plot twist-nya juga bikin geleng-geleng kepala. Intensitasnya dari awal sampe akhir, bener-bener bikin ngegigit jari.', 3, '2023-12-14 00:04:40'),
+(229, 11, 104, 'Jangan harap bakal ada boring moment, soalnya dari awal sampe akhir, aksinya non-stop.', 3, '2023-12-14 00:05:08'),
+(230, 11, 105, 'abimana Aryasatya sebagai Wiro, benar-benar dapet banget karakternya yang kocak tapi juga penuh keberanian. Nggak cuman aksi dan komedi, ada juga bumbu romantisnya yang nggak lebay, jadi nambah seru aja.', 3, '2023-12-14 00:05:40'),
+(231, 11, 106, 'Efek-efeknya oke, dan kostum-kostumnya bikin kagum.', 3, '2023-12-14 00:06:03'),
+(232, 11, 107, 'Aktor-aktornya beneran dapet karakternya dengan baik, terutama Reza Rahadian yang mainin Habibie. Chemistry mereka itu terasa banget, bikin lo beneran ngerasa ikut dalam perjalanan hidup mereka.', 4, '2023-12-14 00:06:49'),
+(233, 11, 108, 'Kemistri mereka beneran terasa, bikin lo ikut terbawa suasana. Dialog-dialognya juga kocak dan penuh chemistry, gue suka banget.', 3, '2023-12-14 00:07:20'),
+(234, 11, 109, 'film ini menyentuh sisi emosional, ada adegan yang bener-bener bikin nangis.', 3, '2023-12-14 00:08:06'),
+(235, 11, 110, 'Dian Sastro dan Nicholas Saputra emang jadi ikon cinta remaja zaman dulu. Chemistry mereka itu luar biasa, bikin lo beneran ikut terbawa suasana.', 5, '2023-12-14 00:08:17'),
+(236, 11, 111, 'Plot twist-nya juga bikin geleng-geleng kepala. Intensitasnya dari awal sampe akhir, bener-bener bikin takj', 3, '2023-12-14 00:08:50'),
+(237, 11, 112, 'Aktor dan aktrisnya bener-bener dapet karakternya. Pemain utamanya, gue salut abis, aktingnya emosional banget. Chemistry antara karakter-karakternya juga terasa kuat, bikin lo bener-bener ikut merasakan perasaan mereka.', 5, '2023-12-14 00:09:52'),
+(238, 11, 114, 'film yang bisa bikin hati lu berbunga-bunga. Ceritanya tentang kisah cinta remaja yang manis, tapi juga ada bumbu-bumbu drama yang bikin nyesek.', 4, '2023-12-14 00:10:16'),
+(239, 11, 115, 'chemistry mereka dapet banget jadi bikin baper', 4, '2023-12-14 00:11:42'),
+(240, 11, 116, 'iqbal peka dong sama aca', 4, '2023-12-14 00:12:15'),
+(241, 11, 117, 'Dialognya sederhana tapi enak di dengar, dan lagu-lagu di film ini juga jadi nilai plus banget. Efek-efeknya nggak neko-neko, tapi suasana musiknya tuh bener-bener mendukung banget.', 4, '2023-12-14 00:12:44'),
+(242, 11, 118, 'Aktor dan aktrisnya mainnya kocak abis, ada kemistri yang asik antara Adipati Dolken dan Vanesha Prescilla. Dialog-dialognya juga lucu dan nggak lebay, banyak yang bener-bener relate-able buat yang pernah ada di zona friendzone.', 4, '2023-12-14 00:13:11'),
+(243, 11, 119, 'Dialognya kocak abis, banyak adegan yang bikin lo ngakak. Ceritanya simpel tapi punya pesan yang mendalam, tentang pentingnya menjalani hidup dengan penuh semangat. Gue juga salut sama penggambaran perbedaan generasi yang dikemas dengan ringan.', 4, '2023-12-14 00:13:35'),
+(244, 11, 120, 'Dialognya cukup real dan ada humornya yang dapet. Gue juga suka gimana film ini nggak cuma cerita tentang musik, tapi juga tentang pertemanan, cinta, dan perjuangan hidup. Mungkin nggak sebombastis film-film lain, tapi kesederhanaannya yang bikin film ini nyambung.', 4, '2023-12-14 00:14:03'),
+(245, 11, 121, 'Dialognya lucu, banyak adegan yang bikin ngakak. Ceritanya ringan tapi tetap punya pesan kekeluargaan yang dapet. Gue suka gimana film ini nggak terlalu ribet, tapi tetap bisa bikin senyum.', 4, '2023-12-14 00:14:33'),
+(246, 11, 122, 'Ceritanya simpel tapi kocak, tentang cinta modern di era digital.', 3, '2023-12-14 00:14:57'),
+(247, 11, 123, 'Dialognya real banget, mengangkat isu body positivity dengan cara yang nggak neko-neko. Ada drama, tapi juga komedi yang ngena. Gue suka gimana film ini nggak cuma ngefokusin masalah tubuh, tapi juga ngegali hubungan persahabatan dan keluarga.', 5, '2023-12-14 00:15:25'),
+(248, 11, 124, 'Ceritanya simpel tapi bikin baper abis, tentang keluarga yang berjuang lewatin segala kesulitan.', 4, '2023-12-14 00:15:47'),
+(249, 11, 125, 'si draco topinya belum dipakein udah langsung masuk slytherin aja', 5, '2023-12-14 00:16:26'),
+(250, 11, 125, 'suka banget samaa mereka bertigaa....harry,ron,hermione mereka itu saling melengkapi', 5, '2023-12-14 00:17:14'),
+(251, 11, 125, 'itts leviosaa not leviosarhh, ngakak banget sama si ron', 5, '2023-12-14 00:17:28'),
+(252, 11, 126, 'myrtle mirip banget sama harry, kayak harry versi cewe', 5, '2023-12-14 00:18:37'),
+(253, 11, 126, 'kasian ginny jadi kambing hitam nya tom', 0, '2023-12-14 00:18:49'),
+(254, 11, 126, 'kok sedih banget ya pas harry bilang ke doby \\\\\\\"never try to save my life again\\\\\\\" trus doby nya cuman senyum :\\\\\\\"', 0, '2023-12-14 00:19:00'),
+(255, 11, 126, 'dobyy is freee', 5, '2023-12-14 00:19:27'),
+(256, 11, 126, '', 5, '2023-12-14 00:19:40'),
+(257, 11, 127, 'hampir suudzon sama sirius black dan profesor lupin kirain mereka jahat rupanya baikk bangett huhuu', 5, '2023-12-14 00:21:10'),
+(258, 11, 127, 'SEMUAA CHARACTER DI ERA POA LAGII CAKEPP CAKEPNYAAA', 5, '2023-12-14 00:21:27'),
+(259, 11, 127, 'HARRY DRACOO GANTENGG BANGETTTTT', 5, '2023-12-14 00:21:46'),
+(260, 11, 129, 'cedricc kamu kenapa cuman satu season aja sihh', 4, '2023-12-14 00:23:57'),
+(261, 11, 129, 'kesell banget sama voldemortt', 4, '2023-12-14 00:24:14'),
+(262, 11, 130, 'nangiss bangettt liatt sirius black dibunuh sama si belatrix huaa', 5, '2023-12-14 00:24:46'),
+(263, 11, 130, 'kasiann banget jadi harry, sirius satu\\\\\\\"nya keluarga yg dia puny tapi harus dibunuh :(', 4, '2023-12-14 00:24:54'),
+(264, 11, 131, 'malfoy sebenernya baik tapi tekanan keluarga nya aja yg buat dia jadi gitu :(', 5, '2023-12-14 00:25:36');
 
 -- --------------------------------------------------------
 
@@ -192,7 +284,13 @@ INSERT INTO `like` (`id_like`, `id_film_like`, `id_user_like`) VALUES
 (41, 32, 40),
 (42, 32, 42),
 (43, 32, 43),
-(52, 127, 11);
+(53, 112, 11),
+(54, 125, 11),
+(55, 126, 11),
+(52, 127, 11),
+(56, 129, 11),
+(57, 130, 11),
+(58, 131, 11);
 
 -- --------------------------------------------------------
 
@@ -1400,7 +1498,14 @@ INSERT INTO `pemeran` (`id_pemeran`, `id_pemain`, `id_film`, `peran`) VALUES
 (660, 120, 131, 'Severus Snape'),
 (661, 530, 131, 'Rubeus Hagrid'),
 (662, 531, 131, 'Draco Malfoy'),
-(663, 122, 131, 'Neville Longbottom');
+(663, 122, 131, 'Neville Longbottom'),
+(664, 190, 62, 'Alia'),
+(665, 191, 62, 'Abel'),
+(666, 15, 62, 'Bu Laksmi'),
+(667, 193, 62, 'Bu Windu'),
+(668, 192, 62, 'Nadia'),
+(669, 195, 62, 'Mama Alia'),
+(670, 194, 62, 'Pak Fadli');
 
 -- --------------------------------------------------------
 
@@ -1697,13 +1802,13 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_nama_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
+  MODIFY `id_nama_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
 
 --
 -- AUTO_INCREMENT for table `like`
 --
 ALTER TABLE `like`
-  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `pemain`
@@ -1715,7 +1820,7 @@ ALTER TABLE `pemain`
 -- AUTO_INCREMENT for table `pemeran`
 --
 ALTER TABLE `pemeran`
-  MODIFY `id_pemeran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=664;
+  MODIFY `id_pemeran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=671;
 
 --
 -- AUTO_INCREMENT for table `saran`
